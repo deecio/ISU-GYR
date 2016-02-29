@@ -4,25 +4,32 @@
 <head>
     <!-- Bootstrap Library Link -->
     <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/main.css" rel="stylesheet" />
 
-    <!-- Include the AngularJS library -->
-    <script src="angular/angular.min.js"></script>
     <title>Item List</title>
 </head>
-<body ng-app="ItemListApp">
+<body ng-app="ItemListApp" ng-controller="ListController">
     <div class="header">
         <div class="container">
-            <h1>Items</h1>
+            <h1>{{ title }}</h1>
         </div>
     </div>
 
-    <div class="main" ng-controller="ListController">
+    <div class="main">
         <div class="container">
             <div class="card">
-
+                <div ng-repeat="item in items" class="col-lg-8">
+                    <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
+                    <h2>{{item.name}}</h2>
+                    <p class="price">{{item.price | currency}}</p>
+                </div>
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
+    <script src="app.js"></script>
+    <script src="ListController.js"></script>
 </body>
 </html>
