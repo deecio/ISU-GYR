@@ -28,4 +28,15 @@
             type: 'microwave'
         }
     ];
+    $scope.filters = [
+        { name: 'all', filterExpr: '' },
+        { name: 'lights', filterExpr: { object: 'lighting' } },
+        { name: 'appliances', filterExpr: { object: 'appliance' } }
+    ];
+
+    $scope.currentFilter = $scope.filters[0];
+
+    $scope.setFilter = function (filter) {
+        $scope.selectedFilter = filter;
+    }
 });

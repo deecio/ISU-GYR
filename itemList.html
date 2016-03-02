@@ -16,8 +16,17 @@
 
     <div class="main">
         <div class="container">
+            <div class="container" id="buttonRow">
+                <ul>
+                    <li ng-repeat="filter in filters">
+                        <a href="" ng-click="setFilter(filter)">{{filter.name}}</a>
+                    </li>
+                </ul>
+                (Current filter: {{selectedFilter.name}})
+            </div>
+
             <div class="card">
-                <div ng-repeat="item in items" class="col-lg-8">
+                <div ng-repeat="item in items | filter: selectedFilter.filterExpr" class="col-lg-8">
                     <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
                     <h2>{{item.name}}</h2>
                     <p class="price">{{item.price | currency}}</p>
