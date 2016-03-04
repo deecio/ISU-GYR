@@ -28,3 +28,21 @@ h1                  { margin: 25px 0; font: 14px Georgia, Serif; text-transform:
 #results {
     font: 44px Georgia, Serif;
 }
+
+#blanket {
+background-color:#111;
+opacity: 0.65;
+filter:alpha(opacity=65);
+position:absolute;
+z-index: 9001;
+top:0px;
+left:0px;
+width:100%;
+}
+#popUpDiv {
+position:absolute;
+background-color:#eeeeee;
+width:300px;
+height:300px;
+z-index: 9002;
+}
