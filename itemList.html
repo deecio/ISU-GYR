@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Bootstrap Library Link -->
+    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+
+    <title>Item List</title>
+</head>
+<body ng-app="ItemListApp" ng-controller="ListController">
+    <div class="header">
+        <div class="container">
+            <h1>{{ title }}</h1>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <div class="container" id="buttonRow">
+                <ul>
+                    <li ng-repeat="filter in filters">
+                        <a href="" ng-click="setFilter(filter)">{{filter.name}}</a>
+                    </li>
+                </ul>
+                (Current filter: {{selectedFilter.name}})
+            </div>
+
+            <div class="card">
+                <div ng-repeat="item in items | filter: selectedFilter.filterExpr" class="col-lg-8">
+                    <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
+                    <h2>{{item.name}}</h2>
+                    <p class="price">{{item.price | currency}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
+    <script src="app.js"></script>
+    <script src="ListController.js"></script>
+</body>
+</html>
