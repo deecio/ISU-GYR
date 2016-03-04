@@ -18,8 +18,8 @@
         <div class="container">
             <div class="container" id="buttonRow">
                 <ul>
-                    <li ng-repeat="filter in filters">
-                        <a href="" ng-click="setFilter(filter)">{{filter.name}}</a>
+                    <li style="list-style-type:none; padding-bottom:10px;" ng-repeat="filter in filters">
+                        <a href="" class="btn btn-default" ng-click="setFilter(filter)">{{filter.name}}</a>
                     </li>
                 </ul>
                 (Current filter: {{selectedFilter.name}})
