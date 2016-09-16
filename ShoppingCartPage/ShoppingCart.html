@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Bootstrap Library Link -->
+    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+
+    <title>Item List</title>
+</head>
+<body ng-app="ItemListApp" ng-controller="ListController">
+    <div class="header">
+        <div class="container">
+            <h1>{{ title }}</h1>
+        </div>
+    </div>
+
+    <!--Screen 1: User selects currently-owned item to be replaced-->
+    <div class="shop-screen StartShopScreen">
+        <h2 class="screen-title">
+            What are you looking to replace?
+        </h2>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-3" ng-repeat="filter in filters">
+                    <a href="" class="btn btn-default" ng-click="setFilter(filter);" onclick="switchShopScreens('.InitItemScreen')">{{filter.name}}</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Screen 2: Populate the screen with a scolling list of all the items of the selected category from Screen 1-->
+    <div class="shop-screen InitItemScreen">
+        <h2 class="screen-title">
+            Select your item
+        </h2>
+
+        <!--Populate with the category's items-->
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-3">
+                    <button class="btn" ng-repeat="item in items | filter: selectedFilter.filterExpr">
+                        <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
+                        <h3 class="item-name">{{item.name}}</h3>
+                        <h4 class="price">{{item.price | currency}}</h4>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
+    <script src="app.js"></script>
+    <script src="ListController.js"></script>
+</body>
+</html>
