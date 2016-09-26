@@ -23,9 +23,6 @@
             $answer4 = $_POST['question-4-answers'];
             $answer5 = $_POST['question-5-answers'];
 
-						echo $answer2;
-						echo $answer3;
-
             $totalCorrect = 0;
 
             if ($answer1 == "A") { $totalCorrect++; }
@@ -39,16 +36,6 @@
         ?>
 
 	</div>
-
-	<script type="text/javascript">
-	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-	<script type="text/javascript">
-	var pageTracker = _gat._getTracker("UA-68528-29");
-	pageTracker._initData();
-	pageTracker._trackPageview();
-	</script>
 
 </body>
 

@@ -130,7 +130,7 @@ h3 code{
                         <div role="navigation">
                             <ul class="wd-Navigation">
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="index.html">Home</a>
+                                    <a class="wd-Navigation-link is-active" href="index.html">Home</a>
                                 </li>
                                 <li class="wd-Navigation-node">
                                     <a class="wd-Navigation-link" href="savingscart.html">Savings Cart</a>
@@ -139,10 +139,10 @@ h3 code{
                                     <a class="wd-Navigation-link" href="information.html">Information</a>
                                 </li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="results.html">Quiz Results</a>
+                                    <a class="wd-Navigation-link" href="quiz.php">Quiz Results</a>
                                 </li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link is-active" href="FactPage.html">Trivia</a>
+                                    <a class="wd-Navigation-link" href="FactPage.html">Trivia</a>
                                 </li>
                             </ul>
                         </div>
@@ -150,7 +150,7 @@ h3 code{
                             <option value="index.html">Home</option>
                             <option value="savingscart.html" selected="selected">Savings Cart</option>
                             <option value="information.html">Information</option>
-                            <option value="results.html">Quiz Results</option>
+                            <option value="quiz.php">Quiz Results</option>
                             <option value="FactPage.html">Trivia</option>
                         </select>
                     </div>
@@ -162,25 +162,160 @@ h3 code{
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="title">Green Living Trivia</h2>
-                </div>
-            </div>
+									<div id="page-wrap">
 
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <ul class="list-inline header-links">
-                        <li ng-repeat="filter in filters">
-                            <a href="" ng-click="setFilter(filter)">{{filter.name}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+										<h1>How Green Are You?</h1>
 
-            <div class="row">
-                <div class="col-lg-12 text-center" ng-repeat="fact in facts | filter: selectedFilter.filterExpr">
-                    <p class="fact-text">{{fact.fact}}</p>
-                    <hr />
-                </div>
+										<div id="blanket" style="display:none;"></div>
+										<div id="popUpDiv" style="display:none;">
+										<!-- <a href="#" onclick=”popup(‘popUpDiv’)”>X</a> -->
+										</div>
+
+										<form action="results.php" method="post" id="quiz">
+									<ol>
+
+										<li align="left">
+
+												<h align="left">Do you think it is important to green your home?</h>
+
+												<div align="left">
+														<input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" align="left"/>
+														<label for="question-1-answers-A" align="left">Yes</label>
+												</div>
+
+												<div>
+														<input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
+														<label for="question-1-answers-B" align="left">No</label>
+
+										</li>
+
+										<li align="left">
+
+												<h align="left">What items do you have in your bedroom? <br> Check all that apply.</h>
+
+												<div>
+														<input type="checkbox" name="question-2-answers" id="question-2-answers-A" value="A" />
+														<label for="question-2-answers-A" align="left">A) Lamp</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-2-answers" id="question-2-answers-B" value="B" />
+														<label for="question-2-answers-B" align="left">B) Television</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-2-answers" id="question-2-answers-C" value="C" />
+														<label for="question-2-answers-C" align="left">C) Phone/Computer Charger</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-2-answers" id="question-2-answers-D" value="D" />
+														<label for="question-2-answers-D" align="left">D) Speakers</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-2-answers" id="question-2-answers-E" value="E" />
+														<label for="question-2-answers-E" align="left">E) Desktop</label>
+												</div>
+
+										</li>
+
+										<li align="left">
+
+												<h>Which of these items do you leave constantly plugged in? <br> Check all that apply.</h>
+
+												<div>
+														<input type="checkbox" name="question-3-answers" id="question-3-answers-A" value="A" />
+														<label for="question-3-answers-A" align="left">A) Lamp</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-3-answers" id="question-3-answers-B" value="B" />
+														<label for="question-2-answers-B" align="left">B) Television</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-3-answers" id="question-3-answers-C" value="C" />
+														<label for="question-2-answers-C" align="left">C) Phone/Computer Charger</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-3-answers" id="question-3-answers-D" value="D" />
+														<label for="question-2-answers-D" align="left">D) Speakers</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-3-answers" id="question-3-answers-E" value="E" />
+														<label for="question-2-answers-E" align="left">E) Desktop</label>
+												</div>
+
+										</li>
+
+										<li align="left">
+
+												<h>Do you need to leave these items plugged In?</h>
+
+												<div>
+														<input type="radio" name="question-4-answers" id="question-4-answers-A" value="A" />
+														<label for="question-4-answers-A" align="left">Yes</label>
+												</div>
+
+												<div>
+														<input type="radio" name="question-4-answers" id="question-4-answers-B" value="B" />
+														<label for="question-4-answers-B" align="left">No</label>
+												</div>
+
+										</li>
+
+										<li align="left">
+
+												<h>Have you considered unplugging them when you aren't using them (and would you be willing to)??</h>
+
+												<div>
+														<input type="radio" name="question-5-answers" id="question-5-answers-A" value="A" />
+														<label for="question-5-answers-A" align="left">Yes</label>
+												</div>
+
+												<div>
+														<input type="radio" name="question-5-answers" id="question-5-answers-B" value="B" />
+														<label for="question-5-answers-B" align="left">No</label>
+												</div>
+
+										</li>
+
+									</ol>
+									<input type="submit" value="Submit Quiz" />
+									<!--<button data-target="modal1" class="btn modal-trigger">Submit</button>
+									 <input type="submit" value="Submit Quiz" />
+									<div id="modal1" class="modal modal-fixed-footer">
+								    <div class="modal-content">
+								      <h4>Your Green Score</h4>
+								      <p><?php
+
+													$answer1 = $_POST['question-1-answers'];
+													$answer2 = $_POST['question-2-answers'];
+													$answer3 = $_POST['question-3-answers'];
+													$answer4 = $_POST['question-4-answers'];
+													$answer5 = $_POST['question-5-answers'];
+
+													$totalCorrect = 0;
+
+													if ($answer1 == "A") { $totalCorrect++; }
+													if ($answer2 == "A" || $answer2 == "B" || $answer2 == "C" || $answer2 == "D" ||$answer2 == "E" ) { $totalCorrect++; }
+													if ($answer3 == "C") { $totalCorrect++; }
+													if ($answer4 == "B") { $totalCorrect++; }
+													if ($answer5) { $totalCorrect++; }
+
+													echo "<div id='results'>Your Green Score: $totalCorrect</div>";
+
+											?></p>
+								    </div>
+								    <div class="modal-footer">
+								      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Thanks!</a>
+								    </div>
+								  </div> -->
+					</form>
+				</div></div>
             </div>
         </div>
 
@@ -198,11 +333,7 @@ h3 code{
 								</div>
 							</div>
 
-
-
 							<!-- Team contact info -->
-
-
 							<div class="wd-Grid-cell wd-Grid-cell--2">
 								<!--<div class="wd-l-PageFooter-content">
 									<p>DEC1612,  <script>document.write('<a href="mailto:'+ ["teamEmail", "iastate.edu"].join('@') +'">'+ ["dec1612", "iastate.edu"].join('@') +'</a>')</script><noscript>dec1612 (at) iastate (dot) edu</noscript>.</p>
@@ -268,7 +399,12 @@ h3 code{
 		}
 	});
 });</script>
-
+<script>
+$(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+	</script>
 
 </body>
 </html>
