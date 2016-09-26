@@ -8,7 +8,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport">
 	<title>DEC1612</title>
 	<link rel="icon" type="image/x-icon" href="favicon.ico?v=1.4.44">
-<link href="css/base.css?v=1.4.44" rel="stylesheet">
+<link href="css/baseV4.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" media="all" rel="stylesheet">
 <link href="css/sample.css" media="all" rel="stylesheet">
 <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
@@ -32,7 +32,7 @@ h3 code{
 }</style>
 	<script >/* html5shiv */ (function(){var t='abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.split(' ');for(var i=t.length;i--;)document.createElement(t[i])})();</script>
 </head>
-<body class=" responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar">
+<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="FactListApp" ng-controller="FactController">
 <div class="wd-l-Page pwrapper">
 	<div class="wd-l-Page-inner pwrapper-wrapper">
 		<div class="wd-Skip">
@@ -123,10 +123,38 @@ h3 code{
 						<div class="wd-l-MastTitle-siteTitle site-title sub-title">
 							<a href="/">Department of Sustainability</a>
 						</div>
-
-					</div>
+                    </div>
 				</div>
-
+                <div class="wd-l-Navbar">
+                    <div class="wd-l-Navbar-inner">
+                        <div role="navigation">
+                            <ul class="wd-Navigation">
+                                <li class="wd-Navigation-node">
+                                    <a class="wd-Navigation-link" href="index.html">Home</a>
+                                </li>
+                                <li class="wd-Navigation-node">
+                                    <a class="wd-Navigation-link" href="savingscart.html">Savings Cart</a>
+                                </li>
+                                <li class="wd-Navigation-node">
+                                    <a class="wd-Navigation-link" href="information.html">Information</a>
+                                </li>
+                                <li class="wd-Navigation-node">
+                                    <a class="wd-Navigation-link" href="results.html">Quiz Results</a>
+                                </li>
+                                <li class="wd-Navigation-node">
+                                    <a class="wd-Navigation-link is-active" href="FactPage.html">Trivia</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
+                            <option value="index.html">Home</option>
+                            <option value="savingscart.html" selected="selected">Savings Cart</option>
+                            <option value="information.html">Information</option>
+                            <option value="results.html">Quiz Results</option>
+                            <option value="FactPage.html">Trivia</option>
+                        </select>
+                    </div>
+                </div>
 			</div>
 		</div>
 
@@ -141,22 +169,17 @@ h3 code{
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <ul class="list-inline header-links">
-                        <li>All</li>
-                        <li>Electronics</li>
-                        <li>Kitchen</li>
-                        <li>Bathroom</li>
-                        <li>Other</li>
+                        <li ng-repeat="filter in filters">
+                            <a href="" ng-click="setFilter(filter)">{{filter.name}}</a>
+                        </li>
                     </ul>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p class="fact-text">Did you know that you can save energy by unplugging appliances when not in use? Many electric devices use up power when they are plugged in, even when they are turned off.</p>
-
+                <div class="col-lg-12 text-center" ng-repeat="fact in facts | filter: selectedFilter.filterExpr">
+                    <p class="fact-text">{{fact.fact}}</p>
                     <hr />
-
-                    <p class="fact-text">Did you know that covering the bottom of a door leading to outside can save hundreds of dollars on heating during winter?</p>
                 </div>
             </div>
         </div>
@@ -197,9 +220,16 @@ h3 code{
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
+<script src="app.js"></script>
+<script src="ListController.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
