@@ -15,11 +15,11 @@
 
 		<h1>How Green Are You?</h1>
 
-		<div id=”blanket” style=”display:none;”></div>
-		<div id=”popUpDiv” style=”display:none;”>
-		<a href=”#” onclick=”popup(‘popUpDiv’)”>X</a>
+		<div id="blanket" style="display:none;"></div>
+		<div id="popUpDiv" style="display:none;">
+		<!-- <a href="#" onclick=”popup(‘popUpDiv’)”>X</a> -->
 		</div>
-		<a href=”#” onclick=”popup(‘popUpDiv’)”>Take Quiz Here!</a>
+		<a href="index.php" onclick=”popup(‘popUpDiv’)”>Take Quiz Here!</a>
 
 		<form action="grade.php" method="post" id="quiz">
 

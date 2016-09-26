@@ -29,12 +29,12 @@
             $totalCorrect = 0;
 
             if ($answer1 == "A") { $totalCorrect++; }
-            //if ($answer2 == "A") { $totalCorrect++; }
-            //if ($answer3 == "C") { $totalCorrect++; }
+            if ($answer2 == "A" || $answer2 == "B" || $answer2 == "C" || $answer2 == "D" ||$answer2 == "E" ) { $totalCorrect++; }
+            if ($answer3 == "C") { $totalCorrect++; }
             if ($answer4 == "B") { $totalCorrect++; }
             if ($answer5) { $totalCorrect++; }
 
-            echo "<div id='results'>$totalCorrect / 5 correct</div>";
+            echo "<div id='results'>Your Green Score: $totalCorrect</div>";
 
         ?>
 
