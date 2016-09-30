@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lte IE 7]>     <html lang="en-us" class="lt-ie10 lt-ie9 lt-ie8">  <![endif]-->
 <!--[if IE 8]>         <html lang="en-us" class="lt-ie10 lt-ie9">         <![endif]-->
 <!--[if IE 9]>         <html lang="en-us" class="lt-ie10">                <![endif]-->
@@ -6,12 +6,14 @@
 	<meta charset="utf-8">
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 <meta content="width=device-width,initial-scale=1" name="viewport">
-	<title>Green Your Residence</title>
+	<title>DEC1612</title>
 	<link rel="icon" type="image/x-icon" href="favicon.ico?v=1.4.44">
-<link href="css/base.css?v=1.4.44" rel="stylesheet">
+<link href="css/baseV4.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" media="all" rel="stylesheet">
 <link href="css/sample.css" media="all" rel="stylesheet">
 <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
+<link href="css/TriviaStyle.css" media="all" rel="stylesheet" />
 	<style >pre{
 	background-color: #f5f5f5;
 	border-color: #e7e7e7;
@@ -30,7 +32,7 @@ h3 code{
 }</style>
 	<script >/* html5shiv */ (function(){var t='abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.split(' ');for(var i=t.length;i--;)document.createElement(t[i])})();</script>
 </head>
-<body class=" responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar">
+<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="FactListApp" ng-controller="FactController">
 <div class="wd-l-Page pwrapper">
 	<div class="wd-l-Page-inner pwrapper-wrapper">
 		<div class="wd-Skip">
@@ -119,25 +121,203 @@ h3 code{
 						</a>
 
 						<div class="wd-l-MastTitle-siteTitle site-title sub-title">
-							<a href="/">Department of Sustainability: Green Your Residence</a>
+							<a href="/">Department of Sustainability</a>
 						</div>
-
-					</div>
+                    </div>
 				</div>
-
+                <div class="wd-l-Navbar">
+                    <div class="wd-l-Navbar-inner">
+                        <div role="navigation">
+                            <ul class="wd-Navigation">
+                                <li class="wd-Navigation-node">
+                                    <a class="wd-Navigation-link is-active" href="index.html">Home</a>
+                                </li>
+                                <li class="wd-Navigation-node">
+                                    <a class="wd-Navigation-link" href="savingscart.html">Savings Cart</a>
+                                </li>
+                                <li class="wd-Navigation-node">
+                                    <a class="wd-Navigation-link" href="information.html">Information</a>
+                                </li>
+                                <li class="wd-Navigation-node">
+                                    <a class="wd-Navigation-link" href="quiz.php">Quiz Results</a>
+                                </li>
+                                <li class="wd-Navigation-node">
+                                    <a class="wd-Navigation-link" href="FactPage.html">Trivia</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
+                            <option value="index.html">Home</option>
+                            <option value="savingscart.html" selected="selected">Savings Cart</option>
+                            <option value="information.html">Information</option>
+                            <option value="quiz.php">Quiz Results</option>
+                            <option value="FactPage.html">Trivia</option>
+                        </select>
+                    </div>
+                </div>
 			</div>
 		</div>
 
 
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+									<div id="page-wrap">
 
+										<h1>How Green Are You?</h1>
 
-		<div id="body">
-		<!-- Make changes from here on -->
-		<h3> Savings Cart </h3>
+										<div id="blanket" style="display:none;"></div>
+										<div id="popUpDiv" style="display:none;">
+										<!-- <a href="#" onclick=”popup(‘popUpDiv’)”>X</a> -->
+										</div>
 
+										<form action="results.php" method="post" id="quiz">
+									<ol>
 
+										<li align="left">
 
+												<h align="left">Do you think it is important to green your home?</h>
 
+												<div align="left">
+														<input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" align="left"/>
+														<label for="question-1-answers-A" align="left">Yes</label>
+												</div>
+
+												<div>
+														<input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
+														<label for="question-1-answers-B" align="left">No</label>
+
+										</li>
+
+										<li align="left">
+
+												<h align="left">What items do you have in your bedroom? <br> Check all that apply.</h>
+
+												<div>
+														<input type="checkbox" name="question-2-answers" id="question-2-answers-A" value="A" />
+														<label for="question-2-answers-A" align="left">A) Lamp</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-2-answers" id="question-2-answers-B" value="B" />
+														<label for="question-2-answers-B" align="left">B) Television</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-2-answers" id="question-2-answers-C" value="C" />
+														<label for="question-2-answers-C" align="left">C) Phone/Computer Charger</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-2-answers" id="question-2-answers-D" value="D" />
+														<label for="question-2-answers-D" align="left">D) Speakers</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-2-answers" id="question-2-answers-E" value="E" />
+														<label for="question-2-answers-E" align="left">E) Desktop</label>
+												</div>
+
+										</li>
+
+										<li align="left">
+
+												<h>Which of these items do you leave constantly plugged in? <br> Check all that apply.</h>
+
+												<div>
+														<input type="checkbox" name="question-3-answers" id="question-3-answers-A" value="A" />
+														<label for="question-3-answers-A" align="left">A) Lamp</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-3-answers" id="question-3-answers-B" value="B" />
+														<label for="question-2-answers-B" align="left">B) Television</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-3-answers" id="question-3-answers-C" value="C" />
+														<label for="question-2-answers-C" align="left">C) Phone/Computer Charger</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-3-answers" id="question-3-answers-D" value="D" />
+														<label for="question-2-answers-D" align="left">D) Speakers</label>
+												</div>
+
+												<div>
+														<input type="checkbox" name="question-3-answers" id="question-3-answers-E" value="E" />
+														<label for="question-2-answers-E" align="left">E) Desktop</label>
+												</div>
+
+										</li>
+
+										<li align="left">
+
+												<h>Do you need to leave these items plugged In?</h>
+
+												<div>
+														<input type="radio" name="question-4-answers" id="question-4-answers-A" value="A" />
+														<label for="question-4-answers-A" align="left">Yes</label>
+												</div>
+
+												<div>
+														<input type="radio" name="question-4-answers" id="question-4-answers-B" value="B" />
+														<label for="question-4-answers-B" align="left">No</label>
+												</div>
+
+										</li>
+
+										<li align="left">
+
+												<h>Have you considered unplugging them when you aren't using them (and would you be willing to)??</h>
+
+												<div>
+														<input type="radio" name="question-5-answers" id="question-5-answers-A" value="A" />
+														<label for="question-5-answers-A" align="left">Yes</label>
+												</div>
+
+												<div>
+														<input type="radio" name="question-5-answers" id="question-5-answers-B" value="B" />
+														<label for="question-5-answers-B" align="left">No</label>
+												</div>
+
+										</li>
+
+									</ol>
+									<input type="submit" value="Submit Quiz" />
+									<!--<button data-target="modal1" class="btn modal-trigger">Submit</button>
+									 <input type="submit" value="Submit Quiz" />
+									<div id="modal1" class="modal modal-fixed-footer">
+								    <div class="modal-content">
+								      <h4>Your Green Score</h4>
+								      <p><?php
+
+													$answer1 = $_POST['question-1-answers'];
+													$answer2 = $_POST['question-2-answers'];
+													$answer3 = $_POST['question-3-answers'];
+													$answer4 = $_POST['question-4-answers'];
+													$answer5 = $_POST['question-5-answers'];
+
+													$totalCorrect = 0;
+
+													if ($answer1 == "A") { $totalCorrect++; }
+													if ($answer2 == "A" || $answer2 == "B" || $answer2 == "C" || $answer2 == "D" ||$answer2 == "E" ) { $totalCorrect++; }
+													if ($answer3 == "C") { $totalCorrect++; }
+													if ($answer4 == "B") { $totalCorrect++; }
+													if ($answer5) { $totalCorrect++; }
+
+													echo "<div id='results'>Your Green Score: $totalCorrect</div>";
+
+											?></p>
+								    </div>
+								    <div class="modal-footer">
+								      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Thanks!</a>
+								    </div>
+								  </div> -->
+					</form>
+				</div></div>
+            </div>
+        </div>
 
 
 		<div class="wd-l-Footer">
@@ -153,11 +333,7 @@ h3 code{
 								</div>
 							</div>
 
-
-
 							<!-- Team contact info -->
-
-
 							<div class="wd-Grid-cell wd-Grid-cell--2">
 								<!--<div class="wd-l-PageFooter-content">
 									<p>DEC1612,  <script>document.write('<a href="mailto:'+ ["teamEmail", "iastate.edu"].join('@') +'">'+ ["dec1612", "iastate.edu"].join('@') +'</a>')</script><noscript>dec1612 (at) iastate (dot) edu</noscript>.</p>
@@ -169,14 +345,27 @@ h3 code{
 				</div>
 			</div>
 		</div>
-
 		<div id="loading" style="display:none">Loading...</div>
 	</div>
 </div>
 
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
+<script src="app.js"></script>
+<script src="ListController.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
-<script src="/js/jquery-1.5.2.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script >/* Grid gutter fix for IE7 */ (function(b){if((' '+b.body.parentNode.className+' ').indexOf(' lt-ie8 ')==-1)return;var d=b.createStyleSheet();var e=function(s){var a=b.all,l=[],i,j;d.addRule(s,'k:v');for(j=a.length;j--;)a[j].currentStyle.k&&l.push(a[j]);d.removeRule(0);return l};var g=e('.grid');for(var i=g.length;i--;)g[i].style.width=g[i].offsetWidth-20})(document);</script>
 <script >/* Responsive design */ (function(f){if(!f.querySelector||!f.addEventListener)return;var g='add',cc='contains',cr='remove',ct='toggle',sa='active',sb='wd-p-OffCanvasBar',sn='wd-p-OffCanvasNav',ss='wd-p-OffCanvasSearch',ip='.wd-l-SearchBox input[type="text"]',ed='preventDefault',q=function(a,b){return(b||f).querySelectorAll(a)},c=function(a,b,c){b=b||cr;c=c||f.body;a=' '+a+' ';var d=' '+c.className.trim()+' ';var e=d.indexOf(a)!=-1;if(b==cc)return e;else if(!e&&(b==ct||b==g))c.className=d+a;else if(e&&(b==ct||b==cr))c.className=d.replace(a,' ')},h=function(b,c,d){for(var e=q(b),i=e.length;i--;){if(e[i].tagName!='A'){if(!d)e[i].addEventListener('click',function(a){a[ed]()},0);e[i].addEventListener('ontouchstart'in window?'touchstart':'mousedown',c,0)}}},m=q('.wd-l-TopStripMenu-toolbar'),md=function(){q(ip)[0]&&q(ip)[0].blur();for(var i=m.length;i--;)c(sa,cr,m[i])};h('.wd-ResponsiveToggles-nav',function(a){md();c(sb);c(ss);c(sn,ct);a[ed]()});h('.wd-ResponsiveToggles-search',function(a){md();c(sb);c(ss,ct);if(c(ss,cc))q(ip)[0]&&q(ip)[0].focus();c(sn);a[ed]()});h('.wd-l-TopStripMenu-header',function(a){var b=q('.wd-l-TopStripMenu-toolbar',this.parentNode)[0];if(c(sa,cc,b)){c(sa,cr,b);c(sb)}else{md();c(sa,g,b);c(sb,g);c(ss)}a[ed]()});h('.wd-l-Content',function(a){if(c(sn,cc))a[ed]();c(sn)},true)})(document);</script>
 <script >hljs.configure({tabReplace: '    '}); hljs.initHighlightingOnLoad()</script>
@@ -210,7 +399,12 @@ h3 code{
 		}
 	});
 });</script>
-
+<script>
+$(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+	</script>
 
 </body>
 </html>
