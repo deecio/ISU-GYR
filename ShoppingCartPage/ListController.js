@@ -63,4 +63,25 @@
     $scope.setFilter = function (filter) {
         $scope.selectedFilter = filter;
     }
+
+    $scope.switchShopScreens = function (screenClass) {
+        $(".shop-screen").hide();
+
+        $(screenClass).fadeIn();
+    };
+
+    $scope.setFirstCost = function (value) {
+        console.log("First Price: " + value);
+        initCost = value;
+        switchShopScreens(".SecondItemCategory");
+    }
+
+    $scope.setSecondCost = function (value) {
+        newCost = value;
+        console.log("Second Price: " + value);
+    }
+
+    $scope.test = function (value) {
+        console.log(value);
+    }
 });

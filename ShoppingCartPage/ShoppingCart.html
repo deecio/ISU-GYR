@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <!--Screen 1: User selects currently-owned item to be replaced-->
+    <!--Screen 1: User selects category for currently-owned item to be replaced-->
     <div class="shop-screen StartShopScreen">
         <h2 class="screen-title">
             What are you looking to replace?
@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-3" ng-repeat="filter in filters">
-                    <a href="" class="btn btn-default" ng-click="setFilter(filter);" onclick="switchShopScreens('.InitItemScreen')">{{filter.name}}</a>
+                    <a href="" class="btn btn-default" ng-click="test(1);" onclick="switchShopScreens('.InitItemScreen')">{{filter.name}}</a>
                 </div>
             </div>
         </div>
@@ -39,15 +39,39 @@
         <!--Populate with the category's items-->
         <div class="container">
             <div class="row">
+                <div class="col-xs-3" ng-repeat="item in items | filter: selectedFilter.filterExpr">
+                    <a class="btn btn-default" ng-click="setFirstCost(item.price);">
+                        <div>
+                            <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
+                            <h3 class="item-name">{{item.name}}</h3>
+                            <h4 class="price">{{item.price | currency}}</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Screen 3: User selects new item-->
+    <div class="shop-screen SecondItemCategory">
+        <h2 class="screen-title">
+            What is the new item?
+        </h2>
+
+        <div class="container">
+            <div class="row">
                 <div class="col-xs-3">
                     <button class="btn" ng-repeat="item in items | filter: selectedFilter.filterExpr">
-                        <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
-                        <h3 class="item-name">{{item.name}}</h3>
-                        <h4 class="price">{{item.price | currency}}</h4>
+                        <div ng-click="setSecondCost(item.price)">
+                            <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
+                            <h3 class="item-name">{{item.name}}</h3>
+                            <h4 class="price">{{item.price | currency}}</h4>
+                        </div>
                     </button>
                 </div>
             </div>
         </div>
+
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
