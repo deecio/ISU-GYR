@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-3" ng-repeat="filter in filters">
-                    <a href="" class="btn btn-default" ng-click="test(1);" onclick="switchShopScreens('.InitItemScreen')">{{filter.name}}</a>
+                    <a href="" class="btn btn-default" ng-click="setFilter(filter);" onclick="switchShopScreens('.InitItemScreen')">{{filter.name}}</a>
                 </div>
             </div>
         </div>
@@ -40,11 +40,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-3" ng-repeat="item in items | filter: selectedFilter.filterExpr">
-                    <a class="btn btn-default" ng-click="setFirstCost(item.price);">
+                    <a class="btn btn-default" ng-click="setFirstCost(item.monthly_cost);">
                         <div>
                             <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
                             <h3 class="item-name">{{item.name}}</h3>
-                            <h4 class="price">{{item.price | currency}}</h4>
+                            <h4 class="price">{{item.monthly_cost | currency}}</h4>
                         </div>
                     </a>
                 </div>
@@ -60,18 +60,36 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-xs-3">
-                    <button class="btn" ng-repeat="item in items | filter: selectedFilter.filterExpr">
-                        <div ng-click="setSecondCost(item.price)">
+                <div class="col-xs-3" ng-repeat="item in items | filter: selectedFilter.filterExpr">
+                    <a class="btn btn-default" ng-click="setSecondCost(item.monthly_cost);">
+                        <div>
                             <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
                             <h3 class="item-name">{{item.name}}</h3>
-                            <h4 class="price">{{item.price | currency}}</h4>
+                            <h4 class="price">{{item.monthly_cost | currency}}</h4>
                         </div>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
+    </div>
 
+    <!--Screen 4: Calculate and display total-->
+    <div class="shop-screen Calculator">
+        <h2 class="screen-title">
+            Current Savings
+        </h2>
+
+        <div class="container">
+            <div class="row">
+                <h3>{{initCost}}</h3>
+            </div>
+            <div class="row">
+                <h3>{{newCost}}</h3>
+            </div>
+            <div class="row">
+                <h3>{{diff | currency}}</h3>
+            </div>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>

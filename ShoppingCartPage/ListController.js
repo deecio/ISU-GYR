@@ -1,11 +1,14 @@
 ﻿angular.module('ItemListApp', []).controller('ListController', function ($scope) {
     $scope.title = 'Item List Test';
+    $scope.diff = 0;
+    $scope.initCost = 0;
+    $scope.newCost = 0;
     $scope.items = [
         {
             icon: 'img/ledbulb.jpg',
             icon_height: "150px",
             name: 'Desk Lamp: LED Bulb',
-            price: 6.99,
+            monthly_cost: 10,
             object: 'lighting',
             type: 'lamp',
             eStar: true
@@ -15,7 +18,7 @@
             icon: 'img/fluorbulb.jpg',
             icon_height: "150px",
             name: 'Desk Lamp: Fluorescent Bulb',
-            price: 0.99,
+            monthly_cost: 30,
             object: 'lighting',
             type: 'lamp',
             eStar: true
@@ -25,7 +28,7 @@
             icon: 'img/IncanBulb.png',
             icon_height: '150px',
             name: 'Desk Lamp: Incandescent Bulb',
-            price: 1.99,
+            monthly_cost: 50,
             object: 'lighting',
             type: 'lamp',
             eStar: false
@@ -35,7 +38,7 @@
             icon: 'img/microwave.jpg',
             icon_height: "150px",
             name: 'Microwave: Energy Star Approved',
-            price: 199.99,
+            monthly_cost: 199.99,
             object: 'appliance',
             type: 'microwave',
             eStar: true
@@ -45,7 +48,7 @@
             icon: 'img/miniFridge.jpg',
             icon_height: '150px',
             name: 'Refrigerator: Stock, Compact',
-            price: 149.99,
+            monthly_cost: 149.99,
             object: 'appliance',
             type: 'refrigerator',
             eStar: false
@@ -71,17 +74,15 @@
     };
 
     $scope.setFirstCost = function (value) {
-        console.log("First Price: " + value);
-        initCost = value;
+        console.log("First monthly cost: " + value);
+        $scope.initCost = value;
         switchShopScreens(".SecondItemCategory");
     }
 
     $scope.setSecondCost = function (value) {
-        newCost = value;
-        console.log("Second Price: " + value);
-    }
-
-    $scope.test = function (value) {
-        console.log(value);
+        $scope.newCost = value;
+        console.log("Second monthly cost: " + value);
+        $scope.diff = $scope.newCost - $scope.initCost;
+        switchShopScreens(".Calculator");
     }
 });

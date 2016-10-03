@@ -1,8 +1,5 @@
 ﻿var app = angular.module("ItemListApp", []);
 
-var initCost;
-var newCost;
-
 $(document).ready(function () {
     // Hide all blocks except for the first
     switchShopScreens(".StartShopScreen");
