@@ -55,9 +55,9 @@
         }
     ];
     $scope.filters = [
-        { name: 'all', filterExpr: '' },
-        { name: 'lights', filterExpr: { object: 'lighting' } },
-        { name: 'appliances', filterExpr: { object: 'appliance' } },
+        { name: 'All', filterExpr: '' },
+        { name: 'Lights', filterExpr: { object: 'lighting' } },
+        { name: 'Appliances', filterExpr: { object: 'appliance' } },
         { name: 'Energy Star Approved', filterExpr: { eStar: true } }
     ];
 
@@ -82,7 +82,7 @@
     $scope.setSecondCost = function (value) {
         $scope.newCost = value;
         console.log("Second monthly cost: " + value);
-        $scope.diff = $scope.newCost - $scope.initCost;
+        $scope.diff = $scope.initCost - $scope.newCost;
         switchShopScreens(".Calculator");
     }
 });

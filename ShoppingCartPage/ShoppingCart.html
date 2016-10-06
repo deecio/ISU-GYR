@@ -4,15 +4,10 @@
 <head>
     <!-- Bootstrap Library Link -->
     <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
-
+    <link href="SCStyle.css" rel="stylesheet" />
     <title>Item List</title>
 </head>
 <body ng-app="ItemListApp" ng-controller="ListController">
-    <div class="header">
-        <div class="container">
-            <h1>{{ title }}</h1>
-        </div>
-    </div>
 
     <!--Screen 1: User selects category for currently-owned item to be replaced-->
     <div class="shop-screen StartShopScreen">
@@ -39,15 +34,19 @@
         <!--Populate with the category's items-->
         <div class="container">
             <div class="row">
-                <div class="col-xs-3" ng-repeat="item in items | filter: selectedFilter.filterExpr">
-                    <a class="btn btn-default" ng-click="setFirstCost(item.monthly_cost);">
+                <div class="col-lg-4 centered" ng-repeat="item in items | filter: selectedFilter.filterExpr">
+                    <a class="btn btn-default item-button" ng-click="setFirstCost(item.monthly_cost);">
                         <div>
                             <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
                             <h3 class="item-name">{{item.name}}</h3>
-                            <h4 class="price">{{item.monthly_cost | currency}}</h4>
+                            <h4 class="price">{{item.monthly_cost | currency}} per month</h4>
                         </div>
                     </a>
                 </div>
+            </div>
+
+            <div class="row">
+                <a class="btn btn-default" ng-click="switchShopScreens('.StartShopScreen')">Reset</a>
             </div>
         </div>
     </div>
@@ -60,15 +59,19 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-xs-3" ng-repeat="item in items | filter: selectedFilter.filterExpr">
-                    <a class="btn btn-default" ng-click="setSecondCost(item.monthly_cost);">
+                <div class="col-lg-4 centered" ng-repeat="item in items | filter: selectedFilter.filterExpr">
+                    <a class="btn btn-default item-button" ng-click="setSecondCost(item.monthly_cost);">
                         <div>
                             <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
                             <h3 class="item-name">{{item.name}}</h3>
-                            <h4 class="price">{{item.monthly_cost | currency}}</h4>
+                            <h4 class="price">{{item.monthly_cost | currency}} per month</h4>
                         </div>
                     </a>
                 </div>
+            </div>
+
+            <div class="row">
+                <a class="btn btn-default" ng-click="switchShopScreens('.StartShopScreen')">Reset</a>
             </div>
         </div>
     </div>
@@ -81,13 +84,11 @@
 
         <div class="container">
             <div class="row">
-                <h3>{{initCost}}</h3>
-            </div>
-            <div class="row">
-                <h3>{{newCost}}</h3>
-            </div>
-            <div class="row">
                 <h3>{{diff | currency}}</h3>
+            </div>
+
+            <div class="row">
+                <a class="btn btn-default" ng-click="switchShopScreens('.StartShopScreen')">Next Item</a>
             </div>
         </div>
     </div>
