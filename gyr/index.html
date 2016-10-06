@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/dYD.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/fabric.min.js"></script>
+    <script>
+        $(function () {
+            $("#draggable-menu").accordion();
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1><center>
+            <img src="img/title.PNG"/>
+        </center></h1>
+    </header>
+    <div id="canvas-container">
+        <canvas id="c" width="600" height="600"></canvas>
+    </div>
+    <script>
+        var canvas = new fabric.Canvas('c', {
+            selection: true
+        });
+        var grid = 50;
+        for (var i = 0; i < (600 / grid); i++) {
+            canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
+                stroke: '#ccc',
+                selectable: false,
+                hasControls: false,
+                hoverCursor: 'pointer'
+            }));
+            canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
+                stroke: '#ccc',
+                selectable: false,
+                hasControls: false,
+                hoverCursor: 'pointer'
+            }));
+        }
+
+        fabric.Image.fromURL('img/lamp02.png', function (img) {
+            img.setWidth(50);
+            img.setHeight(50);
+            canvas.add(img);
+            img.hasControls = img.hasBorders = false;
+        });
+
+        canvas.on('mouse:over', function (e) {
+            showImageTools(e.target);
+        });
+
+        canvas.on('mouse:out', function (e) {
+            $('body').removeClass('.imageDialog');
+        });
+
+        canvas.on('object:moving', function (options) {
+            options.target.set({
+                left: Math.round(options.target.left / grid) * grid,
+                top: Math.round(options.target.top / grid) * grid
+            });
+        });
+
+        function showImageTools(e) {
+            if (!$('#imageDialog').length) {
+                $('body').append("<div class='imageDialog'>Green Your Residence</div>");
+            }
+            //    moveImageTools(e);
+        }
+
+        /* function moveImageTools(e) {
+             var w = $('#imageDialog').width();
+             var h = $('#imageDialog').height();
+             var coords = getObjPosition(e);
+             console.log('coords', coords);
+             var top = coords.bottom - h - 1;
+             var left = coords.right - w - 1;
+             $('#imageDialog').show();
+             $('#imageDialog').css({
+                 top: top,
+                 left: left
+             });
+         }*/
+
+        function getObjPosition(e) {
+            var rect = e.getBoundingRect();
+            var offset = canvas.calcOffset();
+            var bottom = offset._offset.top + rect.top + rect.height;
+            var right = offset._offset.left + rect.left + rect.width;
+            var left = offset._offset.left + rect.left;
+            var top = offset._offset.top + rect.top;
+            return {
+                left: left,
+                top: top,
+                right: right,
+                bottom: bottom
+            };
+        }
+    </script>
+    <div id="draggable-menu-wrapper">
+        <div id="draggable-menu">
+            <h3>Bed</h3>
+            <div> <span><img draggable="true" class="item-thumbnail" src="img/bed01.png"/></span> <span><img draggable="true" class="item-thumbnail" src="img/bed02.png"/></span> <span><img draggable="true" class="item-thumbnail" src="img/bed03.png"/></span> <span><img draggable="true" class="item-thumbnail" src="img/bed04.png"/></span> </div>
+            <h3>Seating</h3>
+            <div> <span><img class="item-thumbnail" src="img/chair01.png"/></span> <span><img class="item-thumbnail" src="img/chair02.png"/></span> <span><img class="item-thumbnail" src="img/chair03.png"/></span> <span><img class="item-thumbnail" src="img/chair04.png"/></span> <span><img class="item-thumbnail" src="img/chair05.png"/></span> <span><img class="item-thumbnail" src="img/chair06.png"/></span> </div>
+            <h3>Tables</h3>
+            <div> <span> <img class="item-thumbnail" src="img/table01.png"/></span> <span> <img class="item-thumbnail" src="img/table02.png"/></span> <span> <img class="item-thumbnail" src="img/table03.png"/></span> <span> <img class="item-thumbnail" src="img/table04.jpg"/></span> </div>
+            <h3>Lighting</h3>
+            <div> <span> <img class="item-thumbnail" src="img/lamp01.png"/></span> <span> <img class="item-thumbnail" src="img/lamp02.png"/></span> <span> <img class="item-thumbnail" src="img/lamp03.png"/></span> <span> <img class="item-thumbnail" src="img/lamp04.png"/></span> <span> <img class="item-thumbnail" src="img/lamp05.png"/></span> </div>
+            <h3>Posters</h3>
+            <div> <span> <img class="item-thumbnail" src="img/poster01.jpeg"/></span> <span> <img class="item-thumbnail" src="img/poster02.jpg"/></span> <span> <img class="item-thumbnail" src="img/poster03.jpg"/></span> <span> <img class="item-thumbnail" src="img/poster04.jpeg"/></span> </div>
+        </div>
+    </div>
+</body>
+
+</html>
