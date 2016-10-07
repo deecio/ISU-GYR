@@ -19,14 +19,11 @@ body {
     background-color: transparent;
     width: 800px;
     height: 600px;
-    position: absolute !important;
-    top: 55%;
-    left: 50%;
-    margin-left: -400px;
-    margin-top: -300px;
+    margin-left: 20%;
+    margin-top: 20px;
 }
 
-.c {
+#c {
     border: 1px solid #ccc;
 }
 
