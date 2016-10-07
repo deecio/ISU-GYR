@@ -62,3 +62,6 @@ $(function(){
     $(this).css("cursor","auto");
   });*/
 });
+
+// Angular App Link
+var app = angular.module("ItemListApp", []);

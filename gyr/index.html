@@ -7,6 +7,10 @@
     <script type="text/javascript" charset="utf-8" src="js/jquery-ui.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/dYD.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/fabric.min.js"></script>
+
+    <!-- Bootstrap Library Link -->
+    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <title>Interactive Apartment</title>
     <script>
         $(function () {
             $("#draggable-menu").accordion();
@@ -14,11 +18,11 @@
     </script>
 </head>
 
-<body>
+<body ng-app="ItemListApp" ng-controller="ListController">
     <header>
-        <h1><center>
+        <h1 style="text-align: center;">
             <img src="img/title.PNG"/>
-        </center></h1>
+        </h1>
     </header>
     <div id="canvas-container">
         <canvas id="c" width="600" height="600"></canvas>
@@ -104,17 +108,42 @@
     <div id="draggable-menu-wrapper">
         <div id="draggable-menu">
             <h3>Bed</h3>
-            <div> <span><img draggable="true" class="item-thumbnail" src="img/bed01.png"/></span> <span><img draggable="true" class="item-thumbnail" src="img/bed02.png"/></span> <span><img draggable="true" class="item-thumbnail" src="img/bed03.png"/></span> <span><img draggable="true" class="item-thumbnail" src="img/bed04.png"/></span> </div>
+            <div>
+                <span ng-repeat="item in items | filter: {type: 'bed'}">
+                    <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
+                </span>
+            </div>
             <h3>Seating</h3>
-            <div> <span><img class="item-thumbnail" src="img/chair01.png"/></span> <span><img class="item-thumbnail" src="img/chair02.png"/></span> <span><img class="item-thumbnail" src="img/chair03.png"/></span> <span><img class="item-thumbnail" src="img/chair04.png"/></span> <span><img class="item-thumbnail" src="img/chair05.png"/></span> <span><img class="item-thumbnail" src="img/chair06.png"/></span> </div>
+            <div>
+                <span ng-repeat="item in items | filter: {type: 'seating'}">
+                    <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
+                </span>
+            </div>            
             <h3>Tables</h3>
-            <div> <span> <img class="item-thumbnail" src="img/table01.png"/></span> <span> <img class="item-thumbnail" src="img/table02.png"/></span> <span> <img class="item-thumbnail" src="img/table03.png"/></span> <span> <img class="item-thumbnail" src="img/table04.jpg"/></span> </div>
+            <div>
+                <span ng-repeat="item in items | filter: {type: 'table'}">
+                    <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
+                </span>
+            </div>            
             <h3>Lighting</h3>
-            <div> <span> <img class="item-thumbnail" src="img/lamp01.png"/></span> <span> <img class="item-thumbnail" src="img/lamp02.png"/></span> <span> <img class="item-thumbnail" src="img/lamp03.png"/></span> <span> <img class="item-thumbnail" src="img/lamp04.png"/></span> <span> <img class="item-thumbnail" src="img/lamp05.png"/></span> </div>
+            <div>
+                <span ng-repeat="item in items | filter: {type: 'lighting'}">
+                    <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
+                </span>
+            </div>            
             <h3>Posters</h3>
-            <div> <span> <img class="item-thumbnail" src="img/poster01.jpeg"/></span> <span> <img class="item-thumbnail" src="img/poster02.jpg"/></span> <span> <img class="item-thumbnail" src="img/poster03.jpg"/></span> <span> <img class="item-thumbnail" src="img/poster04.jpeg"/></span> </div>
-        </div>
+            <div>
+                <span ng-repeat="item in items | filter: {type: 'poster'}">
+                    <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
+                </span>
+            </div>        </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
+    <script src="js/ListController.js"></script>
 </body>
 
 </html>
