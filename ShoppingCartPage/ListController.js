@@ -38,19 +38,59 @@
             icon: 'img/microwave.jpg',
             icon_height: "150px",
             name: 'Microwave: Energy Star Approved',
-            monthly_cost: 199.99,
+            monthly_cost: 20,
             object: 'appliance',
             type: 'microwave',
             eStar: true
+        },
+
+        $scope.RegularMicrowave = {
+            icon: 'img/microwave.jpg',
+            icon_height: "150px",
+            name: 'Microwave: Standard',
+            monthly_cost: 50,
+            object: 'appliance',
+            type: 'microwave',
+            eStar: false
         },
 
         $scope.Refrigerator = {
             icon: 'img/miniFridge.jpg',
             icon_height: '150px',
             name: 'Refrigerator: Stock, Compact',
-            monthly_cost: 149.99,
+            monthly_cost: 40,
             object: 'appliance',
             type: 'refrigerator',
+            eStar: false
+        },
+
+        $scope.ESRefrigerator = {
+            icon: 'img/miniFridge.jpg',
+            icon_height: '150px',
+            name: 'Refrigerator: EnergyStar, Compact',
+            monthly_cost: 25,
+            object: 'appliance',
+            type: 'refrigerator',
+            eStar: true
+        },
+
+        $scope.ESBlender = {
+            icon: 'img/blender.jpg',
+            icon_height: '150px',
+            name: 'Blender: EnergyStar Approved',
+            monthly_cost: 8,
+            object: 'appliance',
+            type: 'blender',
+            eStar: true
+        },
+
+        $scope.ESBlender = {
+            icon: 'img/blender.jpg',
+            icon_height: '150px',
+            name: 'Blender: Standard',
+            monthly_cost: 16,
+            object: 'appliance',
+            type: 'blender',
             eStar: false
         }
     ];
@@ -58,7 +98,9 @@
         { name: 'All', filterExpr: '' },
         { name: 'Lights', filterExpr: { object: 'lighting' } },
         { name: 'Appliances', filterExpr: { object: 'appliance' } },
-        { name: 'Energy Star Approved', filterExpr: { eStar: true } }
+
+        // Commenting this part out for now, bring back when screen 3 filters are changed to match the item, not the filter from screen 1.
+        //{ name: 'Energy Star Approved', filterExpr: { eStar: true } }
     ];
 
     $scope.currentFilter = $scope.filters[0];
@@ -82,7 +124,7 @@
     $scope.setSecondCost = function (value) {
         $scope.newCost = value;
         console.log("Second monthly cost: " + value);
-        $scope.diff = $scope.initCost - $scope.newCost;
+        $scope.diff += $scope.initCost - $scope.newCost;
         switchShopScreens(".Calculator");
     }
 });
