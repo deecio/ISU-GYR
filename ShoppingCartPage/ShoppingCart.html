@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Bootstrap Library Link -->
+    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <link href="SCStyle.css" rel="stylesheet" />
+    <title>Item List</title>
+</head>
+<body ng-app="ItemListApp" ng-controller="ListController">
+
+    <!--Screen 1: User selects category for currently-owned item to be replaced-->
+    <div class="shop-screen StartShopScreen">
+        <h2 class="screen-title">
+            What are you looking to replace?
+        </h2>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-3" ng-repeat="filter in filters">
+                    <a href="" class="btn btn-default" ng-click="setFilter(filter);" onclick="switchShopScreens('.InitItemScreen')">{{filter.name}}</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Screen 2: Populate the screen with a scolling list of all the items of the selected category from Screen 1-->
+    <div class="shop-screen InitItemScreen">
+        <h2 class="screen-title">
+            Select your item
+        </h2>
+
+        <!--Populate with the category's items-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 centered" ng-repeat="item in items | filter: selectedFilter.filterExpr">
+                    <a class="btn btn-default item-button" ng-click="setFirstCost(item.monthly_cost);">
+                        <div>
+                            <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
+                            <h3 class="item-name">{{item.name}}</h3>
+                            <h4 class="price">{{item.monthly_cost | currency}} per month</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+                <a class="btn btn-default" ng-click="switchShopScreens('.StartShopScreen')">Reset</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Screen 3: User selects new item-->
+    <div class="shop-screen SecondItemCategory">
+        <h2 class="screen-title">
+            What is the new item?
+        </h2>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 centered" ng-repeat="item in items | filter: selectedFilter.filterExpr">
+                    <a class="btn btn-default item-button" ng-click="setSecondCost(item.monthly_cost);">
+                        <div>
+                            <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
+                            <h3 class="item-name">{{item.name}}</h3>
+                            <h4 class="price">{{item.monthly_cost | currency}} per month</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+                <a class="btn btn-default" ng-click="switchShopScreens('.StartShopScreen')">Reset</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Screen 4: Calculate and display total-->
+    <div class="shop-screen Calculator">
+        <h2 class="screen-title">
+            Current Savings
+        </h2>
+
+        <div class="container">
+            <div class="row">
+                <h3>{{diff | currency}}</h3>
+            </div>
+
+            <div class="row">
+                <a class="btn btn-default" ng-click="switchShopScreens('.StartShopScreen')">Next Item</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
+    <script src="app.js"></script>
+    <script src="ListController.js"></script>
+</body>
+</html>
