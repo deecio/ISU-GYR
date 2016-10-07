@@ -57,11 +57,15 @@
         });
 
         canvas.on('mouse:over', function (e) {
-            showImageTools(e.target);
+            var objs = canvas.getObjects();
+            var mouse = canvas.getPointer(event.e);
+            if (e.target == objs[objs.length - 1]) {
+                showImageTools(e.target);
+            }
         });
 
         canvas.on('mouse:out', function (e) {
-            $('body').removeClass('.imageDialog');
+            $('#imageDialog').remove();
         });
 
         canvas.on('object:moving', function (options) {
@@ -73,24 +77,24 @@
 
         function showImageTools(e) {
             if (!$('#imageDialog').length) {
-                $('body').append("<div class='imageDialog'>Green Your Residence</div>");
+                $('body').append("<div id='imageDialog' style='position: absolute; top: 0; left: 0; color: green' ><h1>Green Tips!</h1></div>");
             }
-            //    moveImageTools(e);
+            moveImageTools(e);
         }
 
-        /* function moveImageTools(e) {
-             var w = $('#imageDialog').width();
-             var h = $('#imageDialog').height();
-             var coords = getObjPosition(e);
-             console.log('coords', coords);
-             var top = coords.bottom - h - 1;
-             var left = coords.right - w - 1;
-             $('#imageDialog').show();
-             $('#imageDialog').css({
-                 top: top,
-                 left: left
-             });
-         }*/
+        function moveImageTools(e) {
+            var w = $('#imageDialog').width();
+            var h = $('#imageDialog').height();
+            var coords = getObjPosition(e);
+            console.log('coords', coords);
+            var top = coords.bottom - h - 20;
+            var left = coords.right - 100;
+            $('#imageDialog').show();
+            $('#imageDialog').css({
+                top: top,
+                left: left
+            });
+        }
 
         function getObjPosition(e) {
             var rect = e.getBoundingRect();

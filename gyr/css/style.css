@@ -33,14 +33,15 @@ body {
     height: 100px;
 }
 
-.imageDialog {
+
+/*.imageDialog {
     width: 120px;
     background-color: green;
     color: #fff;
     text-align: center;
     border-radius: 6px;
     padding: 5px 5px;
-}
+}*/
 
 #draggable-menu div {
     background-color: #CCC;
