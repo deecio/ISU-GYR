@@ -7,60 +7,83 @@
     <script type="text/javascript" charset="utf-8" src="js/jquery-ui.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/dYD.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/fabric.min.js"></script>
-
-    <!-- Bootstrap Library Link -->
-    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
-    <title>Interactive Apartment</title>
     <script>
         $(function () {
-            $("#draggable-menu").accordion();
+            $("#images").accordion();
         });
     </script>
 </head>
 
-<body ng-app="ItemListApp" ng-controller="ListController">
-    <div class="containter">
-        <div class="row">
-            <h1 style="text-align: center;">
-                <img src="img/title.PNG" />
-            </h1>
-        </div>
-    </div>
+<body>
+    <header>
+        <h1><center>
+            <img src="img/title.PNG"/>
+        </center></h1>
+    </header>
     <div id="canvas-container">
         <canvas id="c" width="600" height="600"></canvas>
     </div>
+    <div id="draggable-menu-wrapper">
+        <div id="images">
+            <h2>Bed</h2>
+            <div id="bed">
+                <span><img class="item-thumbnail" src="img/bed01.png"/></span>
+                <span><img class="item-thumbnail" src="img/bed02.jpg"/></span>
+                <span><img class="item-thumbnail" src="img/bed03.jpg"/></span>
+                <span><img class="item-thumbnail" src="img/bed04.jpg"/></span>
+            </div>
+            <h2>Seating</h2>
+            <div id="seating">
+                <span><img class="item-thumbnail" src="img/chair01.jpg"/></span>
+                <span><img class="item-thumbnail" src="img/chair02.jpg"/></span>
+                <span><img class="item-thumbnail" src="img/chair03.jpg"/></span>
+                <span><img class="item-thumbnail" src="img/chair04.jpg"/></span>
+            </div>
+            <h2>Tables</h2>
+            <div id="table">
+                <span><img class="item-thumbnail" src="img/table01.png"/></span>
+                <span><img class="item-thumbnail" src="img/table02.png"/></span>
+                <span><img class="item-thumbnail" src="img/table03.png"/></span>
+                <span><img class="item-thumbnail" src="img/table04.jpg"/></span>
+            </div>
+            <h2>Lighting</h2>
+            <div id="lighting">
+                <span><img class="item-thumbnail" src="img/lamp01.png"/></span>
+                <span><img class="item-thumbnail" src="img/lamp02.png"/></span>
+                <span><img class="item-thumbnail" src="img/lamp03.png"/></span>
+                <span><img class="item-thumbnail" src="img/lamp04.png"/></span>
+            </div>
+        </div>
+    </div>
+
     <script>
         var canvas = new fabric.Canvas('c', {
-            selection: true
+            selection: false
         });
+
         var grid = 50;
         for (var i = 0; i < (600 / grid); i++) {
-            canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
-                stroke: '#ccc',
+            canvas.add(new fabric.Line([i * grid, 0, i * grid, canvas.height], {
+                stroke: 'lightgray',
                 selectable: false,
                 hasControls: false,
                 hoverCursor: 'pointer'
             }));
-            canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
-                stroke: '#ccc',
+            canvas.add(new fabric.Line([0, i * grid, canvas.width, i * grid], {
+                stroke: 'lightgray',
                 selectable: false,
                 hasControls: false,
                 hoverCursor: 'pointer'
             }));
         }
 
-        fabric.Image.fromURL('img/lamp02.png', function (img) {
-            img.setWidth(50);
-            img.setHeight(50);
-            canvas.add(img);
-            img.hasControls = img.hasBorders = false;
-        });
-
         canvas.on('mouse:over', function (e) {
             var objs = canvas.getObjects();
             var mouse = canvas.getPointer(event.e);
-            if (e.target == objs[objs.length - 1]) {
-                showImageTools(e.target);
+            for (var i = objs.length; i > 23; i--) {
+                if (e.target == objs[i]) {
+                    showImageTools(e.target);
+                }
             }
         });
 
@@ -68,11 +91,21 @@
             $('#imageDialog').remove();
         });
 
-        canvas.on('object:moving', function (options) {
-            options.target.set({
-                left: Math.round(options.target.left / grid) * grid,
-                top: Math.round(options.target.top / grid) * grid
+        canvas.on('object:moving', function (e) {
+            var obj = e.target;
+            obj.set({
+                left: Math.round(obj.left / grid) * grid,
+                top: Math.round(obj.top / grid) * grid
             });
+            obj.setCoords();
+            if (obj.getBoundingRect().top < 0 || obj.getBoundingRect().left < 0) {
+                obj.top = Math.max(obj.top, obj.top - obj.getBoundingRect().top);
+                obj.left = Math.max(obj.left, obj.left - obj.getBoundingRect().left);
+            }
+            if (obj.getBoundingRect().top + obj.getBoundingRect().height > obj.canvas.height || obj.getBoundingRect().left + obj.getBoundingRect().width > obj.canvas.width) {
+                obj.top = Math.min(obj.top, obj.canvas.height - obj.getBoundingRect().height + obj.top - obj.getBoundingRect().top);
+                obj.left = Math.min(obj.left, obj.canvas.width - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
+            }
         });
 
         function showImageTools(e) {
@@ -87,8 +120,8 @@
             var h = $('#imageDialog').height();
             var coords = getObjPosition(e);
             console.log('coords', coords);
-            var top = coords.bottom - h - 20;
-            var left = coords.right - 100;
+            var top = coords.bottom - h - 75;
+            var left = coords.right - w + 35;
             $('#imageDialog').show();
             $('#imageDialog').css({
                 top: top,
@@ -110,46 +143,142 @@
                 bottom: bottom
             };
         }
-    </script>
-    <div id="draggable-menu-wrapper">
-        <div id="draggable-menu">
-            <h3>Bed</h3>
-            <div>
-                <span ng-repeat="item in items | filter: {type: 'bed'}">
-                    <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
-                </span>
-            </div>
-            <h3>Seating</h3>
-            <div>
-                <span ng-repeat="item in items | filter: {type: 'seating'}">
-                    <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
-                </span>
-            </div>            
-            <h3>Tables</h3>
-            <div>
-                <span ng-repeat="item in items | filter: {type: 'table'}">
-                    <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
-                </span>
-            </div>            
-            <h3>Lighting</h3>
-            <div>
-                <span ng-repeat="item in items | filter: {type: 'lighting'}">
-                    <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
-                </span>
-            </div>            
-            <h3>Posters</h3>
-            <div>
-                <span ng-repeat="item in items | filter: {type: 'poster'}">
-                    <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
-                </span>
-            </div>        </div>
-    </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
-    <script src="js/ListController.js"></script>
+        function handleDragStart(e) {
+    [].forEach.call(images, function (img) {
+                img.classList.remove('img_dragging');
+            });
+            this.classList.add('img_dragging');
+        }
+
+        function handleDragOver(e) {
+            if (e.preventDefault) {
+                e.preventDefault();
+            }
+            e.dataTransfer.dropEffect = 'copy';
+            return false;
+        }
+
+        function handleDragEnter(e) {
+            this.classList.add('over');
+        }
+
+        function handleDragLeave(e) {
+            this.classList.remove('over');
+        }
+
+        function handleDrop(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            }
+
+            var img = document.querySelector('#images img.img_dragging');
+            var newImage = new fabric.Image(img, {
+                width: 100,
+                height: 100,
+                left: e.layerX,
+                top: e.layerY,
+                hasControls: false,
+                hasBorders: false
+            });
+
+            /*            var seat = document.querySelector('#seating img.img_dragging');
+                        var newImage1 = new fabric.Image(seat, {
+                            width: 50,
+                            height: 50,
+                            left: e.layerX,
+                            top: e.layerY,
+                            hasControls: false,
+                            hasBorders: false
+                        });
+
+                        var table = document.querySelector('#table img.img_dragging');
+                        var newImage2 = new fabric.Image(table, {
+                            width: 100,
+                            height: 50,
+                            left: e.layerX,
+                            top: e.layerY,
+                            hasControls: false,
+                            hasBorders: false
+                        });
+
+                        var lighting = document.querySelector('#lighting img.img_dragging');
+                        var newImage3 = new fabric.Image(lighting, {
+                            width: 50,
+                            height: 50,
+                            left: e.layerX,
+                            top: e.layerY,
+                            hasControls: false,
+                            hasBorders: false
+                        });*/
+
+            canvas.add(newImage);
+            /*canvas.add(newImage1);
+            canvas.add(newImage2);
+            canvas.add(newImage3);*/
+
+            return false;
+        }
+
+        function handleDragEnd(e) {
+    [].forEach.call(images, function (img) {
+                img.classList.remove('img_dragging');
+            });
+        }
+
+        var images = document.querySelectorAll('#images img');
+    [].forEach.call(images, function (img) {
+            img.addEventListener('dragstart', handleDragStart, false);
+            img.addEventListener('dragend', handleDragEnd, false);
+        });
+        var canvasContainer = document.getElementById('canvas-container');
+        canvasContainer.addEventListener('dragenter', handleDragEnter, false);
+        canvasContainer.addEventListener('dragover', handleDragOver, false);
+        canvasContainer.addEventListener('dragleave', handleDragLeave, false);
+        canvasContainer.addEventListener('drop', handleDrop, false);
+
+        canvas.on('object:selected', function (e) {
+
+
+            jQuery(".deleteBtn").remove();
+            var btnLeft = e.target.oCoords.mt.x;
+            var btnTop = e.target.oCoords.mt.y - 25;
+            var widthadjust = e.target.width / 2;
+            btnLeft = widthadjust + btnLeft - 10;
+            var deleteBtn = '<p" class="deleteBtn" title="Remove" style="position:absolute;top:' + btnTop + 'px;left:' + btnLeft + 'px;cursor:pointer;" title="Remove object">&#10005;</p>';
+            jQuery(".canvas-container").append(deleteBtn);
+        });
+
+        canvas.on('mouse:down', function (e) {
+            if (canvas.getActiveObject()) {
+
+            } else {
+                jQuery(".deleteBtn").remove();
+            }
+        });
+
+        canvas.on('object:modified', function (e) {
+            jQuery(".deleteBtn").remove();
+            var btnLeft = e.target.oCoords.mt.x;
+            var btnTop = e.target.oCoords.mt.y - 25;
+            var widthadjust = e.target.width / 2;
+            btnLeft = widthadjust + btnLeft - 10;
+            var deleteBtn = '<p" class="deleteBtn" title="Remove" style="position:absolute;top:' + btnTop + 'px;left:' + btnLeft + 'px;cursor:pointer;" title="Remove object">&#10005;</p>';
+            jQuery(".canvas-container").append(deleteBtn);
+        });
+
+        canvas.on('object:moving', function (e) {
+            jQuery(".deleteBtn").remove();
+        });
+
+        jQuery(document).on('click', ".deleteBtn", function () {
+            if (canvas.getActiveObject()) {
+                canvas.remove(canvas.getActiveObject());
+                jQuery(this).remove();
+                jQuery(".deleteBtn").remove();
+            }
+        });
+    </script>
 </body>
 
 </html>

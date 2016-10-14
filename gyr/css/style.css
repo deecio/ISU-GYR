@@ -4,33 +4,29 @@ body {
 }
 
 .item-thumbnail {
-    width: 75px;
+    width: 85px;
 }
 
 #draggable-menu-wrapper {
     width: 400px;
     position: absolute !important;
     right: 18%;
-    top: 25%;
-    background-color: #CCC;
+    top: 23%;
 }
 
 .canvas-container {
     background-color: transparent;
-    width: 800px;
+    width: 600px;
     height: 600px;
-    margin-left: 20%;
-    margin-top: 20px;
+    position: absolute !important;
+    top: 56%;
+    left: 49%;
+    margin-left: -400px;
+    margin-top: -300px;
 }
 
-#c {
-    border: 1px solid #ccc;
-}
-
-.dragged {
-    background-color: green;
-    width: 100px;
-    height: 100px;
+canvas {
+    border: 1px solid lightgray;
 }
 
 
@@ -43,15 +39,14 @@ body {
     padding: 5px 5px;
 }*/
 
-#draggable-menu div {
-    background-color: #CCC;
-    border: 3px solid black;
-    border-top: 0px solid black;
-    height: 150px;
+#images div {
+    border: 1px solid black;
+    border-top: 1px solid black;
+    height: 200px;
 }
 
-#draggable-menu h3 {
+#images h2 {
     text-align: center;
-    background-color: #9090FF;
-    border: 3px solid black;
+    border: 1px solid black;
+    color: green;
 }
