@@ -35,7 +35,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 centered" ng-repeat="item in items | filter: selectedFilter.filterExpr">
-                    <a class="btn btn-default item-button" ng-click="setFirstCost(item.monthly_cost);">
+                    <a class="btn btn-default item-button" ng-click="setFirstCost(item.monthly_cost, item);">
                         <div>
                             <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
                             <h3 class="item-name">{{item.name}}</h3>
@@ -60,7 +60,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 centered" ng-repeat="item in items | filter: selectedFilter.filterExpr">
-                    <a class="btn btn-default item-button" ng-click="setSecondCost(item.monthly_cost);">
+                    <a class="btn btn-default item-button" ng-click="setSecondCost(item.monthly_cost, item);">
                         <div>
                             <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
                             <h3 class="item-name">{{item.name}}</h3>
@@ -83,6 +83,11 @@
         </h2>
 
         <div class="container">
+            <h2>History</h2>
+            <div class="row" ng-repeat="entry in firstItem">
+                {{entry.name}} -> {{secondItem[$index].name}} = ${{diffSet[$index]}}
+            </div>
+
             <div class="row">
                 <h3>{{diff | currency}}</h3>
             </div>
