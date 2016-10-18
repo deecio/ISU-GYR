@@ -43,7 +43,6 @@ canvas {
     border: 1px solid black;
     border-top: 1px solid black;
     height: 200px;
-    overflow: scroll;
 }
 
 #images h2 {
