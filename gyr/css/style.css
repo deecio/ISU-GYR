@@ -11,7 +11,7 @@ body {
     width: 400px;
     position: absolute !important;
     right: 18%;
-    top: 25%;
+    top: 59%;
     background-color: #CCC;
 }
 
@@ -19,7 +19,6 @@ body {
     background-color: transparent;
     width: 800px;
     height: 600px;
-    margin-left: 20%;
     margin-top: 20px;
 }
 
