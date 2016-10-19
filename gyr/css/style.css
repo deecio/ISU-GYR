@@ -11,7 +11,7 @@ body {
     width: 400px;
     position: absolute !important;
     right: 18%;
-    top: 25%;
+    top: 59%;
     background-color: #CCC;
 }
 
@@ -19,7 +19,6 @@ body {
     background-color: transparent;
     width: 800px;
     height: 600px;
-    margin-left: 20%;
     margin-top: 20px;
 }
 
@@ -33,14 +32,15 @@ body {
     height: 100px;
 }
 
-.imageDialog {
+
+/*.imageDialog {
     width: 120px;
     background-color: green;
     color: #fff;
     text-align: center;
     border-radius: 6px;
     padding: 5px 5px;
-}
+}*/
 
 #draggable-menu div {
     background-color: #CCC;
