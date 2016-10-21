@@ -10,3 +10,12 @@
 .screen-title{
     text-align: center;
 }
+
+.centered{
+    text-align: center;
+}
+
+.reset{
+    font-size: 20px;
+    margin-top: 30px;
+}
