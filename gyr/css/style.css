@@ -1,0 +1,56 @@
+body {
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.item-thumbnail {
+    width: 75px;
+}
+
+#draggable-menu-wrapper {
+    width: 400px;
+    position: absolute !important;
+    right: 18%;
+    top: 59%;
+    background-color: #CCC;
+}
+
+.canvas-container {
+    background-color: transparent;
+    width: 800px;
+    height: 600px;
+    margin-top: 20px;
+}
+
+#c {
+    border: 1px solid #ccc;
+}
+
+.dragged {
+    background-color: green;
+    width: 100px;
+    height: 100px;
+}
+
+
+/*.imageDialog {
+    width: 120px;
+    background-color: green;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+}*/
+
+#draggable-menu div {
+    background-color: #CCC;
+    border: 3px solid black;
+    border-top: 0px solid black;
+    height: 150px;
+}
+
+#draggable-menu h3 {
+    text-align: center;
+    background-color: #9090FF;
+    border: 3px solid black;
+}

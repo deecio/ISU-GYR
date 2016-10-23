@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/dYD.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/fabric.min.js"></script>
+    <link href="css/baseV4.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" media="all" rel="stylesheet">
+    <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
+
+    <!-- Bootstrap Library Link -->
+    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <title>Interactive Apartment</title>
+    <script>
+        $(function () {
+            $("#draggable-menu").accordion();
+        });
+    </script>
+</head>
+
+<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="ItemListApp" ng-controller="ListController">
+    <div class="wd-l-Header hwrapper" id="header">
+        <div class="wd-l-Header-inner">
+            <div class="wd-l-TopStrip isu-dark-ribbon" id="top-strip">
+                <div class="wd-l-TopStrip-inner">
+                    <ul class="wd-ResponsiveToggles">
+                        <li><button class="wd-ResponsiveToggles-nav">menu</button></li>
+                        <li><button class="wd-ResponsiveToggles-search">search</button></li>
+                    </ul>
+                    <div class="wd-l-TopStripMenu">
+                        <ul class="wd-l-TopStripMenu-group wd-l-TopStripMenu-group--signons first">
+                            <li>
+                                <a class="wd-l-TopStripMenu-header" href="javascript:;">Sign-ons <i class="fa fa-angle-down"></i></a>
+                                <ul class="wd-l-TopStripMenu-toolbar">
+                                    <li class="first"><a href="http://cymail.iastate.edu/">CyMail</a></li>
+                                    <li><a href="http://outlook.iastate.edu/">Outlook</a></li>
+                                    <li><a href="http://bb.its.iastate.edu/">Blackboard</a></li>
+                                    <li class="last"><a href="http://accessplus.iastate.edu/">AccessPlus</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="wd-l-TopStripMenu-group wd-l-TopStripMenu-group--directory last">
+                            <li>
+                                <a class="wd-l-TopStripMenu-header" href="javascript:;">More <i class="fa fa-angle-down"></i></a>
+                                <ul class="wd-l-TopStripMenu-toolbar">
+                                    <li class="first"><a href="http://info.iastate.edu/">Directory</a></li>
+                                    <li><a href="http://www.fpm.iastate.edu/maps/">Maps</a></li>
+                                    <li class="last"><a href="http://www.iastate.edu/contact/">Contact Us</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="wd-l-TopStripMenu-group wd-l-TopStripMenu-group--index">
+                            <li>
+                                <a class="wd-l-TopStripMenu-header" href="http://www.iastate.edu/index/A">Index</a>
+                                <ul class="wd-l-TopStripMenu-toolbar">
+                                    <li class="first"><a href="http://www.iastate.edu/index/A/">A</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/B/">B</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/C/">C</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/D/">D</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/E/">E</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/F/">F</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/G/">G</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/H/">H</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/I/">I</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/J/">J</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/K/">K</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/L/">L</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/M/">M</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/N/">N</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/O/">O</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/P/">P</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/Q/">Q</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/R/">R</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/S/">S</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/T/">T</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/U/">U</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/V/">V</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/W/">W</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/X/">X</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/Y/">Y</a></li>
+                                    <li class="last"><a href="http://www.iastate.edu/index/Z/">Z</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wd-l-Ribbon isu-red-ribbon" id="ribbon" role="banner">
+                <div class="wd-l-Ribbon-inner">
+                    <form action="//google.iastate.edu/search" class="wd-l-SearchBox isu-search-form" method="GET" role="search">
+                        <input name="output" type="hidden" value="xml_no_dtd" />
+                        <input name="client" type="hidden" value="default_frontend" />
+                        <input name="proxystylesheet" type="hidden" value="default_frontend" />
+                        <input accesskey="s" name="q" title="Search" placeholder="Search" tabindex="1" type="text" />
+                        <input name="btnG" title="Submit" type="submit" value="Search" />
+                    </form>
+                    <a accesskey="1" class="wd-Nameplate nameplate" href="http://www.iastate.edu/">
+                        <img alt="Iowa State University" src="img/sprite.png" />
+                    </a>
+
+                    <div class="wd-l-MastTitle-siteTitle site-title sub-title">
+                        <a href="/">Department of Sustainability</a>
+                    </div>
+                </div>
+            </div>
+            <div class="wd-l-Navbar">
+                <div class="wd-l-Navbar-inner">
+                    <div role="navigation">
+                        <ul class="wd-Navigation">
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link is-active" href="#">Home</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="ShoppingCartPage/ShoppingCart.html">Savings Cart</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="information.html">Information</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="results.php">Quiz Results</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="FactPage.html">Trivia</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
+                        <option value="index.html">Home</option>
+                        <option value="savingscart.html" selected="selected">Savings Cart</option>
+                        <option value="information.html">Information</option>
+                        <option value="results.php">Quiz Results</option>
+                        <option value="FactPage.html">Trivia</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <h1 style="text-align: center;">
+                <img src="img/title.PNG" />
+            </h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div id="canvas-container">
+                <canvas id="c" width="600" height="600"></canvas>
+            </div>
+            
+            <div id="draggable-menu-wrapper">
+                <div id="draggable-menu">
+                    <h3>Bed</h3>
+                    <div>
+                        <span ng-repeat="item in items | filter: {type: 'bed'}">
+                            <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
+                        </span>
+                    </div>
+                    <h3>Seating</h3>
+                    <div>
+                        <span ng-repeat="item in items | filter: {type: 'seating'}">
+                            <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
+                        </span>
+                    </div>
+                    <h3>Tables</h3>
+                    <div>
+                        <span ng-repeat="item in items | filter: {type: 'table'}">
+                            <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
+                        </span>
+                    </div>
+                    <h3>Lighting</h3>
+                    <div>
+                        <span ng-repeat="item in items | filter: {type: 'lighting'}">
+                            <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
+                        </span>
+                    </div>
+                    <h3>Posters</h3>
+                    <div>
+                        <span ng-repeat="item in items | filter: {type: 'poster'}">
+                            <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+                var canvas = new fabric.Canvas('c', {
+                    selection: true
+                });
+                var grid = 50;
+                for (var i = 0; i < (600 / grid) ; i++) {
+                    canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
+                        stroke: '#ccc',
+                        selectable: false,
+                        hasControls: false,
+                        hoverCursor: 'pointer'
+                    }));
+                    canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
+                        stroke: '#ccc',
+                        selectable: false,
+                        hasControls: false,
+                        hoverCursor: 'pointer'
+                    }));
+                }
+
+                fabric.Image.fromURL('img/lamp02.png', function (img) {
+                    img.setWidth(50);
+                    img.setHeight(50);
+                    canvas.add(img);
+                    img.hasControls = img.hasBorders = false;
+                });
+
+                canvas.on('mouse:over', function (e) {
+                    var objs = canvas.getObjects();
+                    var mouse = canvas.getPointer(event.e);
+                    if (e.target == objs[objs.length - 1]) {
+                        showImageTools(e.target);
+                    }
+                });
+
+                canvas.on('mouse:out', function (e) {
+                    $('#imageDialog').remove();
+                });
+
+                canvas.on('object:moving', function (options) {
+                    options.target.set({
+                        left: Math.round(options.target.left / grid) * grid,
+                        top: Math.round(options.target.top / grid) * grid
+                    });
+                });
+
+                function showImageTools(e) {
+                    if (!$('#imageDialog').length) {
+                        $('body').append("<div id='imageDialog' style='position: absolute; top: 0; left: 0; color: green' ><h1>Green Tips!</h1></div>");
+                    }
+                    moveImageTools(e);
+                }
+
+                function moveImageTools(e) {
+                    var w = $('#imageDialog').width();
+                    var h = $('#imageDialog').height();
+                    var coords = getObjPosition(e);
+                    console.log('coords', coords);
+                    var top = coords.bottom - h - 20;
+                    var left = coords.right - 100;
+                    $('#imageDialog').show();
+                    $('#imageDialog').css({
+                        top: top,
+                        left: left
+                    });
+                }
+
+                function getObjPosition(e) {
+                    var rect = e.getBoundingRect();
+                    var offset = canvas.calcOffset();
+                    var bottom = offset._offset.top + rect.top + rect.height;
+                    var right = offset._offset.left + rect.left + rect.width;
+                    var left = offset._offset.left + rect.left;
+                    var top = offset._offset.top + rect.top;
+                    return {
+                        left: left,
+                        top: top,
+                        right: right,
+                        bottom: bottom
+                    };
+                }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
+    <script src="js/ListController.js"></script>
+</body>
+
+</html>
