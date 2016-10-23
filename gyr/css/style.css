@@ -4,53 +4,81 @@ body {
 }
 
 .item-thumbnail {
-    width: 75px;
+    width: 85px;
 }
 
 #draggable-menu-wrapper {
     width: 400px;
     position: absolute !important;
-    right: 18%;
-    top: 59%;
-    background-color: #CCC;
+    right: 20%;
+    top: 38%;
 }
 
 .canvas-container {
     background-color: transparent;
-    width: 800px;
+    width: 600px;
     height: 600px;
-    margin-top: 20px;
+    position: absolute !important;
+    top: 70%;
+    left: 45%;
+    margin-left: -400px;
+    margin-top: -300px;
 }
 
-#c {
-    border: 1px solid #ccc;
+canvas {
+    border: 1px solid lightgray;
 }
 
-.dragged {
+
+/*#imageDialog {
     background-color: green;
-    width: 100px;
-    height: 100px;
-}
-
-
-/*.imageDialog {
-    width: 120px;
-    background-color: green;
+    font-size: 10px;
+    font-family: "Times New Roman", Times, serif;
     color: #fff;
-    text-align: center;
-    border-radius: 6px;
+    border-radius: 7px;
     padding: 5px 5px;
+}
+
+#imageDialog::after {
+    content: "";
+    position: absolute;
+    top: 80%;
+    right: 100%;
+    margin-top: -6px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent green transparent transparent;
 }*/
 
-#draggable-menu div {
-    background-color: #CCC;
-    border: 3px solid black;
-    border-top: 0px solid black;
-    height: 150px;
+.tooltip {
+    margin: 8px;
+    padding: 8px;
+    border: 1px solid blue;
+    color: #fff;
+    font-family: "Times New Roman", Times, serif;
+    background-color: green;
+    position: absolute;
+    z-index: 2;
 }
 
-#draggable-menu h3 {
+#theimg {
+    margin: 8px;
+    padding: 8px;
+    background-color: lightgreen;
+    position: absolute;
+    z-index: 2;
+}
+
+#images div {
+    border-top: 1px solid green;
+    border: 1px solid green;
+    height: 150px;
+    overflow: scroll;
+}
+
+#images h2 {
     text-align: center;
-    background-color: #9090FF;
-    border: 3px solid black;
+    background-color: antiquewhite;
+    font-family: "Times New Roman", Times, serif;
+    color: forestgreen;
 }
