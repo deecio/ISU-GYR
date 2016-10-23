@@ -7,9 +7,132 @@
     <link href="SCStyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
-    <title>Item List</title>
+    <link href="css/baseV4.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" media="all" rel="stylesheet">
+    <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
+    <title>Live Green! Shopping Cart</title>
 </head>
-<body ng-app="ItemListApp" ng-controller="ListController">
+<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="ItemListApp" ng-controller="ListController">
+    <div class="wd-l-Header hwrapper" id="header">
+        <div class="wd-l-Header-inner">
+            <div class="wd-l-TopStrip isu-dark-ribbon" id="top-strip">
+                <div class="wd-l-TopStrip-inner">
+                    <ul class="wd-ResponsiveToggles">
+                        <li><button class="wd-ResponsiveToggles-nav">menu</button></li>
+                        <li><button class="wd-ResponsiveToggles-search">search</button></li>
+                    </ul>
+                    <div class="wd-l-TopStripMenu">
+                        <ul class="wd-l-TopStripMenu-group wd-l-TopStripMenu-group--signons first">
+                            <li>
+                                <a class="wd-l-TopStripMenu-header" href="javascript:;">Sign-ons <i class="fa fa-angle-down"></i></a>
+                                <ul class="wd-l-TopStripMenu-toolbar">
+                                    <li class="first"><a href="http://cymail.iastate.edu/">CyMail</a></li>
+                                    <li><a href="http://outlook.iastate.edu/">Outlook</a></li>
+                                    <li><a href="http://bb.its.iastate.edu/">Blackboard</a></li>
+                                    <li class="last"><a href="http://accessplus.iastate.edu/">AccessPlus</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="wd-l-TopStripMenu-group wd-l-TopStripMenu-group--directory last">
+                            <li>
+                                <a class="wd-l-TopStripMenu-header" href="javascript:;">More <i class="fa fa-angle-down"></i></a>
+                                <ul class="wd-l-TopStripMenu-toolbar">
+                                    <li class="first"><a href="http://info.iastate.edu/">Directory</a></li>
+                                    <li><a href="http://www.fpm.iastate.edu/maps/">Maps</a></li>
+                                    <li class="last"><a href="http://www.iastate.edu/contact/">Contact Us</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="wd-l-TopStripMenu-group wd-l-TopStripMenu-group--index">
+                            <li>
+                                <a class="wd-l-TopStripMenu-header" href="http://www.iastate.edu/index/A">Index</a>
+                                <ul class="wd-l-TopStripMenu-toolbar">
+                                    <li class="first"><a href="http://www.iastate.edu/index/A/">A</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/B/">B</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/C/">C</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/D/">D</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/E/">E</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/F/">F</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/G/">G</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/H/">H</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/I/">I</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/J/">J</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/K/">K</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/L/">L</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/M/">M</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/N/">N</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/O/">O</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/P/">P</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/Q/">Q</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/R/">R</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/S/">S</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/T/">T</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/U/">U</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/V/">V</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/W/">W</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/X/">X</a></li>
+                                    <li class=""><a href="http://www.iastate.edu/index/Y/">Y</a></li>
+                                    <li class="last"><a href="http://www.iastate.edu/index/Z/">Z</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wd-l-Ribbon isu-red-ribbon" id="ribbon" role="banner">
+                <div class="wd-l-Ribbon-inner">
+                    <form action="//google.iastate.edu/search" class="wd-l-SearchBox isu-search-form" method="GET" role="search">
+                        <input name="output" type="hidden" value="xml_no_dtd" />
+                        <input name="client" type="hidden" value="default_frontend" />
+                        <input name="proxystylesheet" type="hidden" value="default_frontend" />
+                        <input accesskey="s" name="q" title="Search" placeholder="Search" tabindex="1" type="text" />
+                        <input name="btnG" title="Submit" type="submit" value="Search" />
+                    </form>
+                    <a accesskey="1" class="wd-Nameplate nameplate" href="http://www.iastate.edu/">
+                        <img alt="Iowa State University" src="img/sprite.png" />
+                    </a>
+
+                    <div class="wd-l-MastTitle-siteTitle site-title sub-title">
+                        <a href="/">Department of Sustainability</a>
+                    </div>
+                </div>
+            </div>
+            <div class="wd-l-Navbar">
+                <div class="wd-l-Navbar-inner">
+                    <div role="navigation">
+                        <ul class="wd-Navigation">
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link is-active" href="#">Home</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="ShoppingCartPage/ShoppingCart.html">Savings Cart</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="information.html">Information</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="results.php">Quiz Results</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="FactPage.html">Trivia</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
+                        <option value="index.html">Home</option>
+                        <option value="savingscart.html" selected="selected">Savings Cart</option>
+                        <option value="information.html">Information</option>
+                        <option value="results.php">Quiz Results</option>
+                        <option value="FactPage.html">Trivia</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--Screen 1: User selects category for currently-owned item to be replaced-->
     <div class="shop-screen StartShopScreen">
@@ -112,5 +235,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
     <script src="app.js"></script>
     <script src="ListController.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/fabric.min.js"></script>
 </body>
 </html>
