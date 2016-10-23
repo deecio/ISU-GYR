@@ -5,6 +5,8 @@
     <!-- Bootstrap Library Link -->
     <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
     <link href="SCStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
     <title>Item List</title>
 </head>
 <body ng-app="ItemListApp" ng-controller="ListController">
@@ -17,8 +19,8 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-xs-3" ng-repeat="filter in filters">
-                    <a href="" class="btn btn-default" ng-click="setFilter(filter);" onclick="switchShopScreens('.InitItemScreen')">{{filter.name}}</a>
+                <div class="col-xs-4" ng-repeat="filter in filters">
+                    <a href="" class="btn btn-default waves-effect waves-light" ng-click="setFilter(filter);" onclick="switchShopScreens('.InitItemScreen')">{{filter.name}}</a>
                 </div>
             </div>
         </div>
@@ -35,7 +37,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 centered" ng-repeat="item in items | filter: selectedFilter.filterExpr">
-                    <a class="btn btn-default item-button" ng-click="setFirstCost(item.monthly_cost, item);">
+                    <a class="item-button" ng-click="setFirstCost(item.monthly_cost, item);">
                         <div>
                             <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
                             <h3 class="item-name">{{item.name}}</h3>
@@ -46,7 +48,7 @@
             </div>
 
             <div class="row">
-                <a class="btn btn-default" ng-click="switchShopScreens('.StartShopScreen')">Reset</a>
+                <a class="btn btn-default" ng-click="switchShopScreens('.StartShopScreen')">Repick Item</a>
             </div>
         </div>
     </div>
@@ -60,7 +62,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 centered" ng-repeat="item in items | filter: selectedFilter.filterExpr">
-                    <a class="btn btn-default item-button" ng-click="setSecondCost(item.monthly_cost, item);">
+                    <a class="item-button" ng-click="setSecondCost(item.monthly_cost, item);">
                         <div>
                             <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
                             <h3 class="item-name">{{item.name}}</h3>
@@ -71,7 +73,7 @@
             </div>
 
             <div class="row">
-                <a class="btn btn-default" ng-click="switchShopScreens('.StartShopScreen')">Reset</a>
+                <a class="btn btn-default" ng-click="switchShopScreens('.StartShopScreen')">Repick Item</a>
             </div>
         </div>
     </div>
@@ -93,15 +95,16 @@
             </div>
 
             <div class="row">
-                <a class="btn btn-default" ng-click="switchShopScreens('.StartShopScreen')">Next Item</a>
+                <a class="btn btn-default waves-effect waves-light" ng-click="switchShopScreens('.StartShopScreen')">Next Item</a>
             </div>
         </div>
     </div>
 
     <div class="centered">
-        <button class="btn btn-default reset" onClick="window.location.reload()">Reset</button>
+        <a class="btn btn-default reset" onClick="window.location.reload()">Reset</a>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>

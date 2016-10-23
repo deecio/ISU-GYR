@@ -1,4 +1,9 @@
-﻿.item-button{
+﻿body{
+    font-family: 'Lato', sans-serif;
+    color: #212121;
+}
+
+.item-button{
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 30px;
@@ -18,4 +23,24 @@
 .reset{
     font-size: 20px;
     margin-top: 30px;
+    background-color: #8BC34A !important;
+}
+
+.reset:hover{
+    background-color: #689F38 !important;
+}
+
+.row{
+    text-align: center;
+}
+
+.btn {
+    background-color: #8BC34A !important;
+}
+.btn:hover{
+    background-color: #689F38 !important;
+}
+
+.Calculator h2{
+    text-align: center;
 }
