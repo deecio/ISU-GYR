@@ -1,0 +1,117 @@
+.app-Figure
+{
+	position: relative;
+}
+
+.app-Figure-deleteLink
+{
+	background-color: rgba(203, 26, 42, 0.5);
+	bottom: 3px;
+	color: #fff;
+	font-size: 0.8em;
+	font-weight: bold;
+	left: 3px;
+	padding: 2px 0;
+	position: absolute;
+	right: 3px;
+	text-align: center;
+	text-decoration: none;
+	transition: background-color 0.3s;
+}
+
+.app-Figure-deleteLink:hover
+{
+	background-color: rgba(203, 26, 42, 1);
+	color: #fff;
+	text-decoration: none;
+}
+
+.app-Badge
+{
+	background-color: #f2f2f2;
+	border-radius: 3px;
+	color: #888;
+	display: inline-block;
+	line-height: 1.1;
+	margin-right: 10px;
+	padding: 10px 20px;
+	text-decoration: none;
+}
+
+a.app-Badge:hover
+{
+	background-color: #eee;
+	text-decoration: none;
+}
+
+.app-Badge-count
+{
+	color: #de6700;
+	display: block;
+	font-size: 2.4em;
+	font-weight: bold;
+}
+
+.app-Badge-label
+{
+	font-size: 0.9em;
+}
+
+.app-Label
+{
+	background-color: #f2f2f2;
+	border-radius: 2px;
+	padding: 2px 4px;
+	font-size: 75%;
+	font-weight: bold;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.app-Label-deprecated
+{
+	background-color: #fbd2b6;
+}
+
+table.view-record-table td
+{
+	vertical-align: top;
+}
+
+table.view-record-table th
+{
+	padding-right: 8px;
+	text-align: left;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+table.view-record-table th[colspan="2"]
+{
+	padding-right: 0;
+}
+
+table.view-record-table td h2,
+table.view-record-table th h2
+{
+	font-size: 1.2em;
+	margin-bottom: 0;
+	margin-top: 15px;
+}
+
+table.view-record-table.use-header-bars td h2,
+table.view-record-table.use-header-bars th h2
+{
+	background-color: #eeeeee;
+	background-image: linear-gradient(#eeeeee, #e3e3e3);
+	border-bottom: 1px solid #cccccc;
+	border-top: 1px solid #cccccc;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+table tr.new-section td,
+table tr.new-section th
+{
+	padding-top: 20px;
+}
