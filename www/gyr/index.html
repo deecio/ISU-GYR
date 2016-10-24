@@ -2,34 +2,37 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../js/jquery-ui.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../js/dYD.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../js/fabric.min.js"></script>
-    <link href="../css/baseV4.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/gyr.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/fabric.min.js"></script>
+    <link href="css/baseV4.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" media="all" rel="stylesheet">
     <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
-
     <!-- Bootstrap Library Link -->
     <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
     <title>Interactive Apartment</title>
     <script>
         $(function () {
-            $("#draggable-menu").accordion();
+            $("#images").accordion();
         });
     </script>
 </head>
 
-<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="ItemListApp" ng-controller="ListController">
+<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar">
     <div class="wd-l-Header hwrapper" id="header">
         <div class="wd-l-Header-inner">
             <div class="wd-l-TopStrip isu-dark-ribbon" id="top-strip">
                 <div class="wd-l-TopStrip-inner">
                     <ul class="wd-ResponsiveToggles">
-                        <li><button class="wd-ResponsiveToggles-nav">menu</button></li>
-                        <li><button class="wd-ResponsiveToggles-search">search</button></li>
+                        <li>
+                            <button class="wd-ResponsiveToggles-nav">menu</button>
+                        </li>
+                        <li>
+                            <button class="wd-ResponsiveToggles-search">search</button>
+                        </li>
                     </ul>
                     <div class="wd-l-TopStripMenu">
                         <ul class="wd-l-TopStripMenu-group wd-l-TopStripMenu-group--signons first">
@@ -102,11 +105,11 @@
                         <input name="btnG" title="Submit" type="submit" value="Search" />
                     </form>
                     <a accesskey="1" class="wd-Nameplate nameplate" href="http://www.iastate.edu/">
-                        <img alt="Iowa State University" src="../img/sprite.png" />
+                        <img alt="Iowa State University" src="img/sprite.png" />
                     </a>
 
                     <div class="wd-l-MastTitle-siteTitle site-title sub-title">
-                        <a href="/">Department of Sustainability</a>
+                        <a href="/">Office of Sustainability</a>
                     </div>
                 </div>
             </div>
@@ -118,16 +121,16 @@
                                 <a class="wd-Navigation-link is-active" href="#">Home</a>
                             </li>
                             <li class="wd-Navigation-node">
-                                <a class="wd-Navigation-link" href="../ShoppingCartPage/ShoppingCart.html">Savings Cart</a>
+                                <a class="wd-Navigation-link" href="ShoppingCartPage/ShoppingCart.html">Savings Cart</a>
                             </li>
                             <li class="wd-Navigation-node">
-                                <a class="wd-Navigation-link" href="../information.html">Information</a>
+                                <a class="wd-Navigation-link" href="information.html">Information</a>
                             </li>
                             <li class="wd-Navigation-node">
-                                <a class="wd-Navigation-link" href="../quiz/results.php">Quiz Results</a>
+                                <a class="wd-Navigation-link" href="results.php">Quiz Results</a>
                             </li>
                             <li class="wd-Navigation-node">
-                                <a class="wd-Navigation-link" href="../FactPage.html">Trivia</a>
+                                <a class="wd-Navigation-link" href="FactPage.html">Trivia</a>
                             </li>
                         </ul>
                     </div>
@@ -143,142 +146,362 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <h1 style="text-align: center;">
-                <img src="../img/title.PNG" />
-            </h1>
+    <header>
+        <h1><center>
+            <img src="img/title.PNG"/>
+        </center></h1>
+    </header>
+    <div id="canvas-container">
+        <canvas id="c" width="600" height="600"></canvas>
+    </div>
+    <div id="draggable-menu-wrapper">
+        <div id="images">
+            <h2><Strong>Basics</Strong></h2>
+            <div id="basics">
+                <span><img class="item-thumbnail" id="desk" src="img/basics/Student%20Desk%20.png"/></span>
+                <span><img class="item-thumbnail" id="desk" src="img/basics/Student%20Desk%202.png"/></span>
+                <span><img class="item-thumbnail" id="bed" src="img/basics/bed01.png"/></span>
+                <span><img class="item-thumbnail" id="bed" src="img/basics/bed02.JPG"/></span>
+                <span><img class="item-thumbnail" id="bed" src="img/basics/bed03.jpg"/></span>
+                <span><img class="item-thumbnail" id="bed" src="img/basics/bed04.jpg"/></span>
+                <span><img class="item-thumbnail" id="wardrobe" src="img/basics/Wardrobe%20big.png"/></span>
+                <span><img class="item-thumbnail" id="wardrobe" src="img/basics/Wardrobe.png"/></span>
+            </div>
+            <h2><Strong>Electronics</Strong></h2>
+            <div id="electronics">
+                <span><img class="item-thumbnail" id="electronics" src="img/electronics/Computer%20Apples.png"/></span>
+                <span><img class="item-thumbnail" id="electronics" src="img/electronics/PC.png"/></span>
+                <span><img class="item-thumbnail" id="electronics" src="img/electronics/PowerStrip.png"/></span>
+                <span><img class="item-thumbnail" id="electronics" src="img/electronics/Smart%20Power%20Strip.png"/></span>
+                <span><img class="item-thumbnail" id="electronics" src="img/electronics/Printer%20Black.png"/></span>
+                <span><img class="item-thumbnail" id="electronics" src="img/electronics/Printer%20Grey.png"/></span>
+                <span><img class="item-thumbnail" id="electronics" src="img/electronics/PS2.png"/></span>
+                <span><img class="item-thumbnail" id="electronics" src="img/electronics/PS3.png"/></span>
+            </div>
+            <h2><Strong>Decor</Strong></h2>
+            <div id="decor">
+                <span><img class="item-thumbnail" id="laundry" src="img/decor/Heater%20Blanket%20Blue.png"/></span>
+                <span><img class="item-thumbnail" id="laundry" src="img/decor/Heater%20Blanket%20White.png"/></span>
+                <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Banner.png"/></span>
+                <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Couch%203.png"/></span>
+                <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20LazyBoy.png"/></span>
+                <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Sofa.png"/></span>
+                <span><img class="item-thumbnail" id="laundry" src="img/decor/Red%20Blanket.png"/></span>
+            </div>
+            <h2><Strong>Lighting</Strong></h2>
+            <div id="lighting">
+                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp01.png"/></span>
+                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp02.png"/></span>
+                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp03.png"/></span>
+                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp04.png"/></span>
+                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp05.jpg"/></span>
+            </div>
+            <h2><Strong>Kitchen</Strong></h2>
+            <div id="kitchen">
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Coffee%20Pot%20Black.png"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Coffee%20Pot%20Silver.png"span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Dinnerware%20Black.png"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Dinnerware%20White.png"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Keurig%20Black.png"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Keurig%20Silver.png"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Micro%20Fridge%20Black.jpg"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Micro%20Fridge%20Black.png"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Microwave%20Black.png"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Microwave%20Silver.png"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Black.png"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Silver.png"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Duo%20Silver.png"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Toaster%20.png"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Toaster%20Black.png"/></span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Utensils.jpg"/></span>
+            </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div id="canvas-container">
-                <canvas id="c" width="600" height="600"></canvas>
-            </div>
-            
-            <div id="draggable-menu-wrapper">
-                <div id="draggable-menu">
-                    <h3>Bed</h3>
-                    <div>
-                        <span ng-repeat="item in items | filter: {type: 'bed'}">
-                            <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
-                        </span>
-                    </div>
-                    <h3>Seating</h3>
-                    <div>
-                        <span ng-repeat="item in items | filter: {type: 'seating'}">
-                            <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
-                        </span>
-                    </div>
-                    <h3>Tables</h3>
-                    <div>
-                        <span ng-repeat="item in items | filter: {type: 'table'}">
-                            <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
-                        </span>
-                    </div>
-                    <h3>Lighting</h3>
-                    <div>
-                        <span ng-repeat="item in items | filter: {type: 'lighting'}">
-                            <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
-                        </span>
-                    </div>
-                    <h3>Posters</h3>
-                    <div>
-                        <span ng-repeat="item in items | filter: {type: 'poster'}">
-                            <img class="item-thumbnail" draggable="true" ng-src="{{item.icon}}" />
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <script>
-                var canvas = new fabric.Canvas('c', {
-                    selection: true
-                });
-                var grid = 50;
-                for (var i = 0; i < (600 / grid) ; i++) {
-                    canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
-                        stroke: '#ccc',
-                        selectable: false,
-                        hasControls: false,
-                        hoverCursor: 'pointer'
-                    }));
-                    canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
-                        stroke: '#ccc',
-                        selectable: false,
-                        hasControls: false,
-                        hoverCursor: 'pointer'
-                    }));
+        var canvas = new fabric.Canvas('c', {
+            selection: false
+        });
+
+        var grid = 50;
+        for (var i = 0; i < (600 / grid); i++) {
+            canvas.add(new fabric.Line([i * grid, 0, i * grid, canvas.height], {
+                stroke: 'lightgray',
+                selectable: false,
+                hasControls: false,
+                hoverCursor: 'default'
+            }));
+            canvas.add(new fabric.Line([0, i * grid, canvas.width, i * grid], {
+                stroke: 'lightgray',
+                selectable: false,
+                hasControls: false,
+                hoverCursor: 'default'
+            }));
+        }
+
+        canvas.on('mouse:over', function (e) {
+            var objs = canvas.getObjects();
+            for (var i = objs.length; i > 23; i--) {
+                if (e.target == objs[i]) {
+                    //showImageTools(e.target);
+                    showTooltip(e.target);
                 }
+            }
+        });
 
-                fabric.Image.fromURL('../img/lamp02.png', function (img) {
-                    img.setWidth(50);
-                    img.setHeight(50);
-                    canvas.add(img);
-                    img.hasControls = img.hasBorders = false;
-                });
+        canvas.on('mouse:out', function (e) {
+            //$('#imageDialog').remove();
+            //$('div.tooltip').remove();
+            $('#theimg').remove();
+        });
 
-                canvas.on('mouse:over', function (e) {
-                    var objs = canvas.getObjects();
-                    var mouse = canvas.getPointer(event.e);
-                    if (e.target == objs[objs.length - 1]) {
-                        showImageTools(e.target);
-                    }
-                });
+        canvas.on('object:moving', function (e) {
+            var obj = e.target;
+            obj.set({
+                left: Math.round(obj.left / grid) * grid,
+                top: Math.round(obj.top / grid) * grid
+            });
+            obj.setCoords();
+            if (obj.getBoundingRect().top < 0 || obj.getBoundingRect().left < 0) {
+                obj.top = Math.max(obj.top, obj.top - obj.getBoundingRect().top);
+                obj.left = Math.max(obj.left, obj.left - obj.getBoundingRect().left);
+            }
+            if (obj.getBoundingRect().top + obj.getBoundingRect().height > obj.canvas.height || obj.getBoundingRect().left + obj.getBoundingRect().width > obj.canvas.width) {
+                obj.top = Math.min(obj.top, obj.canvas.height - obj.getBoundingRect().height + obj.top - obj.getBoundingRect().top);
+                obj.left = Math.min(obj.left, obj.canvas.width - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
+            }
+        });
 
-                canvas.on('mouse:out', function (e) {
-                    $('#imageDialog').remove();
-                });
 
-                canvas.on('object:moving', function (options) {
-                    options.target.set({
-                        left: Math.round(options.target.left / grid) * grid,
-                        top: Math.round(options.target.top / grid) * grid
-                    });
-                });
+        function showTooltip(e) {
+            $('div.tooltip').remove();
+            $('#theimg').remove();
+            var x = Math.floor(Math.random() * 10);
+            //$('body').append("<div class='tooltip'><strong>CSS only Tooltip</strong></div>");
+            if (e.name == "laundry" || e.name == "bed") $('body').append("<img id='theimg' src='img/laundry_tip.png' />");
+            else if (e.name == "electronics" || e.name == "lighting" || e.name == "kitchen") {
+                if (x % 2 == 0)
+                    $('body').append("<img id='theimg' src='img/laundry_tip.png' />");
+                else
+                    $('body').append("<img id='theimg' src='img/buy_tip.png' />");
+            }
+            changeTooltipPosition(e);
+        }
 
-                function showImageTools(e) {
+        function changeTooltipPosition(e) {
+            var tooltipX = event.pageX - 8;
+            var tooltipY = event.pageY + 8;
+            /*$('div.tooltip').css({
+                top: tooltipY,
+                left: tooltipX
+            });*/
+            $('#theimg').css({
+                top: tooltipY,
+                left: tooltipX
+            });
+        }
+
+        /*        function showImageTools(e) {
                     if (!$('#imageDialog').length) {
-                        $('body').append("<div id='imageDialog' style='position: absolute; top: 0; left: 0; color: green' ><h1>Green Tips!</h1></div>");
+                        $('body').append("<div id='imageDialog' style='position: absolute; top: 0; left: 0' ><h1>" + e.name + "</h1></div>");
                     }
                     moveImageTools(e);
-                }
+                }*/
 
-                function moveImageTools(e) {
-                    var w = $('#imageDialog').width();
-                    var h = $('#imageDialog').height();
-                    var coords = getObjPosition(e);
-                    console.log('coords', coords);
-                    var top = coords.bottom - h - 20;
-                    var left = coords.right - 100;
-                    $('#imageDialog').show();
-                    $('#imageDialog').css({
-                        top: top,
-                        left: left
-                    });
-                }
+        /*function moveImageTools(e) {
+            var w = $('#imageDialog').width();
+            var h = $('#imageDialog').height();
+            var coords = getObjPosition(e);
+            console.log('coords', coords);
+            var top = coords.bottom - h - 70;
+            var left = coords.right;
+            $('#imageDialog').show();
+            $('#imageDialog').css({
+                top: top,
+                left: left
+            });
+        }*/
 
-                function getObjPosition(e) {
-                    var rect = e.getBoundingRect();
-                    var offset = canvas.calcOffset();
-                    var bottom = offset._offset.top + rect.top + rect.height;
-                    var right = offset._offset.left + rect.left + rect.width;
-                    var left = offset._offset.left + rect.left;
-                    var top = offset._offset.top + rect.top;
-                    return {
-                        left: left,
-                        top: top,
-                        right: right,
-                        bottom: bottom
-                    };
-                }
+        function getObjPosition(e) {
+            var rect = e.getBoundingRect();
+            var offset = canvas.calcOffset();
+            var bottom = offset._offset.top + rect.top + rect.height;
+            var right = offset._offset.left + rect.left + rect.width;
+            var left = offset._offset.left + rect.left;
+            var top = offset._offset.top + rect.top;
+            return {
+                left: left,
+                top: top,
+                right: right,
+                bottom: bottom
+            };
+        }
+
+        function handleDragStart(e) {
+    [].forEach.call(images, function (img) {
+                img.classList.remove('img_dragging');
+            });
+            this.classList.add('img_dragging');
+        }
+
+        function handleDragOver(e) {
+            if (e.preventDefault) {
+                e.preventDefault();
+            }
+            e.dataTransfer.dropEffect = 'copy';
+            return false;
+        }
+
+        function handleDragEnter(e) {
+            this.classList.add('over');
+        }
+
+        function handleDragLeave(e) {
+            this.classList.remove('over');
+        }
+
+        function handleDrop(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            }
+            var mouse = canvas.getPointer(event.e);
+            var posx = mouse.x;
+            var posy = mouse.y;
+            var img = document.querySelector('#images img.img_dragging');
+            if (img.id == "bed") {
+                var newImage = new fabric.Image(img, {
+                    name: img.id,
+                    width: 300,
+                    height: 300,
+                    left: posx / 2,
+                    top: posy / 2,
+                    hasControls: false,
+                    hasBorders: false
+                });
+            } else if (img.id == "wardrobe") {
+                var newImage = new fabric.Image(img, {
+                    name: img.id,
+                    width: 150,
+                    height: 250,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false
+                });
+            } else if (img.id == "laundry") {
+                var newImage = new fabric.Image(img, {
+                    name: img.id,
+                    width: 150,
+                    height: 150,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false
+                });
+            } else if (img.id == "kitchen") {
+                var newImage = new fabric.Image(img, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false
+                });
+            } else if (img.id == "electronics") {
+                var newImage = new fabric.Image(img, {
+                    name: img.id,
+                    width: 100,
+                    height: 100,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false
+                });
+            } else if (img.id == "desk") {
+                var newImage = new fabric.Image(img, {
+                    name: img.id,
+                    width: 200,
+                    height: 100,
+                    left: posx - 100,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false
+                });
+            } else if (img.id == "lighting") {
+                var newImage = new fabric.Image(img, {
+                    name: img.id,
+                    width: 100,
+                    height: 100,
+                    left: posx - 25,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false
+                });
+            }
+
+            canvas.add(newImage);
+            return false;
+        }
+
+        function handleDragEnd(e) {
+    [].forEach.call(images, function (img) {
+                img.classList.remove('img_dragging');
+            });
+        }
+
+        var images = document.querySelectorAll('#images img');
+    [].forEach.call(images, function (img) {
+            img.addEventListener('dragstart', handleDragStart, false);
+            img.addEventListener('dragend', handleDragEnd, false);
+        });
+        var canvasContainer = document.getElementById('canvas-container');
+        canvasContainer.addEventListener('dragenter', handleDragEnter, false);
+        canvasContainer.addEventListener('dragover', handleDragOver, false);
+        canvasContainer.addEventListener('dragleave', handleDragLeave, false);
+        canvasContainer.addEventListener('drop', handleDrop, false);
+
+        canvas.on('object:selected', function (e) {
+            //$('#imageDialog').remove();
+            //$('div.tooltip').remove();
+            $('#theimg').remove();
+            jQuery(".deleteBtn").remove();
+            var btnLeft = e.target.oCoords.mt.x;
+            var btnTop = e.target.oCoords.mt.y - 25;
+            var widthadjust = e.target.width / 2;
+            btnLeft = widthadjust + btnLeft - 10;
+            var deleteBtn = '<p" class="deleteBtn" title="Remove" style="position:absolute;top:' + btnTop + 'px;left:' + btnLeft + 'px;cursor:pointer;" title="Remove object">&#10005;</p>';
+            jQuery(".canvas-container").append(deleteBtn);
+        });
+
+        canvas.on('mouse:down', function (e) {
+            if (canvas.getActiveObject()) {} else {
+                jQuery(".deleteBtn").remove();
+            }
+        });
+
+        canvas.on('object:modified', function (e) {
+            jQuery(".deleteBtn").remove();
+            var btnLeft = e.target.oCoords.mt.x;
+            var btnTop = e.target.oCoords.mt.y - 25;
+            var widthadjust = e.target.width / 2;
+            btnLeft = widthadjust + btnLeft - 10;
+            var deleteBtn = '<p" class="deleteBtn" title="Remove" style="position:absolute;top:' + btnTop + 'px;left:' + btnLeft + 'px;cursor:pointer;" title="Remove object">&#10005;</p>';
+            jQuery(".canvas-container").append(deleteBtn);
+        });
+
+        canvas.on('object:moving', function (e) {
+            jQuery(".deleteBtn").remove();
+        });
+
+        jQuery(document).on('click', ".deleteBtn", function () {
+            if (canvas.getActiveObject()) {
+                canvas.remove(canvas.getActiveObject());
+                jQuery(this).remove();
+                jQuery(".deleteBtn").remove();
+            }
+        });
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
-    <script src="../js/ListController.js"></script>
 </body>
 
 </html>
