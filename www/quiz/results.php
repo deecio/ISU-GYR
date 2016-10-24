@@ -130,19 +130,19 @@ h3 code{
                         <div role="navigation">
                             <ul class="wd-Navigation">
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="index.html">Home</a>
+                                    <a class="wd-Navigation-link" href="../index.html">Home</a>
                                 </li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="savingscart.html">Savings Cart</a>
+                                    <a class="wd-Navigation-link" href="../ShoppingCartPage/ShoppingCart.html">Savings Cart</a>
                                 </li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="information.html">Information</a>
+                                    <a class="wd-Navigation-link" href="../information.html">Information</a>
                                 </li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link is-active" href="quiz/index.php">Quiz Results</a>
+                                    <a class="wd-Navigation-link is-active" href="../index.php">Quiz Results</a>
                                 </li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="FactPage.html">Trivia</a>
+                                    <a class="wd-Navigation-link" href="../FactPage.html">Trivia</a>
                                 </li>
                             </ul>
                         </div>
