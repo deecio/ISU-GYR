@@ -1,0 +1,36 @@
+﻿.container{
+    padding-top: 20px;
+    padding-bottom: 50px;
+    font-family: 'Roboto';
+    font-size: 18px;
+    color: #212121;
+}
+
+.header-links li{
+    margin: 5px 35px;
+    color: #448AFF;
+    font-size: 30px;
+}
+
+.header-links{
+    -webkit-box-shadow: 0px 30px 50px -20px rgba(33, 33, 33, 0.25);
+    -moz-box-shadow:    0px 30px 50px -20px rgba(33, 33, 33, 0.25);
+    box-shadow:         0px 30px 50px -20px rgba(33, 33, 33, 0.25);
+
+    margin-bottom: 60px;
+}
+
+.title{
+    font-family: 'Bungee';
+    font-size: 60px;
+    color: #8BC34A;
+}
+
+.fact-text{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+hr{
+    border-top: 1px solid #BDBDBD !important;
+}

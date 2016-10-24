@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+<body ng-app="gyrApp">
+    <div class="loader">
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
+    <div ng-controller="QuizController">
+        Hello {{data.message}}!
+        <br>
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" onclick="$('#modal1').openModal();">YES!!! DO THE QUIZ!</a><br>
+
+
+        <div id="modal1" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <form id="quiz">
+                    <h4>{{data.quiz.title}}</h4>
+                    <ol>
+                        <li align="left" ng-repeat="q in data.quiz.questions">
+                            <h6 align="left">{{q.label}}</h6>
+                            <div ng-repeat="a in q.answers">
+                                <input type="{{q.type}}" name="{{q.id}}" id="{{q.id}}-{{a.id}}" value="{{a.value}}" />
+                                <label for="{{q.id}}-{{a.id}}" align="left">{{a.label}}</label>
+                            </div>
+                        </li>
+                    </ol>
+                    <input type="submit" value="Submit Quiz" class="btn" />
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Thanks!</a>
+            </div>
+        </div>
+
+        <!-- include script tags -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+        <!-- This page's angular set-up -->
+        <script>
+            function httpService($http) {
+                this.get = function(url) {
+                    return $http.get(url);
+                }
+                this.post = function(url, data) {
+                    return $http.post(url, data);
+                }
+            }
+            angular.module('gyrApp', []).service('httpService', httpService)
+                .controller('QuizController', function($scope, httpService) {
+
+
+                    $scope.data = {};
+                    $scope.data.questions = [];
+                    httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuizController")
+                        .then(function(response) {
+                            $scope.data = response.data;
+                        });
+
+                });
+        </script>
+</body>
+
+</html>

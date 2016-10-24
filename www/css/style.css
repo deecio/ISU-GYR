@@ -1,0 +1,84 @@
+body {
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.item-thumbnail {
+    width: 85px;
+}
+
+#draggable-menu-wrapper {
+    width: 400px;
+    position: absolute !important;
+    right: 20%;
+    top: 38%;
+}
+
+.canvas-container {
+    background-color: transparent;
+    width: 600px;
+    height: 600px;
+    position: absolute !important;
+    top: 70%;
+    left: 45%;
+    margin-left: -400px;
+    margin-top: -300px;
+}
+
+canvas {
+    border: 1px solid lightgray;
+}
+
+
+/*#imageDialog {
+    background-color: green;
+    font-size: 10px;
+    font-family: "Times New Roman", Times, serif;
+    color: #fff;
+    border-radius: 7px;
+    padding: 5px 5px;
+}
+
+#imageDialog::after {
+    content: "";
+    position: absolute;
+    top: 80%;
+    right: 100%;
+    margin-top: -6px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent green transparent transparent;
+}*/
+
+.tooltip {
+    margin: 8px;
+    padding: 8px;
+    border: 1px solid blue;
+    color: #fff;
+    font-family: "Times New Roman", Times, serif;
+    background-color: green;
+    position: absolute;
+    z-index: 2;
+}
+
+#theimg {
+    margin: 8px;
+    padding: 8px;
+    background-color: lightgreen;
+    position: absolute;
+    z-index: 2;
+}
+
+#images div {
+    border-top: 1px solid green;
+    border: 1px solid green;
+    height: 150px;
+    overflow: scroll;
+}
+
+#images h2 {
+    text-align: center;
+    background-color: antiquewhite;
+    font-family: "Times New Roman", Times, serif;
+    color: forestgreen;
+}
