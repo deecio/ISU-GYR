@@ -1,0 +1,27 @@
+{
+  "name": "gyr-backend",
+  "version": "1.0.0",
+  "description": "Backend.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/briannagerads/ISU-GYR.git"
+  },
+  "keywords": [
+    "blah",
+    "pleh"
+  ],
+  "author": "bgerads",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/briannagerads/ISU-GYR/issues"
+  },
+  "homepage": "https://github.com/briannagerads/ISU-GYR#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mysql": "^2.11.1"
+  }
+}

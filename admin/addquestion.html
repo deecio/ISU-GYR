@@ -164,33 +164,51 @@ h3 code{
                 <div class="col-lg-12 text-center">
 
 
-			<h3> Manage Quiz</h3>
+			<h3> Manage Quizzes</h3>
 			<!-- <a class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">+</i></a> -->
 			<ul class="pagination">
-			    <li class="disabled"><a href="addquestion.html"><i class="material-icons"><</i></a></li>
-			    <li class="active"><a href="addquestion.html">Add Question</a></li>
+			    <li class="waves-effect"><a href="viewquizzes.html"><i class="material-icons"><</i></a></li>
+					<li class="waves-effect"><a href="viewquizzes.html">View Quizzes</a></li>
+					<li class="active"><a href="addquestion.html">Add Question</a></li>
+					<!-- <li class="active"><a class='dropdown-button btn' href='#' data-activates='typeofquestion'>Add Question</a></li> -->
 			    <li class="waves-effect"><a href="managequestions.html">View/Manage Q&amp;A</a></li>
 			    <li class="waves-effect"><a href="managequestions.html"><i class="material-icons">></i></a></li>
 			  </ul>
 
-			<div class="row">
-					<form class="col s12">
-						<div class="row">
-							<div class="input-field col s6">
-								<input placeholder="Question ..." id="fact_title" type="text" class="validate">
-								<label for="fact_title">Quiz Question</label>
+					<!-- Dropdown Question Type -->
+					<div class="input-field col s12">
+					    <select id="mySelect">
+					      <option value="" disabled selected>Choose your option</option>
+					      <option value="1">Checkboxes</option>
+					      <option value="2">Multiple Choice</option>
+					    </select>
+					    <label>Question Type</label>
+					  </div>
+						<br>
+					<a class="waves-effect waves-light btn" onlick="multChoice()">Generate</a>
+					<br>
+
+
+					<div class="row">
+						<form class="col s12">
+							<div class="row">
+								<div class="input-field col s6">
+									<input placeholder="Question ..." id="fact_title" type="text" class="validate">
+									<label for="fact_title">Quiz Question</label>
+								</div>
 							</div>
-						</div>
-						<!-- needs further editing for multiple answers -->
-						<div class="row">
-										<div class="input-field col s12">
-											<textarea id="fact_description" class="materialize-textarea"></textarea>
-											<label for="fact_description">Quiz Answers</label>
-										</div>
-						</div>
-						<tr>
-							<td class="submit-button-right" colspan="2"><input class="submit-text" type="submit" value="Add Question" /></td>
-						</tr>
+
+							<p id="questiontypehere"></p>
+							<!-- needs further editing for multiple answers -->
+							<div class="row">
+											<div class="input-field col s12">
+												<textarea id="fact_description" class="materialize-textarea"></textarea>
+												<label for="fact_description">Quiz Answers</label>
+											</div>
+							</div>
+							<tr>
+								<td class="submit-button-right" colspan="2"><input class="submit-text" type="submit" value="Add Question" /></td>
+							</tr>
 					</form>
 				</div>
 
@@ -288,8 +306,31 @@ h3 code{
 			panes.eq(tabs.index(tabs.filter('.active'))).addClass('active');
 		}
 	});
-});</script>
-
+});
+/* Activate the dropdown*/
+$(document).ready(function() {
+    $('select').material_select();
+  });
+	/* Create html string in js */
+	function create(htmlStr) {
+    var frag = document.createDocumentFragment(),
+        temp = document.createElement('div');
+    temp.innerHTML = htmlStr;
+    while (temp.firstChild) {
+        frag.appendChild(temp.firstChild);
+    }
+    return frag;
+}
+/* generate question type upon drowdown seletion */
+var checkboxes = create('<div>Hello!</div><p>...</p>');
+	function multChoice() {
+			var x = document.getElementById("mySelect");
+			if (x = "1") document.getElementById("questiontypehere").innerHTML = x;
+			if (x = "2") document.getElementById("questiontypehere").innerHTML = x;
+	}
+</script>
+<script>
+</script>
 
 </body>
 </html>

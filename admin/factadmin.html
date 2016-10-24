@@ -181,12 +181,17 @@ h3 code{
 								<label for="fact_title">Fact Title</label>
 							</div>
 						</div>
-						<div class="row">
-							<div class="input-field col s6">
-								<input id="image_upload" type="text" class="validate">
-								<label for="image_upload">Upload Image</label>
-							</div>
-						</div>
+						<form action="#">
+					    <div class="file-field input-field">
+								<div class="btn">
+					        <span>Upload Image</span>
+					        <input type="file">
+					      </div>
+					      <div class="file-path-wrapper">
+					        <input class="file-path validate" type="text">
+					      </div>
+					    </div>
+					  </form>
 						<div class="row">
 										<div class="input-field col s12">
 											<textarea id="fact_description" class="materialize-textarea"></textarea>
