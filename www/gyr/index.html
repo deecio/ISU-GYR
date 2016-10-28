@@ -2,11 +2,11 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
-    <script type="text/javascript" charset="utf-8" src="./js/jquery-ui.js"></script>
-    <script type="text/javascript" charset="utf-8" src="./js/gyr.js"></script>
-    <script type="text/javascript" charset="utf-8" src="./js/fabric.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/gyr.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/fabric.min.js"></script>
     <link href="css/baseV4.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" media="all" rel="stylesheet">
     <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
@@ -121,16 +121,16 @@
                                 <a class="wd-Navigation-link is-active" href="#">Home</a>
                             </li>
                             <li class="wd-Navigation-node">
-                                <a class="wd-Navigation-link" href="../ShoppingCartPage/ShoppingCart.html">Savings Cart</a>
+                                <a class="wd-Navigation-link" href="ShoppingCartPage/ShoppingCart.html">Savings Cart</a>
                             </li>
                             <li class="wd-Navigation-node">
-                                <a class="wd-Navigation-link" href="../information.html">Information</a>
+                                <a class="wd-Navigation-link" href="information.html">Information</a>
                             </li>
                             <li class="wd-Navigation-node">
-                                <a class="wd-Navigation-link" href="../quiz/results.php">Quiz Results</a>
+                                <a class="wd-Navigation-link" href="results.php">Quiz Results</a>
                             </li>
                             <li class="wd-Navigation-node">
-                                <a class="wd-Navigation-link" href="../FactPage.html">Trivia</a>
+                                <a class="wd-Navigation-link" href="FactPage.html">Trivia</a>
                             </li>
                         </ul>
                     </div>
@@ -146,84 +146,24 @@
         </div>
     </div>
 
-
-    <body ng-app="gyrApp"> <center>
-        <div class="loader">
-            <div class="progress">
-                <div class="indeterminate"></div>
-            </div>
-        </div>
-        <div ng-controller="QuizController">
-            Hello {{data.message}}!
-            <br>
-            <!-- Modal Trigger -->
-            <a class="waves-effect waves-light btn modal-trigger" onclick="$('#modal1').openModal();">YES!!! DO THE QUIZ!</a><br>
-
-
-            <div id="modal1" class="modal modal-fixed-footer">
-                <div class="modal-content">
-                    <form id="quiz">
-                        <h4>{{data.quiz.title}}</h4>
-                        <ol>
-                            <li align="left" ng-repeat="q in data.quiz.questions">
-                                <h6 align="left">{{q.label}}</h6>
-                                <div ng-repeat="a in q.answers">
-                                    <input type="{{q.type}}" name="{{q.id}}" id="{{q.id}}-{{a.id}}" value="{{a.value}}" />
-                                    <label for="{{q.id}}-{{a.id}}" align="left">{{a.label}}</label>
-                                </div>
-                            </li>
-                        </ol>
-                        <input type="submit" value="Submit Quiz" class="btn" />
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Thanks!</a>
-                </div>
-            </div>
-
-            <!-- include script tags -->
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-            <!-- Compiled and minified CSS -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
-            <!-- Compiled and minified JavaScript -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-
-            <!-- This page's angular set-up -->
-            <script>
-                function httpService($http) {
-                    this.get = function(url) {
-                        return $http.get(url);
-                    }
-                    this.post = function(url, data) {
-                        return $http.post(url, data);
-                    }
-                }
-                angular.module('gyrApp', []).service('httpService', httpService)
-                    .controller('QuizController', function($scope, httpService) {
-
-
-                        $scope.data = {};
-                        $scope.data.questions = [];
-                        httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuizController")
-                            .then(function(response) {
-                                $scope.data = response.data;
-                            });
-
-                    });
-            </script> </center>
-    </body>
-
     <header>
         <h1><center>
             <img src="img/title.PNG"/>
         </center></h1>
     </header>
+    <p>Width(in foot)
+        <input type="number" min="5" id="width" />
+    </p>
+    <p>Height(in foot)
+        <input type="number" min="5" id="height" />
+    </p>
     <div id="canvas-container">
         <canvas id="c" width="600" height="600"></canvas>
     </div>
+    <button id="myButton" type="button" onclick="draw()">Generate Floorplan</button>
+    <p>
+        <h1 id="h1"></h1>
+    </p>
     <div id="draggable-menu-wrapper">
         <div id="images">
             <h2><Strong>Basics</Strong></h2>
@@ -289,42 +229,23 @@
     </div>
 
     <script>
+        var grid = 50;
+        var width = document.getElementById("width").value * 50;
+        var height = document.getElementById("height").value * 50;
         var canvas = new fabric.Canvas('c', {
             selection: false
         });
-
-        var grid = 50;
-        for (var i = 0; i < (600 / grid); i++) {
-            canvas.add(new fabric.Line([i * grid, 0, i * grid, canvas.height], {
-                stroke: 'lightgray',
-                selectable: false,
-                hasControls: false,
-                hoverCursor: 'default'
-            }));
-            canvas.add(new fabric.Line([0, i * grid, canvas.width, i * grid], {
-                stroke: 'lightgray',
-                selectable: false,
-                hasControls: false,
-                hoverCursor: 'default'
-            }));
-        }
-
         canvas.on('mouse:over', function (e) {
             var objs = canvas.getObjects();
-            for (var i = objs.length; i > 23; i--) {
+            for (var i = objs.length; i > width + height; i--) {
                 if (e.target == objs[i]) {
-                    //showImageTools(e.target);
                     showTooltip(e.target);
                 }
             }
         });
-
         canvas.on('mouse:out', function (e) {
-            //$('#imageDialog').remove();
-            //$('div.tooltip').remove();
             $('#theimg').remove();
         });
-
         canvas.on('object:moving', function (e) {
             var obj = e.target;
             obj.set({
@@ -341,79 +262,60 @@
                 obj.left = Math.min(obj.left, obj.canvas.width - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
             }
         });
-
-
+        function draw() {
+            var width = document.getElementById("width").value;
+            var height = document.getElementById("height").value;
+            for (var i = 0; i <= width; i++) {
+                canvas.add(new fabric.Line([i * grid, 0, i * grid, (height * grid)], {
+                    stroke: 'lightgray',
+                    selectable: false,
+                    hasControls: false,
+                    hoverCursor: 'default'
+                }));
+            }
+            for (var i = 0; i <= height; i++) {
+                canvas.add(new fabric.Line([0, i * grid, (width * grid), i * grid], {
+                    stroke: 'lightgray',
+                    selectable: false,
+                    hasControls: false,
+                    hoverCursor: 'default'
+                }));
+            }
+            document.getElementById("h1").innerHTML = width * height + "SqFt";
+        }
         function showTooltip(e) {
-            $('div.tooltip').remove();
             $('#theimg').remove();
             var x = Math.floor(Math.random() * 10);
-            //$('body').append("<div class='tooltip'><strong>CSS only Tooltip</strong></div>");
-            if (e.name == "laundry" || e.name == "bed") $('body').append("<img id='theimg' src='img/laundry_tip.png' />");
-            else if (e.name == "electronics" || e.name == "lighting" || e.name == "kitchen") {
+            if (e.name == "laundry" || e.name == "bed") {
+                $('body').append("<img id='theimg' src='img/laundry_tip.png' />");
+            } else if (e.name == "electronics" || e.name == "lighting" || e.name == "kitchen") {
                 if (x % 2 == 0)
-                    $('body').append("<img id='theimg' src='img/laundry_tip.png' />");
+                    $('body').append("<img id='theimg' src='img/elec_tip.png' />");
                 else
                     $('body').append("<img id='theimg' src='img/buy_tip.png' />");
             }
             changeTooltipPosition(e);
         }
-
         function changeTooltipPosition(e) {
-            var tooltipX = event.pageX - 8;
-            var tooltipY = event.pageY + 8;
-            /*$('div.tooltip').css({
-                top: tooltipY,
-                left: tooltipX
-            });*/
-            $('#theimg').css({
-                top: tooltipY,
-                left: tooltipX
-            });
-        }
-
-        /*        function showImageTools(e) {
-                    if (!$('#imageDialog').length) {
-                        $('body').append("<div id='imageDialog' style='position: absolute; top: 0; left: 0' ><h1>" + e.name + "</h1></div>");
-                    }
-                    moveImageTools(e);
-                }*/
-
-        /*function moveImageTools(e) {
-            var w = $('#imageDialog').width();
-            var h = $('#imageDialog').height();
-            var coords = getObjPosition(e);
-            console.log('coords', coords);
-            var top = coords.bottom - h - 70;
-            var left = coords.right;
-            $('#imageDialog').show();
-            $('#imageDialog').css({
-                top: top,
-                left: left
-            });
-        }*/
-
-        function getObjPosition(e) {
+            //var tooltipX = e.pageX + 30;
+            //var tooltipY = e.pageY + 30;
             var rect = e.getBoundingRect();
             var offset = canvas.calcOffset();
             var bottom = offset._offset.top + rect.top + rect.height;
             var right = offset._offset.left + rect.left + rect.width;
-            var left = offset._offset.left + rect.left;
-            var top = offset._offset.top + rect.top;
-            return {
-                left: left,
+            var left = offset._offset.left + rect.left + 90;
+            var top = offset._offset.top + rect.top - 120;
+            $('#theimg').css({
                 top: top,
-                right: right,
-                bottom: bottom
-            };
+                left: left
+            });
         }
-
         function handleDragStart(e) {
     [].forEach.call(images, function (img) {
                 img.classList.remove('img_dragging');
             });
             this.classList.add('img_dragging');
         }
-
         function handleDragOver(e) {
             if (e.preventDefault) {
                 e.preventDefault();
@@ -421,41 +323,38 @@
             e.dataTransfer.dropEffect = 'copy';
             return false;
         }
-
         function handleDragEnter(e) {
             this.classList.add('over');
         }
-
         function handleDragLeave(e) {
             this.classList.remove('over');
         }
-
         function handleDrop(e) {
             if (e.stopPropagation) {
                 e.stopPropagation();
             }
-            var mouse = canvas.getPointer(event.e);
+            var mouse = canvas.getPointer(e.e);
             var posx = mouse.x;
             var posy = mouse.y;
             var img = document.querySelector('#images img.img_dragging');
             if (img.id == "bed") {
                 var newImage = new fabric.Image(img, {
                     name: img.id,
-                    width: 300,
-                    height: 300,
+                    width: 250,
+                    height: 350,
                     left: posx / 2,
                     top: posy / 2,
-                    hasControls: false,
+                    hasControls: true,
                     hasBorders: false
                 });
             } else if (img.id == "wardrobe") {
                 var newImage = new fabric.Image(img, {
                     name: img.id,
-                    width: 150,
-                    height: 250,
+                    width: 200,
+                    height: 300,
                     left: posx - 50,
                     top: posy - 30,
-                    hasControls: false,
+                    hasControls: true,
                     hasBorders: false
                 });
             } else if (img.id == "laundry") {
@@ -465,7 +364,7 @@
                     height: 150,
                     left: posx - 50,
                     top: posy - 30,
-                    hasControls: false,
+                    hasControls: true,
                     hasBorders: false
                 });
             } else if (img.id == "kitchen") {
@@ -475,7 +374,7 @@
                     height: 50,
                     left: posx - 50,
                     top: posy - 30,
-                    hasControls: false,
+                    hasControls: true,
                     hasBorders: false
                 });
             } else if (img.id == "electronics") {
@@ -485,41 +384,38 @@
                     height: 100,
                     left: posx - 50,
                     top: posy - 30,
-                    hasControls: false,
+                    hasControls: true,
                     hasBorders: false
                 });
             } else if (img.id == "desk") {
                 var newImage = new fabric.Image(img, {
                     name: img.id,
                     width: 200,
-                    height: 100,
+                    height: 150,
                     left: posx - 100,
                     top: posy - 30,
-                    hasControls: false,
+                    hasControls: true,
                     hasBorders: false
                 });
             } else if (img.id == "lighting") {
                 var newImage = new fabric.Image(img, {
                     name: img.id,
-                    width: 100,
+                    width: 50,
                     height: 100,
                     left: posx - 25,
                     top: posy - 30,
-                    hasControls: false,
+                    hasControls: true,
                     hasBorders: false
                 });
             }
-
             canvas.add(newImage);
             return false;
         }
-
         function handleDragEnd(e) {
     [].forEach.call(images, function (img) {
                 img.classList.remove('img_dragging');
             });
         }
-
         var images = document.querySelectorAll('#images img');
     [].forEach.call(images, function (img) {
             img.addEventListener('dragstart', handleDragStart, false);
@@ -530,10 +426,7 @@
         canvasContainer.addEventListener('dragover', handleDragOver, false);
         canvasContainer.addEventListener('dragleave', handleDragLeave, false);
         canvasContainer.addEventListener('drop', handleDrop, false);
-
         canvas.on('object:selected', function (e) {
-            //$('#imageDialog').remove();
-            //$('div.tooltip').remove();
             $('#theimg').remove();
             jQuery(".deleteBtn").remove();
             var btnLeft = e.target.oCoords.mt.x;
@@ -543,13 +436,11 @@
             var deleteBtn = '<p" class="deleteBtn" title="Remove" style="position:absolute;top:' + btnTop + 'px;left:' + btnLeft + 'px;cursor:pointer;" title="Remove object">&#10005;</p>';
             jQuery(".canvas-container").append(deleteBtn);
         });
-
         canvas.on('mouse:down', function (e) {
             if (canvas.getActiveObject()) {} else {
                 jQuery(".deleteBtn").remove();
             }
         });
-
         canvas.on('object:modified', function (e) {
             jQuery(".deleteBtn").remove();
             var btnLeft = e.target.oCoords.mt.x;
@@ -559,11 +450,9 @@
             var deleteBtn = '<p" class="deleteBtn" title="Remove" style="position:absolute;top:' + btnTop + 'px;left:' + btnLeft + 'px;cursor:pointer;" title="Remove object">&#10005;</p>';
             jQuery(".canvas-container").append(deleteBtn);
         });
-
         canvas.on('object:moving', function (e) {
             jQuery(".deleteBtn").remove();
         });
-
         jQuery(document).on('click', ".deleteBtn", function () {
             if (canvas.getActiveObject()) {
                 canvas.remove(canvas.getActiveObject());
