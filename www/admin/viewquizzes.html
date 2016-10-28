@@ -194,7 +194,7 @@ h3 code{
 						        </thead>
 
 					        <tbody>
-					          <tr ng-repeat="q in db_result">
+					          <tr ng-repeat="q in data.db_result">
 					            <td>{{q.title}}</td>
 					            <td>{{q.quizid}}</td>
 					          </tr>
@@ -230,6 +230,7 @@ h3 code{
 															// This is where the response is received v
 																	.then(function(rtn) {
 																			$.extend($scope, rtn);
+																			console.log("/QuizViewerDB Response", $scope);
 																	});
 
 													});
