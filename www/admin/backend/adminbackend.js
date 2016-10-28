@@ -39,6 +39,21 @@ var rtn = {};
 
 };
 
+module.exports.showquizzes = function(req, res){
+var rtn = {};
+        function showquizzes(err, result, fields) {
+            rtn.db_result = result;
+            if (err)
+                rtn.error = err;
+            rtn.ready = true;
+            res.json(rtn);
+        }
+        database.query('SELECT q.`quizid`, n.`label`, n.`qid`, n.`type` FROM `quiz` as q JOIN `question` as n WHERE n.`quizid` = q.`quizid`;', showquizzes);
+
+
+
+};
+
 module.exports.getinformation = function(req,res){
-  
+
 }
