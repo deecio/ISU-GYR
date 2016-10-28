@@ -62,8 +62,9 @@
                     $scope.data = {};
                     $scope.data.questions = [];
                     httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuizController")
-                        .then(function(response) {
-                            $scope.data = response.data;
+                    // This is where the response is received v
+                        .then(function(rtn) {
+                            $scope.data = rtn.data;
                         });
 
                 });

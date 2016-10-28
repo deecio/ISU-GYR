@@ -1,0 +1,9 @@
+{
+  "quizzes": [{
+      "title": "How Green are You?",
+      "quizid":"quiz1"
+      }, {
+      "title": "What Have You Learned?",
+      "quizid":"quiz2"
+        }]
+  }
