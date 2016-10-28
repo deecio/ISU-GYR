@@ -235,7 +235,6 @@
         var canvas = new fabric.Canvas('c', {
             selection: false
         });
-
         canvas.on('mouse:over', function (e) {
             var objs = canvas.getObjects();
             for (var i = objs.length; i > width + height; i--) {
@@ -244,12 +243,9 @@
                 }
             }
         });
-
         canvas.on('mouse:out', function (e) {
             $('#theimg').remove();
         });
-
-
         canvas.on('object:moving', function (e) {
             var obj = e.target;
             obj.set({
@@ -266,8 +262,6 @@
                 obj.left = Math.min(obj.left, obj.canvas.width - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
             }
         });
-
-
         function draw() {
             var width = document.getElementById("width").value;
             var height = document.getElementById("height").value;
@@ -289,7 +283,6 @@
             }
             document.getElementById("h1").innerHTML = width * height + "SqFt";
         }
-
         function showTooltip(e) {
             $('#theimg').remove();
             var x = Math.floor(Math.random() * 10);
@@ -303,7 +296,6 @@
             }
             changeTooltipPosition(e);
         }
-
         function changeTooltipPosition(e) {
             //var tooltipX = e.pageX + 30;
             //var tooltipY = e.pageY + 30;
@@ -318,14 +310,12 @@
                 left: left
             });
         }
-
         function handleDragStart(e) {
     [].forEach.call(images, function (img) {
                 img.classList.remove('img_dragging');
             });
             this.classList.add('img_dragging');
         }
-
         function handleDragOver(e) {
             if (e.preventDefault) {
                 e.preventDefault();
@@ -333,15 +323,12 @@
             e.dataTransfer.dropEffect = 'copy';
             return false;
         }
-
         function handleDragEnter(e) {
             this.classList.add('over');
         }
-
         function handleDragLeave(e) {
             this.classList.remove('over');
         }
-
         function handleDrop(e) {
             if (e.stopPropagation) {
                 e.stopPropagation();
@@ -421,17 +408,14 @@
                     hasBorders: false
                 });
             }
-
             canvas.add(newImage);
             return false;
         }
-
         function handleDragEnd(e) {
     [].forEach.call(images, function (img) {
                 img.classList.remove('img_dragging');
             });
         }
-
         var images = document.querySelectorAll('#images img');
     [].forEach.call(images, function (img) {
             img.addEventListener('dragstart', handleDragStart, false);
@@ -442,7 +426,6 @@
         canvasContainer.addEventListener('dragover', handleDragOver, false);
         canvasContainer.addEventListener('dragleave', handleDragLeave, false);
         canvasContainer.addEventListener('drop', handleDrop, false);
-
         canvas.on('object:selected', function (e) {
             $('#theimg').remove();
             jQuery(".deleteBtn").remove();
@@ -453,13 +436,11 @@
             var deleteBtn = '<p" class="deleteBtn" title="Remove" style="position:absolute;top:' + btnTop + 'px;left:' + btnLeft + 'px;cursor:pointer;" title="Remove object">&#10005;</p>';
             jQuery(".canvas-container").append(deleteBtn);
         });
-
         canvas.on('mouse:down', function (e) {
             if (canvas.getActiveObject()) {} else {
                 jQuery(".deleteBtn").remove();
             }
         });
-
         canvas.on('object:modified', function (e) {
             jQuery(".deleteBtn").remove();
             var btnLeft = e.target.oCoords.mt.x;
@@ -469,11 +450,9 @@
             var deleteBtn = '<p" class="deleteBtn" title="Remove" style="position:absolute;top:' + btnTop + 'px;left:' + btnLeft + 'px;cursor:pointer;" title="Remove object">&#10005;</p>';
             jQuery(".canvas-container").append(deleteBtn);
         });
-
         canvas.on('object:moving', function (e) {
             jQuery(".deleteBtn").remove();
         });
-
         jQuery(document).on('click', ".deleteBtn", function () {
             if (canvas.getActiveObject()) {
                 canvas.remove(canvas.getActiveObject());

@@ -13,14 +13,6 @@ con.connect(function(err){
   console.log('[Database]: Connection established');
 });
 
-
-// con.query('SELECT * FROM employees',function(err,rows){
-//   if(err) throw err;
-//
-//   console.log('Data received from Db:\n');
-//   console.log(rows);
-// });
-
 /**
  * Usage queryText="SELECT * FROM...." & func = function(err, rows){}
  */

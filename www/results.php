@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if lte IE 7]>     <html lang="en-us" class="lt-ie10 lt-ie9 lt-ie8">  <![endif]-->
 <!--[if IE 8]>         <html lang="en-us" class="lt-ie10 lt-ie9">         <![endif]-->
 <!--[if IE 9]>         <html lang="en-us" class="lt-ie10">                <![endif]-->
@@ -169,23 +169,18 @@ h3 code{
 											<h1>How Green Are You?</h1>
 
 									        <?php
-
 									            $answer1 = $_POST['question-1-answers'];
 									            $answer2 = $_POST['question-2-answers'];
 									            $answer3 = $_POST['question-3-answers'];
 									            $answer4 = $_POST['question-4-answers'];
 									            $answer5 = $_POST['question-5-answers'];
-
 									            $totalCorrect = 0;
-
 									            if ($answer1 == "A") { $totalCorrect++; }
 									            if ($answer2 == "A" || $answer2 == "B" || $answer2 == "C" || $answer2 == "D" ||$answer2 == "E" ) { $totalCorrect++; }
 									            if ($answer3 == "C") { $totalCorrect++; }
 									            if ($answer4 == "B") { $totalCorrect++; }
 									            if ($answer5) { $totalCorrect++; }
-
 									            echo "<div id='results'>Your Green Score: $totalCorrect</div>";
-
 									        ?>
 
 										</div>
@@ -258,10 +253,8 @@ h3 code{
 			{
 				tabs.removeClass('active');
 				tab.addClass('active');
-
 				panes.removeClass('active');
 				panes.eq(i).addClass('active');
-
 				return false;
 			});
 		});
