@@ -1,0 +1,26 @@
+Quizzes
+{
+    "title": "How Green are You?",
+    "id":"quiz1",
+    "questions": [{
+        "type": "radio",
+        "id": "q1",
+        "label": "Do you remember to turn off lights when the space is unoccupied?",
+        "answers": [{
+            "id": 0,
+            "value": "a",
+            "label": "Always",
+            "score": 3
+        }, {
+            "id": 1,
+            "value": "b",
+            "label": "Sometimes",
+            "score": 2
+        }, {
+            "id": 2,
+            "value": "c",
+            "label": "Never",
+            "score": 1
+        }]
+    }]
+  }
