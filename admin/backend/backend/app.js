@@ -17,7 +17,8 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-app.get('/QuizControllerDB', require('./quizbackend'));
+//View Quizzes and their questions
+app.get('/QuizControllerDB', require('./adminbackend'));
 
 app.get('/QuizController', function(req, res){
   console.log('QuizController')
@@ -29,12 +30,25 @@ app.get('/QuizController', function(req, res){
   res.json(rtn);
 });
 
-app.get('/QuizViewerDB', require('./quizbackend'));
+//View Quizzes
+app.get('/QuizViewerDB', require('./adminbackend'));
 
 app.get('/QuizViewer', function(req, res){
   console.log('QuizViewer')
   var rtn = {};//init an object to return
   rtn.quiz = JSON.parse(fs.readFileSync('sample_quiz.json'));
+
+//return the object in json format.
+  res.json(rtn);
+});
+
+//View Information
+app.get('/InformationViewerDB', require('./adminbackend'));
+
+app.get('/InformationViewer', function(req, res){
+  console.log('InformationViewer')
+  var rtn = {};//init an object to return
+  rtn.quiz = JSON.parse(fs.readFileSync('sample_information.json'));
 
 //return the object in json format.
   res.json(rtn);
