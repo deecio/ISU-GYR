@@ -50,7 +50,7 @@ app.get('/InformationViewerDB', adminbackend.getinformation);
 app.get('/InformationViewer', function(req, res){
   console.log('InformationViewer')
   var rtn = {};//init an object to return
-  rtn.quiz = JSON.parse(fs.readFileSync('sample_information.json'));
+  rtn.information = JSON.parse(fs.readFileSync('sample_information.json'));
 
 //return the object in json format.
   res.json(rtn);
