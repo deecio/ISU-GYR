@@ -38,3 +38,7 @@ var rtn = {};
 
 
 };
+
+module.exports.getinformation = function(req,res){
+  
+}
