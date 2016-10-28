@@ -1,5 +1,7 @@
 var database = require('./database');
-module.exports = function(req, res){
+module.exports = {};
+
+module.exports.populatequiz = function(req, res){
 var rtn = {};
         function populatequiz(err, result, fields) {
             rtn.db_result = result;
@@ -10,7 +12,7 @@ var rtn = {};
                     code: 1001,
                     message: 'failed to retrieve quiz information'
                 }
-                console.log("/vote/" + uid + "/" + dir + " - ", result);
+                //console.log("/vote/" + uid + "/" + dir + " - ", result);
             }
             rtn.ready = true;
             res.json(rtn);
@@ -22,18 +24,12 @@ var rtn = {};
 };
 
 
-module.exports = function(req, res){
+module.exports.getquizzes = function(req, res){
 var rtn = {};
         function getquizzes(err, result, fields) {
             rtn.db_result = result;
             if (err)
                 rtn.error = err;
-            if (result.changedRows < 1) {
-                rtn.error = {
-                    code: 1001,
-                    message: 'failed to retrieve quiz information'
-                }
-            }
             rtn.ready = true;
             res.json(rtn);
         }
