@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var database = require('./database');
 var fs = require('fs');
+var adminbackend = require('./adminbackend');
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://greenyourresidence.ece.iastate.edu');
@@ -18,7 +19,7 @@ app.get('/', function (req, res) {
 });
 
 //View Quizzes and their questions
-app.get('/QuizControllerDB', require('./adminbackend'));
+app.get('/QuizControllerDB', adminbackend.populatequiz);
 
 app.get('/QuizController', function(req, res){
   console.log('QuizController')
@@ -31,7 +32,7 @@ app.get('/QuizController', function(req, res){
 });
 
 //View Quizzes
-app.get('/QuizViewerDB', require('./adminbackend').getquizzes);
+app.get('/QuizViewerDB', adminbackend.getquizzes);
 
 app.get('/QuizViewer', function(req, res){
   console.log('QuizViewer')
@@ -43,7 +44,7 @@ app.get('/QuizViewer', function(req, res){
 });
 
 //View Information
-app.get('/InformationViewerDB', require('./adminbackend'));
+app.get('/InformationViewerDB', adminbackend.getinformation);
 
 app.get('/InformationViewer', function(req, res){
   console.log('InformationViewer')
