@@ -55,5 +55,14 @@ var rtn = {};
 };
 
 module.exports.getinformation = function(req,res){
+  var rtn = {};
+          function getinformation(err, result, fields) {
+              rtn.db_result = result;
+              if (err)
+                  rtn.error = err;
+              rtn.ready = true;
+              res.json(rtn);
+          }
+          database.query('SELECT * FROM `information`;', getinformation);
 
 }

@@ -175,7 +175,7 @@ h3 code{
       				 </nav>
       				<hr> <br>
 
-              <div ng-controller="InformationViewer">
+              <div ng-controller="InformationViewerDB">
                   <br>
                   <table class="bordered highlight responsive-table text-darken-2 flow-text">
                     <thead>
@@ -186,7 +186,7 @@ h3 code{
                     </thead>
 
                   <tbody>
-                    <tr ng-repeat="i in data.quiz.information">
+                    <tr ng-repeat="i in data.db_result">
                       <td>{{i.title}}</td>
                       <td>{{i.hyperlink}}</td>
                     </tr>
@@ -213,12 +213,12 @@ h3 code{
                           }
                       }
                       angular.module('gyrApp', []).service('httpService', httpService)
-                          .controller('InformationViewer', function($scope, httpService) {
+                          .controller('InformationViewerDB', function($scope, httpService) {
 
 
                               $scope.data = {};
                               $scope.data.questions = [];
-                              httpService.get("http://greenyourresidence.ece.iastate.edu:3000/InformationViewer")
+                              httpService.get("http://greenyourresidence.ece.iastate.edu:3000/InformationViewerDB")
                               // This is where the response is received v
                                   .then(function(rtn) {
                                       $scope.data = rtn.data;
