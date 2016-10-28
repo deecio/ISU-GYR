@@ -13,7 +13,6 @@
 <link href="css/sample.css" media="all" rel="stylesheet">
 <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
-<link href="css/TriviaStyle.css" media="all" rel="stylesheet" />
 	<style >pre{
 	background-color: #f5f5f5;
 	border-color: #e7e7e7;
@@ -32,7 +31,7 @@ h3 code{
 }</style>
 	<script >/* html5shiv */ (function(){var t='abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.split(' ');for(var i=t.length;i--;)document.createElement(t[i])})();</script>
 </head>
-<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="FactListApp" ng-controller="FactController">
+<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="gyrApp" ng-controller="InformationViewer">
 <div class="wd-l-Page pwrapper">
 	<div class="wd-l-Page-inner pwrapper-wrapper">
 		<div class="wd-Skip">
@@ -139,7 +138,7 @@ h3 code{
                                     <a class="wd-Navigation-link" href="savingscart.html">Manage Savings Cart</a>
                                 </li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link is-active" href="information.html">Manage Information</a>
+                                    <a class="wd-Navigation-link is-active" href="informationadmin.html">Manage Information</a>
                                 </li>
                                 <li class="wd-Navigation-node">
                                     <a class="wd-Navigation-link" href="factadmin.html">Manage Facts</a>
@@ -150,7 +149,7 @@ h3 code{
                             <option value="index.html">Manage Home</option>
 														<option value="addquestion.html">Manage Quiz</option>
                             <option value="savingscart.html">Manage Savings Cart</option>
-                            <option value="information.html" selected="selected">Manage Information</option>
+                            <option value="informationadmin.html" selected="selected">Manage Information</option>
                             <option value="factadmin.html">Manage Facts</option>
                         </select>
                     </div>
@@ -164,17 +163,17 @@ h3 code{
                 <div class="col-lg-12 text-center">
 
 
-			<h3> View Information </h3>
+      			<h3> View Information </h3>
 
-				<nav>
-					 <div class="nav-wrapper teal lighten-2">
-						 <ul class="center hide-on-med-and-down">
-							 <li><a href="informationadmin.html">Add Hyperlink</a></li>
-							 <li class="active"><a href="manageinformation.html">View/Manage Information</a></li>
-						 </ul>
-					 </div>
-				 </nav>
-				<hr> <br>
+      				<nav>
+      					 <div class="nav-wrapper teal lighten-2">
+      						 <ul class="center hide-on-med-and-down">
+      							 <li><a href="informationadmin.html">Add Hyperlink</a></li>
+      							 <li class="active"><a href="manageinformation.html">View/Manage Information</a></li>
+      						 </ul>
+      					 </div>
+      				 </nav>
+      				<hr> <br>
 
               <div ng-controller="InformationViewer">
                   <br>
@@ -214,12 +213,12 @@ h3 code{
                           }
                       }
                       angular.module('gyrApp', []).service('httpService', httpService)
-                          .controller('QuizViewer', function($scope, httpService) {
+                          .controller('InformationViewer', function($scope, httpService) {
 
 
                               $scope.data = {};
                               $scope.data.questions = [];
-                              httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuizViewer")
+                              httpService.get("http://greenyourresidence.ece.iastate.edu:3000/InformationViewer")
                               // This is where the response is received v
                                   .then(function(rtn) {
                                       $scope.data = rtn.data;
