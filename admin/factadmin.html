@@ -165,19 +165,29 @@ h3 code{
 
 
 			<h3> Manage Facts </h3>
-			<!-- <a class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">+</i></a> -->
+			<!--
 			<ul class="pagination">
 			    <li class="disabled"><a href="factadmin.html"><i class="material-icons"><</i></a></li>
 			    <li class="active"><a href="factadmin.html">Add Fact</a></li>
 			    <li class="waves-effect"><a href="managefacts.html">View/Manage Facts</a></li>
 			    <li class="waves-effect"><a href="managefacts.html"><i class="material-icons">></i></a></li>
-			  </ul>
+			  </ul> -->
+
+				<nav>
+					 <div class="nav-wrapper teal lighten-2">
+						 <ul class="center hide-on-med-and-down">
+							 <li class="active"><a href="factadmin.html">Add Fact</a></li>
+							 <li><a href="managefacts.html">View/Manage Facts</a></li>
+						 </ul>
+					 </div>
+				 </nav>
+				<hr> <br>
 
 			<div class="row">
 					<form class="col s12">
 						<div class="row">
 							<div class="input-field col s6">
-								<input placeholder="Fact" id="fact_title" type="text" class="validate">
+								<input id="fact_title" type="text" class="validate">
 								<label for="fact_title">Fact Title</label>
 							</div>
 						</div>
@@ -198,8 +208,11 @@ h3 code{
 											<label for="fact_description">Fact Description</label>
 										</div>
 						</div>
+						<br> <hr> <br>
 						<tr>
-							<td class="submit-button-right" colspan="2"><input class="submit-text" type="submit" value="Add Fact" /></td>
+							<div class="btn"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
+								<span>Add Fact</span>
+							</div>
 						</tr>
 					</form>
 				</div>
