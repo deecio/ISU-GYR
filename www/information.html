@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if lte IE 7]>     <html lang="en-us" class="lt-ie10 lt-ie9 lt-ie8">  <![endif]-->
 <!--[if IE 8]>         <html lang="en-us" class="lt-ie10 lt-ie9">         <![endif]-->
 <!--[if IE 9]>         <html lang="en-us" class="lt-ie10">                <![endif]-->
@@ -127,7 +127,7 @@ h3 code{
                         <div role="navigation">
                             <ul class="wd-Navigation">
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="gyr/index.html">Home</a>
+                                    <a class="wd-Navigation-link" href="index.html">Home</a>
                                 </li>
                                 <li class="wd-Navigation-node">
                                     <a class="wd-Navigation-link" href="ShoppingCartPage/ShoppingCart.html">Savings Cart</a>
@@ -145,7 +145,7 @@ h3 code{
                         </div>
                         <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
                             <option value="index.html">Home</option>
-                            <option value="savingscart.html" selected="selected">Savings Cart</option>
+                            <option value="ShoppingCartPage/ShoppingCart.html" selected="selected">Savings Cart</option>
                             <option value="information.html">Information</option>
                             <option value="results.php">Quiz Results</option>
                             <option value="FactPage.html">Trivia</option>
@@ -221,10 +221,8 @@ h3 code{
 			{
 				tabs.removeClass('active');
 				tab.addClass('active');
-
 				panes.removeClass('active');
 				panes.eq(i).addClass('active');
-
 				return false;
 			});
 		});
