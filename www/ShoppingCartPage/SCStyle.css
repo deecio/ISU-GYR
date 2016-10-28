@@ -1,5 +1,5 @@
 ﻿body{
-    font-family: 'Lato', sans-serif;
+    font-family: 'ITC Berkeley';
     color: #212121;
 }
 
@@ -12,7 +12,17 @@
     margin: 20px;
 }
 
+.card{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.card-image{
+    padding-bottom: 10px;
+}
+
 .screen-title{
+    font-family: 'Univers', sans-serif;
     text-align: center;
 }
 
@@ -35,16 +45,27 @@
 }
 
 .btn {
-    background-color: #8BC34A !important;
+    font-family: 'Univers', sans-serif;
+    background-color: #7BA643 !important;
 }
 .btn:hover{
-    background-color: #689F38 !important;
+    color: #FFFFFF !important;
+    background-color: #0C5030 !important;
 }
 
 .shop-screen{
     margin-top: 40px;
 }
 
-.Calculator h2{
-    text-align: center;
+.Calculator h3{
+    font-size: 30px;
+    font-family: 'Univers', sans-serif;
+}
+
+.history{
+    font-size: 20px;
+}
+
+.Calculator .screen-title{
+    font-size: 50px;
 }

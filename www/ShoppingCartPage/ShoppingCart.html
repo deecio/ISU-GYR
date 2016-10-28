@@ -137,7 +137,7 @@
     <!--Screen 1: User selects category for currently-owned item to be replaced-->
     <div class="shop-screen StartShopScreen">
         <h2 class="screen-title">
-            What are you looking to replace?
+            Step 1: What kind of item are you looking to replace?
         </h2>
 
         <div class="container">
@@ -153,7 +153,7 @@
     <!--Screen 2: Populate the screen with a scolling list of all the items of the selected category from Screen 1-->
     <div class="shop-screen InitItemScreen">
         <h2 class="screen-title">
-            Select your item
+            Step 2: Select the item you currently own:
         </h2>
 
         <!--Populate with the category's items-->
@@ -161,8 +161,8 @@
             <div class="row">
                 <div class="col-lg-4 centered" ng-repeat="item in items | filter: selectedFilter.filterExpr">
                     <a class="item-button" ng-click="setFirstCost(item.monthly_cost, item);">
-                        <div>
-                            <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
+                        <div class="card">
+                            <img class="card-image" ng-src="{{item.icon}}" height="{{item.icon_height}}" />
                             <h3 class="item-name">{{item.name}}</h3>
                             <h4 class="price">{{item.monthly_cost | currency}} per month</h4>
                         </div>
@@ -179,15 +179,15 @@
     <!--Screen 3: User selects new item-->
     <div class="shop-screen SecondItemCategory">
         <h2 class="screen-title">
-            What is the new item?
+            Step 3: Select the item you want to buy:
         </h2>
 
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 centered" ng-repeat="item in items | filter: selectedFilter.filterExpr">
                     <a class="item-button" ng-click="setSecondCost(item.monthly_cost, item);">
-                        <div>
-                            <img ng-src="{{item.icon}}" height="{{item.icon_height}}" />
+                        <div class="card">
+                            <img class="card-image" ng-src="{{item.icon}}" height="{{item.icon_height}}" />
                             <h3 class="item-name">{{item.name}}</h3>
                             <h4 class="price">{{item.monthly_cost | currency}} per month</h4>
                         </div>
@@ -203,22 +203,24 @@
 
     <!--Screen 4: Calculate and display total-->
     <div class="shop-screen Calculator">
-        <h2 class="screen-title">
+        <h2 class="screen-title centered">
             Current Savings
         </h2>
 
         <div class="container">
-            <h2>History</h2>
-            <div class="row" ng-repeat="entry in firstItem">
-                {{entry.name}} -> {{secondItem[$index].name}} = ${{diffSet[$index]}}
-            </div>
+            <div class="card-panel" id="receipt">
+                <h3 class="centered">Savings Receipt:</h3>
+                <div class="row history" ng-repeat="entry in firstItem">
+                    {{entry.name}} -> {{secondItem[$index].name}} = ${{diffSet[$index]}}
+                </div>
 
-            <div class="row">
-                <h3>{{diff | currency}}</h3>
-            </div>
+                <div class="row">
+                    <h3>{{diff | currency}}</h3>
+                </div>
 
-            <div class="row">
-                <a class="btn btn-default waves-effect waves-light" ng-click="switchShopScreens('.StartShopScreen')">Next Item</a>
+                <div class="row">
+                    <a class="btn btn-default waves-effect waves-light" id="next-item" ng-click="switchShopScreens('.StartShopScreen')">Next Item</a>
+                </div>
             </div>
         </div>
     </div>
