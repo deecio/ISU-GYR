@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lte IE 7]>     <html lang="en-us" class="lt-ie10 lt-ie9 lt-ie8">  <![endif]-->
 <!--[if IE 8]>         <html lang="en-us" class="lt-ie10 lt-ie9">         <![endif]-->
 <!--[if IE 9]>         <html lang="en-us" class="lt-ie10">                <![endif]-->
@@ -141,7 +141,7 @@ h3 code{
                                     <a class="wd-Navigation-link" href="quiz/results.php">Quiz Results</a>
                                 </li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link is-active" href="#">Trivia</a>
+                                    <a class="wd-Navigation-link is-active" href="#">Green Living Facts</a>
                                 </li>
                             </ul>
                         </div>
@@ -150,7 +150,7 @@ h3 code{
                             <option value="savingscart.html" selected="selected">Savings Cart</option>
                             <option value="information.html">Information</option>
                             <option value="results.php">Quiz Results</option>
-                            <option value="FactPage.html">Trivia</option>
+                            <option value="FactPage.html">Green Living Facts</option>
                         </select>
                     </div>
                 </div>
@@ -161,7 +161,7 @@ h3 code{
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="title">Green Living Trivia</h2>
+                    <h2 class="title">Green Living Facts</h2>
                 </div>
             </div>
 
@@ -176,7 +176,7 @@ h3 code{
             </div>
 
             <div class="row">
-                <div class="col-lg-12 text-center" ng-repeat="fact in facts | filter: selectedFilter.filterExpr">
+                <div class="col-lg-12 text-left" ng-repeat="fact in facts | filter: selectedFilter.filterExpr">
                     <p class="fact-text">{{fact.fact}}</p>
                     <hr />
                 </div>
