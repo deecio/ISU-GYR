@@ -167,16 +167,23 @@ h3 code{
 
 			<h3> Manage Quizzes</h3>
 			<!-- <a class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">+</i></a> -->
-			<ul class="pagination">
+			<!-- <ul class="pagination">
 			    <li class="waves-effect"><a href="viewquizzes.html"><i class="material-icons"><</i></a></li>
 					<li class="waves-effect"><a href="viewquizzes.html">View Quizzes</a></li>
 					<li class="active"><a href="addquestion.html">Add Question</a></li>
-					<!-- <li class="active"><a class='dropdown-button btn' href='#' data-activates='typeofquestion'>Add Question</a></li> -->
 			    <li class="waves-effect"><a href="managequestions.html">View/Manage Q&amp;A</a></li>
 			    <li class="waves-effect"><a href="managequestions.html"><i class="material-icons">></i></a></li>
-			  </ul>
+			  </ul> -->
+				<nav>
+					 <div class="nav-wrapper teal lighten-2">
+						 <ul class="center hide-on-med-and-down">
+							 <li><a href="viewquizzes.html">View Quizzes</a></li>
+							 <li class="active"><a href="addquestion.html">Add Question</a></li>
+							 <li><a href="managequestions.html">View/Manage Q&amp;A</a></li>
+						 </ul>
+					 </div>
+				 </nav>
 				<hr>
-				<br><br>
 
 					<div class="row">
 						<form class="col s12">
@@ -201,11 +208,15 @@ h3 code{
 								<label for="icon_prefix" style="text-align:left">To select Always/Sometimes/Never you need to have radio selected.</label>
 							</div>
 					  </form>
-
+<br>
+<hr>
+<br><br>
 							<p id="questiontypehere"></p>
 							<!-- needs further editing for multiple answers -->
 							</div>
-							<label style="text-align:left">Answer Options</label>
+							<hr> <br>
+							<div style="text-align:left">
+							<label>Answer Options</label>
 							  <select class="browser-default">
 							    <option value="" disabled selected>Choose your answer type</option>
 							    <option value="1">Always/Sometimes/Never</option>
@@ -221,8 +232,11 @@ h3 code{
 												<label for="fact_description">Unique Answers</label>
 											</div>
 							</div>
+						</div>
 							<tr>
-								<td class="submit-button-right" colspan="2"><input class="submit-text" type="submit" value="Add Question" /></td>
+								<div class="btn"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
+									<span>Add Quiz Question</span>
+								</div>
 							</tr>
 					</form>
 				</div>

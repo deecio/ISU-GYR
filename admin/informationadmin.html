@@ -13,6 +13,7 @@
 <link href="css/sample.css" media="all" rel="stylesheet">
 <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
+<link href="css/TriviaStyle.css" media="all" rel="stylesheet" />
 	<style >pre{
 	background-color: #f5f5f5;
 	border-color: #e7e7e7;
@@ -31,7 +32,7 @@ h3 code{
 }</style>
 	<script >/* html5shiv */ (function(){var t='abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.split(' ');for(var i=t.length;i--;)document.createElement(t[i])})();</script>
 </head>
-<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="gyrApp">
+<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="FactListApp" ng-controller="FactController">
 <div class="wd-l-Page pwrapper">
 	<div class="wd-l-Page-inner pwrapper-wrapper">
 		<div class="wd-Skip">
@@ -132,13 +133,13 @@ h3 code{
                                     <a class="wd-Navigation-link" href="index.html">Manage Home</a>
                                 </li>
 																<li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link is-active" href="addquestion.html">Manage Quiz</a>
+                                    <a class="wd-Navigation-link" href="addquestion.html">Manage Quiz</a>
                                 </li>
                                 <li class="wd-Navigation-node">
                                     <a class="wd-Navigation-link" href="savingscart.html">Manage Savings Cart</a>
                                 </li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="information.html">Manage Information</a>
+                                    <a class="wd-Navigation-link is-active" href="information.html">Manage Information</a>
                                 </li>
                                 <li class="wd-Navigation-node">
                                     <a class="wd-Navigation-link" href="factadmin.html">Manage Facts</a>
@@ -146,11 +147,11 @@ h3 code{
                             </ul>
                         </div>
                         <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
-													<option value="index.html">Manage Home</option>
-													<option value="addquestion.html" selected="selected">Manage Quiz</option>
-													<option value="savingscart.html">Manage Savings Cart</option>
-													<option value="information.html">Manage Information</option>
-													<option value="factadmin.html">Manage Facts</option>
+                            <option value="index.html">Manage Home</option>
+														<option value="addquestion.html">Manage Quiz</option>
+                            <option value="savingscart.html">Manage Savings Cart</option>
+                            <option value="information.html" selected="selected">Manage Information</option>
+                            <option value="factadmin.html">Manage Facts</option>
                         </select>
                     </div>
                 </div>
@@ -163,81 +164,52 @@ h3 code{
                 <div class="col-lg-12 text-center">
 
 
-			<h3> Manage Quizzes</h3>
+			<h3> Manage Information </h3>
 			<!--
 			<ul class="pagination">
-			    <li class="disabled"><a href="addquestion.html"><i class="material-icons"><</i></a></li>
-					<li class="active"><a href="viewquizzes.html">View Quizzes</a></li>
-			    <li class="waves-effect"><a href="addquestion.html">Add Question</a></li>
-			    <li class="waves-effect"><a href="managequestions.html">View/Manage Q&amp;A</a></li>
-			    <li class="waves-effect"><a href="addquestion.html"><i class="material-icons">></i></a></li>
+			    <li class="disabled"><a href="factadmin.html"><i class="material-icons"><</i></a></li>
+			    <li class="active"><a href="factadmin.html">Add Fact</a></li>
+			    <li class="waves-effect"><a href="managefacts.html">View/Manage Facts</a></li>
+			    <li class="waves-effect"><a href="managefacts.html"><i class="material-icons">></i></a></li>
 			  </ul> -->
+
 				<nav>
 					 <div class="nav-wrapper teal lighten-2">
 						 <ul class="center hide-on-med-and-down">
-							 <li class="active"><a href="viewquizzes.html">View Quizzes</a></li>
-							 <li><a href="addquestion.html">Add Question</a></li>
-							 <li><a href="managequestions.html">View/Manage Q&amp;A</a></li>
+							 <li class="active"><a href="informationadmin.html">Add Hyperlink</a></li>
+							 <li><a href="manageinformation.html">View/Manage Information</a></li>
 						 </ul>
 					 </div>
 				 </nav>
-				<hr>
+				<hr> <br>
 
-							<div ng-controller="QuizViewer">
-									<br>
-									<table class="bordered highlight responsive-table text-darken-2 flow-text">
-						        <thead>
-						          <tr>
-						              <th data-field="title">Title</th>
-						              <th data-field="id">ID</th>
-						          </tr>
-						        </thead>
+			<div class="row">
+					<form class="col s12">
+						<div class="row">
+							<div class="input-field col s6">
+								<input id="fact_title" type="text" class="validate">
+								<label for="fact_title">Information Title</label>
+							</div>
+						</div>
+						<div class="row">
+										<div class="input-field col s12">
+											<textarea id="fact_description" class="materialize-textarea"></textarea>
+											<label for="fact_description">Hyperlink</label>
+										</div>
+						</div>
+						<br> <hr> <br>
+						<tr>
+							<div class="btn"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
+								<span>Add Hyperlink</span>
+							</div>
+						</tr>
+					</form>
+				</div>
 
-					        <tbody>
-					          <tr ng-repeat="q in data.quizzes">
-					            <td>{{q.title}}</td>
-					            <td>{{q.quizid}}</td>
-					          </tr>
-					        </tbody>
-					      </table>
-
-									<!-- include script tags -->
-									<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-									<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-									<!-- Compiled and minified CSS -->
-									<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
-									<!-- Compiled and minified JavaScript -->
-									<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-
-									<!-- This page's angular set-up -->
-									<script>
-											function httpService($http) {
-													this.get = function(url) {
-															return $http.get(url);
-													}
-													this.post = function(url, data) {
-															return $http.post(url, data);
-													}
-											}
-											angular.module('gyrApp', []).service('httpService', httpService)
-													.controller('QuizViewer', function($scope, httpService) {
-
-
-															$scope.data = {};
-															$scope.data.questions = [];
-															httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuizViewer")
-															// This is where the response is received v
-																	.then(function(rtn) {
-																			$scope.data = rtn.data;
-																	});
-
-													});
-
-									</script>
                 </div>
             </div>
         </div>
+
 		<div id="loading" style="display:none">Loading...</div>
 	</div>
 </div>
@@ -253,6 +225,7 @@ h3 code{
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
 <script src="app.js"></script>
+<script src="ListController.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
