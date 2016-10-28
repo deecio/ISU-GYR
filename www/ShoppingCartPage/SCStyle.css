@@ -69,3 +69,24 @@
 .Calculator .screen-title{
     font-size: 50px;
 }
+
+.info-page{
+    font-family: 'Univers', sans-serif;
+}
+
+.home-page{
+    font-family: 'Univers', sans-serif;
+}
+
+.quiz-button{
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+.campus-caption{
+    margin-top: 175px;
+}
+
+.caption{
+    text-shadow: 0px 1px 8px rgba(0, 0, 0, 1);
+}
