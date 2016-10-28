@@ -31,7 +31,7 @@ app.get('/QuizController', function(req, res){
 });
 
 //View Quizzes
-app.get('/QuizViewerDB', require('./adminbackend'));
+app.get('/QuizViewerDB', require('./adminbackend').getquizzes);
 
 app.get('/QuizViewer', function(req, res){
   console.log('QuizViewer')
