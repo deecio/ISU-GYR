@@ -122,7 +122,6 @@
 
     $scope.setFirstCost = function (value, item) {
         $scope.firstItem.push(item);
-        console.log("First monthly cost: " + value);
         $scope.initCost = value;
         switchShopScreens(".SecondItemCategory");
     }
@@ -130,7 +129,6 @@
     $scope.setSecondCost = function (value, item) {
         $scope.secondItem.push(item);
         $scope.newCost = value;
-        console.log("Second monthly cost: " + value);
         $scope.diff += $scope.initCost - $scope.newCost;
         $scope.diffSet.push($scope.initCost - $scope.newCost);
         switchShopScreens(".Calculator");
