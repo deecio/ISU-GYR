@@ -32,6 +32,7 @@ app.get('/QuizController', function(req, res){
 });
 
 //View Quizzes
+app.get('/QuestionViewerDB', adminbackend.showquizzes);
 app.get('/QuizViewerDB', adminbackend.getquizzes);
 
 app.get('/QuizViewer', function(req, res){

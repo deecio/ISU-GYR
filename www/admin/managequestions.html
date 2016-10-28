@@ -31,7 +31,7 @@ h3 code{
 }</style>
 	<script >/* html5shiv */ (function(){var t='abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.split(' ');for(var i=t.length;i--;)document.createElement(t[i])})();</script>
 </head>
-<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="gyrApp" ng-controller="QuestionViewer">
+<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="gyrApp">
 <div class="wd-l-Page pwrapper">
 	<div class="wd-l-Page-inner pwrapper-wrapper">
 		<div class="wd-Skip">
@@ -183,25 +183,61 @@ h3 code{
 				 </nav>
 				<hr>
 
-
+				<div ng-controller="QuestionViewerDB">
 				<table class="bordered highlight responsive-table text-darken-2 flow-text">
         <thead>
           <tr>
-							<th data-field="">Quiz Code</th>
-              <th data-field="id">Quiz Question</th>
-              <th data-field="file">Quiz Answer</th>
-							<th data-field="file">Answer Options</th>
+							<th data-field="quizid">Quiz Code</th>
+              <th data-field="question">Quiz Question</th>
+              <th data-field="qid">Question Number</th>
+							<!-- <th data-field="weight">Answer Weight</th> -->
           </tr>
         </thead>
 
         <tbody>
-          <tr>
-            <td>Question <a href="#"></a></td>
-            <td>Answer A</td>
-						<td>A,<br> B,<br> C,<br> D</td>
+          <tr ng-repeat="q in data.db_result">
+            <td>{{q.quizid}} <a href="#"></a></td>
+            <td>{{q.label}}</td>
+						<td>{{q.qid}}</td>
           </tr>
         </tbody>
       </table>
+			<!-- include script tags -->
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+			<!-- Compiled and minified CSS -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+			<!-- Compiled and minified JavaScript -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+			<!-- This page's angular set-up -->
+			<script>
+					function httpService($http) {
+							this.get = function(url) {
+									return $http.get(url);
+							}
+							this.post = function(url, data) {
+									return $http.post(url, data);
+							}
+					}
+					angular.module('gyrApp', []).service('httpService', httpService)
+							.controller('QuestionViewerDB', function($scope, httpService) {
+
+
+									$scope.data = {};
+									$scope.data.questions = [];
+									httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuestionViewerDB")
+									// This is where the response is received v
+											.then(function(rtn) {
+													$.extend($scope, rtn);
+													console.log("/QuestionViewerDB Response", $scope);
+											});
+
+							});
+
+			</script>
+		</div>
 
                 </div>
             </div>
