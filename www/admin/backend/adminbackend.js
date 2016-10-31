@@ -65,4 +65,17 @@ module.exports.getinformation = function(req,res){
           }
           database.query('SELECT * FROM `information`;', getinformation);
 
-}
+};
+
+module.exports.getfacts = function(req,res){
+  var rtn = {};
+          function getfacts(err, result, fields) {
+              rtn.db_result = result;
+              if (err)
+                  rtn.error = err;
+              rtn.ready = true;
+              res.json(rtn);
+          }
+          database.query('SELECT * FROM `fact`;', getfacts);
+
+};

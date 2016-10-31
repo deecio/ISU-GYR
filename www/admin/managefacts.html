@@ -181,7 +181,7 @@ h3 code{
 				 </nav>
 				<hr> <br>
 
-
+<div ng-controller="FactViewerDB">
 <table class="bordered highlight responsive-table text-darken-2 flow-text">
         <thead>
           <tr>
@@ -189,31 +189,55 @@ h3 code{
               <th data-field="file">Image File</th>
 							<th data-field="file">Category</th>
               <th data-field="description">Fact Description</th>
+							<th data-field="hyperlink">Hyperlink</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr>
-            <td>Air Freshener</td>
-            <td>N/A</td>
-						<td>Green Supplies</td>
-            <td>Instead of using a store-bought air-freshener, try using plants instead. Not only will they make your dorm smell nicer, but they can also filter the air as well.</td>
-          </tr>
-          <tr>
-            <td>Buy Local</td>
-            <td>N/A</td>
-						<td>Green Buying</td>
-            <td>As much as you can, try to buy local! Remember that when you spend money in the community your dollar stays in the community supporting local businesses.</td>
-          </tr>
-          <tr>
-            <td>Recycyling Bin</td>
-            <td>recyclingbin.jpg</td>
-						<td>Recycling</td>
-            <td>Keep your room green by adding a recycling bin! Each residential housing area has recycling or you can recycle on campus in designated buildings and at the single stream recycling solar compactors</td>
+          <tr ng-repeat="d in data.db_result">
+            <td>{{d.name}}</td>
+            <td>{{d.image}}</td>
+						<td>{{d.category}}</td>
+            <td>{{d.hyperlink}}</td>
           </tr>
         </tbody>
       </table>
+			<!-- include script tags -->
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+			<!-- Compiled and minified CSS -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 
+			<!-- Compiled and minified JavaScript -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+			<!-- This page's angular set-up -->
+			<script>
+					function httpService($http) {
+							this.get = function(url) {
+									return $http.get(url);
+							}
+							this.post = function(url, data) {
+									return $http.post(url, data);
+							}
+					}
+					angular.module('gyrApp', []).service('httpService', httpService)
+							.controller('FactViewerDB', function($scope, httpService) {
+
+
+									$scope.data = {};
+									$scope.data.questions = [];
+									httpService.get("http://greenyourresidence.ece.iastate.edu:3000/FactViewerDB")
+									// This is where the response is received v
+											.then(function(rtn) {
+													$scope.data = rtn.data;
+											});
+
+							});
+
+			</script>
+
+			</div>
                 </div>
             </div>
         </div>
