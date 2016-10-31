@@ -1,6 +1,10 @@
 ﻿body{
-    font-family: 'ITC Berkeley';
+    font-family: 'Univers LT Std', sans-serif;
     color: #212121;
+}
+
+.wd-Navigation a{
+    color: #337AB7;
 }
 
 .item-button{
@@ -22,7 +26,6 @@
 }
 
 .screen-title{
-    font-family: 'Univers', sans-serif;
     text-align: center;
 }
 
@@ -34,6 +37,7 @@
     font-size: 20px;
     margin-top: 30px;
     background-color: #8BC34A !important;
+    margin-bottom: 300px;
 }
 
 .reset:hover{
@@ -45,7 +49,6 @@
 }
 
 .btn {
-    font-family: 'Univers', sans-serif;
     background-color: #7BA643 !important;
 }
 .btn:hover{
@@ -59,7 +62,6 @@
 
 .Calculator h3{
     font-size: 30px;
-    font-family: 'Univers', sans-serif;
 }
 
 .history{
@@ -68,14 +70,6 @@
 
 .Calculator .screen-title{
     font-size: 50px;
-}
-
-.info-page{
-    font-family: 'Univers', sans-serif;
-}
-
-.home-page{
-    font-family: 'Univers', sans-serif;
 }
 
 .quiz-button{
@@ -89,4 +83,12 @@
 
 .caption{
     text-shadow: 0px 1px 8px rgba(0, 0, 0, 1);
+}
+
+.GLimage{
+    padding-top: 10px;
+}
+
+#info-links{
+    margin-bottom: 250px;
 }
