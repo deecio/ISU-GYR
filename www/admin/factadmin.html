@@ -190,13 +190,13 @@ h3 code{
 					        <input type="file" ng-model="image">
 					      </div>
 					      <div class="file-path-wrapper">
-					        <input class="file-path validate" type="text" ng-model="text">
+					        <input class="file-path validate" type="text">
 					      </div>
 					    </div>
 					  </form>
 						<div class="row">
 							<div class="input-field col s12">
-								<textarea id="fact_description" class="materialize-textarea"></textarea>
+								<textarea id="fact_description" class="materialize-textarea" ng-model="text"></textarea>
 									<label for="fact_description">Fact Description</label>
 							</div>
 						</div>
@@ -208,9 +208,9 @@ h3 code{
 						</div>
 						<br> <hr> <br>
 						<tr>
-							<div class="btn"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
+							<button class="btn" ng-click="submitFact()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
 								<span>Add Fact</span>
-							</div>
+							</button>
 						</tr>
 					</form>
 					<!-- include script tags -->
@@ -237,12 +237,18 @@ h3 code{
 
 											$scope.data = {};
 											$scope.data.questions = [];
-											httpService.get("http://greenyourresidence.ece.iastate.edu:3000/AddFactDB")
+											$scope.submitFact = function(){
+											httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddFactDB", {
+												name:$scope.name,
+												hyperlink:$scope.hyperlink,
+												text:$scope.text,
+												image:null//todo
+											})
 											// This is where the response is received v
 													.then(function(rtn) {
 															$scope.data = rtn.data;
 													});
-
+												}
 									});
 
 					</script>
