@@ -46,7 +46,6 @@ app.get('/QuizViewer', function(req, res){
 
 //View Information
 app.get('/InformationViewerDB', adminbackend.getinformation);
-app.get('/FactViewerDB', adminbackend.getfacts);
 
 app.get('/InformationViewer', function(req, res){
   console.log('InformationViewer')
@@ -60,3 +59,7 @@ app.get('/InformationViewer', function(req, res){
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
+
+//Facts
+app.get('/AddFactDB', adminbackend.addfact);
+app.get('/FactViewerDB', adminbackend.getfacts);

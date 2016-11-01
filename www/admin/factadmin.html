@@ -182,30 +182,36 @@ h3 code{
 				 </nav>
 				<hr> <br>
 
-			<div class="row">
+			<div class="row" ng-controller="AddFactDB">
 					<form class="col s12">
 						<div class="row">
 							<div class="input-field col s6" style="text-align:left">
-								<input id="fact_title" type="text" class="validate">
-								<label for="fact_title">Fact Title</label>
+								<input id="name" type="text" class="validate" ng-model="name">
+								<label for="name">Fact Title</label>
 							</div>
 						</div>
 						<form action="#">
 					    <div class="file-field input-field">
 								<div class="btn">
 					        <span>Upload Image</span>
-					        <input type="file">
+					        <input type="file" ng-model="image">
 					      </div>
 					      <div class="file-path-wrapper">
-					        <input class="file-path validate" type="text">
+					        <input class="file-path validate" type="text" ng-model="text">
 					      </div>
 					    </div>
 					  </form>
 						<div class="row">
-										<div class="input-field col s12">
-											<textarea id="fact_description" class="materialize-textarea"></textarea>
-											<label for="fact_description">Fact Description</label>
-										</div>
+							<div class="input-field col s12">
+								<textarea id="fact_description" class="materialize-textarea"></textarea>
+									<label for="fact_description">Fact Description</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="hyperlink" type="hyperlink" class="validate" ng-model="hyperlink">
+								<label for="hyperlink">Hyperlink</label>
+							</div>
 						</div>
 						<br> <hr> <br>
 						<tr>
@@ -214,6 +220,30 @@ h3 code{
 							</div>
 						</tr>
 					</form>
+					<script>
+							function httpService($http) {
+									this.get = function(url) {
+											return $http.get(url);
+									}
+									this.post = function(url, data) {
+											return $http.post(url, data);
+									}
+							}
+							angular.module('gyrApp', []).service('httpService', httpService)
+									.controller('AddFactDB', function($scope, httpService) {
+
+
+											$scope.data = {};
+											$scope.data.questions = [];
+											httpService.get("http://greenyourresidence.ece.iastate.edu:3000/AddFactDB")
+											// This is where the response is received v
+													.then(function(rtn) {
+															$scope.data = rtn.data;
+													});
+
+									});
+
+					</script>
 				</div>
 
                 </div>
