@@ -96,6 +96,6 @@ module.exports.addfact = function(req,res){
               rtn.ready = true;
               res.json(rtn);
           }
-          database.query('INSERT INTO `fact`(`name`, `text`, `category`, `hyperlink`, `image`) VALUES (?,?,?,?,?);', [name || "null", text || "null", category || "null", hyperlink || "null", image || "null"], addfact);
+          database.query('INSERT INTO `fact`(`name`, `text`, `category`, `hyperlink`, `image`) VALUES (?,?,?,?,?);', [req.body.name || "null", req.body.text || "null", req.body.category || "null", req.body.hyperlink || "null", req.body.image || "null"], addfact);
 
 };
