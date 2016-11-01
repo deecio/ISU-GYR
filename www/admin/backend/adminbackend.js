@@ -17,7 +17,7 @@ var rtn = {};
             rtn.ready = true;
             res.json(rtn);
         }
-        database.query('SELECT DISTINCT * FROM `quiz`  AS q JOIN `question` as n on q.quizid = n.quizid JOIN `answer` as a WHERE q.quizid = "quiz1";', [uid], quizquery);
+        database.query('SELECT DISTINCT * FROM `quiz` AS q JOIN `question` as n on q.quizid = n.quizid JOIN `answer` as a WHERE q.quizid = "quiz1";', [uid], quizquery);
 
 
 
@@ -77,5 +77,25 @@ module.exports.getfacts = function(req,res){
               res.json(rtn);
           }
           database.query('SELECT * FROM `fact`;', getfacts);
+
+};
+
+module.exports.addfact = function(req,res){
+  var rtn = {};
+          function addfact(err, result, fields) {
+              rtn.db_result = result;
+              if (err)
+                  rtn.error = err;
+                  if (result.changedRows < 1) {
+                      rtn.error = {
+                          code: 1001,
+                          message: 'failed to retrieve fact information'
+                      }
+                      //console.log("/vote/" + uid + "/" + dir + " - ", result);
+                  }
+              rtn.ready = true;
+              res.json(rtn);
+          }
+          database.query('INSERT INTO `fact`(`name`, `text`, `category`, `hyperlink`, `image`) VALUES (?,?,?,?,?);', [name || "null", text || "null", category || "null", hyperlink || "null", image || "null"], addfact);
 
 };

@@ -11,10 +11,8 @@
 	<link rel="icon" type="image/x-icon" href="favicon.ico?v=1.4.44">
 <link href="/css/base.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" media="all" rel="stylesheet">
-<link href="css/sample.css" media="all" rel="stylesheet">
 <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
-<link href="css/TriviaStyle.css" media="all" rel="stylesheet" />
 	<style >pre{
 	background-color: #f5f5f5;
 	border-color: #e7e7e7;
@@ -166,14 +164,7 @@ h3 code{
 
 
 			<h3> Manage Quizzes</h3>
-			<!-- <a class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">+</i></a> -->
-			<!-- <ul class="pagination">
-			    <li class="waves-effect"><a href="viewquizzes.html"><i class="material-icons"><</i></a></li>
-					<li class="waves-effect"><a href="viewquizzes.html">View Quizzes</a></li>
-					<li class="active"><a href="addquestion.html">Add Question</a></li>
-			    <li class="waves-effect"><a href="managequestions.html">View/Manage Q&amp;A</a></li>
-			    <li class="waves-effect"><a href="managequestions.html"><i class="material-icons">></i></a></li>
-			  </ul> -->
+
 				<nav>
 					 <div class="nav-wrapper teal lighten-2">
 						 <ul class="center hide-on-med-and-down">
@@ -185,18 +176,25 @@ h3 code{
 				 </nav>
 				<hr>
 
-					<div class="row">
+					<div class="row" ng-controller="AddQuestionDB">
 						<form class="col s12">
+
+							<div class="row">
+								<div class="input-field col s6" style="text-align:left">
+									<input id="quizid" type="text" class="validate" ng-model="quizid">
+									<label for="quizid">Quiz ID</label>
+								</div>
+							</div>
 							<div class="row">
 								<div class="input-field col s6">
-									<input id="fact_title" type="text" class="validate">
-									<label for="fact_title" style="text-align:left">Quiz Question</label>
+									<input id="label" type="text" class="validate" ng-model="label" />
+									<label for="label" style="text-align:left">Quiz Question</label>
 								</div>
 							</div>
 
 					<form action="#">
 					    <p>
-					      <input name="group1" type="radio" id="checkboxes" />
+					      <input name="group1" type="radio" id="checkboxes" ng-model="type"/>
 					      <label for="checkboxes">Checkboxes</label>
 					    </p>
 					    <p>
@@ -228,7 +226,7 @@ h3 code{
 									</div>
 							<div class="row">
 											<div class="input-field col s12">
-												<textarea placeholder="LiveGreen!, 1" id="fact_description" class="materialize-textarea"></textarea>
+												<textarea placeholder="LiveGreen!, 1" id="fact_description" class="materialize-textarea" ng-model="description"></textarea>
 												<label for="fact_description">Unique Answers</label>
 											</div>
 							</div>
@@ -240,7 +238,38 @@ h3 code{
 							</tr>
 					</form>
 				</div>
+				<!-- include script tags -->
+				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+				<!-- Compiled and minified CSS -->
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 
+				<!-- Compiled and minified JavaScript -->
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+				<script>
+						function httpService($http) {
+								this.get = function(url) {
+										return $http.get(url);
+								}
+								this.post = function(url, data) {
+										return $http.post(url, data);
+								}
+						}
+						angular.module('gyrApp', []).service('httpService', httpService)
+								.controller('AddQuestionDB', function($scope, httpService) {
+
+
+										$scope.data = {};
+										$scope.data.questions = [];
+										httpService.get("http://greenyourresidence.ece.iastate.edu:3000/AddQuestionDB")
+										// This is where the response is received v
+												.then(function(rtn) {
+														$scope.data = rtn.data;
+												});
+
+								});
+
+				</script>
 
                 </div>
             </div>
@@ -261,7 +290,6 @@ h3 code{
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
 <script src="app.js"></script>
-<script src="ListController.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
