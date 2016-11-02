@@ -27,6 +27,7 @@
 
 .screen-title{
     text-align: center;
+    padding-bottom: 40px;
 }
 
 .centered{
@@ -56,7 +57,7 @@
     background-color: #0C5030 !important;
 }
 
-.shop-screen{
+.shop-screen, .receipt-screen{
     margin-top: 40px;
 }
 
