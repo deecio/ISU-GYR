@@ -122,11 +122,12 @@
 
     $scope.setFirstCost = function (value, item) {
         $scope.initCost = value;
+        $scope.FI = item;
         switchShopScreens(".SecondItemCategory");
     }
 
     $scope.setSecondCost = function (value, item) {
-        $scope.firstItem.push(item);
+        $scope.firstItem.push($scope.FI);
         $scope.secondItem.push(item);
         $scope.newCost = value;
         $scope.diff += $scope.initCost - $scope.newCost;
