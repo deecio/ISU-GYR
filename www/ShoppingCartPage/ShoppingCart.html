@@ -142,12 +142,19 @@
                     Step 1: What kind of item are you looking to replace?
                 </h2>
                 <div class="col-xs-4" ng-repeat="filter in filters">
+                    <a href="" class="btn btn-default waves-effect waves-light" ng-click="setFilter(filter);" onclick="switchShopScreens('.InitItemScreen'); showSidebar();">{{filter.name}}</a>
+                </div>
+            </div>
+
+            <!--Screen 1.5: Persistant category selector-->
+            <div class="col-xs-2 categories">
+                <div class="row" ng-repeat="filter in filters">
                     <a href="" class="btn btn-default waves-effect waves-light" ng-click="setFilter(filter);" onclick="switchShopScreens('.InitItemScreen')">{{filter.name}}</a>
                 </div>
             </div>
 
             <!--Screen 2: Populate the screen with a scolling list of all the items of the selected category from Screen 1-->
-            <div class="col-xs-8 shop-screen InitItemScreen">
+            <div class="col-xs-6 shop-screen InitItemScreen">
                 <h2 class="screen-title">
                     Step 2: Select the item you currently own:
                 </h2>
@@ -160,14 +167,10 @@
                         </div>
                     </a>
                 </div>
-                
-                <div class="row">
-                    <a class="btn btn-default" ng-click="switchShopScreens('.StartShopScreen')">Repick Item</a>
-                </div>
             </div>
 
             <!--Screen 3: User selects new item-->
-            <div class="col-xs-8 shop-screen SecondItemCategory">
+            <div class="col-xs-6 shop-screen SecondItemCategory">
                 <h2 class="screen-title">
                     Step 3: Select the item you want to buy:
                 </h2>
@@ -180,10 +183,6 @@
                             <h4 class="price">{{item.monthly_cost | currency}} per month</h4>
                         </div>
                     </a>
-                </div>
-                
-                <div class="row">
-                    <a class="btn btn-default" ng-click="switchShopScreens('.StartShopScreen')">Repick Item</a>
                 </div>
             </div>
 
@@ -208,7 +207,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-xs-8 centered">
+            <div class="col-xs-12 centered">
                 <a class="btn btn-default reset" onClick="window.location.reload()">Reset</a>
             </div>
         </div>

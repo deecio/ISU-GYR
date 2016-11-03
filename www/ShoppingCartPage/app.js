@@ -3,6 +3,7 @@
 $(document).ready(function () {
     // Hide all blocks except for the first
     switchShopScreens(".StartShopScreen");
+    $(".categories").hide();
 })
 
 // Function to switch screens in shopping cart menu
@@ -12,3 +13,7 @@ function switchShopScreens(screenClass){
 
     $(screenClass).fadeIn();
 };
+
+function showSidebar() {
+    $(".categories").fadeIn();
+}
