@@ -1,17 +1,28 @@
-body {
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
+body {}
 
 .item-thumbnail {
     width: 85px;
+}
+
+.collapsible {
+    font-size: 20px;
+}
+
+.collapsible-header {
+    background-color: #7BA643 !important;
+    color: #FFFFFF;
+}
+
+.collapsible-header:hover {
+    color: #FFFFFF !important;
+    background-color: #0C5030 !important;
 }
 
 #draggable-menu-wrapper {
     width: 400px;
     position: absolute !important;
     right: 20%;
-    top: 38%;
+    top: 40%;
 }
 
 .canvas-container {
@@ -19,14 +30,19 @@ body {
     width: 600px;
     height: 600px;
     position: absolute !important;
-    top: 70%;
+    top: 80%;
     left: 45%;
     margin-left: -400px;
     margin-top: -300px;
 }
 
-canvas {
-    border: 1px solid lightgray;
+.btn {
+    background-color: #7BA643 !important;
+}
+
+.btn:hover {
+    color: #FFFFFF !important;
+    background-color: #0C5030 !important;
 }
 
 
@@ -55,7 +71,6 @@ canvas {
     padding: 8px;
     border: 1px solid blue;
     color: #fff;
-    font-family: "Times New Roman", Times, serif;
     background-color: green;
     position: absolute;
     z-index: 2;
@@ -69,7 +84,8 @@ canvas {
     z-index: 2;
 }
 
-#images div {
+
+/*#images div {
     border-top: 1px solid green;
     border: 1px solid green;
     height: 150px;
@@ -81,4 +97,4 @@ canvas {
     background-color: antiquewhite;
     font-family: "Times New Roman", Times, serif;
     color: forestgreen;
-}
+}*/

@@ -9,8 +9,4 @@ $(function () {
                 $(".tmp").removeClass("tmp");
 
             });
-
-
-            // Angular App Link
-            var app = angular.module("ItemListApp", []);
-        }
+        })

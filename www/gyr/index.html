@@ -3,10 +3,15 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8" src="js/jquery-3.1.1.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/jquery-ui.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/gyr.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/fabric.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/fabric.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/materialize.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/angular.min.js"></script>
     <link href="css/baseV4.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" media="all" rel="stylesheet">
     <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
@@ -14,11 +19,6 @@
     <!-- Bootstrap Library Link -->
     <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
     <title>Interactive Apartment</title>
-    <script>
-        $(function () {
-            $("#images").accordion();
-        });
-    </script>
 </head>
 
 <body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar">
@@ -149,92 +149,106 @@
     <header>
         <h1><center>
             <img src="img/title.PNG"/>
+            <div class="row">
+            <div class="input-field col s1">
+                <input id="width" type="number" min="5">
+                <label for="width">Width</label>
+            </div>
+            <div class="input-field col s1">
+                <input id="height" type="number" min="5">
+                <label for="height">Height</label>
+            </div>
+        </div>
         </center></h1>
     </header>
-    <p>Width(in foot)
-        <input type="number" min="5" id="width" />
-    </p>
-    <p>Height(in foot)
-        <input type="number" min="5" id="height" />
-    </p>
     <div id="canvas-container">
         <canvas id="c" width="600" height="600"></canvas>
     </div>
-    <button id="myButton" type="button" onclick="draw()">Generate Floorplan</button>
+    <a class="waves-effect waves-light btn" id="myButton" onclick="draw()">Generate Floorplan</a>
     <p>
-        <h1 id="h1"></h1>
+        <h1 id="h1"><thin></thin></h1>
     </p>
     <div id="draggable-menu-wrapper">
         <div id="images">
-            <h2><Strong>Basics</Strong></h2>
-            <div id="basics">
-                <span><img class="item-thumbnail" id="desk" src="img/basics/Student%20Desk%20.png"/></span>
-                <span><img class="item-thumbnail" id="desk" src="img/basics/Student%20Desk%202.png"/></span>
-                <span><img class="item-thumbnail" id="bed" src="img/basics/bed01.png"/></span>
-                <span><img class="item-thumbnail" id="bed" src="img/basics/bed02.JPG"/></span>
-                <span><img class="item-thumbnail" id="bed" src="img/basics/bed03.jpg"/></span>
-                <span><img class="item-thumbnail" id="bed" src="img/basics/bed04.jpg"/></span>
-                <span><img class="item-thumbnail" id="wardrobe" src="img/basics/Wardrobe%20big.png"/></span>
-                <span><img class="item-thumbnail" id="wardrobe" src="img/basics/Wardrobe.png"/></span>
-            </div>
-            <h2><Strong>Electronics</Strong></h2>
-            <div id="electronics">
-                <span><img class="item-thumbnail" id="electronics" src="img/electronics/Computer%20Apples.png"/></span>
-                <span><img class="item-thumbnail" id="electronics" src="img/electronics/PC.png"/></span>
-                <span><img class="item-thumbnail" id="electronics" src="img/electronics/PowerStrip.png"/></span>
-                <span><img class="item-thumbnail" id="electronics" src="img/electronics/Smart%20Power%20Strip.png"/></span>
-                <span><img class="item-thumbnail" id="electronics" src="img/electronics/Printer%20Black.png"/></span>
-                <span><img class="item-thumbnail" id="electronics" src="img/electronics/Printer%20Grey.png"/></span>
-                <span><img class="item-thumbnail" id="electronics" src="img/electronics/PS2.png"/></span>
-                <span><img class="item-thumbnail" id="electronics" src="img/electronics/PS3.png"/></span>
-            </div>
-            <h2><Strong>Decor</Strong></h2>
-            <div id="decor">
-                <span><img class="item-thumbnail" id="laundry" src="img/decor/Heater%20Blanket%20Blue.png"/></span>
-                <span><img class="item-thumbnail" id="laundry" src="img/decor/Heater%20Blanket%20White.png"/></span>
-                <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Banner.png"/></span>
-                <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Couch%203.png"/></span>
-                <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20LazyBoy.png"/></span>
-                <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Sofa.png"/></span>
-                <span><img class="item-thumbnail" id="laundry" src="img/decor/Red%20Blanket.png"/></span>
-            </div>
-            <h2><Strong>Lighting</Strong></h2>
-            <div id="lighting">
-                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp01.png"/></span>
-                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp02.png"/></span>
-                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp03.png"/></span>
-                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp04.png"/></span>
-                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp05.jpg"/></span>
-            </div>
-            <h2><Strong>Kitchen</Strong></h2>
-            <div id="kitchen">
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Coffee%20Pot%20Black.png"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Coffee%20Pot%20Silver.png"span>
+            <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header active" id="basics"><i class="material-icons">label</i>Basics</div>
+                    <div class="collapsible-body">
+                        <img class="item-thumbnail" id="desk" src="img/basics/Student%20Desk%20.png" />
+                        <img class="item-thumbnail" id="desk" src="img/basics/Student%20Desk%202.png" />
+                        <img class="item-thumbnail" id="bed" src="img/basics/Twin%20Bed%20Multi.png" />
+                        <img class="item-thumbnail" id="bed" src="img/basics/Twin%20Bed%20White.png" />
+                        <img class="item-thumbnail" id="wardrobe" src="img/basics/Wardrobe%20big.png" />
+                        <img class="item-thumbnail" id="wardrobe" src="img/basics/Wardrobe.png" />
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header" id="electronics"><i class="material-icons">label</i>Electronics</div>
+                    <div class="collapsible-body">
+                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/Computer%20Apples.png"/></span>
+                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/PC.png"/></span>
+                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/PowerStrip.png"/></span>
+                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/Smart%20Power%20Strip.png"/></span>
+                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/Printer%20Black.png"/></span>
+                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/Printer%20Grey.png"/></span>
+                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/PS2.png"/></span>
+                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/PS3.png"/></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header" id="laundry"><i class="material-icons">label</i>Laundry</div>
+                    <div class="collapsible-body">
+                        <span><img class="item-thumbnail" id="laundry" src="img/decor/Heater%20Blanket%20Blue.png"/></span>
+                        <span><img class="item-thumbnail" id="laundry" src="img/decor/Heater%20Blanket%20White.png"/></span>
+                        <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Banner.png"/></span>
+                        <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Couch%203.png"/></span>
+                        <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20LazyBoy.png"/></span>
+                        <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Sofa.png"/></span>
+                        <span><img class="item-thumbnail" id="laundry" src="img/decor/Red%20Blanket.png"/></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header" id="lighting"><i class="material-icons">label</i>Lightings</div>
+                    <div class="collapsible-body">
+                        <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp01.png"/></span>
+                        <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp02.png"/></span>
+                        <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp03.png"/></span>
+                        <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp04.png"/></span>
+                        <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp05.jpg"/></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header" id="kitchen"><i class="material-icons">label</i>Kitchen</div>
+                    <div class="collapsible-body">
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Coffee%20Pot%20Black.png"/></span>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Coffee%20Pot%20Silver.png"span>
                 <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Dinnerware%20Black.png"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Dinnerware%20White.png"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Keurig%20Black.png"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Keurig%20Silver.png"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Micro%20Fridge%20Black.jpg"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Micro%20Fridge%20Black.png"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Microwave%20Black.png"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Microwave%20Silver.png"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Black.png"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Silver.png"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Duo%20Silver.png"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Toaster%20.png"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Toaster%20Black.png"/></span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Utensils.jpg"/></span>
-            </div>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Dinnerware%20White.png"/></span>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Keurig%20Black.png"/></span>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Keurig%20Silver.png"/></span>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Micro%20Fridge%20Black.jpg"/></span>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Micro%20Fridge%20Black.png"/></span>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Microwave%20Black.png"/></span>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Microwave%20Silver.png"/></span>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Black.png"/></span>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Silver.png"/></span>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Duo%20Silver.png"/></span>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Toaster%20.png"/></span>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Toaster%20Black.png"/></span>
+                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Utensils.jpg"/></span>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
-
     <script>
         var grid = 50;
-        var width = document.getElementById("width").value * 50;
-        var height = document.getElementById("height").value * 50;
         var canvas = new fabric.Canvas('c', {
             selection: false
         });
+
+        var width = document.getElementById("width").value * grid;
+        var height = document.getElementById("height").value * grid;
         canvas.on('mouse:over', function (e) {
             var objs = canvas.getObjects();
             for (var i = objs.length; i > width + height; i--) {
@@ -243,9 +257,12 @@
                 }
             }
         });
+
         canvas.on('mouse:out', function (e) {
             $('#theimg').remove();
         });
+
+
         canvas.on('object:moving', function (e) {
             var obj = e.target;
             obj.set({
@@ -262,6 +279,8 @@
                 obj.left = Math.min(obj.left, obj.canvas.width - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
             }
         });
+
+
         function draw() {
             var width = document.getElementById("width").value;
             var height = document.getElementById("height").value;
@@ -283,6 +302,7 @@
             }
             document.getElementById("h1").innerHTML = width * height + "SqFt";
         }
+
         function showTooltip(e) {
             $('#theimg').remove();
             var x = Math.floor(Math.random() * 10);
@@ -296,9 +316,8 @@
             }
             changeTooltipPosition(e);
         }
+
         function changeTooltipPosition(e) {
-            //var tooltipX = e.pageX + 30;
-            //var tooltipY = e.pageY + 30;
             var rect = e.getBoundingRect();
             var offset = canvas.calcOffset();
             var bottom = offset._offset.top + rect.top + rect.height;
@@ -310,12 +329,14 @@
                 left: left
             });
         }
+
         function handleDragStart(e) {
     [].forEach.call(images, function (img) {
                 img.classList.remove('img_dragging');
             });
             this.classList.add('img_dragging');
         }
+
         function handleDragOver(e) {
             if (e.preventDefault) {
                 e.preventDefault();
@@ -323,12 +344,15 @@
             e.dataTransfer.dropEffect = 'copy';
             return false;
         }
+
         function handleDragEnter(e) {
             this.classList.add('over');
         }
+
         function handleDragLeave(e) {
             this.classList.remove('over');
         }
+
         function handleDrop(e) {
             if (e.stopPropagation) {
                 e.stopPropagation();
@@ -340,11 +364,20 @@
             if (img.id == "bed") {
                 var newImage = new fabric.Image(img, {
                     name: img.id,
+                    width: 200,
+                    height: 300,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: false
+                });
+                var rect = new fabric.Rect({
+                    name: "bed",
                     width: 250,
                     height: 350,
                     left: posx / 2,
                     top: posy / 2,
-                    hasControls: true,
+                    hasControls: false,
                     hasBorders: false
                 });
             } else if (img.id == "wardrobe") {
@@ -357,6 +390,15 @@
                     hasControls: true,
                     hasBorders: false
                 });
+                var rect = new fabric.Rect({
+                    name: "wardrobe",
+                    width: 200,
+                    height: 300,
+                    left: posx - 50,
+                    top: posy - 50,
+                    hasControls: false,
+                    hasBorders: false
+                });
             } else if (img.id == "laundry") {
                 var newImage = new fabric.Image(img, {
                     name: img.id,
@@ -365,6 +407,15 @@
                     left: posx - 50,
                     top: posy - 30,
                     hasControls: true,
+                    hasBorders: false
+                });
+                var rect = new fabric.Rect({
+                    name: "laundry",
+                    width: 150,
+                    height: 150,
+                    left: posx - 50,
+                    top: posy - 50,
+                    hasControls: false,
                     hasBorders: false
                 });
             } else if (img.id == "kitchen") {
@@ -377,6 +428,15 @@
                     hasControls: true,
                     hasBorders: false
                 });
+                var rect = new fabric.Rect({
+                    name: "kitchen",
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false
+                });
             } else if (img.id == "electronics") {
                 var newImage = new fabric.Image(img, {
                     name: img.id,
@@ -385,6 +445,15 @@
                     left: posx - 50,
                     top: posy - 30,
                     hasControls: true,
+                    hasBorders: false
+                });
+                var rect = new fabric.Rect({
+                    name: "electronics",
+                    width: 100,
+                    height: 100,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: false,
                     hasBorders: false
                 });
             } else if (img.id == "desk") {
@@ -397,6 +466,15 @@
                     hasControls: true,
                     hasBorders: false
                 });
+                var rect = new fabric.Rect({
+                    name: "desk",
+                    width: 200,
+                    height: 150,
+                    left: posx - 100,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false
+                });
             } else if (img.id == "lighting") {
                 var newImage = new fabric.Image(img, {
                     name: img.id,
@@ -407,15 +485,26 @@
                     hasControls: true,
                     hasBorders: false
                 });
+                var rect = new fabric.Rect({
+                    name: "lighting",
+                    width: 50,
+                    height: 100,
+                    left: posx - 25,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false
+                });
             }
-            canvas.add(newImage);
+            canvas.add(rect);
             return false;
         }
+
         function handleDragEnd(e) {
     [].forEach.call(images, function (img) {
                 img.classList.remove('img_dragging');
             });
         }
+
         var images = document.querySelectorAll('#images img');
     [].forEach.call(images, function (img) {
             img.addEventListener('dragstart', handleDragStart, false);
@@ -426,6 +515,7 @@
         canvasContainer.addEventListener('dragover', handleDragOver, false);
         canvasContainer.addEventListener('dragleave', handleDragLeave, false);
         canvasContainer.addEventListener('drop', handleDrop, false);
+
         canvas.on('object:selected', function (e) {
             $('#theimg').remove();
             jQuery(".deleteBtn").remove();
@@ -436,11 +526,13 @@
             var deleteBtn = '<p" class="deleteBtn" title="Remove" style="position:absolute;top:' + btnTop + 'px;left:' + btnLeft + 'px;cursor:pointer;" title="Remove object">&#10005;</p>';
             jQuery(".canvas-container").append(deleteBtn);
         });
+
         canvas.on('mouse:down', function (e) {
             if (canvas.getActiveObject()) {} else {
                 jQuery(".deleteBtn").remove();
             }
         });
+
         canvas.on('object:modified', function (e) {
             jQuery(".deleteBtn").remove();
             var btnLeft = e.target.oCoords.mt.x;
@@ -450,9 +542,11 @@
             var deleteBtn = '<p" class="deleteBtn" title="Remove" style="position:absolute;top:' + btnTop + 'px;left:' + btnLeft + 'px;cursor:pointer;" title="Remove object">&#10005;</p>';
             jQuery(".canvas-container").append(deleteBtn);
         });
+
         canvas.on('object:moving', function (e) {
             jQuery(".deleteBtn").remove();
         });
+
         jQuery(document).on('click', ".deleteBtn", function () {
             if (canvas.getActiveObject()) {
                 canvas.remove(canvas.getActiveObject());
