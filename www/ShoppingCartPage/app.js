@@ -11,7 +11,7 @@ $(document).ready(function () {
 function switchShopScreens(screenClass){
     $(".shop-screen").hide();
 
-    $(screenClass).fadeIn();
+    $(screenClass).fadeIn(800);
 };
 
 function showSidebar() {
