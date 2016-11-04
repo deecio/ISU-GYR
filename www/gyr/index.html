@@ -148,29 +148,38 @@
 
     <header>
         <h1><center>
-            <img src="img/title.PNG"/>
-            <div class="row">
-            <div class="input-field col s1">
-                <input id="width" type="number" min="5">
-                <label for="width">Width</label>
-            </div>
-            <div class="input-field col s1">
-                <input id="height" type="number" min="5">
-                <label for="height">Height</label>
-            </div>
-        </div>
+            <img src="img/title.PNG" style="width: 25%; height: 25%"/>
         </center></h1>
     </header>
-    <div id="canvas-container">
-        <canvas id="c" width="600" height="600"></canvas>
+    <div>
+        <!-- Dropdown Trigger -->
+        <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Pick your dorm room!</a>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!" value="Maple">Maple</a></li>
+            <li class="divider"></li>
+            <li><a href="#!" value="Willow">Willow</a></li>
+            <li class="divider"></li>
+            <li><a href="#!" value="Larch">Larch</a></li>
+            <li class="divider"></li>
+            <li><a href="#!" value="Frederiksen Court">Frederiksen Court</a></li>
+            <li class="divider"></li>
+            <li><a href="#!" value="University Village">University Village</a></li>
+            <li class="divider"></li>
+            <li><a href="#!" value="Legacy">Legacy</a></li>
+        </ul>
     </div>
-    <a class="waves-effect waves-light btn" id="myButton" onclick="draw()">Generate Floorplan</a>
-    <p>
-        <h1 id="h1"><thin></thin></h1>
-    </p>
+    <div class="layer">
+        <div class="room">
+            <div id="canvas-container">
+                <canvas id="c" width="600" height="600"></canvas>
+            </div>
+        </div>
+    </div>
     <div id="draggable-menu-wrapper">
         <div id="images">
-            <ul class="collapsible popout" data-collapsible="accordion">
+            <ul class="collapsible" data-collapsible="accordion">
                 <li>
                     <div class="collapsible-header active" id="basics"><i class="material-icons">label</i>Basics</div>
                     <div class="collapsible-body">
@@ -246,16 +255,37 @@
         var canvas = new fabric.Canvas('c', {
             selection: false
         });
+        var width = 12;
+        var height = 12;
 
-        var width = document.getElementById("width").value * grid;
-        var height = document.getElementById("height").value * grid;
+
+        for (var i = 0; i <= width; i++) {
+            canvas.add(new fabric.Line([i * grid, 0, i * grid, (height * grid)], {
+                stroke: 'lightgray',
+                selectable: false,
+                hasControls: false,
+                hoverCursor: 'default'
+            }));
+
+        }
+        for (var i = 0; i <= height; i++) {
+            canvas.add(new fabric.Line([0, i * grid, (width * grid), i * grid], {
+                stroke: 'lightgray',
+                selectable: false,
+                hasControls: false,
+                hoverCursor: 'default'
+            }));
+        }
+
+
         canvas.on('mouse:over', function (e) {
-            var objs = canvas.getObjects();
-            for (var i = objs.length; i > width + height; i--) {
-                if (e.target == objs[i]) {
-                    showTooltip(e.target);
-                }
-            }
+            showTooltip(e.target);
+            /*            var objs = canvas.getObjects();
+                        for (var i = objs.length; i > 0; i--) {
+                            if (e.target == objs[i]) {
+                                showTooltip(e.target);
+                            }
+                        }*/
         });
 
         canvas.on('mouse:out', function (e) {
@@ -281,27 +311,31 @@
         });
 
 
-        function draw() {
-            var width = document.getElementById("width").value;
-            var height = document.getElementById("height").value;
-            for (var i = 0; i <= width; i++) {
-                canvas.add(new fabric.Line([i * grid, 0, i * grid, (height * grid)], {
-                    stroke: 'lightgray',
-                    selectable: false,
-                    hasControls: false,
-                    hoverCursor: 'default'
-                }));
-            }
-            for (var i = 0; i <= height; i++) {
-                canvas.add(new fabric.Line([0, i * grid, (width * grid), i * grid], {
-                    stroke: 'lightgray',
-                    selectable: false,
-                    hasControls: false,
-                    hoverCursor: 'default'
-                }));
-            }
-            document.getElementById("h1").innerHTML = width * height + "SqFt";
-        }
+        /*        function draw() {
+                    var width = 0;
+                    var height = 0;
+                    if (choice == "Willow") {
+                        width = 12;
+                        height = 12;
+                    }
+                    for (var i = 0; i <= width; i++) {
+                        canvas.add(new fabric.Line([i * grid, 0, i * grid, (height * grid)], {
+                            stroke: 'lightgray',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+                    for (var i = 0; i <= height; i++) {
+                        canvas.add(new fabric.Line([0, i * grid, (width * grid), i * grid], {
+                            stroke: 'lightgray',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+                    document.getElementById("h1").innerHTML = width * height + "SqFt";
+                }*/
 
         function showTooltip(e) {
             $('#theimg').remove();
@@ -372,13 +406,30 @@
                     hasBorders: false
                 });
                 var rect = new fabric.Rect({
-                    name: "bed",
                     width: 250,
                     height: 350,
-                    left: posx / 2,
-                    top: posy / 2,
+                    fill: 'rgba(122,153,172,1)',
+                    stroke: 'black',
+                    strokeWidth: 3,
+                    left: posx - 50,
+                    top: posy - 30,
                     hasControls: false,
                     hasBorders: false
+                });
+                var text = new fabric.Text('Bed', {
+                    fontSize: 50,
+                    left: posx + 40,
+                    top: posy + 100,
+                    hasControls: false,
+                    hasBorders: false,
+                    selectable: false
+                });
+                var group = new fabric.Group([rect, text], {
+                    name: "bed",
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false,
                 });
             } else if (img.id == "wardrobe") {
                 var newImage = new fabric.Image(img, {
@@ -391,13 +442,29 @@
                     hasBorders: false
                 });
                 var rect = new fabric.Rect({
-                    name: "wardrobe",
-                    width: 200,
-                    height: 300,
+                    width: 300,
+                    height: 150,
+                    fill: 'rgba(62,72,39,1)',
+                    stroke: 'black',
+                    strokeWidth: 3,
                     left: posx - 50,
-                    top: posy - 50,
+                    top: posy - 30,
                     hasControls: false,
                     hasBorders: false
+                });
+                var text = new fabric.Text('Wardrobe', {
+                    fontSize: 50,
+                    left: posx,
+                    top: posy + 20,
+                    hasControls: false,
+                    hasBorders: false,
+                    selectable: false
+                });
+                var group = new fabric.Group([rect, text], {
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false,
                 });
             } else if (img.id == "laundry") {
                 var newImage = new fabric.Image(img, {
@@ -429,51 +496,102 @@
                     hasBorders: false
                 });
                 var rect = new fabric.Rect({
-                    name: "kitchen",
                     width: 50,
                     height: 50,
+                    fill: 'rgba(255, 255, 254,1)',
+                    stroke: 'black',
+                    strokeWidth: 3,
                     left: posx - 50,
                     top: posy - 30,
                     hasControls: false,
                     hasBorders: false
                 });
+                var text = new fabric.Text('Kitchen', {
+                    fontSize: 15,
+                    left: posx - 50,
+                    top: posy - 10,
+                    hasControls: false,
+                    hasBorders: false,
+                    selectable: false
+                });
+                var group = new fabric.Group([rect, text], {
+                    name: "kitchen",
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false,
+                });
             } else if (img.id == "electronics") {
                 var newImage = new fabric.Image(img, {
                     name: img.id,
-                    width: 100,
-                    height: 100,
+                    width: 50,
+                    height: 25,
                     left: posx - 50,
                     top: posy - 30,
                     hasControls: true,
                     hasBorders: false
                 });
                 var rect = new fabric.Rect({
-                    name: "electronics",
-                    width: 100,
-                    height: 100,
-                    left: posx - 50,
+                    width: 50,
+                    height: 25,
+                    fill: 'rgba(112,115,114,1)',
+                    stroke: 'black',
+                    strokeWidth: 3,
+                    left: posx - 100,
                     top: posy - 30,
                     hasControls: false,
                     hasBorders: false
+                });
+                var text = new fabric.Text('Electronic', {
+                    fontSize: 10,
+                    left: posx - 100,
+                    top: posy - 25,
+                    hasControls: false,
+                    hasBorders: false,
+                    selectable: false
+                });
+                var group = new fabric.Group([rect, text], {
+                    name: "electronics",
+                    left: posx - 100,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false,
                 });
             } else if (img.id == "desk") {
                 var newImage = new fabric.Image(img, {
                     name: img.id,
                     width: 200,
-                    height: 150,
+                    height: 100,
                     left: posx - 100,
                     top: posy - 30,
                     hasControls: true,
                     hasBorders: false
                 });
                 var rect = new fabric.Rect({
-                    name: "desk",
                     width: 200,
-                    height: 150,
+                    height: 100,
+                    fill: 'rgba(62,72,39,1)',
+                    stroke: 'black',
+                    strokeWidth: 3,
                     left: posx - 100,
                     top: posy - 30,
                     hasControls: false,
                     hasBorders: false
+                });
+                var text = new fabric.Text('Desk', {
+                    fontSize: 50,
+                    left: posx - 50,
+                    top: posy,
+                    hasControls: false,
+                    hasBorders: false,
+                    selectable: false
+                });
+                var group = new fabric.Group([rect, text], {
+                    name: "desk",
+                    left: posx - 100,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false,
                 });
             } else if (img.id == "lighting") {
                 var newImage = new fabric.Image(img, {
@@ -485,17 +603,33 @@
                     hasControls: true,
                     hasBorders: false
                 });
-                var rect = new fabric.Rect({
-                    name: "lighting",
-                    width: 50,
-                    height: 100,
+                var cir = new fabric.Circle({
+                    radius: 25,
+                    fill: 'yellow',
+                    stroke: 'black',
+                    strokeWidth: 3,
                     left: posx - 25,
                     top: posy - 30,
                     hasControls: false,
                     hasBorders: false
                 });
+                var text = new fabric.Text('Lamp', {
+                    fontSize: 15,
+                    left: posx - 15,
+                    top: posy - 15,
+                    hasControls: false,
+                    hasBorders: false,
+                    selectable: false
+                });
+                var group = new fabric.Group([cir, text], {
+                    name: "lighting",
+                    left: posx - 25,
+                    top: posy - 30,
+                    hasControls: false,
+                    hasBorders: false,
+                });
             }
-            canvas.add(rect);
+            canvas.add(group);
             return false;
         }
 

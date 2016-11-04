@@ -19,30 +19,53 @@ body {}
 }
 
 #draggable-menu-wrapper {
-    width: 400px;
+    width: 370px;
     position: absolute !important;
     right: 20%;
-    top: 40%;
+    top: 48%;
+}
+
+.layer {
+    width: 680px;
+    height: 680px;
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    border-right: 10px solid black;
+    border-left: 10px solid black;
+    margin-left: 400px;
+    margin-top: 50px;
+}
+
+.room {
+    width: 660px;
+    height: 660px;
+    border-top: 30px solid rgb(123, 166, 67);
+    border-bottom: 30px solid rgb(123, 166, 67);
+    border-right: 30px solid rgb(241, 190, 72);
+    border-left: 30px solid rgb(241, 190, 72);
+    position: absolute !important;
 }
 
 .canvas-container {
-    background-color: transparent;
+    background-color: rgb(122, 153, 172);
     width: 600px;
     height: 600px;
     position: absolute !important;
-    top: 80%;
-    left: 45%;
-    margin-left: -400px;
-    margin-top: -300px;
 }
 
 .btn {
+    color: #FFFFFF !important;
     background-color: #7BA643 !important;
+    margin-left: 325px;
 }
 
 .btn:hover {
     color: #FFFFFF !important;
     background-color: #0C5030 !important;
+}
+
+#dropdown1 {
+    margin-left: 325px;
 }
 
 
