@@ -23,11 +23,13 @@
 
 .card-image{
     padding-bottom: 10px;
+    width: 100px;
 }
 
 .screen-title{
     text-align: center;
     padding-bottom: 40px;
+    font-size: 40px;
 }
 
 .centered{
@@ -92,4 +94,18 @@
 
 #info-links{
     margin-bottom: 250px;
+}
+
+.categories{
+    padding-top: 145px;
+}
+
+.InitItemScreen, .SecondItemCategory{
+    border-left: solid #BDBDBD;
+    border-right: solid #BDBDBD;
+    border-width: 2px;
+}
+
+.filter{
+    margin-bottom: 20px;
 }
