@@ -19,6 +19,11 @@ function switchShopScreens(screenClass){
     $(screenClass).fadeIn(800);
 };
 
+function resetActive() {
+    $('.collection-item').removeClass('active');
+    $('.collection-item').first().addClass('active');
+}
+
 function showSidebar() {
     $(".categories").fadeIn();
 }

@@ -138,3 +138,8 @@
     max-height: 720px;
     overflow-y: auto;
 }
+
+.item-slot{
+    height: 350px;
+    border-bottom: solid #BDBDBD;
+}

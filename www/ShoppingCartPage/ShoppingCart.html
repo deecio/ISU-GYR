@@ -149,7 +149,7 @@
             <!--Screen 1.5: Persistant category selector-->
             <div class="col-xs-2 categories collection">
                 <div class="row sidebar-row" ng-repeat="filter in filters">
-                    <a href="" class="collection-item" ng-click="setFilter(filter);" onclick="switchShopScreens('.InitItemScreen'); setActive($(this));">{{filter.name}}</a>
+                    <a href="" class="collection-item" ng-class="{active:$first}" ng-click="setFilter(filter);" onclick="switchShopScreens('.InitItemScreen');">{{filter.name}}</a>
                 </div>
             </div>
 
@@ -159,7 +159,7 @@
                     Select the item you CURRENTLY own:
                 </h2>
                 <div class="items">
-                    <div class="col-lg-4 centered" ng-repeat="item in items | filter: selectedFilter.filterExpr">
+                    <div class="col-lg-4 centered item-slot" ng-repeat="item in items | filter: selectedFilter.filterExpr">
                         <a class="item-button" ng-click="setFirstCost(item.monthly_cost, item);">
                             <div class="card z-depth-0">
                                 <img class="card-image" ng-src="{{item.icon}}" />
@@ -178,8 +178,8 @@
                 </h2>
 
                 <div class="items">
-                    <div class="col-lg-4 centered" ng-repeat="item in items | filter: selectedFilter.filterExpr">
-                        <a class="item-button" ng-click="setSecondCost(item.monthly_cost, item);">
+                    <div class="col-lg-4 centered item-slot" ng-repeat="item in items | filter: selectedFilter.filterExpr">
+                        <a class="item-button" ng-click="setSecondCost(item.monthly_cost, item);" onclick="resetActive();">
                             <div class="card z-depth-0">
                                 <img class="card-image" ng-src="{{item.icon}}" />
                                 <h3 class="item-name">{{item.name}}</h3>
