@@ -4,6 +4,11 @@ $(document).ready(function () {
     // Hide all blocks except for the first
     switchShopScreens(".StartShopScreen");
     $(".categories").hide();
+
+    $('.collection-item').click(function () {
+        $(this).parent().siblings('div').children().removeClass('active');
+        $(this).addClass('active');
+    })
 })
 
 // Function to switch screens in shopping cart menu
