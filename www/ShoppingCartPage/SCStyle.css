@@ -12,8 +12,13 @@
     padding-bottom: 20px;
     padding-left: 30px;
     padding-right: 30px;
-
+    color: #689F38;
+    text-decoration: none;
     margin: 20px;
+}
+
+.item-button:hover{
+    color: #0C5030;
 }
 
 .card{
@@ -40,7 +45,7 @@
     font-size: 20px;
     margin-top: 30px;
     background-color: #8BC34A !important;
-    margin-bottom: 300px;
+    margin-bottom: 100px;
 }
 
 .reset:hover{
@@ -96,16 +101,40 @@
     margin-bottom: 250px;
 }
 
-.categories{
-    padding-top: 145px;
-}
-
 .InitItemScreen, .SecondItemCategory{
     border-left: solid #BDBDBD;
     border-right: solid #BDBDBD;
     border-width: 2px;
 }
 
+.items{
+    max-height: 500px;
+    overflow-y: auto;
+}
+
 .filter{
     margin-bottom: 20px;
+}
+
+.sidebar-row{
+    margin-bottom: 0 !important;
+    text-align: left;
+}
+
+.sidebar-row a{
+    text-decoration: none;
+}
+
+.collection-item{
+    color: #689F38 !important;
+}
+
+.collection-item.active{
+    background-color: #8BC34A !important;
+    color: white !important;
+}
+
+.categories{
+    max-height: 720px;
+    overflow-y: auto;
 }
