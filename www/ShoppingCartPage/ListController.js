@@ -100,17 +100,15 @@
         }
     ];
     $scope.filters = [
-        { name: 'All', filterExpr: '' },
-        { name: 'Lights', filterExpr: { object: 'lighting' } },
-        { name: 'Appliance', filterExpr: { object: 'appliance' } },
-        { name: 'Test 1', filterExpr: { object: 'appliance' } },
-        { name: 'Test 2', filterExpr: { object: 'appliance' } },
-        { name: 'Test 3', filterExpr: { object: 'appliance' } },
-        { name: 'Test 4', filterExpr: { object: 'appliance' } },
-        { name: 'Test 5', filterExpr: { object: 'appliance' } },
-        { name: 'Test 6', filterExpr: { object: 'appliance' } },
-        { name: 'Test 7', filterExpr: { object: 'appliance' } },
-        { name: 'Test 8', filterExpr: { object: 'appliance' } }
+        { name: 'All', filterExpr: '', icon: '../img/world.png' },
+        { name: 'Lights', filterExpr: { object: 'lighting' }, icon: '../img/fluorbulb.jpg' },
+        { name: 'Appliance', filterExpr: { object: 'appliance' }, icon: '../img/microwave.jpg' },
+        { name: 'Test 1', filterExpr: { object: 'appliance' }, icon: '../img/fluorbulb.jpg' },
+        { name: 'Test 2', filterExpr: { object: 'appliance' }, icon: '../img/miniFridge.jpg' },
+        { name: 'Test 3', filterExpr: { object: 'appliance' }, icon: '../img/blender.jpg' },
+        { name: 'Test 4', filterExpr: { object: 'appliance' }, icon: '../img/fluorbulb.jpg' },
+        { name: 'Test 5', filterExpr: { object: 'appliance' }, icon: '../img/miniFridge.jpg' },
+        { name: 'Test 6', filterExpr: { object: 'appliance' }, icon: '../img/blender.jpg' }
 
         // Commenting this part out for now, bring back when screen 3 filters are changed to match the item, not the filter from screen 1.
         //{ name: 'Energy Star Approved', filterExpr: { eStar: true } }

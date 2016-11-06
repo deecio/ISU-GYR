@@ -142,7 +142,12 @@
                     Select an item category:
                 </h2>
                 <div class="col-xs-4 filter" ng-repeat="filter in filters">
-                    <a href="" class="btn btn-default waves-effect waves-light" ng-click="setFilter(filter);" onclick="switchShopScreens('.InitItemScreen'); showSidebar();">{{filter.name}}</a>
+                    <div class="card filter-card" ng-click="setFilter(filter);" onclick="switchShopScreens('.InitItemScreen'); showSidebar();">
+                        <div class="">
+                            <img class="filter-image" src="{{filter.icon}}" />
+                        </div>
+                        <a href="" class="btn btn-default waves-effect waves-light">{{filter.name}}</a>
+                    </div>
                 </div>
             </div>
 
