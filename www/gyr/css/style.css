@@ -1,4 +1,7 @@
-body {}
+body {
+    background-color: #f4f3e8 !important;
+    font-family: 'Univers LT Std', sans-serif;
+}
 
 .item-thumbnail {
     width: 85px;
@@ -25,6 +28,10 @@ body {}
     top: 48%;
 }
 
+.collapsible-body {
+    background-color: white;
+}
+
 .layer {
     width: 680px;
     height: 680px;
@@ -37,17 +44,17 @@ body {}
 }
 
 .room {
-    width: 660px;
-    height: 660px;
-    border-top: 30px solid rgb(123, 166, 67);
-    border-bottom: 30px solid rgb(123, 166, 67);
-    border-right: 30px solid rgb(241, 190, 72);
-    border-left: 30px solid rgb(241, 190, 72);
+    width: 661px;
+    height: 661px;
+    border-top: 30px solid rgb(238, 212, 132);
+    border-bottom: 30px solid rgb(238, 212, 132);
+    border-right: 30px solid #7BA643;
+    border-left: 30px solid #7BA643;
     position: absolute !important;
 }
 
 .canvas-container {
-    background-color: rgb(122, 153, 172);
+    background-color: #d3d3d3;
     width: 600px;
     height: 600px;
     position: absolute !important;
