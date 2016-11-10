@@ -3,6 +3,12 @@
 $(document).ready(function () {
     // Hide all blocks except for the first
     switchShopScreens(".StartShopScreen");
+    $(".categories").hide();
+
+    $('.collection-item').click(function () {
+        $(this).parent().siblings('div').children().removeClass('active');
+        $(this).addClass('active');
+    })
 })
 
 // Function to switch screens in shopping cart menu
@@ -10,5 +16,14 @@ $(document).ready(function () {
 function switchShopScreens(screenClass){
     $(".shop-screen").hide();
 
-    $(screenClass).fadeIn();
+    $(screenClass).fadeIn(800);
 };
+
+function resetActive() {
+    $('.collection-item').removeClass('active');
+    $('.collection-item').first().addClass('active');
+}
+
+function showSidebar() {
+    $(".categories").fadeIn();
+}

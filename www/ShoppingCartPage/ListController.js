@@ -100,9 +100,15 @@
         }
     ];
     $scope.filters = [
-        { name: 'All', filterExpr: '' },
-        { name: 'Lights', filterExpr: { object: 'lighting' } },
-        { name: 'Appliances', filterExpr: { object: 'appliance' } },
+        { name: 'All', filterExpr: '', icon: '../img/world.png' },
+        { name: 'Lights', filterExpr: { object: 'lighting' }, icon: '../img/fluorbulb.jpg' },
+        { name: 'Appliance', filterExpr: { object: 'appliance' }, icon: '../img/microwave.jpg' },
+        { name: 'Test 1', filterExpr: { object: 'appliance' }, icon: '../img/fluorbulb.jpg' },
+        { name: 'Test 2', filterExpr: { object: 'appliance' }, icon: '../img/miniFridge.jpg' },
+        { name: 'Test 3', filterExpr: { object: 'appliance' }, icon: '../img/blender.jpg' },
+        { name: 'Test 4', filterExpr: { object: 'appliance' }, icon: '../img/fluorbulb.jpg' },
+        { name: 'Test 5', filterExpr: { object: 'appliance' }, icon: '../img/miniFridge.jpg' },
+        { name: 'Test 6', filterExpr: { object: 'appliance' }, icon: '../img/blender.jpg' }
 
         // Commenting this part out for now, bring back when screen 3 filters are changed to match the item, not the filter from screen 1.
         //{ name: 'Energy Star Approved', filterExpr: { eStar: true } }
@@ -121,16 +127,18 @@
     };
 
     $scope.setFirstCost = function (value, item) {
-        $scope.firstItem.push(item);
         $scope.initCost = value;
+        $scope.FI = item;
         switchShopScreens(".SecondItemCategory");
     }
 
     $scope.setSecondCost = function (value, item) {
+        $scope.firstItem.push($scope.FI);
         $scope.secondItem.push(item);
         $scope.newCost = value;
         $scope.diff += $scope.initCost - $scope.newCost;
         $scope.diffSet.push($scope.initCost - $scope.newCost);
-        switchShopScreens(".Calculator");
+        $scope.setFilter('');
+        switchShopScreens(".InitItemScreen");
     }
 });
