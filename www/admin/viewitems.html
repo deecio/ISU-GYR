@@ -198,7 +198,7 @@ h3 code{
 											<td>{{i.monthly_cost}}</td>
 											<td>{{i.object}}</td>
 											<td>{{i.type}}</td>
-											<td>{{i.eStar}}</td>
+											<td>{{!!i.eStar}}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -231,8 +231,6 @@ h3 code{
                               httpService.get("http://greenyourresidence.ece.iastate.edu:3000/ShoppingCartViewerDB")
                               // This is where the response is received v
                                   .then(function(rtn) {
-																		if ($scope.eStar == 0) $scope.eStar = "False";
-																		if ($scope.eStar == 1) $scope.eStar = "True";
                                       $scope.data = rtn.data;
                                   });
                           });
