@@ -118,25 +118,29 @@
                     <div role="navigation">
                         <ul class="wd-Navigation">
                             <li class="wd-Navigation-node">
-                                <a class="wd-Navigation-link is-active" href="#">Home</a>
+                                <a class="wd-Navigation-link" href="../index.html">Home</a>
                             </li>
                             <li class="wd-Navigation-node">
-                                <a class="wd-Navigation-link" href="ShoppingCartPage/ShoppingCart.html">Savings Cart</a>
+                                <a class="wd-Navigation-link is-active" href="#">Interactive Apartment</a>
                             </li>
                             <li class="wd-Navigation-node">
-                                <a class="wd-Navigation-link" href="information.html">Information</a>
+                                <a class="wd-Navigation-link" href="../ShoppingCartPage/ShoppingCart.html">Savings Cart</a>
                             </li>
                             <li class="wd-Navigation-node">
-                                <a class="wd-Navigation-link" href="results.php">Quiz Results</a>
+                                <a class="wd-Navigation-link" href="../information.html">Information</a>
                             </li>
                             <li class="wd-Navigation-node">
-                                <a class="wd-Navigation-link" href="FactPage.html">Trivia</a>
+                                <a class="wd-Navigation-link" href="../results.php">Quiz Results</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="../FactPage.html">Green Living Facts</a>
                             </li>
                         </ul>
                     </div>
                     <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
                         <option value="index.html">Home</option>
-                        <option value="savingscart.html" selected="selected">Savings Cart</option>
+                        <option value="gyr.html" selected="selected">Interactive Apartment</option>
+                        <option value="savingscart.html">Savings Cart</option>
                         <option value="information.html">Information</option>
                         <option value="results.php">Quiz Results</option>
                         <option value="FactPage.html">Trivia</option>
@@ -255,13 +259,13 @@
         var canvas = new fabric.Canvas('c', {
             selection: false
         });
-        var width = 12;
-        var height = 12;
+        var width = 13;
+        var height = 13;
 
 
         for (var i = 0; i <= width; i++) {
             canvas.add(new fabric.Line([i * grid, 0, i * grid, (height * grid)], {
-                stroke: 'lightgray',
+                stroke: 'white',
                 selectable: false,
                 hasControls: false,
                 hoverCursor: 'default'
@@ -270,7 +274,7 @@
         }
         for (var i = 0; i <= height; i++) {
             canvas.add(new fabric.Line([0, i * grid, (width * grid), i * grid], {
-                stroke: 'lightgray',
+                stroke: 'white',
                 selectable: false,
                 hasControls: false,
                 hoverCursor: 'default'
@@ -279,7 +283,9 @@
 
 
         canvas.on('mouse:over', function (e) {
-            showTooltip(e.target);
+            if (e.target != canvas.getActiveObject()) {
+                showTooltip(e.target);
+            }
             /*            var objs = canvas.getObjects();
                         for (var i = objs.length; i > 0; i--) {
                             if (e.target == objs[i]) {
@@ -310,7 +316,17 @@
             }
         });
 
-
+        var angles = [90, 180, 270, 360];
+        canvas.on("object:rotating", function (rotEvtData) {
+            var targetObj = rotEvtData.target;
+            var angle = targetObj.angle % 360;
+            for (var i = 0; i < angles.length; i++) {
+                if (angle <= angles[i]) {
+                    targetObj.angle = angles[i];
+                    break;
+                }
+            }
+        });
         /*        function draw() {
                     var width = 0;
                     var height = 0;
@@ -428,8 +444,9 @@
                     name: "bed",
                     left: posx - 50,
                     top: posy - 30,
-                    hasControls: false,
                     hasBorders: false,
+                    lockScalingX: true,
+                    lockScalingY: true
                 });
             } else if (img.id == "wardrobe") {
                 var newImage = new fabric.Image(img, {
@@ -463,8 +480,9 @@
                 var group = new fabric.Group([rect, text], {
                     left: posx - 50,
                     top: posy - 30,
-                    hasControls: false,
                     hasBorders: false,
+                    lockScalingX: true,
+                    lockScalingY: true
                 });
             } else if (img.id == "laundry") {
                 var newImage = new fabric.Image(img, {
@@ -518,8 +536,9 @@
                     name: "kitchen",
                     left: posx - 50,
                     top: posy - 30,
-                    hasControls: false,
                     hasBorders: false,
+                    lockScalingX: true,
+                    lockScalingY: true
                 });
             } else if (img.id == "electronics") {
                 var newImage = new fabric.Image(img, {
@@ -554,8 +573,9 @@
                     name: "electronics",
                     left: posx - 100,
                     top: posy - 30,
-                    hasControls: false,
                     hasBorders: false,
+                    lockScalingX: true,
+                    lockScalingY: true
                 });
             } else if (img.id == "desk") {
                 var newImage = new fabric.Image(img, {
@@ -590,8 +610,9 @@
                     name: "desk",
                     left: posx - 100,
                     top: posy - 30,
-                    hasControls: false,
                     hasBorders: false,
+                    lockScalingX: true,
+                    lockScalingY: true
                 });
             } else if (img.id == "lighting") {
                 var newImage = new fabric.Image(img, {
@@ -625,8 +646,9 @@
                     name: "lighting",
                     left: posx - 25,
                     top: posy - 30,
-                    hasControls: false,
                     hasBorders: false,
+                    lockScalingX: true,
+                    lockScalingY: true
                 });
             }
             canvas.add(group);
@@ -689,6 +711,45 @@
             }
         });
     </script>
+
+    <div class="wd-l-Footer">
+        <div class="wd-l-Footer-inner">
+
+            <div class="GLimage">
+                <img src="img/footer.jpg" />
+            </div>
+
+            <div class="wd-l-PageFooter" id="footer" role="contentinfo">
+                <div class="wd-l-PageFooter-inner">
+                    <div class="wd-Grid wd-Grid--fitToFill wd-Grid--noGutter">
+
+                        <div class="wd-Grid-cell wd-Grid-cell--1">
+                            <div class="wd-l-PageFooter-nameplate">
+                                <a class="wd-Nameplate" href="http://www.iastate.edu/">
+                                    <img alt="Iowa State University" src="img/sprite.png">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="wd-Grid-cell wd-Grid-cell--2">
+                            <div class="wd-l-PageFooter-content">
+                                <div class="region region-footer">
+                                    <div id="block-block-1" class="block block-block">
+
+
+                                        <div class="content">
+                                            <p>Copyright © 1995-2016, Iowa State University of Science and Technology. All rights reserved.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -1,7 +1,10 @@
-﻿.container{
+﻿body{
+    font-family: 'Univers LT Std', sans-serif;
+}
+
+.container{
     padding-top: 20px;
     padding-bottom: 50px;
-    font-family: 'Roboto';
     font-size: 18px;
     color: #212121;
 }
@@ -21,7 +24,6 @@
 }
 
 .title{
-    font-family: 'Bungee';
     font-size: 60px;
     color: #7BA643;
 }
