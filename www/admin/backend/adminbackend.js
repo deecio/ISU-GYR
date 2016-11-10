@@ -51,19 +51,46 @@ var rtn = {};
         }
         database.query('SELECT q.`quizid`, n.`label`, n.`qid`, n.`type` FROM `quiz` as q JOIN `question` as n WHERE n.`quizid` = q.`quizid`;', showquizzes);
 
+};
 
+module.exports.addquestionDB = function(req,res){
+  var rtn = {};
+          function addquestionDB(err, result, fields) {
+              rtn.db_result = result;
+              if (err)
+                  rtn.error = err;
+                  if (result.changedRows < 1) {
+                      rtn.error = {
+                          code: 1001,
+                          message: 'failed to add item'
+                      }
+                      //console.log("/vote/" + uid + "/" + dir + " - ", result);
+                  }
+              rtn.ready = true;
+              res.json(rtn);
+          }
+          database.query('INSERT INTO `item`(`name`, `icon`, `icon_height`, `monthly_cost`, `eStar`, `object`, `type`) VALUES (?,?,?,?,?,?,?,?);', [req.body.name || "null", req.body.icon || "null", req.body.icon_height || "null", req.body.monthly_cost || "null", req.body.eStar || "null", req.body.object || "null", req.body.type || "null"], addquestionDB);
 
 };
 
 //Shopping Cart
-module.exports.viewshoppingcart = function(req,res){
+module.exports.additem = function(req,res){
   var rtn = {};
           function addfact(err, result, fields) {
               rtn.db_result = result;
+              if (err)
+                  rtn.error = err;
+                  if (result.changedRows < 1) {
+                      rtn.error = {
+                          code: 1001,
+                          message: 'failed to add item'
+                      }
+                      //console.log("/vote/" + uid + "/" + dir + " - ", result);
+                  }
               rtn.ready = true;
               res.json(rtn);
           }
-          database.query('INSERT INTO `item`(`name`, `icon`, `icon_height`, `monthly_cost`, `eStar`, `object`, `type`) VALUES (?,?,?,?,?,?,?,?);', [req.body.name || "null", req.body.icon || "null", req.body.icon_height || "null", req.body.monthly_cost || "null", req.body.eStar || "null", req.body.object || "null", req.body.type || "null"], viewshoppingcart);
+          database.query('INSERT INTO `item`(`name`, `icon`, `icon_height`, `monthly_cost`, `eStar`, `object`, `type`) VALUES (?,?,?,?,?,?,?,?);', [req.body.name || "null", req.body.icon || "null", req.body.icon_height || "null", req.body.monthly_cost || "null", req.body.eStar || "null", req.body.object || "null", req.body.type || "null"], additem);
 
 };
 
