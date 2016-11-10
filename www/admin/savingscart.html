@@ -335,7 +335,11 @@ h3 code{
 			panes.eq(tabs.index(tabs.filter('.active'))).addClass('active');
 		}
 	});
-});</script>
+});
+$(document).ready(function() {
+	$('select').material_select();
+});
+</script>
 
 
 </body>
