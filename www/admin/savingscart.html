@@ -183,19 +183,30 @@ h3 code{
 												<label for="name">Item Name</label>
 											</div>
 										</div>
-										<label>Category</label>
-										  <select class="browser-default">
-										    <option value="" disabled selected>Choose the category</option>
-										    <option value="appliance">Appliance</option>
-										    <option value="electronics">Electronics</option>
-										    <option value="lights">Lights</option>
-										  </select>
-										<label>eStar</label>
-										  <select class="browser-default">
-										    <option value="" disabled selected></option>
-										    <option value="true">True</option>
-										    <option value="false">False</option>
-											</select>
+										<div class="row">
+											<div class="input-field col s6" style="text-align:left">
+												<input id="monthly_cost" type="text" class="validate" ng-model="monthly_cost" placeholder="$">
+												<label for="monthly_cost">Monthly Cost</label>
+											</div>
+										</div>
+										<div style="text-align:left">
+											<div class="input-field col s12">
+										    <select>
+													<option value="" disabled selected>Choose the category</option>
+											    <option value="appliance">Appliance</option>
+											    <option value="electronics">Electronics</option>
+											    <option value="lights">Lights</option>
+										    </select>
+										    <label>Category</label>
+										  </div><div class="input-field col s12">
+										    <select>
+													<option value="" disabled selected></option>
+											    <option value="true">True</option>
+											    <option value="false">False</option>
+										    </select>
+										    <label>eStar</label>
+										  </div>
+										</div>
 										<form action="#">
 									    <div class="file-field input-field">
 												<div class="btn">
@@ -207,12 +218,6 @@ h3 code{
 									      </div>
 									    </div>
 									  </form>
-										<div class="row">
-											<div class="input-field col s6" style="text-align:left">
-												<input id="monthly_cost" type="text" class="validate" ng-model="monthly_cost" placeholder="$">
-												<label for="monthly_cost">Monthly Cost</label>
-											</div>
-										</div>
 										<br> <hr> <br>
 										<tr>
 											<button class="btn" ng-click="submitItem()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
