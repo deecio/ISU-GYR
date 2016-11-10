@@ -192,11 +192,13 @@ h3 code{
 										<div style="text-align:left">
 												<label>Category</label>
 													 <select class="browser-default">
-														 <option value="" disabled selected>Choose the category</option>
+														 <option value="" disabled selected></option>
 	 											    <option value="appliance">Appliance</option>
 	 											    <option value="electronics">Electronics</option>
 	 											    <option value="lights">Lights</option>
-													</select> <label>eStar</label>
+													</select>
+													<br><br><br>
+													<label>eStar</label>
 													<select class="browser-default">
 														<option value="" disabled selected></option>
 												    <option value="true">True</option>
@@ -237,7 +239,7 @@ h3 code{
 											"Microsoft": null,
 											"Google": 'http://placehold.it/250x250'
 										}
-									});.,
+									});,
 											function httpService($http) {
 													this.get = function(url) {
 															return $http.get(url);
