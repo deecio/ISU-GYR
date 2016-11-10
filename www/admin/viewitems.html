@@ -163,113 +163,82 @@ h3 code{
                 <div class="col-lg-12 text-center">
 
 
-      			<h3>Add Shopping Cart Item</h3>
+      			<h3> View Shopping Cart Objects</h3>
 
       				<nav>
       					 <div class="nav-wrapper teal lighten-2">
       						 <ul class="center hide-on-med-and-down">
-      							 <li class="active"><a href="additem.html">Add Item</a></li>
-      							 <li><a href="savingscart.html">View/Manage Items</a></li>
+      							 <li><a href="savingscart.html">Add Object</a></li>
+      							 <li class="active"><a href="viewitems.html">View/Manage Objects</a></li>
       						 </ul>
       					 </div>
       				 </nav>
       				<hr> <br>
 
-							<div class="row" ng-controller="AddItemDB">
-									<form class="col s12">
-										<div class="row">
-											<div class="input-field col s6" style="text-align:left">
-												<input id="name" type="text" class="validate" ng-model="name">
-												<label for="name">Item Name</label>
-											</div>
-										</div>
-										<label>Category</label>
-										  <select class="browser-default">
-										    <option value="" disabled selected>Choose the category</option>
-										    <option value="appliance">Appliance</option>
-										    <option value="electronics">Electronics</option>
-										    <option value="lights">Lights</option>
-										  </select>
-										<label>eStar</label>
-										  <select class="browser-default">
-										    <option value="" disabled selected></option>
-										    <option value="true">True</option>
-										    <option value="false">False</option>
-											</select>
-										<form action="#">
-									    <div class="file-field input-field">
-												<div class="btn">
-									        <span>Upload Image</span>
-									        <input type="file" ng-model="icon">
-									      </div>
-									      <div class="file-path-wrapper">
-									        <input class="file-path validate" type="text">
-									      </div>
-									    </div>
-									  </form>
-										<div class="row">
-											<div class="input-field col s6" style="text-align:left">
-												<input id="monthly_cost" type="text" class="validate" ng-model="monthly_cost" placeholder="$">
-												<label for="monthly_cost">Monthly Cost</label>
-											</div>
-										</div>
-										<br> <hr> <br>
-										<tr>
-											<button class="btn" ng-click="submitItem()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
-												<span>Add Item</span>
-											</button>
-										</tr>
-									</form>
-									<!-- include script tags -->
-									<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-									<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-									<!-- Compiled and minified CSS -->
-									<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+              <div ng-controller="ShoppingCartViewerDB">
+                  <br>
+                  <table class="bordered highlight responsive-table text-darken-2 flow-text">
+                    <thead>
+                      <tr>
+                          <th data-field="name">Name</th>
+                          <th data-field="icon">Icon</th>
+													<th data-field="icon_height">Icon Height</th>
+													<th data-field="monthly_cost">Monthly Cost</th>
+													<th data-field="object">Object</th>
+													<th data-field="type">Type</th>
+													<th data-field="eStar">eStar</th>
+                      </tr>
+                    </thead>
 
-									<!-- Compiled and minified JavaScript -->
-									<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+                  <tbody>
+                    <tr ng-repeat="i in data.db_result">
+                      <td>{{i.name}}</td>
+                      <td>{{i.icon}}</td>
+											<td>{{i.icon_height}}</td>
+											<td>{{i.monthly_cost}}</td>
+											<td>{{i.object}}</td>
+											<td>{{i.type}}</td>
+											<td>{{i.eStar}}</td>
+                    </tr>
+                  </tbody>
+                </table>
 
-									<script>
-									$('input.autocomplete').autocomplete({
-										data: {
-											"Apple": null,
-											"Microsoft": null,
-											"Google": 'http://placehold.it/250x250'
-										}
-									});.,
-											function httpService($http) {
-													this.get = function(url) {
-															return $http.get(url);
-													}
-													this.post = function(url, data) {
-															return $http.post(url, data);
-													}
-											}
-											angular.module('gyrApp', []).service('httpService', httpService)
-													.controller('AddItemDB', function($scope, httpService) {
+                  <!-- include script tags -->
+                  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+                  <!-- Compiled and minified CSS -->
+                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+                  <!-- Compiled and minified JavaScript -->
+                  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+                  <!-- This page's angular set-up -->
+                  <script>
+                      function httpService($http) {
+                          this.get = function(url) {
+                              return $http.get(url);
+                          }
+                          this.post = function(url, data) {
+                              return $http.post(url, data);
+                          }
+                      }
+                      angular.module('gyrApp', []).service('httpService', httpService)
+                          .controller('ShoppingCartViewerDB', function($scope, httpService) {
 
 
-															$scope.data = {};
-															$scope.data.questions = [];
-															$scope.submitItem = function(){
-															httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddItemDB", {
-																icon: null,//todo
-										            icon_height: "150px",
-										            name: $scope.name,
-										            monthly_cost: $scope.monthly_cost,
-										            object: $scope.object,
-										            type: $scope.type ,
-										            eStar: $scope.eStar
-															})
-															// This is where the response is received v
-																	.then(function(rtn) {
-																			$scope.data = rtn.data;
-																	});
-																}
-													});
+                              $scope.data = {};
+                              $scope.data.questions = [];
+                              httpService.get("http://greenyourresidence.ece.iastate.edu:3000/ShoppingCartViewerDB")
+                              // This is where the response is received v
+                                  .then(function(rtn) {
+                                      $scope.data = rtn.data;
+                                  });
 
-									</script>
-								</div>
+                          });
+
+                  </script>
+
+                </div>
             </div>
         </div>
 
