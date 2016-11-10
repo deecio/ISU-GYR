@@ -54,8 +54,8 @@ app.get('/QuizViewer', function(req, res){
 });
 
 //Shopping Cart
-app.get('ShoppingCartViewerDB', adminbackend.getshoppingcart);
-app.get('AddItemDB', adminbackend.getshoppingcart);
+app.get('/ShoppingCartViewerDB', adminbackend.getshoppingcart);
+app.get('/AddItemDB', adminbackend.getshoppingcart);
 
 //Information
 app.get('/InformationViewerDB', adminbackend.getinformation);
