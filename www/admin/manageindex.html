@@ -31,7 +31,7 @@ h3 code{
 }</style>
 	<script >/* html5shiv */ (function(){var t='abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.split(' ');for(var i=t.length;i--;)document.createElement(t[i])})();</script>
 </head>
-<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="gyrApp">
+<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="gyrApp" >
 <div class="wd-l-Page pwrapper">
 	<div class="wd-l-Page-inner pwrapper-wrapper">
 		<div class="wd-Skip">
@@ -129,7 +129,7 @@ h3 code{
                         <div role="navigation">
                             <ul class="wd-Navigation">
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="index.html">Manage Home</a>
+                                    <a class="wd-Navigation-link is-active" href="index.html">Manage Home</a>
                                 </li>
 																<li class="wd-Navigation-node">
                                     <a class="wd-Navigation-link" href="addquestion.html">Manage Quiz</a>
@@ -141,16 +141,16 @@ h3 code{
                                     <a class="wd-Navigation-link" href="informationadmin.html">Manage Information</a>
                                 </li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link is-active" href="factadmin.html">Manage Facts</a>
+                                    <a class="wd-Navigation-link" href="factadmin.html">Manage Facts</a>
                                 </li>
                             </ul>
                         </div>
                         <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
-                            <option value="index.html">Manage Home</option>
-														<option value="addquestion.html">Manage Quiz</option>
-                            <option value="savingscart.html">Manage Savings Cart</option>
-                            <option value="informationadmin.html">Manage Information</option>
-                            <option value="factadmin.html" selected="selected">Manage Facts</option>
+													<option value="index.html" selected="selected">Manage Home</option>
+													<option value="addquestion.html">Manage Quiz</option>
+													<option value="savingscart.html">Manage Savings Cart</option>
+													<option value="informationadmin.html">Manage Information</option>
+													<option value="factadmin.html">Manage Facts</option>
                         </select>
                     </div>
                 </div>
@@ -163,102 +163,75 @@ h3 code{
                 <div class="col-lg-12 text-center">
 
 
-			<h3> Manage Facts </h3>
-
+			<h3> Manage Home Items </h3>
 				<nav>
 					 <div class="nav-wrapper teal lighten-2">
 						 <ul class="center hide-on-med-and-down">
-							 <li class="active"><a href="factadmin.html">Add Fact</a></li>
-							 <li><a href="managefacts.html">View/Manage Facts</a></li>
+							 <li><a href="index.html">Add Item</a></li>
+							 <li class="active"><a href="manageindex.html">View/Manage Home Items</a></li>
 						 </ul>
 					 </div>
 				 </nav>
 				<hr> <br>
 
-			<div class="row" ng-controller="AddFactDB">
-					<form class="col s12">
-						<div class="row">
-							<div class="input-field col s6" style="text-align:left">
-								<input id="name" type="text" class="validate" ng-model="name">
-								<label for="name">Fact Title</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="input-field col s6" style="text-align:left">
-								<input id="category" type="text" class="validate" ng-model="category">
-								<label for="category">Category</label>
-							</div>
-						</div>
-						<form action="#">
-					    <div class="file-field input-field">
-								<div class="btn">
-					        <span>Upload Image</span>
-					        <input type="file" ng-model="image">
-					      </div>
-					      <div class="file-path-wrapper">
-					        <input class="file-path validate" type="text">
-					      </div>
-					    </div>
-					  </form>
-						<div class="row">
-							<div class="input-field col s12">
-								<textarea id="fact_description" class="materialize-textarea" ng-model="text"></textarea>
-									<label for="fact_description">Fact Description</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="input-field col s12" style="text-align:left">
-								<input id="hyperlink" type="text" class="validate" ng-model="hyperlink" placeholder="http://www.postyoursoucelinkhere.com">
-								<label for="hyperlink">Hyperlink</label>
-							</div>
-						</div>
-						<br> <hr> <br>
-						<tr>
-							<button class="btn" ng-click="submitFact()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
-								<span>Add Fact</span>
-							</button>
-						</tr>
-					</form>
-					<!-- include script tags -->
-					<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-					<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-					<!-- Compiled and minified CSS -->
-					<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+<div ng-controller="HomeViewerDB">
+<table class="bordered highlight responsive-table text-darken-2 flow-text">
+        <thead>
+          <tr>
+              <th data-field="title">Item Title</th>
+              <th data-field="file">Image File</th>
+							<th data-field="category">Category</th>
+              <th data-field="description">Item Tooltip</th>
+							<th data-field="hyperlink">Hyperlink</th>
+          </tr>
+        </thead>
 
+        <tbody>
+          <tr ng-repeat="d in data.db_result">
+            <td>{{d.name}}</td>
+            <td>{{d.file}}</td>
+						<td>{{d.category}}</td>
+						<td>{{d.description}}</td>
+            <td>{{d.hyperlink}}</td>
+          </tr>
+        </tbody>
+      </table>
+			<!-- include script tags -->
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+			<!-- Compiled and minified CSS -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 
-					<script>
-							function httpService($http) {
-									this.get = function(url) {
-											return $http.get(url);
-									}
-									this.post = function(url, data) {
-											return $http.post(url, data);
-									}
+			<!-- Compiled and minified JavaScript -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+			<!-- This page's angular set-up -->
+			<script>
+					function httpService($http) {
+							this.get = function(url) {
+									return $http.get(url);
 							}
-							angular.module('gyrApp', []).service('httpService', httpService)
-									.controller('AddFactDB', function($scope, httpService) {
+							this.post = function(url, data) {
+									return $http.post(url, data);
+							}
+					}
+					angular.module('gyrApp', []).service('httpService', httpService)
+							.controller('HomeViewerDB', function($scope, httpService) {
 
 
-											$scope.data = {};
-											$scope.data.questions = [];
-											$scope.submitFact = function(){
-											httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddFactDB", {
-												name:$scope.name,
-												hyperlink:$scope.hyperlink,
-												text:$scope.text,
-												category:$scope.category,
-												image:null//todo
-											})
-											// This is where the response is received v
-													.then(function(rtn) {
-															$scope.data = rtn.data;
-													});
-												}
-									});
+									$scope.data = {};
+									$scope.data.questions = [];
+									httpService.get("http://greenyourresidence.ece.iastate.edu:3000/HomeViewerDB")
+									// This is where the response is received v
+											.then(function(rtn) {
+													$scope.data = rtn.data;
+											});
 
-					</script>
-				</div>
+							});
 
+			</script>
+
+			</div>
                 </div>
             </div>
         </div>
@@ -269,10 +242,12 @@ h3 code{
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -280,9 +255,10 @@ h3 code{
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
 <!-- Compiled and minified JavaScript -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
 <script >/* Grid gutter fix for IE7 */ (function(b){if((' '+b.body.parentNode.className+' ').indexOf(' lt-ie8 ')==-1)return;var d=b.createStyleSheet();var e=function(s){var a=b.all,l=[],i,j;d.addRule(s,'k:v');for(j=a.length;j--;)a[j].currentStyle.k&&l.push(a[j]);d.removeRule(0);return l};var g=e('.grid');for(var i=g.length;i--;)g[i].style.width=g[i].offsetWidth-20})(document);</script>
 <script >/* Responsive design */ (function(f){if(!f.querySelector||!f.addEventListener)return;var g='add',cc='contains',cr='remove',ct='toggle',sa='active',sb='wd-p-OffCanvasBar',sn='wd-p-OffCanvasNav',ss='wd-p-OffCanvasSearch',ip='.wd-l-SearchBox input[type="text"]',ed='preventDefault',q=function(a,b){return(b||f).querySelectorAll(a)},c=function(a,b,c){b=b||cr;c=c||f.body;a=' '+a+' ';var d=' '+c.className.trim()+' ';var e=d.indexOf(a)!=-1;if(b==cc)return e;else if(!e&&(b==ct||b==g))c.className=d+a;else if(e&&(b==ct||b==cr))c.className=d.replace(a,' ')},h=function(b,c,d){for(var e=q(b),i=e.length;i--;){if(e[i].tagName!='A'){if(!d)e[i].addEventListener('click',function(a){a[ed]()},0);e[i].addEventListener('ontouchstart'in window?'touchstart':'mousedown',c,0)}}},m=q('.wd-l-TopStripMenu-toolbar'),md=function(){q(ip)[0]&&q(ip)[0].blur();for(var i=m.length;i--;)c(sa,cr,m[i])};h('.wd-ResponsiveToggles-nav',function(a){md();c(sb);c(ss);c(sn,ct);a[ed]()});h('.wd-ResponsiveToggles-search',function(a){md();c(sb);c(ss,ct);if(c(ss,cc))q(ip)[0]&&q(ip)[0].focus();c(sn);a[ed]()});h('.wd-l-TopStripMenu-header',function(a){var b=q('.wd-l-TopStripMenu-toolbar',this.parentNode)[0];if(c(sa,cc,b)){c(sa,cr,b);c(sb)}else{md();c(sa,g,b);c(sb,g);c(ss)}a[ed]()});h('.wd-l-Content',function(a){if(c(sn,cc))a[ed]();c(sn)},true)})(document);</script>
 <script >hljs.configure({tabReplace: '    '}); hljs.initHighlightingOnLoad()</script>
@@ -315,12 +291,7 @@ h3 code{
 			panes.eq(tabs.index(tabs.filter('.active'))).addClass('active');
 		}
 	});
-});
-$(document).ready(function() {
-    $('select').material_select();
-  });
-
-	</script>
+});</script>
 
 
 </body>
