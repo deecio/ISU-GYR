@@ -67,7 +67,7 @@ module.exports.addquestionDB = function(req,res){
               rtn.ready = true;
               res.json(rtn);
           }
-          database.query('INSERT INTO `item`(`name`, `icon`, `icon_height`, `monthly_cost`, `eStar`, `object`, `type`) VALUES (?,?,?,?,?,?,?,?);', [req.body.name || "null", req.body.icon || "null", req.body.icon_height || "null", req.body.monthly_cost || "null", req.body.eStar || "null", req.body.object || "null", req.body.type || "null"], addquestionDB);
+          database.query('INSERT INTO `question`(`quizid`, `type`, `label`) VALUES (?,?,?);', [req.body.quizid || "null", req.body.type || "null", req.body.label], addquestionDB);
 
 };
 
