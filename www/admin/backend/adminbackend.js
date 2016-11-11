@@ -122,8 +122,10 @@ module.exports.addinformation = function(req,res){
   var rtn = {};
           function addinformation(err, result, fields) {
               rtn.db_result = result;
-              if (err)
+              if (err){
                   rtn.error = err;
+                  console.log(err);
+                }
                   if (result.changedRows < 1) {
                       rtn.error = {
                           code: 1001,
@@ -133,7 +135,7 @@ module.exports.addinformation = function(req,res){
               rtn.ready = true;
               res.json(rtn);
           }
-          database.query('INSERT INTO `information`(`title`, `hyperlink`) VALUES (?,?);', [req.body.title || "null", req.body.info_link], addinformation);
+          database.query('INSERT INTO `information`(`title`, `hyperlink`) VALUES (?,?);', [req.body.title || "null", req.body.info_link || "null"], addinformation);
 
 };
 
