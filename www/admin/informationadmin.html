@@ -158,46 +158,71 @@ h3 code{
 		</div>
 
 
-        <div class="container">
+        <div class="container" ng-controller="AddInformationDB">
             <div class="row">
                 <div class="col-lg-12 text-center">
+									<h3> Manage Information </h3>
 
+										<nav>
+											 <div class="nav-wrapper teal lighten-2">
+												 <ul class="center hide-on-med-and-down">
+													 <li class="active"><a href="informationadmin.html">Add Hyperlink</a></li>
+													 <li><a href="manageinformation.html">View/Manage Information</a></li>
+												 </ul>
+											 </div>
+										 </nav>
+										<hr> <br>
 
-			<h3> Manage Information </h3>
-
-				<nav>
-					 <div class="nav-wrapper teal lighten-2">
-						 <ul class="center hide-on-med-and-down">
-							 <li class="active"><a href="informationadmin.html">Add Hyperlink</a></li>
-							 <li><a href="manageinformation.html">View/Manage Information</a></li>
-						 </ul>
-					 </div>
-				 </nav>
-				<hr> <br>
-
-			<div class="row">
-					<form class="col s12">
-						<div class="row">
-							<div class="input-field col s6">
-								<input id="fact_title" type="text" class="validate">
-								<label for="fact_title">Information Title</label>
-							</div>
-						</div>
-						<div class="row">
-										<div class="input-field col s12">
-											<textarea id="fact_description" class="materialize-textarea"></textarea>
-											<label for="fact_description">Hyperlink</label>
+									<div class="row">
+											<form class="col s12">
+												<div class="row">
+													<div class="input-field col s6">
+														<input id="title" type="text" class="validate">
+														<label for="title">Information Title</label>
+													</div>
+												</div>
+												<div class="row">
+																<div class="input-field col s12">
+																	<textarea id="info_link" class="materialize-textarea"></textarea>
+																	<label for="info_link">Hyperlink</label>
+																</div>
+												</div>
+												<br> <hr> <br>
+												<tr>
+													<div class="btn">
+														<span>Add Hyperlink</span>
+													</div>
+												</tr>
+											</form>
 										</div>
-						</div>
-						<br> <hr> <br>
-						<tr>
-							<div class="btn"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
-								<span>Add Hyperlink</span>
-							</div>
-						</tr>
-					</form>
-				</div>
+										<script>
+												function httpService($http) {
+														this.get = function(url) {
+																return $http.get(url);
+														}
+														this.post = function(url, data) {
+																return $http.post(url, data);
+														}
+												}
+												angular.module('gyrApp', []).service('httpService', httpService)
+														.controller('AddInformationDB', function($scope, httpService) {
 
+
+																$scope.data = {};
+																$scope.data.questions = [];
+																$scope.submitInformation = function(){
+																httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddInformationDB", {
+																	title:$scope.title,
+																	info_link:$scope.info_link
+																})
+																// This is where the response is received v
+																		.then(function(rtn) {
+																				$scope.data = rtn.data;
+																		});
+																	}
+														});
+
+										</script>
                 </div>
             </div>
         </div>
