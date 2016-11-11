@@ -187,19 +187,19 @@ h3 code{
 							</div>
 							<div class="row">
 								<div class="input-field col s6">
-									<input id="label" type="text" class="validate" ng-model="label" />
-									<label for="label" style="text-align:left">Quiz Question</label>
+									<input id="question" type="text" class="validate" ng-model="label" />
+									<label for="question" style="text-align:left">Quiz Question</label>
 								</div>
 							</div>
 
 					<form action="#">
 					    <p>
 					      <input name="group1" type="radio" id="checkboxes" ng-model="type"/>
-					      <label for="checkboxes">Checkboxes</label>
+					      <label for="type" value="checkboxes">Checkboxes</label>
 					    </p>
 					    <p>
 					      <input name="group1" type="radio" id="radio" />
-					      <label for="radio">Radio</label>
+					      <label for="type" value="radio">Radio</label>
 					    </p>
 							<div class="row" style="text-align:left">
 								<i class="material-icons prefix">info_outline</i>
@@ -226,16 +226,16 @@ h3 code{
 									</div>
 							<div class="row">
 											<div class="input-field col s12">
-												<textarea placeholder="LiveGreen!, 1" id="fact_description" class="materialize-textarea" ng-model="description"></textarea>
-												<label for="fact_description">Unique Answers</label>
+												<textarea placeholder="LiveGreen!, 1" id="answers" class="materialize-textarea" ng-model="description"></textarea>
+												<label for="answers">Unique Answers</label>
 											</div>
 							</div>
 						</div>
-							<tr>
-								<div class="btn"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
-									<span>Add Quiz Question</span>
-								</div>
-							</tr>
+						<tr>
+							<button class="btn" ng-click="submitQuestion()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
+								<span>Add Quiz Question</span>
+							</button>
+						</tr>
 					</form>
 				</div>
 				<!-- include script tags -->
@@ -244,7 +244,6 @@ h3 code{
 				<!-- Compiled and minified CSS -->
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 
-				<!-- Compiled and minified JavaScript -->
 				<script>
 						function httpService($http) {
 								this.get = function(url) {
@@ -260,12 +259,18 @@ h3 code{
 
 										$scope.data = {};
 										$scope.data.questions = [];
-										httpService.get("http://greenyourresidence.ece.iastate.edu:3000/AddQuestionDB")
+										$scope.submitQuestion = function(){
+										httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddQuestionDB", {
+											quizid:$scope.quizid,
+											label:$scope.question,
+											type:$scope.type,
+
+										})
 										// This is where the response is received v
 												.then(function(rtn) {
 														$scope.data = rtn.data;
 												});
-
+											}
 								});
 
 				</script>
@@ -282,8 +287,6 @@ h3 code{
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-<script src="app.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
