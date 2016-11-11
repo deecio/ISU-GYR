@@ -55,24 +55,24 @@ app.get('/QuizViewer', function(req, res){
 
 //Shopping Cart
 app.get('/ShoppingCartViewerDB', adminbackend.getshoppingcart);
-app.post('/AddItemDB', adminbackend.getshoppingcart);
+app.post('/AddItemDB', adminbackend.additem);
 
 //Information
 app.get('/InformationViewerDB', adminbackend.getinformation);
 app.post('/AddInformationDB', adminbackend.addinformation);
+
 app.get('/InformationViewer', function(req, res){
   console.log('InformationViewer')
   var rtn = {};//init an object to return
   rtn.information = JSON.parse(fs.readFileSync('sample_information.json'));
-
 //return the object in json format.
   res.json(rtn);
-});
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
 });
 
 //Facts
 app.post('/AddFactDB', adminbackend.addfact);
 app.get('/FactViewerDB', adminbackend.getfacts);
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});

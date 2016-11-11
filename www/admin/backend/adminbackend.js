@@ -13,7 +13,6 @@ var rtn = {};
                     code: 1001,
                     message: 'failed to retrieve quiz information'
                 }
-                //console.log("/vote/" + uid + "/" + dir + " - ", result);
             }
             rtn.ready = true;
             res.json(rtn);
@@ -62,9 +61,8 @@ module.exports.addquestionDB = function(req,res){
                   if (result.changedRows < 1) {
                       rtn.error = {
                           code: 1001,
-                          message: 'failed to add item'
+                          message: 'failed to add question'
                       }
-                      //console.log("/vote/" + uid + "/" + dir + " - ", result);
                   }
               rtn.ready = true;
               res.json(rtn);
@@ -85,7 +83,6 @@ module.exports.additem = function(req,res){
                           code: 1001,
                           message: 'failed to add item'
                       }
-                      //console.log("/vote/" + uid + "/" + dir + " - ", result);
                   }
               rtn.ready = true;
               res.json(rtn);
@@ -132,7 +129,6 @@ module.exports.addinformation = function(req,res){
                           code: 1001,
                           message: 'failed to add information'
                       }
-                      //console.log("/vote/" + uid + "/" + dir + " - ", result);
                   }
               rtn.ready = true;
               res.json(rtn);
@@ -164,9 +160,8 @@ module.exports.addfact = function(req,res){
                   if (result.changedRows < 1) {
                       rtn.error = {
                           code: 1001,
-                          message: 'failed to add fact information'
+                          message: 'failed to add fact'
                       }
-                      //console.log("/vote/" + uid + "/" + dir + " - ", result);
                   }
               rtn.ready = true;
               res.json(rtn);
