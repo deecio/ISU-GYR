@@ -173,7 +173,7 @@ h3 code{
 										 </nav>
 										<hr> <br>
 
-									<div class="row">
+									<div class="row" style="text-align:left">
 											<form class="col s12">
 												<div class="row">
 													<div class="input-field col s6">
@@ -182,16 +182,16 @@ h3 code{
 													</div>
 												</div>
 												<div class="row">
-																<div class="input-field col s12">
-																	<textarea id="info_link" class="materialize-textarea"></textarea>
-																	<label for="info_link">Hyperlink</label>
-																</div>
+													<div class="input-field col s6">
+														<input id="info_link" type="text" class="validate">
+														<label for="info_link">Hyperlink</label>
+													</div>
 												</div>
 												<br> <hr> <br>
 												<tr>
-													<div class="btn">
+													<button class="btn" ng-click="submitInformation()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
 														<span>Add Hyperlink</span>
-													</div>
+													</button>
 												</tr>
 											</form>
 										</div>
