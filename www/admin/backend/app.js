@@ -42,7 +42,7 @@ app.get('/QuizController', function(req, res){
 //View Quizzes
 app.get('/QuestionViewerDB', adminbackend.showquizzes);
 app.get('/QuizViewerDB', adminbackend.getquizzes);
-app.get('/AddQuestionDB', adminbackend.addquestionDB);
+app.post('/AddQuestionDB', adminbackend.addquestionDB);
 
 app.get('/QuizViewer', function(req, res){
   console.log('QuizViewer')
@@ -55,7 +55,7 @@ app.get('/QuizViewer', function(req, res){
 
 //Shopping Cart
 app.get('/ShoppingCartViewerDB', adminbackend.getshoppingcart);
-app.get('/AddItemDB', adminbackend.getshoppingcart);
+app.post('/AddItemDB', adminbackend.getshoppingcart);
 
 //Information
 app.get('/InformationViewerDB', adminbackend.getinformation);

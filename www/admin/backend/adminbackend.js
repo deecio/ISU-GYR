@@ -123,7 +123,7 @@ module.exports.getinformation = function(req,res){
 
 module.exports.addinformation = function(req,res){
   var rtn = {};
-          function addfact(err, result, fields) {
+          function addinformation(err, result, fields) {
               rtn.db_result = result;
               if (err)
                   rtn.error = err;
@@ -137,7 +137,7 @@ module.exports.addinformation = function(req,res){
               rtn.ready = true;
               res.json(rtn);
           }
-          database.query('INSERT INTO `fact`(`name`, `text`, `category`, `hyperlink`, `image`) VALUES (?,?,?,?,?);', [req.body.name || "null", req.body.text || "null", req.body.category || "null", req.body.hyperlink || "null", req.body.image || "null"], addinformation);
+          database.query('INSERT INTO `information`(`title`, `hyperlink`) VALUES (?,?);', [req.body.title || "null", req.body.info_link], addinformation);
 
 };
 
