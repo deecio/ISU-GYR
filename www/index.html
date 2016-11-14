@@ -229,15 +229,13 @@
                     return $http.post(url, data);
                 }
             }
-            angular.module('gyrApp', []).service('httpService', httpService)
-                .controller('QuizController', function($scope, httpService) {
-                    $scope.data = {};
-                    $scope.data.questions = [];
-                    httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuizController")
-                        .then(function(response) {
-                            $scope.data = response.data;
-                        });
+            angular.module('gyrApp', []).service('httpService', httpService).controller('QuizController', function($scope, httpService) {
+                $scope.data = {};
+                $scope.data.questions = [];
+                httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuizController").then(function(response) {
+                    $scope.data = response.data;
                 });
+            });
             </script>
         </div>
 

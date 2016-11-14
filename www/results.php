@@ -178,12 +178,15 @@ h3 code{
 									            $answer4 = $_POST['question-4-answers'];
 									            $answer5 = $_POST['question-5-answers'];
 									            $totalCorrect = 0;
-									            if ($answer1 == "A") { $totalCorrect++; }
-									            if ($answer2 == "A" || $answer2 == "B" || $answer2 == "C" || $answer2 == "D" ||$answer2 == "E" ) { $totalCorrect++; }
-									            if ($answer3 == "C") { $totalCorrect++; }
-									            if ($answer4 == "B") { $totalCorrect++; }
-									            if ($answer5) { $totalCorrect++; }
-									            echo "<div id='results'>Your Green Score: $totalCorrect</div>";
+									            if ($answer1 == "A") { $totalCorrect++; };
+									            if ($answer2 == "A" || $answer2 == "B" || $answer2 == "C" || $answer2 == "D" ||$answer2 == "E" ) { $totalCorrect++; };
+									            if ($answer3 == "C") { $totalCorrect++; };
+									            if ($answer4 == "B") { $totalCorrect++; };
+									            if ($answer5 == "B") { $totalCorrect++; };
+
+									            echo '<div id="results">Your Green Score: ';
+												echo $totalCorrect;
+												echo '</div>';
 									        ?>
 
 										</div>
@@ -195,30 +198,43 @@ h3 code{
 
 
 		<div class="wd-l-Footer">
-			<div class="wd-l-Footer-inner fwrapper">
-				<div class="wd-l-PageFooter isu-footer" id="footer" role="contentinfo">
-					<div class="wd-l-PageFooter-inner">
-						<div class="wd-Grid wd-Grid--fitToFill wd-Grid--noGutter">
-							<div class="wd-Grid-cell wd-Grid-cell--1">
-								<div class="wd-l-PageFooter-nameplate">
-									<a class="wd-Nameplate nameplate" href="http://www.iastate.edu/">
-										<img alt="Iowa State University" src="img/sprite.png?v=1.4.44"/>
-									</a>
-								</div>
-							</div>
+            <div class="wd-l-Footer-inner">
 
-							<!-- Team contact info -->
-							<div class="wd-Grid-cell wd-Grid-cell--2">
-								<!--<div class="wd-l-PageFooter-content">
-									<p>DEC1612,  <script>document.write('<a href="mailto:'+ ["teamEmail", "iastate.edu"].join('@') +'">'+ ["dec1612", "iastate.edu"].join('@') +'</a>')</script><noscript>dec1612 (at) iastate (dot) edu</noscript>.</p>
-									<p>Copyright &copy; 1995-2016, Iowa State University of Science and Technology. All rights reserved.</p>
-								</div>-->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                <div class="GLimage">
+                    <img src="img/footer.jpg" />
+                </div>
+
+                <div class="wd-l-PageFooter" id="footer" role="contentinfo">
+                    <div class="wd-l-PageFooter-inner">
+                        <div class="wd-Grid wd-Grid--fitToFill wd-Grid--noGutter">
+
+                            <div class="wd-Grid-cell wd-Grid-cell--1">
+                                <div class="wd-l-PageFooter-nameplate">
+                                    <a class="wd-Nameplate" href="http://www.iastate.edu/">
+                                        <img alt="Iowa State University" src="img/sprite.png">
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="wd-Grid-cell wd-Grid-cell--2">
+                                <div class="wd-l-PageFooter-content">
+                                    <div class="region region-footer">
+                                        <div id="block-block-1" class="block block-block">
+
+
+                                            <div class="content">
+                                                <p>Copyright © 1995-2016, Iowa State University of Science and Technology. All rights reserved.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 		<div id="loading" style="display:none">Loading...</div>
 	</div>
 </div>
