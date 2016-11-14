@@ -151,9 +151,11 @@
     </div>
 
     <header>
-        <h1><center>
-            <img src="img/title.PNG" style="width: 25%; height: 25%"/>
-        </center></h1>
+        <center>
+            <h1>
+            <img src="img/title.PNG" style="height:200px;">
+            </h1>
+        </center>
     </header>
     <div>
         <!-- Dropdown Trigger -->
@@ -198,14 +200,14 @@
                 <li>
                     <div class="collapsible-header" id="electronics"><i class="material-icons">label</i>Electronics</div>
                     <div class="collapsible-body">
-                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/Computer%20Apples.png"/></span>
-                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/PC.png"/></span>
-                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/PowerStrip.png"/></span>
-                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/Smart%20Power%20Strip.png"/></span>
-                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/Printer%20Black.png"/></span>
-                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/Printer%20Grey.png"/></span>
-                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/PS2.png"/></span>
-                        <span><img class="item-thumbnail" id="electronics" src="img/electronics/PS3.png"/></span>
+                        <span><img class="item-thumbnail" id="comp" src="img/electronics/Computer%20Apples.png"/></span>
+                        <span><img class="item-thumbnail" id="comp" src="img/electronics/PC.png"/></span>
+                        <span><img class="item-thumbnail" id="pwr_strip" src="img/electronics/PowerStrip.png"/></span>
+                        <span><img class="item-thumbnail" id="smart_pwr" src="img/electronics/Smart%20Power%20Strip.png"/></span>
+                        <span><img class="item-thumbnail" id="printer" src="img/electronics/Printer%20Black.png"/></span>
+                        <span><img class="item-thumbnail" id="printer" src="img/electronics/Printer%20Grey.png"/></span>
+                        <span><img class="item-thumbnail" id="game" src="img/electronics/PS2.png"/></span>
+                        <span><img class="item-thumbnail" id="game" src="img/electronics/PS3.png"/></span>
                     </div>
                 </li>
                 <li>
@@ -356,9 +358,23 @@
         function showTooltip(e) {
             $('#theimg').remove();
             var x = Math.floor(Math.random() * 10);
-            if (e.name == "laundry" || e.name == "bed") {
+            if (e.name == "bed") {
                 $('body').append("<img id='theimg' src='img/laundry_tip.png' />");
-            } else if (e.name == "electronics" || e.name == "lighting" || e.name == "kitchen") {
+            } else if (e.name == "laundry") {
+                $('body').append("<img id='theimg' src='img/decor_tip.png' />");
+            } else if (e.name == "lighting") {
+                $('body').append("<img id='theimg' src='img/lamp_tip01.png' />");
+            } else if (e.name == "game") {
+                $('body').append("<img id='theimg' src='img/game_sys.png' />");
+            } else if (e.name == "comp") {
+                $('body').append("<img id='theimg' src='img/tv_comp.png' />");
+            } else if (e.name == "pwr_strip") {
+                $('body').append("<img id='theimg' src='img/pwr_strip.png' />");
+            } else if (e.name == "smart_pwr") {
+                $('body').append("<img id='theimg' src='img/smart_pwr.png' />");
+            } else if (e.name == "printer") {
+                $('body').append("<img id='theimg' src='img/printer.png' />");
+            } else if (e.name == "kitchen") {
                 if (x % 2 == 0)
                     $('body').append("<img id='theimg' src='img/elec_tip.png' />");
                 else
@@ -412,16 +428,18 @@
             var posy = mouse.y;
             var img = document.querySelector('#images img.img_dragging');
             if (img.id == "bed") {
-                var newImage = new fabric.Image(img, {
+                var bed = new Image();
+                bed.src = "img/Bed.png";
+                var newImage = new fabric.Image(bed, {
                     name: img.id,
                     width: 200,
                     height: 300,
                     left: posx - 50,
                     top: posy - 30,
                     hasControls: true,
-                    hasBorders: false
+                    hasBorders: true
                 });
-                var rect = new fabric.Rect({
+                /*var rect = new fabric.Rect({
                     width: 250,
                     height: 350,
                     fill: 'rgba(122,153,172,1)',
@@ -431,22 +449,21 @@
                     top: posy - 30,
                     hasControls: false,
                     hasBorders: false
-                });
+                });*/
                 var text = new fabric.Text('Bed', {
                     fontSize: 50,
-                    left: posx + 40,
+                    left: posx,
                     top: posy + 100,
-                    hasControls: false,
+                    hasControls: true,
                     hasBorders: false,
                     selectable: false
                 });
-                var group = new fabric.Group([rect, text], {
+                var group = new fabric.Group([newImage, text], {
                     name: "bed",
                     left: posx - 50,
                     top: posy - 30,
                     hasBorders: false,
-                    lockScalingX: true,
-                    lockScalingY: true
+                    hasControls: true
                 });
             } else if (img.id == "wardrobe") {
                 var newImage = new fabric.Image(img, {
@@ -455,7 +472,7 @@
                     height: 300,
                     left: posx - 50,
                     top: posy - 30,
-                    hasControls: true,
+                    hasControls: false,
                     hasBorders: false
                 });
                 var rect = new fabric.Rect({
@@ -481,8 +498,7 @@
                     left: posx - 50,
                     top: posy - 30,
                     hasBorders: false,
-                    lockScalingX: true,
-                    lockScalingY: true
+                    hasControls: true,
                 });
             } else if (img.id == "laundry") {
                 var newImage = new fabric.Image(img, {
@@ -491,7 +507,7 @@
                     height: 150,
                     left: posx - 50,
                     top: posy - 30,
-                    hasControls: true,
+                    hasControls: false,
                     hasBorders: false
                 });
                 var rect = new fabric.Rect({
@@ -503,6 +519,20 @@
                     hasControls: false,
                     hasBorders: false
                 });
+                var text = new fabric.Text('Laundry', {
+                    fontSize: 10,
+                    left: posx,
+                    top: posy + 20,
+                    hasControls: false,
+                    hasBorders: false,
+                    selectable: false
+                });
+                var group = new fabric.Group([rect, text], {
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasBorders: false,
+                    hasControls: true,
+                });
             } else if (img.id == "kitchen") {
                 var newImage = new fabric.Image(img, {
                     name: img.id,
@@ -510,7 +540,7 @@
                     height: 50,
                     left: posx - 50,
                     top: posy - 30,
-                    hasControls: true,
+                    hasControls: false,
                     hasBorders: false
                 });
                 var rect = new fabric.Rect({
@@ -537,17 +567,16 @@
                     left: posx - 50,
                     top: posy - 30,
                     hasBorders: false,
-                    lockScalingX: true,
-                    lockScalingY: true
+                    hasControls: true
                 });
-            } else if (img.id == "electronics") {
+            } else if (img.id == "electronics" || img.id == "pwr_strip" || img.id == "comp" || img.id == "game" || img.id == "smart_pwr" || img.id == "printer") {
                 var newImage = new fabric.Image(img, {
                     name: img.id,
                     width: 50,
                     height: 25,
                     left: posx - 50,
                     top: posy - 30,
-                    hasControls: true,
+                    hasControls: false,
                     hasBorders: false
                 });
                 var rect = new fabric.Rect({
@@ -561,8 +590,8 @@
                     hasControls: false,
                     hasBorders: false
                 });
-                var text = new fabric.Text('Electronic', {
-                    fontSize: 10,
+                var text = new fabric.Text("Electronics", {
+                    fontSize: 12,
                     left: posx - 100,
                     top: posy - 25,
                     hasControls: false,
@@ -570,12 +599,11 @@
                     selectable: false
                 });
                 var group = new fabric.Group([rect, text], {
-                    name: "electronics",
+                    name: img.id,
                     left: posx - 100,
                     top: posy - 30,
                     hasBorders: false,
-                    lockScalingX: true,
-                    lockScalingY: true
+                    hasControls: true
                 });
             } else if (img.id == "desk") {
                 var newImage = new fabric.Image(img, {
@@ -584,7 +612,7 @@
                     height: 100,
                     left: posx - 100,
                     top: posy - 30,
-                    hasControls: true,
+                    hasControls: false,
                     hasBorders: false
                 });
                 var rect = new fabric.Rect({
@@ -611,8 +639,7 @@
                     left: posx - 100,
                     top: posy - 30,
                     hasBorders: false,
-                    lockScalingX: true,
-                    lockScalingY: true
+                    hasControls: true
                 });
             } else if (img.id == "lighting") {
                 var newImage = new fabric.Image(img, {
@@ -621,7 +648,7 @@
                     height: 100,
                     left: posx - 25,
                     top: posy - 30,
-                    hasControls: true,
+                    hasControls: false,
                     hasBorders: false
                 });
                 var cir = new fabric.Circle({
@@ -647,8 +674,7 @@
                     left: posx - 25,
                     top: posy - 30,
                     hasBorders: false,
-                    lockScalingX: true,
-                    lockScalingY: true
+                    hasControls: true
                 });
             }
             canvas.add(group);

@@ -3,6 +3,10 @@ body {
     font-family: 'Univers LT Std', sans-serif;
 }
 
+#header {
+    font-size: 100px;
+}
+
 .item-thumbnail {
     width: 85px;
 }
