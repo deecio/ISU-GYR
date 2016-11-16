@@ -71,43 +71,10 @@ module.exports.addquestionDB = function(req,res){
 
 };
 
-//Home
-module.exports.gethome = function(req,res){
-  var rtn = {};
-          function gethome(err, result, fields) {
-              rtn.db_result = result;
-              if (err)
-                  rtn.error = err;
-              rtn.ready = true;
-              res.json(rtn);
-          }
-          database.query('SELECT * FROM `item`;', gethome);
-
-};
-
-module.exports.addobject = function(req,res){
-  var rtn = {};
-          function addobject(err, result, fields) {
-              rtn.db_result = result;
-              if (err)
-                  rtn.error = err;
-                  if (result.changedRows < 1) {
-                      rtn.error = {
-                          code: 1001,
-                          message: 'failed to add home object'
-                      }
-                  }
-              rtn.ready = true;
-              res.json(rtn);
-          }
-          database.query('INSERT INTO `object`(`name`, `file`, `category`, `description`, `hyperlink`) VALUES (?,?,?,?,?,?);', [req.body.name || "null", req.body.file || "null", req.body.category || "null", req.body.description || "null", req.body.hyperlink || "null"], additem);
-
-};
-
 //Shopping Cart
 module.exports.additem = function(req,res){
   var rtn = {};
-          function additem(err, result, fields) {
+          function addfact(err, result, fields) {
               rtn.db_result = result;
               if (err)
                   rtn.error = err;

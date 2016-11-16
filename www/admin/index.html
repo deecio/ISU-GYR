@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lte IE 7]>     <html lang="en-us" class="lt-ie10 lt-ie9 lt-ie8">  <![endif]-->
 <!--[if IE 8]>         <html lang="en-us" class="lt-ie10 lt-ie9">         <![endif]-->
 <!--[if IE 9]>         <html lang="en-us" class="lt-ie10">                <![endif]-->
@@ -8,11 +8,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport">
 	<title>DEC1612</title>
 	<link rel="icon" type="image/x-icon" href="favicon.ico?v=1.4.44">
-<link href="/css/base.css" rel="stylesheet">
+<link href="css/baseV4.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" media="all" rel="stylesheet">
-
+<link href="css/sample.css" media="all" rel="stylesheet">
 <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
+<link href="css/TriviaStyle.css" media="all" rel="stylesheet" />
 	<style >pre{
 	background-color: #f5f5f5;
 	border-color: #e7e7e7;
@@ -31,7 +32,7 @@ h3 code{
 }</style>
 	<script >/* html5shiv */ (function(){var t='abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.split(' ');for(var i=t.length;i--;)document.createElement(t[i])})();</script>
 </head>
-<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="gyrApp" >
+<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="FactListApp" ng-controller="FactController">
 <div class="wd-l-Page pwrapper">
 	<div class="wd-l-Page-inner pwrapper-wrapper">
 		<div class="wd-Skip">
@@ -120,7 +121,7 @@ h3 code{
 						</a>
 
 						<div class="wd-l-MastTitle-siteTitle site-title sub-title">
-							<a href="/">Office of Sustainability</a>
+							<a href="/">Department of Sustainability</a>
 						</div>
                     </div>
 				</div>
@@ -129,28 +130,28 @@ h3 code{
                         <div role="navigation">
                             <ul class="wd-Navigation">
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link is-active" href="adminindex.html">Manage Home</a>
-                                </li>
-																<li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="addquestion.html">Manage Quiz</a>
+                                    <a class="wd-Navigation-link is-active" href="index.html">Home</a>
                                 </li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="savingscart.html">Manage Savings Cart</a>
+                                    <a class="wd-Navigation-link" href="savingscart.html">Savings Cart</a>
                                 </li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="informationadmin.html">Manage Information</a>
+                                    <a class="wd-Navigation-link" href="information.html">Information</a>
                                 </li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="factadmin.html">Manage Facts</a>
+                                    <a class="wd-Navigation-link" href="results.php">Quiz Results</a>
+                                </li>
+                                <li class="wd-Navigation-node">
+                                    <a class="wd-Navigation-link" href="FactPage.html">Trivia</a>
                                 </li>
                             </ul>
                         </div>
                         <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
-													<option value="adminindex.html" selected="selected">Manage Home</option>
-													<option value="addquestion.html">Manage Quiz</option>
-													<option value="savingscart.html">Manage Savings Cart</option>
-													<option value="informationadmin.html">Manage Information</option>
-													<option value="factadmin.html">Manage Facts</option>
+                            <option value="index.html">Home</option>
+                            <option value="savingscart.html" selected="selected">Savings Cart</option>
+                            <option value="information.html">Information</option>
+                            <option value="results.php">Quiz Results</option>
+                            <option value="FactPage.html">Trivia</option>
                         </select>
                     </div>
                 </div>
@@ -161,85 +162,174 @@ h3 code{
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
+									<!-- <a href="index.php" onclick=”popup(‘popUpDiv’)”>Take Quiz Here!</a> -->
+									<!-- Modal Trigger -->
+									<!-- Modal Trigger -->
+									  <button data-target="modal1" class="btn modal-trigger">Take Quiz Here!</button>
 
+									  <!-- Modal Structure -->
+									  <div id="modal1" class="modal modal-fixed-footer">
+									    <div class="modal-content">
+												<form action="results.php" method="post" id="quiz">
+									      <h4>How Green are You?</h4>
+									      <p><ol>
 
-			<h3> Manage Home Items </h3>
-				<nav>
-					 <div class="nav-wrapper teal lighten-2">
-						 <ul class="center hide-on-med-and-down">
-							 <li><a href="adminindex.html">Add Item</a></li>
-							 <li class="active"><a href="manageindex.html">View/Manage Home Items</a></li>
-						 </ul>
-					 </div>
-				 </nav>
-				<hr> <br>
+													<li align="left">
 
-<div ng-controller="HomeViewerDB">
-<table class="bordered highlight responsive-table text-darken-2 flow-text">
-        <thead>
-          <tr>
-              <th data-field="title">Item Title</th>
-              <th data-field="file">Image File</th>
-							<th data-field="category">Category</th>
-              <th data-field="description">Item Tooltip</th>
-							<th data-field="hyperlink">Hyperlink</th>
-          </tr>
-        </thead>
+															<h6 align="left">Do you think it is important to green your home?</h6>
 
-        <tbody>
-          <tr ng-repeat="d in data.db_result">
-            <td>{{d.name}}</td>
-            <td>{{d.file}}</td>
-						<td>{{d.category}}</td>
-						<td>{{d.description}}</td>
-            <td>{{d.hyperlink}}</td>
-          </tr>
-        </tbody>
-      </table>
-			<!-- include script tags -->
-			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-			<!-- Compiled and minified CSS -->
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+															<div align="left">
+																	<input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" align="left"/>
+																	<label for="question-1-answers-A" align="left">Yes</label>
+															</div>
 
-			<!-- Compiled and minified JavaScript -->
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+															<div>
+																	<input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
+																	<label for="question-1-answers-B" align="left">No</label>
 
-			<!-- This page's angular set-up -->
-			<script>
-					function httpService($http) {
-							this.get = function(url) {
-									return $http.get(url);
-							}
-							this.post = function(url, data) {
-									return $http.post(url, data);
-							}
-					}
-					angular.module('gyrApp', []).service('httpService', httpService)
-							.controller('HomeViewerDB', function($scope, httpService) {
+													</li>
 
+													<li align="left">
 
-									$scope.data = {};
-									$scope.data.questions = [];
-									httpService.get("http://greenyourresidence.ece.iastate.edu:3000/HomeViewerDB")
-									// This is where the response is received v
-											.then(function(rtn) {
-													$scope.data = rtn.data;
-											});
+															<h6 align="left">What items do you have in your bedroom? <br> Check all that apply.</h6>
 
-							});
+															<div>
+																	<input type="checkbox" name="question-2-answers" id="question-2-answers-A" value="A" />
+																	<label for="question-2-answers-A" align="left">A) Lamp</label>
+															</div>
 
-			</script>
+															<div>
+																	<input type="checkbox" name="question-2-answers" id="question-2-answers-B" value="B" />
+																	<label for="question-2-answers-B" align="left">B) Television</label>
+															</div>
 
-			</div>
+															<div>
+																	<input type="checkbox" name="question-2-answers" id="question-2-answers-C" value="C" />
+																	<label for="question-2-answers-C" align="left">C) Phone/Computer Charger</label>
+															</div>
+
+															<div>
+																	<input type="checkbox" name="question-2-answers" id="question-2-answers-D" value="D" />
+																	<label for="question-2-answers-D" align="left">D) Speakers</label>
+															</div>
+
+															<div>
+																	<input type="checkbox" name="question-2-answers" id="question-2-answers-E" value="E" />
+																	<label for="question-2-answers-E" align="left">E) Desktop</label>
+															</div>
+
+													</li>
+
+													<li align="left">
+
+															<h6 align="left">Which of these items do you leave constantly plugged in? <br> Check all that apply.</h6>
+
+															<div>
+																	<input type="checkbox" name="question-3-answers" id="question-3-answers-A" value="A" />
+																	<label for="question-3-answers-A" align="left">A) Lamp</label>
+															</div>
+
+															<div>
+																	<input type="checkbox" name="question-3-answers" id="question-3-answers-B" value="B" />
+																	<label for="question-3-answers-B" align="left">B) Television</label>
+															</div>
+
+															<div>
+																	<input type="checkbox" name="question-3-answers" id="question-3-answers-C" value="C" />
+																	<label for="question-3-answers-C" align="left">C) Phone/Computer Charger</label>
+															</div>
+
+															<div>
+																	<input type="checkbox" name="question-3-answers" id="question-3-answers-D" value="D" />
+																	<label for="question-3-answers-D" align="left">D) Speakers</label>
+															</div>
+
+															<div>
+																	<input type="checkbox" name="question-3-answers" id="question-3-answers-E" value="E" />
+																	<label for="question-3-answers-E" align="left">E) Desktop</label>
+															</div>
+
+													</li>
+
+													<li align="left">
+
+															<h6 align="left">Do you need to leave these items plugged In?</h6>
+
+															<div>
+																	<input type="radio" name="question-4-answers" id="question-4-answers-A" value="A" />
+																	<label for="question-4-answers-A" align="left">Yes</label>
+															</div>
+
+															<div>
+																	<input type="radio" name="question-4-answers" id="question-4-answers-B" value="B" />
+																	<label for="question-4-answers-B" align="left">No</label>
+															</div>
+
+													</li>
+
+													<li align="left">
+
+															<h6 align="left">Have you considered unplugging them when you aren't using them (and would you be willing to)??</h6>
+
+															<div>
+																	<input type="radio" name="question-5-answers" id="question-5-answers-A" value="A" />
+																	<label for="question-5-answers-A" align="left">Yes</label>
+															</div>
+
+															<div>
+																	<input type="radio" name="question-5-answers" id="question-5-answers-B" value="B" />
+																	<label for="question-5-answers-B" align="left">No</label>
+															</div>
+
+													</li>
+
+												</ol>
+												<input type="submit" value="Submit Quiz" />
+</p>
+									    </div>
+
+									    <div class="modal-footer">
+									      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Thanks!</a>
+									    </div>
+										</form>
+									  </div>
+									<br>
+									<br>
+                    <img src="HomeRedux.png" />
+
                 </div>
             </div>
         </div>
 
+
+		<div class="wd-l-Footer">
+			<div class="wd-l-Footer-inner fwrapper">
+				<div class="wd-l-PageFooter isu-footer" id="footer" role="contentinfo">
+					<div class="wd-l-PageFooter-inner">
+						<div class="wd-Grid wd-Grid--fitToFill wd-Grid--noGutter">
+							<div class="wd-Grid-cell wd-Grid-cell--1">
+								<div class="wd-l-PageFooter-nameplate">
+									<a class="wd-Nameplate nameplate" href="http://www.iastate.edu/">
+										<img alt="Iowa State University" src="img/sprite.png?v=1.4.44"/>
+									</a>
+								</div>
+							</div>
+
+							<!-- Team contact info -->
+							<div class="wd-Grid-cell wd-Grid-cell--2">
+								<!--<div class="wd-l-PageFooter-content">
+									<p>DEC1612,  <script>document.write('<a href="mailto:'+ ["teamEmail", "iastate.edu"].join('@') +'">'+ ["dec1612", "iastate.edu"].join('@') +'</a>')</script><noscript>dec1612 (at) iastate (dot) edu</noscript>.</p>
+									<p>Copyright &copy; 1995-2016, Iowa State University of Science and Technology. All rights reserved.</p>
+								</div>-->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div id="loading" style="display:none">Loading...</div>
 	</div>
 </div>
-
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -247,18 +337,16 @@ h3 code{
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
+<script src="app.js"></script>
+<script src="ListController.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-
 <script >/* Grid gutter fix for IE7 */ (function(b){if((' '+b.body.parentNode.className+' ').indexOf(' lt-ie8 ')==-1)return;var d=b.createStyleSheet();var e=function(s){var a=b.all,l=[],i,j;d.addRule(s,'k:v');for(j=a.length;j--;)a[j].currentStyle.k&&l.push(a[j]);d.removeRule(0);return l};var g=e('.grid');for(var i=g.length;i--;)g[i].style.width=g[i].offsetWidth-20})(document);</script>
 <script >/* Responsive design */ (function(f){if(!f.querySelector||!f.addEventListener)return;var g='add',cc='contains',cr='remove',ct='toggle',sa='active',sb='wd-p-OffCanvasBar',sn='wd-p-OffCanvasNav',ss='wd-p-OffCanvasSearch',ip='.wd-l-SearchBox input[type="text"]',ed='preventDefault',q=function(a,b){return(b||f).querySelectorAll(a)},c=function(a,b,c){b=b||cr;c=c||f.body;a=' '+a+' ';var d=' '+c.className.trim()+' ';var e=d.indexOf(a)!=-1;if(b==cc)return e;else if(!e&&(b==ct||b==g))c.className=d+a;else if(e&&(b==ct||b==cr))c.className=d.replace(a,' ')},h=function(b,c,d){for(var e=q(b),i=e.length;i--;){if(e[i].tagName!='A'){if(!d)e[i].addEventListener('click',function(a){a[ed]()},0);e[i].addEventListener('ontouchstart'in window?'touchstart':'mousedown',c,0)}}},m=q('.wd-l-TopStripMenu-toolbar'),md=function(){q(ip)[0]&&q(ip)[0].blur();for(var i=m.length;i--;)c(sa,cr,m[i])};h('.wd-ResponsiveToggles-nav',function(a){md();c(sb);c(ss);c(sn,ct);a[ed]()});h('.wd-ResponsiveToggles-search',function(a){md();c(sb);c(ss,ct);if(c(ss,cc))q(ip)[0]&&q(ip)[0].focus();c(sn);a[ed]()});h('.wd-l-TopStripMenu-header',function(a){var b=q('.wd-l-TopStripMenu-toolbar',this.parentNode)[0];if(c(sa,cc,b)){c(sa,cr,b);c(sb)}else{md();c(sa,g,b);c(sb,g);c(ss)}a[ed]()});h('.wd-l-Content',function(a){if(c(sn,cc))a[ed]();c(sn)},true)})(document);</script>
 <script >hljs.configure({tabReplace: '    '}); hljs.initHighlightingOnLoad()</script>
@@ -292,6 +380,16 @@ h3 code{
 		}
 	});
 });</script>
+<script> $(document).ready(function(){
+		// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+		$('.modal-trigger').leanModal();
+	});
+	</script>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
 
 </body>
