@@ -201,16 +201,16 @@ h3 code{
 
 											<?php if(($totalCorrect / $questionCounter) >= .75) : ?>
 													// Expert
-													echo '<h3 class="result-state">You are a Green Living expert!</h3>';
+													<h3 class="result-state">You are a Green Living expert!</h3>
 											<?php elseif(($totalCorrect / $questionCounter) >= .50) : ?>
 													// Intermediate
-													echo '<h3 class="result-state">You are competent with Green Living!</h3>';
+													<h3 class="result-state">You are competent with Green Living!</h3>
 											<?php else : ?>
 													// Beginner
-													echo '<h3 class="result-state">You are still a beginner in Green Living!</h3>';
+													<h3 class="result-state">You are still a beginner in Green Living!</h3>
 											<?php endif; ?>
 									            
-												echo $totalCorrect;
+											<?php echo $totalCorrect; ?>
 									        
 
 										</div>
