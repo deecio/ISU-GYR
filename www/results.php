@@ -169,25 +169,49 @@ h3 code{
 
 										<div id="page-wrap">
 
-											<h1>How Green Are You?</h1>
+											<h1 class="page-title">How Green Are You?</h1>
 
 									        <?php
+												$questionCounter = 0;
+
 									            $answer1 = $_POST['question-1-answers'];
+												$questionCounter++;
+
 									            $answer2 = $_POST['question-2-answers'];
+												$questionCounter++;
+
 									            $answer3 = $_POST['question-3-answers'];
+												$questionCounter++;
+
 									            $answer4 = $_POST['question-4-answers'];
+												$questionCounter++;
+
 									            $answer5 = $_POST['question-5-answers'];
+												$questionCounter++;
+
 									            $totalCorrect = 0;
 									            if ($answer1 == "A") { $totalCorrect++; };
 									            if ($answer2 == "A" || $answer2 == "B" || $answer2 == "C" || $answer2 == "D" ||$answer2 == "E" ) { $totalCorrect++; };
 									            if ($answer3 == "C") { $totalCorrect++; };
 									            if ($answer4 == "B") { $totalCorrect++; };
 									            if ($answer5 == "B") { $totalCorrect++; };
+											?>
 
-									            echo '<div id="results">Your Green Score: ';
+											<?php echo '<div id="results">Your Green Score: '; ?>
+
+											<?php if(($totalCorrect / $questionCounter) >= .75) : ?>
+													// Expert
+													echo '<h3 class="result-state">You are a Green Living expert!</h3>';
+											<?php elseif(($totalCorrect / $questionCounter) >= .50) : ?>
+													// Intermediate
+													echo '<h3 class="result-state">You are competent with Green Living!</h3>';
+											<?php else : ?>
+													// Beginner
+													echo '<h3 class="result-state">You are still a beginner in Green Living!</h3>';
+											<?php endif; ?>
+									            
 												echo $totalCorrect;
-												echo '</div>';
-									        ?>
+									        
 
 										</div>
 
