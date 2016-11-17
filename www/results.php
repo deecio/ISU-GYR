@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 <meta content="width=device-width,initial-scale=1" name="viewport">
-	<title>DEC1612</title>
+	<title>Green Living Quiz Results</title>
 	<link rel="icon" type="image/x-icon" href="favicon.ico?v=1.4.44">
 <link href="css/baseV4.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" media="all" rel="stylesheet">
@@ -200,17 +200,19 @@ h3 code{
 											<?php echo '<div id="results">Your Green Score: '; ?>
 
 											<?php if(($totalCorrect / $questionCounter) >= .75) : ?>
-													// Expert
+													<img class="result-image" src="img/QuizResults/Expert.png">
 													<h3 class="result-state">You are a Green Living expert!</h3>
 											<?php elseif(($totalCorrect / $questionCounter) >= .50) : ?>
-													// Intermediate
+													<img class="result-image" src="img/QuizResults/Intermediate.png">
 													<h3 class="result-state">You are competent with Green Living!</h3>
 											<?php else : ?>
-													// Beginner
+													<img class="result-image" src="img/QuizResults/Beginner.png">
 													<h3 class="result-state">You are still a beginner in Green Living!</h3>
 											<?php endif; ?>
-									            
-											<?php echo $totalCorrect; ?>
+									        
+											<div class="score"    
+												<?php echo $totalCorrect; ?> Points
+											</div>
 									        
 
 										</div>
