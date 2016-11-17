@@ -197,20 +197,19 @@ h3 code{
 									            if ($answer5 == "B") { $totalCorrect++; };
 											?>
 
-											<?php echo '<div id="results">Your Green Score: '; ?>
-
 											<?php if(($totalCorrect / $questionCounter) >= .75) : ?>
-													<img class="result-image" src="img/QuizResults/Expert.png">
+													<img class="result-image" src="img/QuizResults/Expert.PNG">
 													<h3 class="result-state">You are a Green Living expert!</h3>
 											<?php elseif(($totalCorrect / $questionCounter) >= .50) : ?>
-													<img class="result-image" src="img/QuizResults/Intermediate.png">
+													<img class="result-image" src="img/QuizResults/Intermediate.PNG">
 													<h3 class="result-state">You are competent with Green Living!</h3>
 											<?php else : ?>
-													<img class="result-image" src="img/QuizResults/Beginner.png">
+													<img class="result-image" src="img/QuizResults/Beginner.PNG">
 													<h3 class="result-state">You are still a beginner in Green Living!</h3>
 											<?php endif; ?>
 									        
-											<div class="score"    
+											<div class="score"  
+												<?php echo '<div id="results">Your Green Score: '; ?>  
 												<?php echo $totalCorrect; ?> Points
 											</div>
 									        
