@@ -129,7 +129,7 @@ h3 code{
                         <div role="navigation">
                             <ul class="wd-Navigation">
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="index.html">Manage Home</a>
+                                    <a class="wd-Navigation-link" href="adminindex.html">Manage Home</a>
                                 </li>
 																<li class="wd-Navigation-node">
                                     <a class="wd-Navigation-link" href="addquestion.html">Manage Quiz</a>
@@ -146,7 +146,7 @@ h3 code{
                             </ul>
                         </div>
                         <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
-                            <option value="index.html">Manage Home</option>
+                            <option value="adminindex.html">Manage Home</option>
 														<option value="addquestion.html">Manage Quiz</option>
                             <option value="savingscart.html" selected="selected">Manage Savings Cart</option>
                             <option value="informationadmin.html">Manage Information</option>
@@ -250,14 +250,18 @@ h3 code{
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
+<script src="app.js"></script>
+
 <!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
 <!-- Compiled and minified JavaScript -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-				 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
 <script >/* Grid gutter fix for IE7 */ (function(b){if((' '+b.body.parentNode.className+' ').indexOf(' lt-ie8 ')==-1)return;var d=b.createStyleSheet();var e=function(s){var a=b.all,l=[],i,j;d.addRule(s,'k:v');for(j=a.length;j--;)a[j].currentStyle.k&&l.push(a[j]);d.removeRule(0);return l};var g=e('.grid');for(var i=g.length;i--;)g[i].style.width=g[i].offsetWidth-20})(document);</script>
 <script >/* Responsive design */ (function(f){if(!f.querySelector||!f.addEventListener)return;var g='add',cc='contains',cr='remove',ct='toggle',sa='active',sb='wd-p-OffCanvasBar',sn='wd-p-OffCanvasNav',ss='wd-p-OffCanvasSearch',ip='.wd-l-SearchBox input[type="text"]',ed='preventDefault',q=function(a,b){return(b||f).querySelectorAll(a)},c=function(a,b,c){b=b||cr;c=c||f.body;a=' '+a+' ';var d=' '+c.className.trim()+' ';var e=d.indexOf(a)!=-1;if(b==cc)return e;else if(!e&&(b==ct||b==g))c.className=d+a;else if(e&&(b==ct||b==cr))c.className=d.replace(a,' ')},h=function(b,c,d){for(var e=q(b),i=e.length;i--;){if(e[i].tagName!='A'){if(!d)e[i].addEventListener('click',function(a){a[ed]()},0);e[i].addEventListener('ontouchstart'in window?'touchstart':'mousedown',c,0)}}},m=q('.wd-l-TopStripMenu-toolbar'),md=function(){q(ip)[0]&&q(ip)[0].blur();for(var i=m.length;i--;)c(sa,cr,m[i])};h('.wd-ResponsiveToggles-nav',function(a){md();c(sb);c(ss);c(sn,ct);a[ed]()});h('.wd-ResponsiveToggles-search',function(a){md();c(sb);c(ss,ct);if(c(ss,cc))q(ip)[0]&&q(ip)[0].focus();c(sn);a[ed]()});h('.wd-l-TopStripMenu-header',function(a){var b=q('.wd-l-TopStripMenu-toolbar',this.parentNode)[0];if(c(sa,cc,b)){c(sa,cr,b);c(sb)}else{md();c(sa,g,b);c(sb,g);c(ss)}a[ed]()});h('.wd-l-Content',function(a){if(c(sn,cc))a[ed]();c(sn)},true)})(document);</script>
 <script >hljs.configure({tabReplace: '    '}); hljs.initHighlightingOnLoad()</script>
