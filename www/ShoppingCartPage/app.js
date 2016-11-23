@@ -16,7 +16,11 @@ $(document).ready(function () {
 function switchShopScreens(screenClass){
     $(".shop-screen").hide();
 
-    $(screenClass).fadeIn(800);
+    if (screenClass == ".StartShopScreen") {
+        $(screenClass).fadeIn(1600);
+    } else {
+        $(screenClass).fadeIn(800);
+    }
 };
 
 function resetActive() {

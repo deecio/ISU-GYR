@@ -41,6 +41,11 @@
     text-align: center;
 }
 
+.clicked{
+    background-color: #8BC34A !important;
+    color: #FFFFFF;
+}
+
 .reset{
     font-size: 20px;
     margin-top: 30px;
