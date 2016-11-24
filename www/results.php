@@ -168,30 +168,24 @@ h3 code{
 
 											<h1 class="page-title">How Green Are You?</h1>
 
-									        <?php
+											<?php
 												$questionCounter = 0;
+												$totalCorrect = 0;
 
-									            $answer1 = $_POST['question-1-answers'];
-												$questionCounter++;
-
-									            $answer2 = $_POST['question-2-answers'];
-												$questionCounter++;
-
-									            $answer3 = $_POST['question-3-answers'];
-												$questionCounter++;
-
-									            $answer4 = $_POST['question-4-answers'];
-												$questionCounter++;
-
-									            $answer5 = $_POST['question-5-answers'];
-												$questionCounter++;
-
-									            $totalCorrect = 0;
-									            if ($answer1 == "A") { $totalCorrect++; };
-									            if ($answer2 == "A" || $answer2 == "B" || $answer2 == "C" || $answer2 == "D" ||$answer2 == "E" ) { $totalCorrect++; };
-									            if ($answer3 == "C") { $totalCorrect++; };
-									            if ($answer4 == "B") { $totalCorrect++; };
-									            if ($answer5 == "B") { $totalCorrect++; };
+												foreach($_POST as $answer){
+													$questionCounter++;
+													if($answer == 'a' || $answer == 'A'){
+														$totalCorrect =+ 2;
+													}elseif($answer == 'b' || $answer == 'B'){
+														$totalCorrect =+ 1;
+													}elseif($answer == 'c' || $answer == 'C'){
+														$totalCorrect =+ 0;
+													}elseif($answer == 'Y' || $answer == 'y' || $answer == 'yes' || $answer == 'YES'){
+														$totalCorrect =+ 2;
+													}elseif($answer == 'N' || $answer == 'n' || $answer == 'no' || $answer == 'NO'){
+														$totalCorrect =+ 0;
+													}
+												}
 											?>
 
 											<?php if(($totalCorrect / $questionCounter) >= .75) : ?>
