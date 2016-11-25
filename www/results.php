@@ -7,10 +7,7 @@
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 <meta content="width=device-width,initial-scale=1" name="viewport">
 	<title>Green Living Quiz Results</title>
-	<link rel="icon" type="image/x-icon" href="favicon.ico?v=1.4.44">
 <link href="css/baseV4.css" rel="stylesheet">
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" media="all" rel="stylesheet">
-<link href="css/sample.css" media="all" rel="stylesheet">
 <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
 <link href="css/TriviaStyle.css" media="all" rel="stylesheet" />
@@ -171,30 +168,24 @@ h3 code{
 
 											<h1 class="page-title">How Green Are You?</h1>
 
-									        <?php
+											<?php
 												$questionCounter = 0;
+												$totalCorrect = 0;
 
-									            $answer1 = $_POST['question-1-answers'];
-												$questionCounter++;
-
-									            $answer2 = $_POST['question-2-answers'];
-												$questionCounter++;
-
-									            $answer3 = $_POST['question-3-answers'];
-												$questionCounter++;
-
-									            $answer4 = $_POST['question-4-answers'];
-												$questionCounter++;
-
-									            $answer5 = $_POST['question-5-answers'];
-												$questionCounter++;
-
-									            $totalCorrect = 0;
-									            if ($answer1 == "A") { $totalCorrect++; };
-									            if ($answer2 == "A" || $answer2 == "B" || $answer2 == "C" || $answer2 == "D" ||$answer2 == "E" ) { $totalCorrect++; };
-									            if ($answer3 == "C") { $totalCorrect++; };
-									            if ($answer4 == "B") { $totalCorrect++; };
-									            if ($answer5 == "B") { $totalCorrect++; };
+												foreach($_POST as $answer){
+													$questionCounter++;
+													if($answer == 'a' || $answer == 'A'){
+														$totalCorrect =+ 2;
+													}elseif($answer == 'b' || $answer == 'B'){
+														$totalCorrect =+ 1;
+													}elseif($answer == 'c' || $answer == 'C'){
+														$totalCorrect =+ 0;
+													}elseif($answer == 'Y' || $answer == 'y' || $answer == 'yes' || $answer == 'YES'){
+														$totalCorrect =+ 2;
+													}elseif($answer == 'N' || $answer == 'n' || $answer == 'no' || $answer == 'NO'){
+														$totalCorrect =+ 0;
+													}
+												}
 											?>
 
 											<?php if(($totalCorrect / $questionCounter) >= .75) : ?>
@@ -266,7 +257,6 @@ h3 code{
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -274,8 +264,6 @@ h3 code{
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-resource.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
-<script src="app.js"></script>
-<script src="ListController.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
