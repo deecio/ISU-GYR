@@ -1,0 +1,12 @@
+# Don't let people login without SSL.
+# SSLRequireSSL
+
+# Auth Parameters -- the staff is quotes will show up in the pop-up window
+AuthName "Login with Net-ID (without @iastate.edu)"
+AuthType Basic
+AuthBasicProvider ldap
+# this one will allow usage of iastate ldap
+AuthLDAPURL "ldaps://ldap.iastate.edu/dc=iastate,dc=edu?uid?"
+
+# these users will have access if they provide the corresponding iastate passwd
+require user sbasu bgerads dbosch
