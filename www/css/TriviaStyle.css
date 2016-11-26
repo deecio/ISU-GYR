@@ -40,3 +40,13 @@ hr{
 .GLimage{
     padding-top: 10px;
 }
+
+.page-title{
+    padding-bottom: 40px;
+    font-size: 60px;
+    color: #7BA643;
+}
+
+.result-image{
+    width: 150px;
+}
