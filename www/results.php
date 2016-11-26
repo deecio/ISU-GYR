@@ -173,7 +173,7 @@ h3 code{
 												$totalCorrect = 0;
 
 												foreach($_POST as $answer){
-													$questionCounter++;
+													$questionCounter += 2;
 													if($answer == 'a' || $answer == 'A'){
 														$totalCorrect += 2;
 													}elseif($answer == 'b' || $answer == 'B'){
