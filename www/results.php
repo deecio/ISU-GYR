@@ -173,18 +173,17 @@ h3 code{
 												$totalCorrect = 0;
 
 												foreach($_POST as $answer){
-													echo $answer;
 													$questionCounter++;
 													if($answer == 'a' || $answer == 'A'){
-														$totalCorrect =+ 2;
+														$totalCorrect += 2;
 													}elseif($answer == 'b' || $answer == 'B'){
-														$totalCorrect =+ 1;
+														$totalCorrect += 1;
 													}elseif($answer == 'c' || $answer == 'C'){
-														$totalCorrect =+ 0;
+														$totalCorrect += 0;
 													}elseif($answer == 'Y' || $answer == 'y' || $answer == 'yes' || $answer == 'YES'){
-														$totalCorrect =+ 2;
+														$totalCorrect += 2;
 													}elseif($answer == 'N' || $answer == 'n' || $answer == 'no' || $answer == 'NO'){
-														$totalCorrect =+ 0;
+														$totalCorrect += 0;
 													}
 												}
 											?>
