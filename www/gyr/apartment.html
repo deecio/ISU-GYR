@@ -183,6 +183,8 @@
             </div>
         </div>
     </div>
+    <button id="save">Save Canvas</button>
+    <button id="load">Load Canvas</button>
     <div id="draggable-menu-wrapper">
         <div id="images">
             <ul class="collapsible" data-collapsible="accordion">
@@ -678,6 +680,19 @@
                 });
             }
             canvas.add(group);
+            /*newImage.toObject = function () {
+                return {
+                    type: img.id,
+                    src: img.src
+                };
+            };*/
+            console.log(JSON.stringify(newImage));
+            /*var stringJson = JSON.stringify(this.canvas);
+            var objectJson = JSON.parse(stringJson);
+
+            stringJson = JSON.stringify(objectJson);
+
+            $http.post('http://serverurl/', stringJson);*/
             return false;
         }
 
@@ -735,6 +750,19 @@
                 jQuery(this).remove();
                 jQuery(".deleteBtn").remove();
             }
+        });
+
+        var json = '';
+        document.getElementById('save').addEventListener('click', function () {
+            json = (JSON.stringify(canvas));
+            console.log(json);
+            canvas.clear();
+        });
+
+        document.getElementById('load').addEventListener('click', function () {
+            canvas.loadFromJSON(json, function () {
+                canvas.renderAll();
+            });
         });
     </script>
 
