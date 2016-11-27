@@ -150,7 +150,7 @@
         </div>
     </div>
 
-    <div class="content">
+    <div class="fullcontent">
         <header>
             <center>
                 <h1>
@@ -164,22 +164,6 @@
                 <Strong>Design your own virtual living space and learn how the items you’re bringing into your <span style='color:red'>Iowa State</span> home can make a sustainable difference!</Strong>
             </p>
         </center>
-
-        <!--    <center>
-        <div id="instruction">
-            <p style="font-size: 150%">
-                <u>Instructions</u>
-                <ol type="1">
-                    <li>Select your residence hall layout.</li>
-                    &emsp;
-                    <li>Drag and drop items from the different categories into the layout to design your space.</li>
-                    &emsp;
-                    <li>Hover over items in the layout to learn sustainable tips and tricks.</li>
-                </ol>
-            </p>
-        </div>
-    </center>-->
-
 
         <center>
             <div class="card-panel white">
@@ -196,11 +180,19 @@
             </div>
         </center>
 
-        <div>
-            <!-- Dropdown Trigger -->
-            <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Pick your dorm room!</a>
 
-            <!-- Dropdown Structure -->
+        <div>
+            <select class='dropdown-button btn'>
+                <option value="" disabled selected>CHOOSE YOUR ROOM!</option>
+                <option value="1">FRILEY</option>
+                <option value="2">MWL</option>
+                <option value="3">BUCHANAN</option>
+            </select>
+        </div>
+
+
+        <!--<div>
+            <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Pick your dorm room!</a>
             <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="#!" value="Maple">Maple</a></li>
                 <li class="divider"></li>
@@ -215,16 +207,18 @@
                 <li><a href="#!" value="Legacy">Legacy</a></li>
             </ul>
         </div>
-
+-->
         <div id="section">
-            <div class="layer">
-                <div class="room">
-                    <div id="canvas-container">
-                        <canvas id="c" width="600" height="600"></canvas>
-                    </div>
-                </div>
+            <!--<div class="layer">
+    <div class="room">
+        <div id="canvas-container">
+            <canvas id="c" width="600" height="600"></canvas>
+        </div>
+    </div>
+</div>-->
+            <div id="canvas-container">
+                <canvas id="c"></canvas>
             </div>
-
             <div class="draggable-menu-wrapper">
                 <div id="images">
                     <ul class="collapsible" data-collapsible="accordion">
@@ -309,29 +303,53 @@
 
     <script>
         var grid = 50;
+        var c = $("#c");
+        var ctx = c[0].getContext('2d');
+        ctx.canvas.height = 700;
+        ctx.canvas.width = 700;
         var canvas = new fabric.Canvas('c', {
             selection: false
         });
+
         var width = 13;
         var height = 13;
 
-
-        for (var i = 0; i <= width; i++) {
-            canvas.add(new fabric.Line([i * grid, 0, i * grid, (height * grid)], {
-                stroke: 'white',
-                selectable: false,
-                hasControls: false,
-                hoverCursor: 'default'
-            }));
+        for (var i = 0; i < width; i++) {
+            if (i == 0 || i == 12) {
+                canvas.add(new fabric.Line([i * grid, 0, i * grid, 500], {
+                    stroke: '#7BA643',
+                    strokeWidth: 10,
+                    selectable: false,
+                    hasControls: false,
+                    hoverCursor: 'default'
+                }));
+            } else {
+                canvas.add(new fabric.Line([i * grid, 0, i * grid, 500], {
+                    stroke: 'black',
+                    selectable: false,
+                    hasControls: false,
+                    hoverCursor: 'default'
+                }));
+            }
 
         }
-        for (var i = 0; i <= height; i++) {
-            canvas.add(new fabric.Line([0, i * grid, (width * grid), i * grid], {
-                stroke: 'white',
-                selectable: false,
-                hasControls: false,
-                hoverCursor: 'default'
-            }));
+        for (var i = 0; i < 11; i++) {
+            if (i == 0 || i == 10) {
+                canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
+                    stroke: '#7BA643',
+                    strokeWidth: 10,
+                    selectable: false,
+                    hasControls: false,
+                    hoverCursor: 'default'
+                }));
+            } else {
+                canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
+                    stroke: 'black',
+                    selectable: false,
+                    hasControls: false,
+                    hoverCursor: 'default'
+                }));
+            }
         }
 
 
@@ -410,26 +428,26 @@
             $('#theimg').remove();
             var x = Math.floor(Math.random() * 10);
             if (e.name == "bed") {
-                $('body').append("<img id='theimg' src='img/laundry_tip.png' />");
+                $('body').append("<img id='theimg' src='./img/laundry_tip.png' />");
             } else if (e.name == "laundry") {
-                $('body').append("<img id='theimg' src='img/decor_tip.png' />");
+                $('body').append("<img id='theimg' src='./img/decor_tip.png' />");
             } else if (e.name == "lighting") {
-                $('body').append("<img id='theimg' src='img/lamp_tip01.png' />");
+                $('body').append("<img id='theimg' src='./img/lamp_tip01.png' />");
             } else if (e.name == "game") {
-                $('body').append("<img id='theimg' src='img/game_sys.png' />");
+                $('body').append("<img id='theimg' src='./img/game_sys.png' />");
             } else if (e.name == "comp") {
-                $('body').append("<img id='theimg' src='img/tv_comp.png' />");
+                $('body').append("<img id='theimg' src='./img/tv_comp.png' />");
             } else if (e.name == "pwr_strip") {
-                $('body').append("<img id='theimg' src='img/pwr_strip.png' />");
+                $('body').append("<img id='theimg' src='./img/pwr_strip.png' />");
             } else if (e.name == "smart_pwr") {
-                $('body').append("<img id='theimg' src='img/smart_pwr.png' />");
+                $('body').append("<img id='theimg' src='./img/smart_pwr.png' />");
             } else if (e.name == "printer") {
-                $('body').append("<img id='theimg' src='img/printer.png' />");
+                $('body').append("<img id='theimg' src='./img/printer.png' />");
             } else if (e.name == "kitchen") {
                 if (x % 2 == 0)
-                    $('body').append("<img id='theimg' src='img/elec_tip.png' />");
+                    $('body').append("<img id='theimg' src='./img/elec_tip.png' />");
                 else
-                    $('body').append("<img id='theimg' src='img/buy_tip.png' />");
+                    $('body').append("<img id='theimg' src='./img/buy_tip.png' />");
             }
             changeTooltipPosition(e);
         }
@@ -799,6 +817,127 @@
                 jQuery(this).remove();
                 jQuery(".deleteBtn").remove();
             }
+        });
+
+        $('.dropdown-button').on('change', function () {
+            console.log($(this));
+            canvas.clear();
+            if ($(".dropdown-button").val() == "1") {
+                for (var i = 0; i < 11; i++) {
+                    if (i == 0 || i == 10) {
+                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
+                            stroke: '#7BA643',
+                            strokeWidth: 10,
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    } else {
+                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
+                            stroke: 'black',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+
+                }
+                for (var i = 0; i < 13; i++) {
+                    if (i == 0 || i == 12) {
+                        canvas.add(new fabric.Line([0, i * grid, 500, i * grid], {
+                            stroke: '#7BA643',
+                            strokeWidth: 10,
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    } else {
+                        canvas.add(new fabric.Line([0, i * grid, 500, i * grid], {
+                            stroke: 'black',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+                }
+            } else if ($(".dropdown-button").val() == "2") {
+                for (var i = 0; i < 12; i++) {
+                    if (i == 0 || i == 11) {
+                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 550], {
+                            stroke: '#7BA643',
+                            strokeWidth: 10,
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    } else {
+                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 550], {
+                            stroke: 'black',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+
+                }
+                for (var i = 0; i < 12; i++) {
+                    if (i == 0 || i == 11) {
+                        canvas.add(new fabric.Line([0, i * grid, 550, i * grid], {
+                            stroke: '#7BA643',
+                            strokeWidth: 10,
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    } else {
+                        canvas.add(new fabric.Line([0, i * grid, 550, i * grid], {
+                            stroke: 'black',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+                }
+            } else if ($(".dropdown-button").val() == "3") {
+                for (var i = 0; i < 13; i++) {
+                    if (i == 0 || i == 12) {
+                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
+                            stroke: '#7BA643',
+                            strokeWidth: 10,
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    } else {
+                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
+                            stroke: 'black',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+
+                }
+                for (var i = 0; i < 13; i++) {
+                    if (i == 0 || i == 12) {
+                        canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
+                            stroke: '#7BA643',
+                            strokeWidth: 10,
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    } else {
+                        canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
+                            stroke: 'black',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+                }
+            }
+            canvas.renderAll();
         });
 
         var json = '';

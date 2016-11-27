@@ -10,7 +10,7 @@ body {
     color: #7BA643;
 }
 
-.content {
+.fullcontent {
     background-color: white;
     margin-left: 300px;
     margin-right: 300px;
@@ -78,15 +78,17 @@ body {
 }
 
 .canvas-container {
-    background-color: #d3d3d3;
-    width: 600px;
-    height: 600px;
+    width: 800px;
+    height: 800px;
+    margin-left: 100px;
+    margin-top: 20px;
 }
 
 .btn {
     color: #FFFFFF !important;
     background-color: #7BA643 !important;
-    margin-left: 50px;
+    margin-left: 100px;
+    width: 220px;
 }
 
 .btn:hover {
