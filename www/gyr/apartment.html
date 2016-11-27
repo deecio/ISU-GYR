@@ -150,114 +150,163 @@
         </div>
     </div>
 
-    <header>
-        <center>
-            <h1>
-            <img src="img/title.PNG" style="height:200px;">
+    <div class="content">
+        <header>
+            <center>
+                <h1>
+            <p><img src="img/title.PNG" style="height:200px;"></p>
             </h1>
-        </center>
-    </header>
-    <div>
-        <!-- Dropdown Trigger -->
-        <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Pick your dorm room!</a>
+            </center>
+        </header>
 
-        <!-- Dropdown Structure -->
-        <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!" value="Maple">Maple</a></li>
-            <li class="divider"></li>
-            <li><a href="#!" value="Willow">Willow</a></li>
-            <li class="divider"></li>
-            <li><a href="#!" value="Larch">Larch</a></li>
-            <li class="divider"></li>
-            <li><a href="#!" value="Frederiksen Court">Frederiksen Court</a></li>
-            <li class="divider"></li>
-            <li><a href="#!" value="University Village">University Village</a></li>
-            <li class="divider"></li>
-            <li><a href="#!" value="Legacy">Legacy</a></li>
-        </ul>
-    </div>
-    <div class="layer">
-        <div class="room">
-            <div id="canvas-container">
-                <canvas id="c" width="600" height="600"></canvas>
-            </div>
+        <center>
+            <p id="intro" style="font-size: 150%">
+                <Strong>Design your own virtual living space and learn how the items you’re bringing into your <span style='color:red'>Iowa State</span> home can make a sustainable difference!</Strong>
+            </p>
+        </center>
+
+        <!--    <center>
+        <div id="instruction">
+            <p style="font-size: 150%">
+                <u>Instructions</u>
+                <ol type="1">
+                    <li>Select your residence hall layout.</li>
+                    &emsp;
+                    <li>Drag and drop items from the different categories into the layout to design your space.</li>
+                    &emsp;
+                    <li>Hover over items in the layout to learn sustainable tips and tricks.</li>
+                </ol>
+            </p>
         </div>
-    </div>
-    <button id="save">Save Canvas</button>
-    <button id="load">Load Canvas</button>
-    <div id="draggable-menu-wrapper">
-        <div id="images">
-            <ul class="collapsible" data-collapsible="accordion">
-                <li>
-                    <div class="collapsible-header active" id="basics"><i class="material-icons">label</i>Basics</div>
-                    <div class="collapsible-body">
-                        <img class="item-thumbnail" id="desk" src="img/basics/Student%20Desk%20.png" />
-                        <img class="item-thumbnail" id="desk" src="img/basics/Student%20Desk%202.png" />
-                        <img class="item-thumbnail" id="bed" src="img/basics/Twin%20Bed%20Multi.png" />
-                        <img class="item-thumbnail" id="bed" src="img/basics/Twin%20Bed%20White.png" />
-                        <img class="item-thumbnail" id="wardrobe" src="img/basics/Wardrobe%20big.png" />
-                        <img class="item-thumbnail" id="wardrobe" src="img/basics/Wardrobe.png" />
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header" id="electronics"><i class="material-icons">label</i>Electronics</div>
-                    <div class="collapsible-body">
-                        <span><img class="item-thumbnail" id="comp" src="img/electronics/Computer%20Apples.png"/></span>
-                        <span><img class="item-thumbnail" id="comp" src="img/electronics/PC.png"/></span>
-                        <span><img class="item-thumbnail" id="pwr_strip" src="img/electronics/PowerStrip.png"/></span>
-                        <span><img class="item-thumbnail" id="smart_pwr" src="img/electronics/Smart%20Power%20Strip.png"/></span>
-                        <span><img class="item-thumbnail" id="printer" src="img/electronics/Printer%20Black.png"/></span>
-                        <span><img class="item-thumbnail" id="printer" src="img/electronics/Printer%20Grey.png"/></span>
-                        <span><img class="item-thumbnail" id="game" src="img/electronics/PS2.png"/></span>
-                        <span><img class="item-thumbnail" id="game" src="img/electronics/PS3.png"/></span>
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header" id="laundry"><i class="material-icons">label</i>Laundry</div>
-                    <div class="collapsible-body">
-                        <span><img class="item-thumbnail" id="laundry" src="img/decor/Heater%20Blanket%20Blue.png"/></span>
-                        <span><img class="item-thumbnail" id="laundry" src="img/decor/Heater%20Blanket%20White.png"/></span>
-                        <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Banner.png"/></span>
-                        <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Couch%203.png"/></span>
-                        <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20LazyBoy.png"/></span>
-                        <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Sofa.png"/></span>
-                        <span><img class="item-thumbnail" id="laundry" src="img/decor/Red%20Blanket.png"/></span>
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header" id="lighting"><i class="material-icons">label</i>Lightings</div>
-                    <div class="collapsible-body">
-                        <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp01.png"/></span>
-                        <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp02.png"/></span>
-                        <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp03.png"/></span>
-                        <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp04.png"/></span>
-                        <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp05.jpg"/></span>
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header" id="kitchen"><i class="material-icons">label</i>Kitchen</div>
-                    <div class="collapsible-body">
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Coffee%20Pot%20Black.png"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Coffee%20Pot%20Silver.png"span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Dinnerware%20Black.png"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Dinnerware%20White.png"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Keurig%20Black.png"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Keurig%20Silver.png"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Micro%20Fridge%20Black.jpg"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Micro%20Fridge%20Black.png"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Microwave%20Black.png"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Microwave%20Silver.png"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Black.png"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Silver.png"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Duo%20Silver.png"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Toaster%20.png"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Toaster%20Black.png"/></span>
-                        <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Utensils.jpg"/></span>
-                    </div>
-                </li>
+    </center>-->
+
+
+        <center>
+            <div class="card-panel white">
+                <span class="black-text">
+                    <p style="font-size: 120%"><Strong>Instructions</Strong></p>
+              <ol type="1">
+                    <li>Select your residence hall layout.</li>
+                    &emsp;
+                    <li>Drag and drop items from the different categories into the layout to design your space.</li>
+                    &emsp;
+                    <li>Hover over items in the layout to learn sustainable tips and tricks.</li>
+                </ol>
+          </span>
+            </div>
+        </center>
+
+        <div>
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Pick your dorm room!</a>
+
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="#!" value="Maple">Maple</a></li>
+                <li class="divider"></li>
+                <li><a href="#!" value="Willow">Willow</a></li>
+                <li class="divider"></li>
+                <li><a href="#!" value="Larch">Larch</a></li>
+                <li class="divider"></li>
+                <li><a href="#!" value="Frederiksen Court">Frederiksen Court</a></li>
+                <li class="divider"></li>
+                <li><a href="#!" value="University Village">University Village</a></li>
+                <li class="divider"></li>
+                <li><a href="#!" value="Legacy">Legacy</a></li>
             </ul>
         </div>
+
+        <div id="section">
+            <div class="layer">
+                <div class="room">
+                    <div id="canvas-container">
+                        <canvas id="c" width="600" height="600"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="draggable-menu-wrapper">
+                <div id="images">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li>
+                            <div class="collapsible-header active" id="basics"><i class="material-icons">label</i>Basics</div>
+                            <div class="collapsible-body">
+                                <img class="item-thumbnail" id="desk" src="img/basics/Student%20Desk%20.png" />
+                                <img class="item-thumbnail" id="desk" src="img/basics/Student%20Desk%202.png" />
+                                <img class="item-thumbnail" id="bed" src="img/basics/Twin%20Bed%20Multi.png" />
+                                <img class="item-thumbnail" id="bed" src="img/basics/Twin%20Bed%20White.png" />
+                                <img class="item-thumbnail" id="wardrobe" src="img/basics/Wardrobe%20big.png" />
+                                <img class="item-thumbnail" id="wardrobe" src="img/basics/Wardrobe.png" />
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="collapsible-header" id="electronics"><i class="material-icons">label</i>Electronics</div>
+                            <div class="collapsible-body">
+                                <span><img class="item-thumbnail" id="comp" src="img/electronics/Computer%20Apples.png"/></span>
+                                <span><img class="item-thumbnail" id="comp" src="img/electronics/PC.png"/></span>
+                                <span><img class="item-thumbnail" id="pwr_strip" src="img/electronics/PowerStrip.png"/></span>
+                                <span><img class="item-thumbnail" id="smart_pwr" src="img/electronics/Smart%20Power%20Strip.png"/></span>
+                                <span><img class="item-thumbnail" id="printer" src="img/electronics/Printer%20Black.png"/></span>
+                                <span><img class="item-thumbnail" id="printer" src="img/electronics/Printer%20Grey.png"/></span>
+                                <span><img class="item-thumbnail" id="game" src="img/electronics/PS2.png"/></span>
+                                <span><img class="item-thumbnail" id="game" src="img/electronics/PS3.png"/></span>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="collapsible-header" id="laundry"><i class="material-icons">label</i>Laundry</div>
+                            <div class="collapsible-body">
+                                <span><img class="item-thumbnail" id="laundry" src="img/decor/Heater%20Blanket%20Blue.png"/></span>
+                                <span><img class="item-thumbnail" id="laundry" src="img/decor/Heater%20Blanket%20White.png"/></span>
+                                <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Banner.png"/></span>
+                                <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Couch%203.png"/></span>
+                                <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20LazyBoy.png"/></span>
+                                <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Sofa.png"/></span>
+                                <span><img class="item-thumbnail" id="laundry" src="img/decor/Red%20Blanket.png"/></span>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="collapsible-header" id="lighting"><i class="material-icons">label</i>Lightings</div>
+                            <div class="collapsible-body">
+                                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp01.png"/></span>
+                                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp02.png"/></span>
+                                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp03.png"/></span>
+                                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp04.png"/></span>
+                                <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp05.jpg"/></span>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="collapsible-header" id="kitchen"><i class="material-icons">label</i>Kitchen</div>
+                            <div class="collapsible-body">
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Coffee%20Pot%20Black.png"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Coffee%20Pot%20Silver.png"span>
+                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Dinnerware%20Black.png"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Dinnerware%20White.png"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Keurig%20Black.png"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Keurig%20Silver.png"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Micro%20Fridge%20Black.jpg"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Micro%20Fridge%20Black.png"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Microwave%20Black.png"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Microwave%20Silver.png"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Black.png"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Silver.png"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Duo%20Silver.png"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Toaster%20.png"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Toaster%20Black.png"/></span>
+                                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Utensils.jpg"/></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <button id="save">Save Canvas</button>
+        <button id="load">Load Canvas</button>
     </div>
+
     <script>
         var grid = 50;
         var canvas = new fabric.Canvas('c', {
@@ -790,7 +839,6 @@
                                 <div class="region region-footer">
                                     <div id="block-block-1" class="block block-block">
 
-
                                         <div class="content">
                                             <p>Copyright © 1995-2016, Iowa State University of Science and Technology. All rights reserved.</p>
                                         </div>
@@ -798,7 +846,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

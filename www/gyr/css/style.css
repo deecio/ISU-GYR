@@ -3,12 +3,29 @@ body {
     font-family: 'Univers LT Std', sans-serif;
 }
 
-#header {
-    font-size: 100px;
+#intro {
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: -30px;
+    color: #7BA643;
+}
+
+.content {
+    background-color: white;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 5px solid white;
+    border-radius: 20px;
 }
 
 .item-thumbnail {
     width: 85px;
+}
+
+#section {
+    height: 700px;
 }
 
 .collapsible {
@@ -25,11 +42,15 @@ body {
     background-color: #0C5030 !important;
 }
 
-#draggable-menu-wrapper {
+.card-panel {
+    width: 450px;
+    text-align: left;
+}
+
+.draggable-menu-wrapper {
     width: 370px;
-    position: absolute !important;
-    right: 20%;
-    top: 48%;
+    margin-left: 820px;
+    margin-top: -680px;
 }
 
 .collapsible-body {
@@ -43,8 +64,8 @@ body {
     border-bottom: 10px solid black;
     border-right: 10px solid black;
     border-left: 10px solid black;
-    margin-left: 400px;
-    margin-top: 50px;
+    margin-left: 100px;
+    margin-top: 20px;
 }
 
 .room {
@@ -54,20 +75,18 @@ body {
     border-bottom: 30px solid rgb(238, 212, 132);
     border-right: 30px solid #7BA643;
     border-left: 30px solid #7BA643;
-    position: absolute !important;
 }
 
 .canvas-container {
     background-color: #d3d3d3;
     width: 600px;
     height: 600px;
-    position: absolute !important;
 }
 
 .btn {
     color: #FFFFFF !important;
     background-color: #7BA643 !important;
-    margin-left: 325px;
+    margin-left: 50px;
 }
 
 .btn:hover {
