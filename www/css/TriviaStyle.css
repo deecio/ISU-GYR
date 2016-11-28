@@ -51,3 +51,8 @@ hr{
 .result-image{
     width: 150px;
 }
+
+.page-desc{
+    text-align: center;
+    font-size: 24px;
+}
