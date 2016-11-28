@@ -173,7 +173,7 @@ h3 code{
 						<div class="row">
                 <div class="col-lg-12 text-center">
                     <ul class="list-inline header-links">
-                        <li ng-repeat="filter in filters">
+                        <li ng-repeat="filter in filters" style="margin: 5px;">
                             <a href="" ng-click="setFilter(filter)">{{filter.name}}</a>
                         </li>
                     </ul>
@@ -182,32 +182,14 @@ h3 code{
 
             <div class="row">
                 <div class="col-lg-12 text-left" ng-repeat="fact in data.db_result | filter: selectedFilter.filterExpr">
-										<h5>{{fact.name}}</h5>
+										<h4 style="font-weight:bold;">{{fact.name}}</h4>
                     <p class="fact-text">{{fact.text}}</p>
                     <hr />
                 </div>
             </div>
         </div>
-						<!-- <div class="row">
-                <div class="col-lg-12 text-center">
-                    <ul class="list-inline header-links" ng-repeat="d in data.db_result">
-											<!--ng-repeat="filter in filters" -->
-                        <!-- <li>
-                            <a href="" ng-click="setFilter(filter)">{{d.category}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="row"> -->
-							<!--ng-repeat="fact in facts | filter: selectedFilter.filterExpr" -->
-                <!-- <div class="col-lg-12 text-left" ng-repeat="d in data.db_result">
-                    <p class="fact-text">{{d.text}}</p>
-                    <hr />
-                </div>
-            </div> -->
         </div>
-</div>
 
         <div class="wd-l-Footer">
             <div class="wd-l-Footer-inner">
@@ -310,11 +292,11 @@ h3 code{
 		angular.module('gyrApp', []).service('httpService', httpService)
 				.controller('FactViewerDB', function($scope, httpService) {
 					$scope.filters = [
-							{ name: 'Lighting', filterExpr: { tag: 'Lighting' } },
-							{ name: 'Recycling', filterExpr: { tag: 'Recycling' } },
-							{ name: 'Green Supplies', filterExpr: { tag: 'CleanSupplies' } },
-							{ name: 'Green Buying', filterExpr: { tag: 'GreenBuying' } },
-							{ name: 'Electronics', filterExpr: { tag: 'Electronics' } },
+							{ name: 'Lighting', filterExpr: { category: 'Lighting' } },
+							{ name: 'Recycling', filterExpr: { category: 'Recycling' } },
+							{ name: 'Green Supplies', filterExpr: { category: 'CleanSupplies' } },
+							{ name: 'Green Buying', filterExpr: { category: 'GreenBuying' } },
+							{ name: 'Electronics', filterExpr: { category: 'Electronics' } },
 					];
 
 					$scope.selectedFilter = $scope.filters[0];
