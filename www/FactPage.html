@@ -161,7 +161,7 @@ h3 code{
 			</div>
 		</div>
 
-<div ng-controller="FactViewerDB" ng-repeat="d in data.db_result">
+<div ng-controller="FactViewerDB">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -171,7 +171,7 @@ h3 code{
 						<p align="center">As you’re planning out your packing list, check out these tips to “green” your Iowa State home!</p>
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <ul class="list-inline header-links">
+                    <ul class="list-inline header-links" ng-repeat="d in data.db_result">
 											<!--ng-repeat="filter in filters" -->
                         <li>
                             <a href="" ng-click="setFilter(filter)">{{d.category}}</a>
@@ -182,7 +182,7 @@ h3 code{
 
             <div class="row">
 							<!--ng-repeat="fact in facts | filter: selectedFilter.filterExpr" -->
-                <div class="col-lg-12 text-left">
+                <div class="col-lg-12 text-left" ng-repeat="d in data.db_result">
                     <p class="fact-text">{{d.text}}</p>
                     <hr />
                 </div>
