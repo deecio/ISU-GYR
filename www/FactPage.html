@@ -291,10 +291,10 @@ h3 code{
 		angular.module('gyrApp', []).service('httpService', httpService)
 				.controller('FactViewerDB', function($scope, httpService) {
 					$scope.filters = [
-							{ name: 'Lighting', filterExpr: { tag: 'lighting' } },
-							{ name: 'Recycling', filterExpr: { tag: 'recycling' } },
-							{ name: 'Green Supplies', filterExpr: { tag: 'cleanSupplies' } },
-							{ name: 'Green Buying', filterExpr: { tag: 'greenBuying' } }
+							{ name: 'Lighting', filterExpr: { tag: 'Lighting' } },
+							{ name: 'Recycling', filterExpr: { tag: 'Recycling' } },
+							{ name: 'Green Supplies', filterExpr: { tag: 'CleanSupplies' } },
+							{ name: 'Green Buying', filterExpr: { tag: 'GreenBuying' } }
 					];
 
 					$scope.selectedFilter = $scope.filters[0];
