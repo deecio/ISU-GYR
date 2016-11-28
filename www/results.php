@@ -192,14 +192,17 @@ h3 code{
 											?>
 
 											<?php if(($totalCorrect / $questionCounter) >= .75) : ?>
+													<h3 class="result-state">VIRTUOSO</h3>
 													<img class="result-image" src="img/QuizResults/Expert.PNG">
-													<h3 class="result-state">You are a Green Living expert!</h3>
+													<h3 class="result-state">A celebration is to be had for your extensive knowledge and commitment to sustainable efforts.</h3>
 											<?php elseif(($totalCorrect / $questionCounter) >= .50) : ?>
+													<h3 class="result-state">MAESTRO</h3>
 													<img class="result-image" src="img/QuizResults/Intermediate.PNG">
-													<h3 class="result-state">You are competent with Green Living!</h3>
+													<h3 class="result-state">You are on the path to greatness as your "green" knowledge blooms with each great action towards living sustainably.</h3>
 											<?php else : ?>
+													<h3 class="result-state">NOVIZATO</h3>
 													<img class="result-image" src="img/QuizResults/Beginner.PNG">
-													<h3 class="result-state">You are still a beginner in Green Living!</h3>
+													<h3 class="result-state">The spark has been lit! Right here is the opportunity you seek to expand your budding understanding for sustainability.</h3>
 											<?php endif; ?>
 									        
 											<div class="score"  
