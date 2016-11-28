@@ -179,8 +179,8 @@ h3 code{
         <thead>
           <tr>
               <th data-field="id">Fact Title</th>
+							<th data-field="category">Category</th>
               <th data-field="file">Image File</th>
-							<th data-field="file">Category</th>
               <th data-field="description">Fact Description</th>
 							<th data-field="hyperlink">Hyperlink</th>
           </tr>
@@ -189,8 +189,8 @@ h3 code{
         <tbody>
           <tr ng-repeat="d in data.db_result">
             <td>{{d.name}}</td>
-            <td>{{d.image}}</td>
 						<td>{{d.category}}</td>
+            <td>{{d.image}}</td>
 						<td>{{d.text}}</td>
             <td>{{d.hyperlink}}</td>
           </tr>
