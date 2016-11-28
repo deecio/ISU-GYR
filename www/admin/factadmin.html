@@ -201,6 +201,7 @@ h3 code{
 					    </select>
 					    <label>Category</label>
 					  </div>
+
 						<div class="row">
 							<div class="input-field col s12">
 								<textarea id="fact_description" class="materialize-textarea" ng-model="text"></textarea>
@@ -259,12 +260,17 @@ h3 code{
 												hyperlink:$scope.hyperlink,
 												text:$scope.text,
 												category:$scope.category,
-												image:null//todo
+												image:$scope.image//todo
 											})
 											// This is where the response is received v
 													.then(function(rtn) {
 															$scope.data = rtn.data;
 													});
+													$scope.name = '';
+													$scope.hyperlink = '';
+													$scope.text = '';
+													$scope.category = '';
+													$scope.image = '';
 												}
 									});
 
