@@ -152,35 +152,7 @@
 									</tr>
 								</tbody>
             </div>
-						<!-- include script tags -->
-						<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-						<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
 
-						<!-- This page's angular set-up -->
-						<script>
-								function httpService($http) {
-										this.get = function(url) {
-												return $http.get(url);
-										}
-										this.post = function(url, data) {
-												return $http.post(url, data);
-										}
-								}
-								angular.module('gyrApp', []).service('httpService', httpService)
-										.controller('InformationViewerDB', function($scope, httpService) {
-
-
-												$scope.data = {};
-												$scope.data.questions = [];
-												httpService.get("http://greenyourresidence.ece.iastate.edu:3000/InformationViewerDB")
-												// This is where the response is received v
-														.then(function(rtn) {
-																$scope.data = rtn.data;
-														});
-
-										});
-
-						</script>
         </div>
 
 
@@ -275,7 +247,36 @@
 		}
 	});
 });</script>
+<!-- include script tags -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
 
+<!-- This page's angular set-up -->
+<script>
+		function httpService($http) {
+				this.get = function(url) {
+						return $http.get(url);
+				}
+				this.post = function(url, data) {
+						return $http.post(url, data);
+				}
+		}
+		angular.module('gyrApp', []).service('httpService', httpService)
+				.controller('InformationViewerDB', function($scope, httpService) {
+
+
+						$scope.data = {};
+						$scope.data.questions = [];
+						httpService.get("http://greenyourresidence.ece.iastate.edu:3000/InformationViewerDB")
+						// This is where the response is received v
+								.then(function(rtn) {
+									console.log(rtn);
+										$scope.data = rtn.data;
+								});
+
+				});
+
+</script>
 
 </body>
 </html>
