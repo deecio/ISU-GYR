@@ -100,35 +100,30 @@ body {
     margin-left: 325px;
 }
 
-
-/*#imageDialog {
-    background-color: green;
-    font-size: 10px;
-    font-family: "Times New Roman", Times, serif;
-    color: #fff;
-    border-radius: 7px;
-    padding: 5px 5px;
+.tooltiptext {
+    visibility: visible;
+    font-family: 'Univers LT Std', sans-serif;
+    font-size: 20px;
+    width: 500px;
+    background-color: #7BA643;
+    color: black;
+    text-align: left;
+    padding: 15px 15px;
+    border-radius: 20px;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
 }
 
-#imageDialog::after {
+.tooltiptext::after {
     content: "";
     position: absolute;
-    top: 80%;
+    top: 50%;
     right: 100%;
-    margin-top: -6px;
-    border-width: 7px;
+    margin-left: -5px;
+    border-width: 5px;
     border-style: solid;
-    border-color: transparent green transparent transparent;
-}*/
-
-.tooltip {
-    margin: 8px;
-    padding: 8px;
-    border: 1px solid blue;
-    color: #fff;
-    background-color: green;
-    position: absolute;
-    z-index: 2;
+    border-color: transparent #7BA643 transparent transparent;
 }
 
 #theimg {
@@ -137,6 +132,11 @@ body {
     background-color: lightgreen;
     position: absolute;
     z-index: 2;
+}
+
+.item-thumbnail {
+    width: 100px;
+    height: 100px;
 }
 
 
