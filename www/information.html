@@ -145,8 +145,8 @@
 		<div id="body" ng-controller="InformationViewerDB">
             <div class="container info-page">
                 <h2 class="centered">Other Information</h2>
-								<div class="collection" id="info-links" ng-repeat="i in data.db_result">
-									 <a class="collection-item" href={{i.hyperlink}}>{{i.title}}</a>
+								<div class="collection" id="info-links">
+									 <a ng-repeat="i in data.db_result" class="collection-item" href={{i.hyperlink}}>{{i.title}}</a>
 								 </div>
         		</div>
 					</div>
