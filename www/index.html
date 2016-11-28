@@ -131,10 +131,13 @@
                                         <a class="wd-Navigation-link" href="FactPage.html">Green Living Tips</a>
                                     </li>
                                     <li class="wd-Navigation-node">
-                                        <a class="wd-Navigation-link" href="results.php">Quiz Results</a>
+                                        <a class="wd-Navigation-link" href="QuizPage.html">Green Living Quiz</a>
                                     </li>
                                     <li class="wd-Navigation-node">
                                         <a class="wd-Navigation-link" href="information.html">Additional Resources</a>
+                                    </li>
+                                    <li class="wd-Navigation-node right hide-on-med-and-down" align="right">
+                                        <a class="wd-Navigation-link" href="admin/index.html">Admin</a>
                                     </li>
                                 </ul>
                             </div>
@@ -197,33 +200,10 @@
                         <div class="col-xs-4">
                             <div ng-app="gyrApp">
                                 <div class="centered">
-                                    <div ng-controller="QuizController">
-                                        <br>
-                                        <!-- Modal Trigger -->
-                                        <h4 class="home-page">Test your Green Living knowledge!</h4>
-                                        <a class="waves-effect waves-light btn modal-trigger quiz-button" onclick="$('#modal1').openModal();">Find out how green you are!</a><br>
-
-                                        <div id="modal1" class="modal modal-fixed-footer">
-                                            <div class="modal-content">
-                                                <form action="results.php" method="post" id="quiz">
-                                                    <h4>{{data.quiz.title}}</h4>
-                                                    <ol>
-                                                        <li align="left" ng-repeat="q in data.quiz.questions">
-                                                            <h6 align="left">{{q.label}}</h6>
-                                                            <div ng-repeat="a in q.answers">
-                                                                <input type="{{q.type}}" name="{{q.id}}" id="{{q.id}}-{{a.id}}" value="{{a.value}}" />
-                                                                <label for="{{q.id}}-{{a.id}}" align="left">{{a.label}}</label>
-                                                            </div>
-                                                        </li>
-                                                    </ol>
-                                                    <input type="submit" value="Submit Quiz" class="btn" />
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Thanks!</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <br>
+                                    <!-- Modal Trigger -->
+                                    <h4 class="home-page">Test your Green Living knowledge!</h4>
+                                    <a class="waves-effect waves-light btn quiz-button" href="QuizPage.html">Find out how green you are!</a><br>
                                 </div>
                                 <!-- include script tags -->
                                 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
