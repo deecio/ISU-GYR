@@ -1,0 +1,141 @@
+body {
+    background-color: #f4f3e8 !important;
+    font-family: 'Univers LT Std', sans-serif;
+}
+
+#header {
+    margin-bottom: 20px;
+}
+
+#intro {
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: -30px;
+    color: #7BA643;
+}
+
+#fullcontent {
+    position: relative;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 17%;
+    right: 0%;
+    margin: auto;
+    margin-bottom: 20px;
+    border: 5px solid white;
+    border-radius: 20px;
+}
+
+#importantbody {
+    margin: auto;
+}
+
+.item-thumbnail {
+    width: 85px;
+}
+
+.collapsible {
+    font-size: 20px;
+}
+
+.collapsible-header {
+    background-color: #7BA643 !important;
+    color: #FFFFFF;
+}
+
+.collapsible-header:hover {
+    color: #FFFFFF !important;
+    background-color: #0C5030 !important;
+}
+
+.card-panel {
+    width: 450px;
+    text-align: left;
+}
+
+.draggable-menu-wrapper {
+    display: inline-block;
+    width: 370px;
+}
+
+.collapsible-body {
+    background-color: white;
+    height: 250px;
+    overflow: scroll;
+}
+
+.layer {
+    width: 680px;
+    height: 680px;
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    border-right: 10px solid black;
+    border-left: 10px solid black;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+.room {
+    width: 661px;
+    height: 661px;
+    border-top: 30px solid rgb(238, 212, 132);
+    border-bottom: 30px solid rgb(238, 212, 132);
+    border-right: 30px solid #7BA643;
+    border-left: 30px solid #7BA643;
+}
+
+.canvas-container {
+    width: 800px;
+    height: 800px;
+    margin-top: 25px;
+    margin-left: 75px;
+    display: inline-block;
+}
+
+.btn {
+    color: #FFFFFF !important;
+    background-color: #7BA643 !important;
+    margin-left: 75px;
+    width: 220px;
+}
+
+.btn:hover {
+    color: #FFFFFF !important;
+    background-color: #0C5030 !important;
+}
+
+#dropdown1 {
+    margin-left: 100px;
+}
+
+.tooltiptext {
+    visibility: visible;
+    font-family: 'Univers LT Std', sans-serif;
+    font-size: 20px;
+    width: 500px;
+    background-color: #7BA643;
+    color: black;
+    text-align: left;
+    padding: 15px 15px;
+    border-radius: 20px;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #7BA643 transparent transparent;
+}
+
+.item-thumbnail {
+    width: 100px;
+    height: 100px;
+}
