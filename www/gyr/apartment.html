@@ -108,19 +108,19 @@
                         <ul class="wd-Navigation">
                             <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../index.html">Home</a> </li>
                             <li class="wd-Navigation-node"> <a class="wd-Navigation-link is-active" href="#">Interactive Apartment</a> </li>
-                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../ShoppingCartPage/ShoppingCart.html">Savings Cart</a> </li>
-                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../information.html">Information</a> </li>
-                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../results.php">Quiz Results</a> </li>
-                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../FactPage.html">Green Living Facts</a> </li>
+                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../ShoppingCartPage/ShoppingCart.html">Sustainability Savings Cart</a> </li>
+                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../information.html">Green Living Tips</a> </li>
+                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../results.php">Green Living Quiz</a> </li>
+                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../FactPage.html">Additional Resources</a> </li>
                         </ul>
                     </div>
                     <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
                         <option value="index.html">Home</option>
                         <option value="gyr.html" selected="selected">Interactive Apartment</option>
-                        <option value="savingscart.html">Savings Cart</option>
-                        <option value="information.html">Information</option>
-                        <option value="results.php">Quiz Results</option>
-                        <option value="FactPage.html">Trivia</option>
+                        <option value="savingscart.html">Sustainability Savings Cart</option>
+                        <option value="information.html">Green Living Tips</option>
+                        <option value="results.php">Green Living Quiz</option>
+                        <option value="FactPage.html">Additional Resources</option>
                     </select>
                 </div>
             </div>
@@ -431,6 +431,7 @@
                    }));
                }
            }*/
+
         canvas.on('mouse:over', function (e) {
             if (e.target != canvas.getActiveObject()) {
                 showTooltip(e.target);
@@ -442,9 +443,11 @@
                             }
                         }*/
         });
+
         canvas.on('mouse:out', function (e) {
             $('.tooltiptext').remove();
         });
+
         canvas.on('object:moving', function (e) {
             var obj = e.target;
             obj.set({
@@ -574,7 +577,7 @@
                 });
             } else if (img.id == "nightstand") {
                 var nightstand = new Image();
-                nightstand.src = "img/Basics/BasicsNightStand.png";
+                nightstand.src = "img/Basics/BasicsNightstand.png";
                 var newImage = new fabric.Image(nightstand, {
                     name: img.id,
                     width: 50,
