@@ -144,6 +144,9 @@ h3 code{
                                     <li class="wd-Navigation-node">
                                         <a class="wd-Navigation-link" href="QuizPage.html">Green Living Quiz</a>
                                     </li>
+									<li class="wd-Navigation-node">
+                                        <a class="wd-Navigation-link is-active" href="#">Green Living Quiz Results</a>
+                                    </li>
                                     <li class="wd-Navigation-node">
                                         <a class="wd-Navigation-link" href="information.html">Additional Resources</a>
                                     </li>
