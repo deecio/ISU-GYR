@@ -56,3 +56,8 @@ hr{
     text-align: center;
     font-size: 24px;
 }
+
+.quiz-button{
+    color: #ffffff !important;
+    background-color: #7BA643 !important;
+}

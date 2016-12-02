@@ -10,6 +10,9 @@
 <link href="css/baseV4.css" rel="stylesheet">
 <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 <link href="css/TriviaStyle.css" media="all" rel="stylesheet" />
 	<style >pre{
 	background-color: #f5f5f5;
@@ -175,6 +178,11 @@ h3 code{
 												$questionCounter = 0;
 												$totalCorrect = 0;
 
+												if(!empty($_POST)){
+													$totalCorrect++;
+													$questionCounter++;
+												}
+
 												foreach($_POST as $answer){
 													$questionCounter += 2;
 													if($answer == 'a' || $answer == 'A'){
@@ -191,7 +199,11 @@ h3 code{
 												}
 											?>
 
-											<?php if(($totalCorrect / $questionCounter) >= .75) : ?>
+											<?php if($questionCounter == 0 : ?>
+													<h3 class="result-state">Looks like you haven't taken the quiz yet!</h3>
+													<h3 class="result-state">Click the button below to go to the quiz:</h3>
+													<a class="waves-effect waves-light btn quiz-button" href="QuizPage.html">Take the Quiz!</a><br>
+											<?php elseif(($totalCorrect / $questionCounter) >= .75) : ?>
 													<h3 class="result-state">VIRTUOSO</h3>
 													<img class="result-image" src="img/QuizResults/Expert.PNG">
 													<h3 class="result-state">A celebration is to be had for your extensive knowledge and commitment to sustainable efforts.</h3>
@@ -204,12 +216,6 @@ h3 code{
 													<img class="result-image" src="img/QuizResults/Beginner.PNG">
 													<h3 class="result-state">The spark has been lit! Right here is the opportunity you seek to expand your budding understanding for sustainability.</h3>
 											<?php endif; ?>
-									        
-											<div class="score"  
-												<?php echo '<div id="results">Your Green Score: '; ?>  
-												<?php echo $totalCorrect; ?> Points
-											</div>
-									        
 
 										</div>
 
