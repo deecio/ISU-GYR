@@ -207,15 +207,15 @@ h3 code{
 													<h3 class="result-state">Click the button below to go to the quiz:</h3>
 													<a class="waves-effect waves-light btn quiz-button" href="QuizPage.html">Take the Quiz!</a><br>
 											<?php elseif(($totalCorrect / $questionCounter) >= .75) : ?>
-													<h3 class="result-state">VIRTUOSO</h3>
+													<h3 class="result-state">SEQUOIA</h3>
 													<img class="result-image" src="img/QuizResults/Expert.PNG">
-													<h3 class="result-state">A celebration is to be had for your extensive knowledge and commitment to sustainable efforts.</h3>
+													<h3 class="result-state">A celebration is to be had for your expansive knowledge and commitment to sustainable efforts.</h3>
 											<?php elseif(($totalCorrect / $questionCounter) >= .50) : ?>
-													<h3 class="result-state">MAESTRO</h3>
+													<h3 class="result-state">SAPLING</h3>
 													<img class="result-image" src="img/QuizResults/Intermediate.PNG">
 													<h3 class="result-state">You are on the path to greatness as your "green" knowledge blooms with each great action towards living sustainably.</h3>
 											<?php else : ?>
-													<h3 class="result-state">NOVIZATO</h3>
+													<h3 class="result-state">SPROUT</h3>
 													<img class="result-image" src="img/QuizResults/Beginner.PNG">
 													<h3 class="result-state">The spark has been lit! Right here is the opportunity you seek to expand your budding understanding for sustainability.</h3>
 											<?php endif; ?>
@@ -232,7 +232,7 @@ h3 code{
             <div class="wd-l-Footer-inner">
 
                 <div class="GLimage">
-                    <img src="img/footer.jpg" />
+                    <img src="img/footer.png" />
                 </div>
 
                 <div class="wd-l-PageFooter" id="footer" role="contentinfo">
