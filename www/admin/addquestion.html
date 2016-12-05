@@ -122,8 +122,8 @@ h3 code{
 						<div class="wd-l-MastTitle-siteTitle site-title sub-title">
 							<a href="/">Office of Sustainability</a>
 						</div>
-                    </div>
-				</div>
+            </div>
+						</div>
                 <div class="wd-l-Navbar">
                     <div class="wd-l-Navbar-inner">
                         <div role="navigation">
@@ -147,9 +147,9 @@ h3 code{
                                     <a class="wd-Navigation-link" href="factadmin.html">Manage Facts</a>
                                 </li>
 																<ul id="nav-mobile" class="right hide-on-med-and-down">
-																	<li class="wd-Navigation-node" align="right">
-	                                    <a class="wd-Navigation-link" href="../index.html">Go to Site</a>
-	                                </li>
+																<li class="wd-Navigation-node" align="right">
+	                                  <a class="wd-Navigation-link" href="../index.html">Go to Site</a>
+	                              </li>
 															</ul>
                             </ul>
                         </div>
@@ -181,10 +181,16 @@ h3 code{
 
 										<div class="row" ng-controller="AddQuestionDB">
 											<form class="col s12">
-												<div class="row">
+												<!-- <div class="row">
 													<div class="input-field col s6" style="text-align:left">
 														<input id="label" type="text" class="validate" ng-model="label">
 														<label for="label">Quiz Question</label>
+													</div>
+												</div> -->
+												<div class="row">
+													<div class="input-field col s6" style="text-align:left">
+														<input id="name" type="text" class="validate" ng-model="name">
+														<label for="name">Quiz Question</label>
 													</div>
 												</div>
 												<div class="input-field col s12">
@@ -209,11 +215,9 @@ h3 code{
 											</tr>
 										</form>
 									</div>
-
                 </div>
             </div>
         </div>
-
 		<div id="loading" style="display:none">Loading...</div>
 	</div>
 </div>
@@ -279,7 +283,7 @@ h3 code{
 						$scope.submitQuestion = function(){
 						httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddQuestionDB", {
 							quizid:"quiz1",
-							label:$scope.label,
+							name:$scope.name,
 							type:"radio",
 							category:$('#category').val()
 						})
@@ -287,7 +291,7 @@ h3 code{
 								.then(function(rtn) {
 										$scope.data = rtn.data;
 								});
-								$scope.label = '';
+								$scope.name = '';
 								$scope.category = '';
 							}
 				});
