@@ -171,7 +171,7 @@
                                             <ol>
                                                 <li align="left" ng-repeat="q in data.db_result">
                                                     <h6 align="left">{{q.label}}</h6>
-                                                    <div ng-repeat="a in data.answers">
+                                                    <div ng-repeat="a in answers">
                                                         <input type="{{q.type}}" name="{{q.qid}}" id="{{q.qid}}-{{a.id}}" value="{{a.value}}" />
                                                         <label for="{{q.qid}}-{{a.id}}" align="left">{{a.label}}</label>
                                                     </div>
@@ -293,7 +293,7 @@ angular.module('gyrApp', []).service('httpService', httpService)
     .controller('QuizControllerDB', function($scope, httpService) {
         $scope.data = {};
 
-        $scope.data.answers = [{
+        $scope.answers = [{
             "id": 0,
             "value": "A",
             "label": "Always"
