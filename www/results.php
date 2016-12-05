@@ -171,58 +171,53 @@ h3 code{
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-									<body>
+					<body>
 
-										<div id="page-wrap">
+						<div id="page-wrap">
 
-											<h1 class="page-title">How Green Are You?</h1>
+							<h1 class="page-title">How Green Are You?</h1>
 
-											<?php
-												$questionCounter = 0;
-												$totalCorrect = 0;
+							<?php
+								$questionCounter = 0;
+								$totalCorrect = 0;
 
-												if(!empty($_POST)){
-													$totalCorrect++;
-													$questionCounter++;
-												}
+								foreach($_POST as $answer){
+									$questionCounter += 2;
+									if($answer == 'a' || $answer == 'A'){
+										$totalCorrect += 2;
+									}elseif($answer == 'b' || $answer == 'B'){
+										$totalCorrect += 1;
+									}elseif($answer == 'c' || $answer == 'C'){
+										$totalCorrect += 0;
+									}elseif($answer == 'Y' || $answer == 'y' || $answer == 'yes' || $answer == 'YES'){
+										$totalCorrect += 2;
+									}elseif($answer == 'N' || $answer == 'n' || $answer == 'no' || $answer == 'NO'){
+										$totalCorrect += 0;
+									}
+								}
+							?>
 
-												foreach($_POST as $answer){
-													$questionCounter += 2;
-													if($answer == 'a' || $answer == 'A'){
-														$totalCorrect += 2;
-													}elseif($answer == 'b' || $answer == 'B'){
-														$totalCorrect += 1;
-													}elseif($answer == 'c' || $answer == 'C'){
-														$totalCorrect += 0;
-													}elseif($answer == 'Y' || $answer == 'y' || $answer == 'yes' || $answer == 'YES'){
-														$totalCorrect += 2;
-													}elseif($answer == 'N' || $answer == 'n' || $answer == 'no' || $answer == 'NO'){
-														$totalCorrect += 0;
-													}
-												}
-											?>
+							<?php if($questionCounter == 0 : ?>
+									<h3 class="result-state">Looks like you haven't taken the quiz yet!</h3>
+									<h3 class="result-state">Click the button below to go to the quiz:</h3>
+									<a class="waves-effect waves-light btn quiz-button" href="QuizPage.html">Take the Quiz!</a><br>
+							<?php elseif(($totalCorrect / $questionCounter) >= .75) : ?>
+									<h3 class="result-state">SEQUOIA</h3>
+									<img class="result-image" src="img/QuizResults/Expert.PNG">
+									<h3 class="result-state">A celebration is to be had for your expansive knowledge and commitment to sustainable efforts.</h3>
+							<?php elseif(($totalCorrect / $questionCounter) >= .50) : ?>
+									<h3 class="result-state">SAPLING</h3>
+									<img class="result-image" src="img/QuizResults/Intermediate.PNG">
+									<h3 class="result-state">You are on the path to greatness as your "green" knowledge blooms with each great action towards living sustainably.</h3>
+							<?php else : ?>
+									<h3 class="result-state">SPROUT</h3>
+									<img class="result-image" src="img/QuizResults/Beginner.PNG">
+									<h3 class="result-state">The spark has been lit! Right here is the opportunity you seek to expand your budding understanding for sustainability.</h3>
+							<?php endif; ?>
 
-											<?php if($questionCounter == 0 : ?>
-													<h3 class="result-state">Looks like you haven't taken the quiz yet!</h3>
-													<h3 class="result-state">Click the button below to go to the quiz:</h3>
-													<a class="waves-effect waves-light btn quiz-button" href="QuizPage.html">Take the Quiz!</a><br>
-											<?php elseif(($totalCorrect / $questionCounter) >= .75) : ?>
-													<h3 class="result-state">SEQUOIA</h3>
-													<img class="result-image" src="img/QuizResults/Expert.PNG">
-													<h3 class="result-state">A celebration is to be had for your expansive knowledge and commitment to sustainable efforts.</h3>
-											<?php elseif(($totalCorrect / $questionCounter) >= .50) : ?>
-													<h3 class="result-state">SAPLING</h3>
-													<img class="result-image" src="img/QuizResults/Intermediate.PNG">
-													<h3 class="result-state">You are on the path to greatness as your "green" knowledge blooms with each great action towards living sustainably.</h3>
-											<?php else : ?>
-													<h3 class="result-state">SPROUT</h3>
-													<img class="result-image" src="img/QuizResults/Beginner.PNG">
-													<h3 class="result-state">The spark has been lit! Right here is the opportunity you seek to expand your budding understanding for sustainability.</h3>
-											<?php endif; ?>
+						</div>
 
-										</div>
-
-									</body>
+					</body>
                 </div>
             </div>
         </div>
