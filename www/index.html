@@ -159,83 +159,80 @@
             <div id="body">
                 <div class="container home-page">
                     <div class="row">
-                        <div class="col-xs-8">
-                            <div class="card">
-                                <div class="slider">
-                                    <ul class="slides">
-                                        <li>
-                                            <a href="gyr/apartment.html">
-                                                <img src="img/FrontpagePics/friley.jpg">
-                                                <div class="caption center-align">
-                                                    <h3>Interactive Room</h3>
-                                                    <h5 class="light grey-text text-lighten-3">Customize your own virtual living space and learn how the items you furnish your room with can make a sustainable difference!</h5>
-                                                </div>
-                                            </a>
-                                        </li>
+                        <div class="card">
+                            <div class="slider">
+                                <ul class="slides">
+                                    <li>
+                                        <a href="gyr/apartment.html">
+                                            <img src="img/FrontpagePics/friley.jpg">
+                                            <div class="caption center-align">
+                                                <h3>Interactive Room</h3>
+                                                <h5 class="light grey-text text-lighten-3">Customize your own virtual living space and learn how the items you furnish your room with can make a sustainable difference!</h5>
+                                            </div>
+                                        </a>
+                                    </li>
 
-                                        <li>
-                                            <a href="ShoppingCartPage/ShoppingCart.html">
-                                                <img src="img/FrontpagePics/freddy.jpg">
-                                                <div class="caption center-align">
-                                                    <h3>Sustainability Savings Cart</h3>
-                                                    <h5 class="light grey-text text-lighten-3">Looking to substitute some of your household items for something more sustainable? Learn about the impact your products make and how your choices can make a difference!</h5>
-                                                </div>
-                                            </a>
-                                        </li>
+                                    <li>
+                                        <a href="ShoppingCartPage/ShoppingCart.html">
+                                            <img src="img/FrontpagePics/freddy.jpg">
+                                            <div class="caption center-align">
+                                                <h3>Sustainability Savings Cart</h3>
+                                                <h5 class="light grey-text text-lighten-3">Looking to substitute some of your household items for something more sustainable? Learn about the impact your products make and how your choices can make a difference!</h5>
+                                            </div>
+                                        </a>
+                                    </li>
 
-                                        <li>
-                                            <a href="FactPage.html">
-                                                <img src="img/FrontpagePics/martin.jpg">
-                                                <div class="caption center-align martin">
-                                                    <h3>Green Living Tips</h3>
-                                                    <h5 class="light grey-text text-lighten-3">From lighting to transportation, learn the many different ways that you can make your living space greener and more environmentally friendly!</h5>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row">
-                                    <p class="centered col s6 offset-s3">Making the move from your hometown to college is a big deal! It’s fun to plan out the perfect layout, colors, and pillow arrangements for your new space. As you’re entering this new phase, take a moment to consider your environmental impact in your new Iowa State home. From turning off the lights to using refillable water bottles, “greening” your residence is now easier than ever! All it takes is a little creativity!</p>
-                                </div>
+                                    <li>
+                                        <a href="FactPage.html">
+                                            <img src="img/FrontpagePics/martin.jpg">
+                                            <div class="caption center-align martin">
+                                                <h3>Green Living Tips</h3>
+                                                <h5 class="light grey-text text-lighten-3">From lighting to transportation, learn the many different ways that you can make your living space greener and more environmentally friendly!</h5>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <p class="centered col s6 offset-s3">Making the move from your hometown to college is a big deal! It’s fun to plan out the perfect layout, colors, and pillow arrangements for your new space. As you’re entering this new phase, take a moment to consider your environmental impact in your new Iowa State home. From turning off the lights to using refillable water bottles, “greening” your residence is now easier than ever! All it takes is a little creativity!</p>
                             </div>
                         </div>
-
-                        <div class="col-xs-4">
-                            <div ng-app="gyrApp">
-                                <div class="centered">
-                                    <br>
-                                    <!-- Modal Trigger -->
-                                    <h4 class="home-page">Test your Green Living knowledge!</h4>
-                                    <a class="waves-effect waves-light btn quiz-button" href="QuizPage.html">Find out how green you are!</a><br>
-                                </div>
-                                <!-- include script tags -->
-                                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-                                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-                                <!-- Compiled and minified CSS -->
-                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-                                <!-- Compiled and minified JavaScript -->
-                                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-                                <!-- This page's angular set-up -->
-                                <script>
-                                function httpService($http) {
-                                    this.get = function(url) {
-                                        return $http.get(url);
-                                    }
-                                    this.post = function(url, data) {
-                                        return $http.post(url, data);
-                                    }
-                                }
-                                angular.module('gyrApp', []).service('httpService', httpService)
-                                    .controller('QuizController', function($scope, httpService) {
-                                        $scope.data = {};
-                                        $scope.data.questions = [];
-                                        httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuizController")
-                                            .then(function(response) {
-                                                $scope.data = response.data;
-                                            });
-                                    });
-                                </script>
+                    </div>
+                    <div class="row">
+                        <div ng-app="gyrApp">
+                            <div class="centered">
+                                <br>
+                                <!-- Modal Trigger -->
+                                <h4 class="home-page">Test your Green Living knowledge!</h4>
+                                <a class="waves-effect waves-light btn quiz-button" href="QuizPage.html">Find out how green you are!</a><br>
                             </div>
+                            <!-- include script tags -->
+                            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+                            <!-- Compiled and minified CSS -->
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+                            <!-- Compiled and minified JavaScript -->
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+                            <!-- This page's angular set-up -->
+                            <script>
+                            function httpService($http) {
+                                this.get = function(url) {
+                                    return $http.get(url);
+                                }
+                                this.post = function(url, data) {
+                                    return $http.post(url, data);
+                                }
+                            }
+                            angular.module('gyrApp', []).service('httpService', httpService)
+                                .controller('QuizController', function($scope, httpService) {
+                                    $scope.data = {};
+                                    $scope.data.questions = [];
+                                    httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuizController")
+                                        .then(function(response) {
+                                            $scope.data = response.data;
+                                        });
+                                });
+                            </script>
                         </div>
                     </div>
                 </div>
