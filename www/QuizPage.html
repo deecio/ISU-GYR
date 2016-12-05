@@ -159,7 +159,7 @@
             <div id="body">
                 <div class="container home-page">
                     <div class="row">
-                        
+
                         <div ng-app="gyrApp">
                             <div class="centered">
                                 <div ng-controller="QuizController">
@@ -169,7 +169,7 @@
 
                                     <div class="card">
                                         <form action="results.php" method="post" id="quiz">
-                                            <h4>{{data.quiz.title}}</h4>
+                                            <h4>{{data.quiz.title}}
                                             <ol>
                                                 <li align="left" ng-repeat="q in data.quiz.questions">
                                                     <h6 align="left">{{q.label}}</h6>
@@ -184,33 +184,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- include script tags -->
-                            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-                            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-                            <!-- Compiled and minified CSS -->
-                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-                            <!-- Compiled and minified JavaScript -->
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-                            <!-- This page's angular set-up -->
-                            <script>
-                            function httpService($http) {
-                                this.get = function(url) {
-                                    return $http.get(url);
-                                }
-                                this.post = function(url, data) {
-                                    return $http.post(url, data);
-                                }
-                            }
-                            angular.module('gyrApp', []).service('httpService', httpService)
-                                .controller('QuizController', function($scope, httpService) {
-                                    $scope.data = {};
-                                    $scope.data.questions = [];
-                                    httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuizController")
-                                        .then(function(response) {
-                                            $scope.data = response.data;
-                                        });
-                                });
-                            </script>
                         </div>
                     </div>
                 </div>
@@ -260,7 +233,13 @@
     </div>
 
 
-
+    <!-- include script tags -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
@@ -303,7 +282,25 @@ $(document).ready(function()
        $('.slider').slider({full_width: true});
    });
 });</script>
-
+<script>
+function httpService($http) {
+    this.get = function(url) {
+        return $http.get(url);
+    }
+    this.post = function(url, data) {
+        return $http.post(url, data);
+    }
+}
+angular.module('gyrApp', []).service('httpService', httpService)
+    .controller('QuizController', function($scope, httpService) {
+        $scope.data = {};
+        $scope.data.questions = [];
+        httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuizController")
+            .then(function(response) {
+                $scope.data = response.data;
+            });
+    });
+</script>
 
 </body>
 </html>

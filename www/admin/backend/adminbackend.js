@@ -51,7 +51,7 @@ var rtn = {};
             rtn.ready = true;
             res.json(rtn);
         }
-        database.query('SELECT DISTINCT * FROM `quiz` AS q JOIN `question` as n on q.quizid = n.quizid JOIN `answer` as a WHERE q.quizid = "quiz1";', [uid], quizquery);
+        database.query('SELECT DISTINCT * FROM `question`;', populatequiz);
 
 
 

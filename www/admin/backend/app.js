@@ -33,7 +33,6 @@ app.get('/QuizController', function(req, res){
   console.log('QuizController')
   var rtn = {};//init an object to return
   rtn.quiz = JSON.parse(fs.readFileSync('sample_questions.json'));
-  rtn.message = "why don't you challenge yourself with a fun quiz?"
 
 //return the object in json format.
   res.json(rtn);
