@@ -195,9 +195,8 @@ h3 code{
 															<label for="monthly_cost">Monthly Cost</label>
 														</div>
 													</div>
-													<!-- <div style="text-align:left"> -->
 														<div class="input-field col s12">
-															<select id="category">
+															<select id="category" ng-model="category">
 																<option value="" disabled selected>Choose your category</option>
 																<option value="CleanSupplies">Green Supplies</option>
 																<option value="Recycling">Recycling</option>
@@ -209,7 +208,7 @@ h3 code{
 														</div>
 														<br><br><br>
 														<div class="input-field col s12">
-													    <select id="eStar">
+													    <select id="eStar" ng-model="eStar">
 													      <option value="" disabled selected>EnergyStar</option>
 													      <option value="true">True</option>
 													      <option value="false">False</option>
