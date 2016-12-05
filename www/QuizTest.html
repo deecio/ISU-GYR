@@ -163,11 +163,10 @@
                             <div class="centered">
                                 <div ng-controller="QuizControllerDB">
                                     <br>
-                                    <h2 class="info-title">Test your Green Living knowledge!</h2>
-
+                                    <h2 class="info-title" style="font-size: 50px; color: #7BA643; text-align: center;">Test your Green Living knowledge!</h2>
                                     <div class="card">
                                         <form action="results.php" method="post" id="quiz">
-                                            <h4>How Green are You?</h4>
+                                            <h4 style="text-align: center;">How Green are You?</h4>
                                             <ol>
                                                 <li align="left" ng-repeat="q in data.db_result">
                                                     <h6 align="left">{{q.label}}</h6>
