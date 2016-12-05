@@ -169,7 +169,7 @@
                                             <h4 style="text-align: center;">How Green are You?</h4>
                                             <ol>
                                               <div subcollection ng-repeat="filter in filters">
-                                                <strong category-heading>{{filter.name}}</strong>
+                                                <strong>{{filter.name}}</strong>
                                                 <li align="left" ng-repeat="q in data.db_result | filter:filter.filterExpr" class="collection-item">
                                                     <h6 align="left">{{q.label}}</h6>
                                                     <div ng-repeat="a in answers">
