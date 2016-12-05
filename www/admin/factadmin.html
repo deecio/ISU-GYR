@@ -190,8 +190,8 @@ h3 code{
 													</div>
 												</div>
 												<div class="input-field col s12">
-											    <select id="category" ng-model="category">
-											      <option value="CleanSupplies" disabled selected>Choose your category</option>
+											    <select id="category" >
+											      <option value="" disabled selected>Choose your category</option>
 											      <option value="CleanSupplies">Green Supplies</option>
 											      <option value="Recycling">Recycling</option>
 											      <option value="Lighting">Lighting</option>
@@ -322,7 +322,7 @@ $(document).ready(function() {
 								name:$scope.name,
 								hyperlink:$scope.hyperlink,
 								text:$scope.text,
-								category:$scope.category,
+								category:$('#category').val(),//$scope.category,
 								image:$scope.image//todo
 							})
 							// This is where the response is received v
@@ -332,7 +332,7 @@ $(document).ready(function() {
 									$scope.name = '';
 									$scope.hyperlink = '';
 									$scope.text = '';
-									$scope.category = "";
+									$scope.category = '';
 									$scope.image = '';
 								}
 					});
