@@ -197,21 +197,33 @@ h3 code{
 												<label for="monthly_cost">Monthly Cost</label>
 											</div>
 										</div>
-										<div style="text-align:left">
+										<!-- <div style="text-align:left"> -->
+											<div class="input-field col s12">
+												<select>
+													<option value="" disabled selected>Choose your category</option>
+													<option value="CleanSupplies">Green Supplies</option>
+													<option value="Recycling">Recycling</option>
+													<option value="Lighting">Lighting</option>
+													<option value="Electronics">Electronics</option>
+													<option value="GreenBuying">Green Buying</option>
+												</select>
 												<label>Category</label>
-													 <select class="browser-default">
-														 <option value="" disabled selected></option>
-	 											    <option value="appliance">Appliance</option>
-	 											    <option value="electronics">Electronics</option>
-	 											    <option value="lights">Lights</option>
-													</select>
+											</div>
 													<br><br><br>
-													<label>eStar</label>
+													<!-- <label>eStar</label>
 													<select class="browser-default">
 														<option value="" disabled selected></option>
 												    <option value="true">True</option>
 												    <option value="false">False</option>
-												  </select>
+												  </select> -->
+										  <!-- </div> -->
+											<div class="input-field col s12">
+										    <select>
+										      <option value="" disabled selected>EnergyStar</option>
+										      <option value="true">True</option>
+										      <option value="false">False</option>
+										    </select>
+										    <label>EnergyStar</label>
 										  </div> <br>
 										<form action="#">
 									    <div class="file-field input-field">
@@ -261,9 +273,9 @@ h3 code{
 										            icon_height: "150px",
 										            name: $scope.name,
 										            monthly_cost: $scope.monthly_cost,
-										            object: $scope.object,
-										            type: $scope.type ,
-										            eStar: $scope.eStar
+																category:$scope.category,
+										            eStar: $scope.eStar,
+																image:$scope.image
 															})
 															// This is where the response is received v
 																	.then(function(rtn) {
