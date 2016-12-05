@@ -276,7 +276,7 @@ h3 code{
 						$scope.submitQuestion = function(){
 						httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddQuestionDB", {
 							quizid:"quiz1",
-							name:$scope.name,
+							label:$scope.name,
 							type:"radio",
 							category:$('#category').val()
 						})

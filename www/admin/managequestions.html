@@ -188,15 +188,15 @@ h3 code{
 											<table class="bordered highlight responsive-table text-darken-2 flow-text">
 							        <thead>
 							          <tr style="font-size: x-large;">
-							              <th data-field="question">Question</th>
-														<th data-field="category">Category</th>
+													<th data-field="category">Category</th>
+							            <th data-field="question">Question</th>
 							          </tr>
 							        </thead>
 
 							        <tbody>
 							          <tr ng-repeat="q in data.db_result" style="font-size: large;">
-							            <td>{{q.label}}</td>
-													<td>{{q.category}}</td>
+							            <td>{{q.category}}</td>
+													<td>{{q.label}}</td>
 							          </tr>
 							        </tbody>
 							      </table>
