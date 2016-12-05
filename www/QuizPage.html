@@ -18,7 +18,6 @@
     <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="ShoppingCartPage/SCStyle.css" />
     <script>/* html5shiv */ (function(){var t='abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.split(' ');for(var i=t.length;i--;)document.createElement(t[i])})();</script>
 </head>
 <body class=" responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar">
@@ -162,20 +161,18 @@
 
                         <div ng-app="gyrApp">
                             <div class="centered">
-                                <div ng-controller="QuizController">
+                                <div ng-controller="QuizControllerDB">
                                     <br>
-                                    <!-- Modal Trigger -->
-                                    <h2 class="info-title">Test your Green Living knowledge!</h2>
-
+                                    <h2 class="info-title" style="font-size: 50px; color: #7BA643; text-align: center;">Test your Green Living knowledge!</h2>
                                     <div class="card">
                                         <form action="results.php" method="post" id="quiz">
-                                            <h4>{{data.quiz.title}}</h4>
+                                            <h4 style="text-align: center;">How Green are You?</h4>
                                             <ol>
-                                                <li align="left" ng-repeat="q in data.quiz.questions">
+                                                <li align="left" ng-repeat="q in data.db_result">
                                                     <h6 align="left">{{q.label}}</h6>
-                                                    <div ng-repeat="a in q.answers">
-                                                        <input type="{{q.type}}" name="{{q.id}}" id="{{q.id}}-{{a.id}}" value="{{a.value}}" />
-                                                        <label for="{{q.id}}-{{a.id}}" align="left">{{a.label}}</label>
+                                                    <div ng-repeat="a in answers">
+                                                        <input type="{{q.type}}" name="{{q.qid}}" id="{{q.qid}}-{{a.id}}" value="{{a.value}}" />
+                                                        <label for="{{q.qid}}-{{a.id}}" align="left">{{a.label}}</label>
                                                     </div>
                                                 </li>
                                             </ol>
@@ -292,10 +289,25 @@ function httpService($http) {
     }
 }
 angular.module('gyrApp', []).service('httpService', httpService)
-    .controller('QuizController', function($scope, httpService) {
+    .controller('QuizControllerDB', function($scope, httpService) {
         $scope.data = {};
+
+        $scope.answers = [{
+            "id": 0,
+            "value": "A",
+            "label": "Always"
+        }, {
+            "id": 1,
+            "value": "B",
+            "label": "Sometimes"
+        }, {
+            "id": 2,
+            "value": "C",
+            "label": "Never"
+        }]
+
         $scope.data.questions = [];
-        httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuizController")
+        httpService.get("http://greenyourresidence.ece.iastate.edu:3000/QuizControllerDB")
             .then(function(response) {
                 $scope.data = response.data;
             });

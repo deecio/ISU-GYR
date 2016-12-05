@@ -177,7 +177,6 @@ h3 code{
 				<nav>
 					 <div class="nav-wrapper teal lighten-2">
 						 <ul class="center hide-on-med-and-down">
-							 <li><a href="viewquizzes.html">View Quizzes</a></li>
 							 <li class="active"><a href="addquestion.html">Add Question</a></li>
 							 <li><a href="managequestions.html">View/Manage Q&amp;A</a></li>
 						 </ul>
@@ -187,59 +186,19 @@ h3 code{
 
 					<div class="row" ng-controller="AddQuestionDB">
 						<form class="col s12">
-
-							<div class="row">
-								<div class="input-field col s6" style="text-align:left">
-									<input id="quizid" type="text" class="validate" ng-model="quizid">
-									<label for="quizid">Quiz ID</label>
-								</div>
-							</div>
 							<div class="row">
 								<div class="input-field col s6">
 									<input id="question" type="text" class="validate" ng-model="label" />
 									<label for="question" style="text-align:left">Quiz Question</label>
 								</div>
 							</div>
-
-					<form action="#">
-					    <p>
-					      <input name="group1" type="radio" id="checkboxes" ng-model="type"/>
-					      <label for="type" value="checkboxes">Checkboxes</label>
-					    </p>
-					    <p>
-					      <input name="group1" type="radio" id="radio" />
-					      <label for="type" value="radio">Radio</label>
-					    </p>
-							<div class="row" style="text-align:left">
-								<i class="material-icons prefix">info_outline</i>
-								<label for="icon_prefix" style="text-align:left">To select Always/Sometimes/Never you need to have radio selected.</label>
-							</div>
-					  </form>
-<br>
-<hr>
-<br><br>
+							<br>
+							<hr>
+							<br><br>
 							<p id="questiontypehere"></p>
 							<!-- needs further editing for multiple answers -->
 							</div>
 							<hr> <br>
-							<div style="text-align:left">
-							<label>Answer Options</label>
-							  <select class="browser-default">
-							    <option value="" disabled selected>Choose your answer type</option>
-							    <option value="1">Always/Sometimes/Never</option>
-							    <option value="2">Unique</option>
-							  </select>
-									<div class="row" style="text-align:left">
-										<i class="material-icons prefix">info_outline</i>
-										<label for="icon_prefix2">If you select Unique then enter your answers in the textbox below with each answer on a new line with the score following a comma (I.e. LiveGreen!, 1)</label>
-									</div>
-							<div class="row">
-											<div class="input-field col s12">
-												<textarea placeholder="LiveGreen!, 1" id="answers" class="materialize-textarea" ng-model="description"></textarea>
-												<label for="answers">Unique Answers</label>
-											</div>
-							</div>
-						</div>
 						<tr>
 							<button class="btn" ng-click="submitQuestion()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
 								<span>Add Quiz Question</span>
@@ -270,9 +229,8 @@ h3 code{
 										$scope.data.questions = [];
 										$scope.submitQuestion = function(){
 										httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddQuestionDB", {
-											quizid:$scope.quizid,
 											label:$scope.question,
-											type:$scope.type,
+											type:"radio",
 
 										})
 										// This is where the response is received v
