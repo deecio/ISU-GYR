@@ -189,14 +189,12 @@ h3 code{
 							        <thead>
 							          <tr style="font-size: x-large;">
 							              <th data-field="question">Question</th>
-							              <th data-field="qid">Question Number</th>
 														<th data-field="category">Category</th>
 							          </tr>
 							        </thead>
 
 							        <tbody>
 							          <tr ng-repeat="q in data.db_result" style="font-size: large;">
-							            <td>{{q.qid}}</td>
 							            <td>{{q.label}}</td>
 													<td>{{q.category}}</td>
 							          </tr>
