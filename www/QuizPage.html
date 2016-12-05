@@ -168,13 +168,16 @@
                                         <form action="results.php" method="post" id="quiz">
                                             <h4 style="text-align: center;">How Green are You?</h4>
                                             <ol>
-                                                <li align="left" ng-repeat="q in data.db_result">
+                                              <div subcollection ng-repeat="filter in filters">
+                                                <strong category-heading>{{filter.name}}</strong>
+                                                <li align="left" ng-repeat="q in data.db_result | filter:filter.filterExpr" class="collection-item">
                                                     <h6 align="left">{{q.label}}</h6>
                                                     <div ng-repeat="a in answers">
                                                         <input type="{{q.type}}" name="{{q.qid}}" id="{{q.qid}}-{{a.id}}" value="{{a.value}}" />
                                                         <label for="{{q.qid}}-{{a.id}}" align="left">{{a.label}}</label>
                                                     </div>
                                                 </li>
+                                                </div>
                                             </ol>
                                             <input id="submit-quiz-button" type="submit" value="Submit Quiz" class="btn" />
                                         </form>
@@ -291,6 +294,13 @@ function httpService($http) {
 angular.module('gyrApp', []).service('httpService', httpService)
     .controller('QuizControllerDB', function($scope, httpService) {
         $scope.data = {};
+
+        $scope.filters = [
+            { name: 'Energy Efficiency', filterExpr: { category: 'Energy Efficiency' } },
+            { name: 'Water Efficiency', filterExpr: { category: 'Water Efficiency' } },
+            { name: 'Resource Conservation', filterExpr: { category: 'Resource Conservation' } },
+            { name: 'Transportation', filterExpr: { category: 'Transportation' } }
+        ];
 
         $scope.answers = [{
             "id": 0,

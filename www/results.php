@@ -144,7 +144,7 @@ h3 code{
                                     <li class="wd-Navigation-node">
                                         <a class="wd-Navigation-link" href="QuizPage.html">Green Living Quiz</a>
                                     </li>
-									<li class="wd-Navigation-node">
+																		<li class="wd-Navigation-node">
                                         <a class="wd-Navigation-link is-active" href="#">Green Living Quiz Results</a>
                                     </li>
                                     <li class="wd-Navigation-node">
@@ -254,7 +254,7 @@ h3 code{
 
 
                                             <div class="content">
-                                                <p>Copyright © 1995-2016, Iowa State University of Science and Technology. All rights reserved.</p>
+                                                <p>Copyright ï¿½ 1995-2016, Iowa State University of Science and Technology. All rights reserved.</p>
                                             </div>
                                         </div>
                                     </div>
