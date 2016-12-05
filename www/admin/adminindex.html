@@ -200,8 +200,8 @@ h3 code{
 										</div>
 										<div class="row">
 											<div class="input-field col s12">
-												<textarea id="description" class="materialize-textarea" ng-model="text"></textarea>
-													<label for="description">Home Object Tooltip</label>
+												<textarea id="tooltip" type="text" class="materialize-textarea" ng-model="tooltip"></textarea>
+													<label for="tooltip">Home Object Tooltip</label>
 											</div>
 										</div>
 										<div class="row">
@@ -215,7 +215,7 @@ h3 code{
 											<div class="file-field input-field">
 												<div class="btn">
 													<span>Upload Image</span>
-													<input type="file" ng-model="image">
+													<input id="image" type="file" ng-model="image">
 												</div>
 												<div class="file-path-wrapper">
 													<input class="file-path validate" type="text">
@@ -224,7 +224,7 @@ h3 code{
 										</form>
 										<hr> <br> <br>
 										<tr>
-											<button class="btn" ng-click="submitHome()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
+											<button class="btn" ng-click="submitHome()">
 												<span>Add Home Object</span>
 											</button>
 										</tr>
@@ -297,7 +297,6 @@ $(document).ready(function() {
 
 
 						$scope.data = {};
-						$scope.data.questions = [];
 						$scope.submitHome = function(){
 						httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddHomeItem", {
 							name:$scope.name,

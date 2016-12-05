@@ -183,8 +183,8 @@ h3 code{
 											<form class="col s12">
 												<div class="row">
 													<div class="input-field col s6">
-														<input id="question" type="text" class="validate" ng-model="label" />
-														<label for="question" style="text-align:left">Quiz Question</label>
+														<input id="label" type="text" class="validate" ng-model="label" />
+														<label for="label" style="text-align:left">Quiz Question</label>
 													</div>
 												</div>
 												<div class="input-field col s12">
@@ -200,7 +200,6 @@ h3 code{
 												<br>
 												<hr>
 												<br>
-												<p id="questiontypehere"></p>
 												</div>
 												<hr> <br>
 											<tr>
@@ -260,15 +259,6 @@ h3 code{
 		}
 	});
 });
-	function create(htmlStr) {
-    var frag = document.createDocumentFragment(),
-        temp = document.createElement('div');
-    temp.innerHTML = htmlStr;
-    while (temp.firstChild) {
-        frag.appendChild(temp.firstChild);
-    }
-    return frag;
-}
 	$(document).ready(function() {
 	    $('select').material_select();
 	  });
@@ -285,13 +275,11 @@ h3 code{
 		angular.module('gyrApp', []).service('httpService', httpService)
 				.controller('AddQuestionDB', function($scope, httpService) {
 
-
 						$scope.data = {};
-						$scope.data.questions = [];
 						$scope.submitQuestion = function(){
 						httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddQuestionDB", {
 							quizid:"quiz1",
-							label:$scope.question,
+							label:$scope.label,
 							type:"radio",
 							category:$('#category').val()
 						})
@@ -303,8 +291,6 @@ h3 code{
 								$scope.category = '';
 							}
 				});
-
 </script>
-
 </body>
 </html>
