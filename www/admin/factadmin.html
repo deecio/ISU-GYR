@@ -317,6 +317,7 @@ $(document).ready(function() {
 							$scope.data = {};
 							$scope.data.questions = [];
 							$scope.submitFact = function(){
+								console.log($scope);
 							httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddFactDB", {
 								name:$scope.name,
 								hyperlink:$scope.hyperlink,
@@ -331,7 +332,7 @@ $(document).ready(function() {
 									$scope.name = '';
 									$scope.hyperlink = '';
 									$scope.text = '';
-									$scope.category = '';
+									$scope.category = "";
 									$scope.image = '';
 								}
 					});

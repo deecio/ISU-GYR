@@ -108,7 +108,7 @@ module.exports.addquestionDB = function(req,res){
 //Shopping Cart
 module.exports.additem = function(req,res){
   var rtn = {};
-          function addfact(err, result, fields) {
+          function additem(err, result, fields) {
               rtn.db_result = result;
               if (err)
                   rtn.error = err;
