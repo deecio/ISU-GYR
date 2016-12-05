@@ -188,27 +188,16 @@ h3 code{
 											</div>
 										</div>
 										<div class="input-field col s12">
-											<select>
+											<select id="category">
 												<option value="" disabled selected>Choose your Category</option>
 												<option value="basics">Basics</option>
 												<option value="electronics">Electronics</option>
 												<option value="decor">Decor</option>
-													<option value="lighting">Lighting</option>
+												<option value="lighting">Lighting</option>
 												<option value="kitchen">Kitchen</option>
 											</select>
 											<label>Category</label>
 										</div>
-										<form action="#">
-											<div class="file-field input-field">
-												<div class="btn">
-													<span>Upload Image</span>
-													<input type="file" ng-model="image">
-												</div>
-												<div class="file-path-wrapper">
-													<input class="file-path validate" type="text">
-												</div>
-											</div>
-										</form>
 										<div class="row">
 											<div class="input-field col s12">
 												<textarea id="description" class="materialize-textarea" ng-model="text"></textarea>
@@ -221,7 +210,19 @@ h3 code{
 												<label for="hyperlink">Hyperlink</label>
 											</div>
 										</div>
-										<br> <hr> <br>
+										<br> <br>
+										<form action="#">
+											<div class="file-field input-field">
+												<div class="btn">
+													<span>Upload Image</span>
+													<input type="file" ng-model="image">
+												</div>
+												<div class="file-path-wrapper">
+													<input class="file-path validate" type="text">
+												</div>
+											</div>
+										</form>
+										<hr> <br>
 										<tr>
 											<button class="btn" ng-click="submitHome()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
 												<span>Add Home Object</span>
