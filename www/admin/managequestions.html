@@ -190,15 +190,13 @@ h3 code{
           <tr>
               <th data-field="question">Question</th>
               <th data-field="qid">Question Number</th>
-							<th data-field="weight">Answer</th>
           </tr>
         </thead>
 
         <tbody>
           <tr ng-repeat="q in data.db_result">
-            <td>{{q.quizid}} <a href="#"></a></td>
+            <td>{{q.qid}} <a href="#"></a></td>
             <td>{{q.label}}</td>
-						<td>{{q.qid}}</td>
           </tr>
         </tbody>
       </table>
