@@ -188,7 +188,7 @@ h3 code{
 											</div>
 										</div>
 										<div class="input-field col s12">
-											<select id="category" ng-model="category">
+											<select id="category">
 												<option value="" disabled selected>Choose your Category</option>
 												<option value="basics">Basics</option>
 												<option value="electronics">Electronics</option>
@@ -313,7 +313,7 @@ $(document).ready(function() {
 						$scope.submitHome = function(){
 						httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddHomeItem", {
 							name:$scope.name,
-							category:$scope.category,
+							category:$('#category').val(),
 							image:$scope.image,//todo
 							tooltip:$scope.tooltip,
 							hyperlink:$scope.hyperlink

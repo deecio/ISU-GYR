@@ -188,7 +188,7 @@ h3 code{
 													</div>
 												</div>
 												<div class="input-field col s12">
-											    <select id="category" ng-model="category">
+											    <select id="category">
 											      <option value="" disabled selected>Choose your category</option>
 											      <option value="Energy Efficiency">Energy Efficiency</option>
 											      <option value="Water Efficiency">Water Efficiency</option>
@@ -223,13 +223,8 @@ h3 code{
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
-
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
@@ -306,7 +301,7 @@ h3 code{
 							quizid:"quiz1",
 							label:$scope.question,
 							type:"radio",
-							category:$scope.category
+							category:$('#category').val()
 						})
 						// This is where the response is received v
 								.then(function(rtn) {
