@@ -201,11 +201,10 @@ h3 code{
 												<hr>
 												<br>
 												<p id="questiontypehere"></p>
-												<!-- needs further editing for multiple answers -->
 												</div>
 												<hr> <br>
 											<tr>
-												<button class="btn" ng-click="submitQuestion()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
+												<button class="btn" ng-click="submitQuestion()">
 													<span>Add Quiz Question</span>
 												</button>
 											</tr>
@@ -304,14 +303,17 @@ h3 code{
 						$scope.data.questions = [];
 						$scope.submitQuestion = function(){
 						httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddQuestionDB", {
+							quizid:"quiz1",
 							label:$scope.question,
 							type:"radio",
-
+							category:$scope.category
 						})
 						// This is where the response is received v
 								.then(function(rtn) {
 										$scope.data = rtn.data;
 								});
+								$scope.label = '';
+								$scope.category = '';
 							}
 				});
 

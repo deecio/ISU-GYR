@@ -122,50 +122,49 @@ h3 code{
 						<div class="wd-l-MastTitle-siteTitle site-title sub-title">
 							<a href="/">Office of Sustainability</a>
 						</div>
-                    </div>
+          </div>
 				</div>
-                <div class="wd-l-Navbar">
-                    <div class="wd-l-Navbar-inner">
-                        <div role="navigation">
-                            <ul class="wd-Navigation">
-															<li class="wd-Navigation-node">
-																	<a class="wd-Navigation-link" href="index.html">How To</a>
-															</li>
-                                <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="adminindex.html">Manage Interactive Apartment</a>
-                                </li>
-																<li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="addquestion.html">Manage Quiz</a>
-                                </li>
-                                <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="savingscart.html">Manage Savings Cart</a>
-                                </li>
-                                <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link is-active" href="informationadmin.html">Manage Information</a>
-                                </li>
-                                <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="factadmin.html">Manage Facts</a>
-                                </li>
-																<ul id="nav-mobile" class="right hide-on-med-and-down">
-																	<li class="wd-Navigation-node" align="right">
-	                                    <a class="wd-Navigation-link" href="../index.html">Go to Site</a>
-	                                </li>
-															</ul>
-                            </ul>
-                        </div>
-                        <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
-													<option value="index.html">How To</option>
-                            <option value="adminindex.html">Manage Interactive Apartment</option>
-														<option value="addquestion.html">Manage Quiz</option>
-                            <option value="savingscart.html">Manage Savings Cart</option>
-                            <option value="informationadmin.html" selected="selected">Manage Information</option>
-                            <option value="factadmin.html">Manage Facts</option>
-                        </select>
-                    </div>
-                </div>
-			</div>
-		</div>
-
+        <div class="wd-l-Navbar">
+            <div class="wd-l-Navbar-inner">
+                <div role="navigation">
+                    <ul class="wd-Navigation">
+												<li class="wd-Navigation-node">
+													<a class="wd-Navigation-link" href="index.html">How To</a>
+												</li>
+                        <li class="wd-Navigation-node">
+                          <a class="wd-Navigation-link" href="adminindex.html">Manage Interactive Apartment</a>
+                        </li>
+												<li class="wd-Navigation-node">
+                          <a class="wd-Navigation-link" href="addquestion.html">Manage Quiz</a>
+                        </li>
+                        <li class="wd-Navigation-node">
+                          <a class="wd-Navigation-link" href="savingscart.html">Manage Savings Cart</a>
+                        </li>
+                        <li class="wd-Navigation-node">
+                          <a class="wd-Navigation-link is-active" href="informationadmin.html">Manage Information</a>
+                        </li>
+                        <li class="wd-Navigation-node">
+                          <a class="wd-Navigation-link" href="factadmin.html">Manage Facts</a>
+                        </li>
+													<ul id="nav-mobile" class="right hide-on-med-and-down">
+														<li class="wd-Navigation-node" align="right">
+	                            <a class="wd-Navigation-link" href="../index.html">Go to Site</a>
+	                          </li>
+													</ul>
+                        </ul>
+                      </div>
+                      <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
+												<option value="index.html">How To</option>
+                        <option value="adminindex.html">Manage Interactive Apartment</option>
+												<option value="addquestion.html">Manage Quiz</option>
+                        <option value="savingscart.html">Manage Savings Cart</option>
+                        <option value="informationadmin.html" selected="selected">Manage Information</option>
+                        <option value="factadmin.html">Manage Facts</option>
+                      </select>
+                  </div>
+              </div>
+						</div>
+					</div>
 
         <div class="container" ng-controller="AddInformationDB">
             <div class="row">
@@ -275,6 +274,9 @@ h3 code{
 		}
 	});
 });
+$(document).ready(function() {
+    $('select').material_select();
+  });
 </script>
 <script>
 		function httpService($http) {
@@ -303,6 +305,7 @@ h3 code{
 								});
 								$scope.title = '';
 								$scope.info_link = '';
+								$scope.category = '';
 							}
 				});
 

@@ -101,7 +101,7 @@ module.exports.addquestionDB = function(req,res){
               rtn.ready = true;
               res.json(rtn);
           }
-          database.query('INSERT INTO `question`(`quizid`, `type`, `label`) VALUES (?,?,?);', [req.body.quizid || "null", req.body.type || "null", req.body.label], addquestionDB);
+          database.query('INSERT INTO `question`(`quizid`, `type`, `label`, `category`) VALUES (?,?,?,?);', [req.body.quizid || "null", req.body.type || "null", req.body.label || "null", req.body.category || "null"], addquestionDB);
 
 };
 
@@ -169,7 +169,7 @@ module.exports.addinformation = function(req,res){
               rtn.ready = true;
               res.json(rtn);
           }
-          database.query('INSERT INTO `information`(`title`, `hyperlink`) VALUES (?,?);', [req.body.title || "null", req.body.info_link || "null"], addinformation);
+          database.query('INSERT INTO `information`(`title`, `hyperlink`, `category`) VALUES (?,?,?);', [req.body.title || "null", req.body.info_link || "null", req.body.category || "null"], addinformation);
 
 };
 
