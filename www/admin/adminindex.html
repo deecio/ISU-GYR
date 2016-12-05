@@ -166,73 +166,69 @@ h3 code{
 			</div>
 		</div>
 
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-
-
-			<h3> Add Apartment Items </h3>
-				<nav>
-					 <div class="nav-wrapper teal lighten-2">
-						 <ul class="center hide-on-med-and-down">
-							 <li class="active"><a href="adminindex.html">Add Apartment Item</a></li>
-							 <li><a href="manageindex.html">View/Manage Apartment Items</a></li>
-						 </ul>
-					 </div>
-				 </nav>
-				<hr> <br>
-
-				<div class="row"ng-controller="AddHomeItem">
-			<form class="col s12">
-				<div class="row">
-					<div class="input-field col s6" style="text-align:left">
-						<input id="name" type="text" class="validate" ng-model="name">
-						<label for="name">Apartment Item Name</label>
-					</div>
-				</div>
-				<div class="input-field col s12">
-					<select>
-						<option value="" disabled selected>Choose your category</option>
-						<option value="basics">Basics</option>
-						<option value="electronics">Electronics</option>
-						<option value="decor">Decor</option>
-							<option value="lighting">Lighting</option>
-						<option value="kitchen">Kitchen</option>
-					</select>
-					<label>Category</label>
-				</div>
-				<form action="#">
-					<div class="file-field input-field">
-						<div class="btn">
-							<span>Upload Image</span>
-							<input type="file" ng-model="image">
-						</div>
-						<div class="file-path-wrapper">
-							<input class="file-path validate" type="text">
-						</div>
-					</div>
-				</form>
-				<div class="row">
-					<div class="input-field col s12">
-						<textarea id="description" class="materialize-textarea" ng-model="text"></textarea>
-							<label for="description">Home Object Tooltip</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s12" style="text-align:left">
-						<input id="hyperlink" type="text" class="validate" ng-model="hyperlink" placeholder="http://www.postyoursoucelinkhere.com">
-						<label for="hyperlink">Hyperlink</label>
-					</div>
-				</div>
-				<br> <hr> <br>
-				<tr>
-					<button class="btn" ng-click="submitHome()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
-						<span>Add Home Object</span>
-					</button>
-				</tr>
-			</form>
-			</div>
+									<h3> Add Apartment Items </h3>
+										<nav>
+											 <div class="nav-wrapper teal lighten-2">
+												 <ul class="center hide-on-med-and-down">
+													 <li class="active"><a href="adminindex.html">Add Apartment Item</a></li>
+													 <li><a href="manageindex.html">View/Manage Apartment Items</a></li>
+												 </ul>
+											 </div>
+										 </nav>
+										<hr> <br>
+										<div class="row"ng-controller="AddHomeItem">
+									<form class="col s12">
+										<div class="row">
+											<div class="input-field col s6" style="text-align:left">
+												<input id="name" type="text" class="validate" ng-model="name">
+												<label for="name">Apartment Item Name</label>
+											</div>
+										</div>
+										<div class="input-field col s12">
+											<select>
+												<option value="" disabled selected>Choose your Category</option>
+												<option value="basics">Basics</option>
+												<option value="electronics">Electronics</option>
+												<option value="decor">Decor</option>
+													<option value="lighting">Lighting</option>
+												<option value="kitchen">Kitchen</option>
+											</select>
+											<label>Category</label>
+										</div>
+										<form action="#">
+											<div class="file-field input-field">
+												<div class="btn">
+													<span>Upload Image</span>
+													<input type="file" ng-model="image">
+												</div>
+												<div class="file-path-wrapper">
+													<input class="file-path validate" type="text">
+												</div>
+											</div>
+										</form>
+										<div class="row">
+											<div class="input-field col s12">
+												<textarea id="description" class="materialize-textarea" ng-model="text"></textarea>
+													<label for="description">Home Object Tooltip</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="input-field col s12" style="text-align:left">
+												<input id="hyperlink" type="text" class="validate" ng-model="hyperlink" placeholder="http://www.postyoursoucelinkhere.com">
+												<label for="hyperlink">Hyperlink</label>
+											</div>
+										</div>
+										<br> <hr> <br>
+										<tr>
+											<button class="btn" ng-click="submitHome()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
+												<span>Add Home Object</span>
+											</button>
+										</tr>
+									</form>
+									</div>
                 </div>
             </div>
         </div>
@@ -284,7 +280,11 @@ h3 code{
 			panes.eq(tabs.index(tabs.filter('.active'))).addClass('active');
 		}
 	});
-});</script>
+});
+$(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
 <script>
 		function httpService($http) {
 				this.get = function(url) {

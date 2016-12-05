@@ -170,40 +170,36 @@ h3 code{
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
+			      			<h3> View Information </h3>
+			      				<nav>
+			      					 <div class="nav-wrapper teal lighten-2">
+			      						 <ul class="center hide-on-med-and-down">
+			      							 <li><a href="informationadmin.html">Add Hyperlink</a></li>
+			      							 <li class="active"><a href="manageinformation.html">View/Manage Information</a></li>
+			      						 </ul>
+			      					 </div>
+			      				 </nav>
+			      				<hr> <br>
 
+			              <div ng-controller="InformationViewerDB">
+			                  <br>
+			                  <table class="bordered highlight responsive-table text-darken-2 flow-text">
+			                    <thead>
+			                      <tr  style="font-size: x-large;">
+			                          <th data-field="title">Title</th>
+			                          <th data-field="hyperlink">Hyperlink</th>
+																<th data-field="category">Category</th>
+			                      </tr>
+			                    </thead>
 
-      			<h3> View Information </h3>
-
-      				<nav>
-      					 <div class="nav-wrapper teal lighten-2">
-      						 <ul class="center hide-on-med-and-down">
-      							 <li><a href="informationadmin.html">Add Hyperlink</a></li>
-      							 <li class="active"><a href="manageinformation.html">View/Manage Information</a></li>
-      						 </ul>
-      					 </div>
-      				 </nav>
-      				<hr> <br>
-
-              <div ng-controller="InformationViewerDB">
-                  <br>
-                  <table class="bordered highlight responsive-table text-darken-2 flow-text">
-                    <thead>
-                      <tr>
-                          <th data-field="title">Title</th>
-                          <th data-field="hyperlink">Hyperlink</th>
-													<th data-field="category">Category</th>
-                      </tr>
-                    </thead>
-
-                  <tbody>
-                    <tr ng-repeat="i in data.db_result">
-                      <td>{{i.title}}</td>
-                      <td>{{i.hyperlink}}</td>
-											<td>{{i.category}}
-                    </tr>
-                  </tbody>
-                </table>
-
+			                  <tbody>
+			                    <tr ng-repeat="i in data.db_result"  style="font-size: large;">
+			                      <td>{{i.title}}</td>
+			                      <td>{{i.hyperlink}}</td>
+														<td>{{i.category}}
+			                    </tr>
+			                  </tbody>
+			                </table>
                 </div>
             </div>
         </div>

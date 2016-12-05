@@ -132,7 +132,7 @@ h3 code{
 																	<a class="wd-Navigation-link" href="index.html">How To</a>
 															</li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="adminindex.html">Manage Home</a>
+                                    <a class="wd-Navigation-link" href="adminindex.html">Manage Interactive Apartment</a>
                                 </li>
 																<li class="wd-Navigation-node">
                                     <a class="wd-Navigation-link is-active" href="addquestion.html">Manage Quiz</a>
@@ -155,7 +155,7 @@ h3 code{
                         </div>
                         <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
 													<option value="index.html">How To</option>
-													<option value="adminindex.html">Manage Home</option>
+													<option value="adminindex.html">Manage Interactive Apartment</option>
 													<option value="addquestion.html" selected="selected">Manage Quiz</option>
 													<option value="savingscart.html">Manage Savings Cart</option>
 													<option value="informationadmin.html">Manage Information</option>
@@ -163,84 +163,59 @@ h3 code{
                         </select>
                     </div>
                 </div>
-			</div>
-		</div>
+						</div>
+					</div>
 
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
+						        <div class="container">
+						            <div class="row">
+						                <div class="col-lg-12 text-center">
 
 
-			<h3> Manage Quizzes</h3>
+									<h3> Manage Quizzes</h3>
 
-				<nav>
-					 <div class="nav-wrapper teal lighten-2">
-						 <ul class="center hide-on-med-and-down">
-							 <li class="active"><a href="addquestion.html">Add Question</a></li>
-							 <li><a href="managequestions.html">View/Manage Q&amp;A</a></li>
-						 </ul>
-					 </div>
-				 </nav>
-				<hr>
+										<nav>
+											 <div class="nav-wrapper teal lighten-2">
+												 <ul class="center hide-on-med-and-down">
+													 <li class="active"><a href="addquestion.html">Add Question</a></li>
+													 <li><a href="managequestions.html">View/Manage Q&amp;A</a></li>
+												 </ul>
+											 </div>
+										 </nav>
+										<hr>
 
-					<div class="row" ng-controller="AddQuestionDB">
-						<form class="col s12">
-							<div class="row">
-								<div class="input-field col s6">
-									<input id="question" type="text" class="validate" ng-model="label" />
-									<label for="question" style="text-align:left">Quiz Question</label>
-								</div>
-							</div>
-							<br>
-							<hr>
-							<br><br>
-							<p id="questiontypehere"></p>
-							<!-- needs further editing for multiple answers -->
-							</div>
-							<hr> <br>
-						<tr>
-							<button class="btn" ng-click="submitQuestion()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
-								<span>Add Quiz Question</span>
-							</button>
-						</tr>
-					</form>
-				</div>
-				<!-- include script tags -->
-				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-				<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-				<!-- Compiled and minified CSS -->
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
-				<script>
-						function httpService($http) {
-								this.get = function(url) {
-										return $http.get(url);
-								}
-								this.post = function(url, data) {
-										return $http.post(url, data);
-								}
-						}
-						angular.module('gyrApp', []).service('httpService', httpService)
-								.controller('AddQuestionDB', function($scope, httpService) {
-
-
-										$scope.data = {};
-										$scope.data.questions = [];
-										$scope.submitQuestion = function(){
-										httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddQuestionDB", {
-											label:$scope.question,
-											type:"radio",
-
-										})
-										// This is where the response is received v
-												.then(function(rtn) {
-														$scope.data = rtn.data;
-												});
-											}
-								});
-
-				</script>
+										<div class="row" ng-controller="AddQuestionDB">
+											<form class="col s12">
+												<div class="row">
+													<div class="input-field col s6">
+														<input id="question" type="text" class="validate" ng-model="label" />
+														<label for="question" style="text-align:left">Quiz Question</label>
+													</div>
+												</div>
+												<div class="input-field col s12">
+											    <select>
+											      <option value="" disabled selected>Choose your category</option>
+											      <option value="Energy Efficiency">Energy Efficiency</option>
+											      <option value="Water Efficiency">Water Efficiency</option>
+											      <option value="Resource Conservation">Resource Conservation</option>
+														<option value="Transportation">Transportation</option>
+											    </select>
+											    <label>Category</label>
+											  </div>
+												<br>
+												<hr>
+												<br>
+												<p id="questiontypehere"></p>
+												<!-- needs further editing for multiple answers -->
+												</div>
+												<hr> <br>
+											<tr>
+												<button class="btn" ng-click="submitQuestion()"> <!-- <input class="submit-text" type="submit" value="Add Fact" /> -->
+													<span>Add Quiz Question</span>
+												</button>
+											</tr>
+										</form>
+									</div>
 
                 </div>
             </div>
@@ -249,21 +224,17 @@ h3 code{
 		<div id="loading" style="display:none">Loading...</div>
 	</div>
 </div>
-
+<!-- include script tags -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+</div>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
-<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-<!-- Compiled and minified JavaScript -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
 <script >/* Grid gutter fix for IE7 */ (function(b){if((' '+b.body.parentNode.className+' ').indexOf(' lt-ie8 ')==-1)return;var d=b.createStyleSheet();var e=function(s){var a=b.all,l=[],i,j;d.addRule(s,'k:v');for(j=a.length;j--;)a[j].currentStyle.k&&l.push(a[j]);d.removeRule(0);return l};var g=e('.grid');for(var i=g.length;i--;)g[i].style.width=g[i].offsetWidth-20})(document);</script>
@@ -299,11 +270,6 @@ h3 code{
 		}
 	});
 });
-/* Activate the dropdown
-$(document).ready(function() {
-    $('select').material_select();
-  }); */
-	/* Create html string in js */
 	function create(htmlStr) {
     var frag = document.createDocumentFragment(),
         temp = document.createElement('div');
@@ -313,15 +279,38 @@ $(document).ready(function() {
     }
     return frag;
 }
-/* generate question type upon drowdown seletion */
-var checkboxes = create('<div>Hello!</div><p>...</p>');
-	function multChoice() {
-			var x = document.getElementById("mySelect");
-			if (x = "1") document.getElementById("questiontypehere").innerHTML = x;
-			if (x = "2") document.getElementById("questiontypehere").innerHTML = x;
-	}
+	$(document).ready(function() {
+	    $('select').material_select();
+	  });
 </script>
 <script>
+		function httpService($http) {
+				this.get = function(url) {
+						return $http.get(url);
+				}
+				this.post = function(url, data) {
+						return $http.post(url, data);
+				}
+		}
+		angular.module('gyrApp', []).service('httpService', httpService)
+				.controller('AddQuestionDB', function($scope, httpService) {
+
+
+						$scope.data = {};
+						$scope.data.questions = [];
+						$scope.submitQuestion = function(){
+						httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddQuestionDB", {
+							label:$scope.question,
+							type:"radio",
+
+						})
+						// This is where the response is received v
+								.then(function(rtn) {
+										$scope.data = rtn.data;
+								});
+							}
+				});
+
 </script>
 
 </body>
