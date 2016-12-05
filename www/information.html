@@ -151,7 +151,6 @@
 		<div id="body" ng-controller="InformationViewerDB">
             <div class="container info-page">
                 <h2 class="centered info-title">Other Information</h2>
-<<<<<<< HEAD
 								<p align="center">Whether you live on or off campus, check out these additional resources from the ISU and Ames community to learn more about sustainable living! </p>
 								<div class="collection" id="info-links">
 										<div subcollection ng-repeat="filter in filters">
@@ -159,12 +158,6 @@
 									 		<a ng-repeat="i in data.db_result | filter:filter.filterExpr" class="collection-item" href={{i.hyperlink}}>{{i.title}}</a>
 								 		</div>
 								 </div>
-=======
-                <p class="page-desc">Whether you live on or off campus, check out these additional resources from the ISU and Ames community to learn more about sustainable living!</p>
-					<div class="collection" id="info-links">
-						<a ng-repeat="i in data.db_result" class="collection-item" href={{i.hyperlink}}>{{i.title}}</a>
-					</div>
->>>>>>> 60d7ecfaad28408d99cc68f8d11e1995d64df467
         		</div>
 					</div>
 				</div>
