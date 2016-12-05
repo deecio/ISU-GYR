@@ -164,91 +164,57 @@ h3 code{
                     </div>
                 </div>
 			</div>
-		</div>
-
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-
-
-			<h3> Manage Facts </h3>
-				<nav>
-					 <div class="nav-wrapper teal lighten-2">
-						 <ul class="center hide-on-med-and-down">
-							 <li><a href="factadmin.html">Add Fact</a></li>
-							 <li class="active"><a href="managefacts.html">View/Manage Facts</a></li>
-						 </ul>
-					 </div>
-				 </nav>
-				<hr> <br>
-
-<div ng-controller="FactViewerDB">
-<table class="bordered highlight responsive-table text-darken-2 flow-text">
-        <thead>
-          <tr>
-              <th data-field="id">Fact Title</th>
-							<th data-field="category">Category</th>
-              <th data-field="file">Image File</th>
-              <th data-field="description">Fact Description</th>
-							<th data-field="hyperlink">Hyperlink</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr ng-repeat="d in data.db_result">
-            <td>{{d.name}}</td>
-						<td>{{d.category}}</td>
-            <td>{{d.image}}</td>
-						<td>{{d.text}}</td>
-            <td>{{d.hyperlink}}</td>
-          </tr>
-        </tbody>
-      </table>
-			<!-- include script tags -->
-			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-			<!-- Compiled and minified CSS -->
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
-			<!-- Compiled and minified JavaScript -->
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-
-			<!-- This page's angular set-up -->
-			<script>
-					function httpService($http) {
-							this.get = function(url) {
-									return $http.get(url);
-							}
-							this.post = function(url, data) {
-									return $http.post(url, data);
-							}
-					}
-					angular.module('gyrApp', []).service('httpService', httpService)
-							.controller('FactViewerDB', function($scope, httpService) {
-
-
-									$scope.data = {};
-									$scope.data.questions = [];
-									httpService.get("http://greenyourresidence.ece.iastate.edu:3000/FactViewerDB")
-									// This is where the response is received v
-											.then(function(rtn) {
-													$scope.data = rtn.data;
-											});
-
-							});
-
-			</script>
-
 			</div>
-                </div>
-            </div>
-        </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+						<h3> Manage Facts </h3>
+							<nav>
+								 <div class="nav-wrapper teal lighten-2">
+									 <ul class="center hide-on-med-and-down">
+										 <li><a href="factadmin.html">Add Fact</a></li>
+										 <li class="active"><a href="managefacts.html">View/Manage Facts</a></li>
+									 </ul>
+								 </div>
+							 </nav>
+							<hr> <br>
+							<div ng-controller="FactViewerDB">
+								<table class="bordered highlight responsive-table text-darken-2 flow-text">
+					        <thead>
+					          <tr style="font-size: x-large;">
+					              <th data-field="id">Fact</th>
+												<th data-field="category">Category</th>
+					              <th data-field="file">Image</th>
+					              <th data-field="description">Description</th>
+												<th data-field="hyperlink">Hyperlink</th>
+					          </tr>
+					        </thead>
 
+					        <tbody>
+					          <tr ng-repeat="d in data.db_result" style="font-size: large;">
+					            <td>{{d.name}}</td>
+											<td>{{d.category}}</td>
+					            <td>{{d.image}}</td>
+											<td>{{d.text}}</td>
+					            <td>{{d.hyperlink}}</td>
+					          </tr>
+					        </tbody>
+					      </table>
+							</div>
+            </div>
+          </div>
+        </div>
 		<div id="loading" style="display:none">Loading...</div>
 	</div>
 </div>
+<!-- include script tags -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -300,8 +266,33 @@ h3 code{
 			panes.eq(tabs.index(tabs.filter('.active'))).addClass('active');
 		}
 	});
-});</script>
+});
+</script>
+<!-- This page's angular set-up -->
+<script>
+		function httpService($http) {
+				this.get = function(url) {
+						return $http.get(url);
+				}
+				this.post = function(url, data) {
+						return $http.post(url, data);
+				}
+		}
+		angular.module('gyrApp', []).service('httpService', httpService)
+				.controller('FactViewerDB', function($scope, httpService) {
 
+
+						$scope.data = {};
+						$scope.data.questions = [];
+						httpService.get("http://greenyourresidence.ece.iastate.edu:3000/FactViewerDB")
+						// This is where the response is received v
+								.then(function(rtn) {
+										$scope.data = rtn.data;
+								});
+
+				});
+
+</script>
 
 </body>
 </html>
