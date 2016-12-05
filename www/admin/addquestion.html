@@ -182,9 +182,9 @@ h3 code{
 										<div class="row" ng-controller="AddQuestionDB">
 											<form class="col s12">
 												<div class="row">
-													<div class="input-field col s6">
-														<input id="label" type="text" class="validate" ng-model="label" />
-														<label for="label" style="text-align:left">Quiz Question</label>
+													<div class="input-field col s6" style="text-align:left">
+														<input id="label" type="text" class="validate" ng-model="label">
+														<label for="label">Quiz Question</label>
 													</div>
 												</div>
 												<div class="input-field col s12">
@@ -202,7 +202,7 @@ h3 code{
 												<br>
 												</div>
 												<hr> <br>
-											<tr>
+												<tr>
 												<button class="btn" ng-click="submitQuestion()">
 													<span>Add Quiz Question</span>
 												</button>

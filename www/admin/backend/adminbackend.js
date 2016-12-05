@@ -121,7 +121,7 @@ module.exports.additem = function(req,res){
               rtn.ready = true;
               res.json(rtn);
           }
-          database.query('INSERT INTO `item`(`name`, `icon`, `icon_height`, `monthly_cost`, `eStar`, `object`, `type`) VALUES (?,?,?,?,?,?,?,?);', [req.body.name || "null", req.body.icon || "null", req.body.icon_height || "null", req.body.monthly_cost || "null", req.body.eStar || "null", req.body.object || "null", req.body.type || "null"], additem);
+          database.query('INSERT INTO `item`(`name`, `image`, `icon_height`, `monthly_cost`, `eStar`, `object`, `type`, `category`) VALUES (?,?,?,?,?,?,?,?);', [req.body.name || "null", req.body.image || "null", req.body.icon_height || "null", req.body.monthly_cost || "null", req.body.eStar || "null",  req.body.object || "null", req.body.type || "null", req.body.category || "null"], additem);
 
 };
 
@@ -134,7 +134,7 @@ module.exports.getshoppingcart = function(req,res){
               rtn.ready = true;
               res.json(rtn);
           }
-          database.query('SELECT `name`, `icon`, `icon_height`, `monthly_cost`, `object`, `type`, `eStar` FROM `item`;', getshoppingcart);
+          database.query('SELECT * FROM `item`;', getshoppingcart);
 
 };
 

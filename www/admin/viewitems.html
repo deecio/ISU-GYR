@@ -190,24 +190,24 @@ h3 code{
 			                    <thead>
 			                      <tr  style="font-size: x-large;">
 			                          <th data-field="name">Name</th>
-			                          <th data-field="icon">Icon</th>
-																<th data-field="icon_height">Icon Height</th>
+			                          <th data-field="image">Image</th>
 																<th data-field="monthly_cost">Monthly Cost</th>
 																<th data-field="object">Object</th>
 																<th data-field="type">Type</th>
 																<th data-field="eStar">eStar</th>
+																<th data-field="category">Category</th>
 			                      </tr>
 			                    </thead>
 
 			                  <tbody>
 			                    <tr ng-repeat="i in data.db_result" style="font-size: large;">
 			                      <td>{{i.name}}</td>
-			                      <td>{{i.icon}}</td>
-														<td>{{i.icon_height}}</td>
+			                      <td>{{i.image}}</td>
 														<td>{{i.monthly_cost}}</td>
 														<td>{{i.object}}</td>
 														<td>{{i.type}}</td>
 														<td>{{!!i.eStar}}</td>
+														<td>{{i.category}}</td>
 			                    </tr>
 			                  </tbody>
 			                </table>
@@ -273,9 +273,7 @@ h3 code{
 		angular.module('gyrApp', []).service('httpService', httpService)
 				.controller('ShoppingCartViewerDB', function($scope, httpService) {
 
-
 						$scope.data = {};
-						$scope.data.questions = [];
 						httpService.get("http://greenyourresidence.ece.iastate.edu:3000/ShoppingCartViewerDB")
 						// This is where the response is received v
 								.then(function(rtn) {
