@@ -132,7 +132,7 @@ h3 code{
 																	<a class="wd-Navigation-link" href="index.html">How To</a>
 															</li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link is-active" href="adminindex.html">Manage Home</a>
+                                    <a class="wd-Navigation-link is-active" href="adminindex.html">Manage Interactive Apartment</a>
                                 </li>
 																<li class="wd-Navigation-node">
                                     <a class="wd-Navigation-link" href="addquestion.html">Manage Quiz</a>
@@ -155,7 +155,7 @@ h3 code{
                         </div>
                         <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
 													<option value="index.html">How To</option>
-													<option value="adminindex.html" selected="selected">Manage Home</option>
+													<option value="adminindex.html" selected="selected">Manage Interactive Apartment</option>
 													<option value="addquestion.html">Manage Quiz</option>
 													<option value="savingscart.html">Manage Savings Cart</option>
 													<option value="informationadmin.html">Manage Information</option>
@@ -187,9 +187,9 @@ h3 code{
 <table class="bordered highlight responsive-table text-darken-2 flow-text">
         <thead>
           <tr>
-              <th data-field="title">Item Title</th>
-              <th data-field="file">Image File</th>
+              <th data-field="title">Item</th>
 							<th data-field="category">Category</th>
+              <th data-field="image">Image</th>
               <th data-field="description">Item Tooltip</th>
 							<th data-field="hyperlink">Hyperlink</th>
           </tr>
@@ -198,9 +198,9 @@ h3 code{
         <tbody>
           <tr ng-repeat="d in data.db_result">
             <td>{{d.name}}</td>
-            <td>{{d.file}}</td>
 						<td>{{d.category}}</td>
-						<td>{{d.description}}</td>
+						<td>{{d.image}}</td>
+						<td>{{d.tooltip}}</td>
             <td>{{d.hyperlink}}</td>
           </tr>
         </tbody>
@@ -213,32 +213,6 @@ h3 code{
 
 			<!-- Compiled and minified JavaScript -->
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-
-			<!-- This page's angular set-up -->
-			<script>
-					function httpService($http) {
-							this.get = function(url) {
-									return $http.get(url);
-							}
-							this.post = function(url, data) {
-									return $http.post(url, data);
-							}
-					}
-					angular.module('gyrApp', []).service('httpService', httpService)
-							.controller('HomeViewerDB', function($scope, httpService) {
-
-
-									$scope.data = {};
-									$scope.data.questions = [];
-									httpService.get("http://greenyourresidence.ece.iastate.edu:3000/HomeViewerDB")
-									// This is where the response is received v
-											.then(function(rtn) {
-													$scope.data = rtn.data;
-											});
-
-							});
-
-			</script>
 
 			</div>
                 </div>
@@ -301,7 +275,31 @@ h3 code{
 		}
 	});
 });</script>
+<!-- This page's angular set-up -->
+<script>
+		function httpService($http) {
+				this.get = function(url) {
+						return $http.get(url);
+				}
+				this.post = function(url, data) {
+						return $http.post(url, data);
+				}
+		}
+		angular.module('gyrApp', []).service('httpService', httpService)
+				.controller('HomeViewerDB', function($scope, httpService) {
 
+
+						$scope.data = {};
+						$scope.data.questions = [];
+						httpService.get("http://greenyourresidence.ece.iastate.edu:3000/HomeViewerDB")
+						// This is where the response is received v
+								.then(function(rtn) {
+										$scope.data = rtn.data;
+								});
+
+				});
+
+</script>
 
 </body>
 </html>

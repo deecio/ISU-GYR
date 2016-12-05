@@ -1,6 +1,40 @@
 var database = require('./database');
 module.exports = {};
 
+//Home
+module.exports.addhomeitem = function(req,res){
+  var rtn = {};
+          function addhomeitem(err, result, fields) {
+              rtn.db_result = result;
+              if (err)
+                  rtn.error = err;
+                  if (result.changedRows < 1) {
+                      rtn.error = {
+                          code: 1001,
+                          message: 'failed to add object'
+                      }
+                  }
+              rtn.ready = true;
+              res.json(rtn);
+          }
+          database.query('INSERT INTO `object`(`name`, `image`, `category`, `tooltip`, `hyperlink`) VALUES (?,?,?,?,?);', [req.body.name || "null", req.body.image || "null", req.body.category || "null", req.body.tooltip || "null", req.body.hyperlink || "null"], addhomeitem);
+
+};
+
+module.exports.gethomeitems = function(req,res){
+  var rtn = {};
+          function gethomeitems(err, result, fields) {
+              rtn.db_result = result;
+              if (err)
+                  rtn.error = err;
+              rtn.ready = true;
+              res.json(rtn);
+          }
+          database.query('SELECT `name`, `image`, `category`, `tooltip`, `hyperlink` FROM `object`;', gethomeitems);
+
+};
+
+
 //Quiz
 module.exports.populatequiz = function(req, res){
 var rtn = {};

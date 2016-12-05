@@ -132,7 +132,7 @@ h3 code{
 																	<a class="wd-Navigation-link" href="index.html">How To</a>
 															</li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="adminindex.html">Manage Home</a>
+                                    <a class="wd-Navigation-link" href="adminindex.html">Manage Interactive Apartment</a>
                                 </li>
 																<li class="wd-Navigation-node">
                                     <a class="wd-Navigation-link" href="addquestion.html">Manage Quiz</a>
@@ -155,7 +155,7 @@ h3 code{
                         </div>
                         <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
 													<option value="index.html">How To</option>
-                            <option value="adminindex.html">Manage Home</option>
+                            <option value="adminindex.html">Manage Interactive Apartment</option>
 														<option value="addquestion.html">Manage Quiz</option>
                             <option value="savingscart.html">Manage Savings Cart</option>
                             <option value="informationadmin.html" selected="selected">Manage Information</option>
@@ -191,6 +191,7 @@ h3 code{
                       <tr>
                           <th data-field="title">Title</th>
                           <th data-field="hyperlink">Hyperlink</th>
+													<th data-field="category">Category</th>
                       </tr>
                     </thead>
 
@@ -198,41 +199,10 @@ h3 code{
                     <tr ng-repeat="i in data.db_result">
                       <td>{{i.title}}</td>
                       <td>{{i.hyperlink}}</td>
+											<td>{{i.category}}
                     </tr>
                   </tbody>
                 </table>
-
-                  <!-- include script tags -->
-                  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-                  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-                  <!-- Compiled and minified CSS -->
-                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
-                  <!-- This page's angular set-up -->
-                  <script>
-                      function httpService($http) {
-                          this.get = function(url) {
-                              return $http.get(url);
-                          }
-                          this.post = function(url, data) {
-                              return $http.post(url, data);
-                          }
-                      }
-                      angular.module('gyrApp', []).service('httpService', httpService)
-                          .controller('InformationViewerDB', function($scope, httpService) {
-
-
-                              $scope.data = {};
-                              $scope.data.questions = [];
-                              httpService.get("http://greenyourresidence.ece.iastate.edu:3000/InformationViewerDB")
-                              // This is where the response is received v
-                                  .then(function(rtn) {
-                                      $scope.data = rtn.data;
-                                  });
-
-                          });
-
-                  </script>
 
                 </div>
             </div>
@@ -242,7 +212,9 @@ h3 code{
 	</div>
 </div>
 
-
+<!-- include script tags -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -295,7 +267,30 @@ h3 code{
 		}
 	});
 });</script>
+<!-- This page's angular set-up -->
+<script>
+		function httpService($http) {
+				this.get = function(url) {
+						return $http.get(url);
+				}
+				this.post = function(url, data) {
+						return $http.post(url, data);
+				}
+		}
+		angular.module('gyrApp', []).service('httpService', httpService)
+				.controller('InformationViewerDB', function($scope, httpService) {
 
+
+						$scope.data = {};S
+						httpService.get("http://greenyourresidence.ece.iastate.edu:3000/InformationViewerDB")
+						// This is where the response is received v
+								.then(function(rtn) {
+										$scope.data = rtn.data;
+								});
+
+				});
+
+</script>
 
 </body>
 </html>

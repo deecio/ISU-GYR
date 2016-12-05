@@ -53,6 +53,10 @@ app.get('/QuizViewer', function(req, res){
   res.json(rtn);
 });
 
+//Home
+app.get('/HomeViewerDB', adminbackend.gethomeitems);
+app.post('/AddHomeItem', adminbackend.addhomeitem);
+
 //Shopping Cart
 app.get('/ShoppingCartViewerDB', adminbackend.getshoppingcart);
 app.post('/AddItemDB', adminbackend.additem);

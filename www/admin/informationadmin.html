@@ -132,7 +132,7 @@ h3 code{
 																	<a class="wd-Navigation-link" href="index.html">How To</a>
 															</li>
                                 <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="adminindex.html">Manage Home</a>
+                                    <a class="wd-Navigation-link" href="adminindex.html">Manage Interactive Apartment</a>
                                 </li>
 																<li class="wd-Navigation-node">
                                     <a class="wd-Navigation-link" href="addquestion.html">Manage Quiz</a>
@@ -155,7 +155,7 @@ h3 code{
                         </div>
                         <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
 													<option value="index.html">How To</option>
-                            <option value="adminindex.html">Manage Home</option>
+                            <option value="adminindex.html">Manage Interactive Apartment</option>
 														<option value="addquestion.html">Manage Quiz</option>
                             <option value="savingscart.html">Manage Savings Cart</option>
                             <option value="informationadmin.html" selected="selected">Manage Information</option>
@@ -190,6 +190,16 @@ h3 code{
 														<label for="title">Information Title</label>
 													</div>
 												</div>
+												<div class="input-field col s12">
+											    <select>
+											      <option value="" disabled selected>Choose your category</option>
+											      <option value="General Resources">General Resources</option>
+											      <option value="Iowa State Resources">Iowa State Resources</option>
+											      <option value="City of Ames Resources">City of Ames Resources</option>
+														<option value="Live Green Resources">Live Green Resources</option>
+											    </select>
+											    <label>Category</label>
+											  </div>
 												<div class="row">
 													<div class="input-field col s6" style="text-align:left">
 														<input id="info_link" type="text" class="validate" ng-model="info_link">
@@ -217,49 +227,13 @@ h3 code{
 <!-- include script tags -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
-<script>
-		function httpService($http) {
-				this.get = function(url) {
-						return $http.get(url);
-				}
-				this.post = function(url, data) {
-						return $http.post(url, data);
-				}
-		}
-		angular.module('gyrApp', []).service('httpService', httpService)
-				.controller('AddInformationDB', function($scope, httpService) {
-
-
-						$scope.data = {};
-						$scope.data.questions = [];
-						$scope.submitInformation = function(){
-						httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddInformationDB", {
-							title:$scope.title,
-							info_link:$scope.info_link
-						})
-						// This is where the response is received v
-								.then(function(rtn) {
-										$scope.data = rtn.data;
-								});
-								$scope.title = '';
-								$scope.info_link = '';
-							}
-				});
-
-</script>
 <!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 <!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 
 
@@ -296,7 +270,37 @@ h3 code{
 		}
 	});
 });</script>
+<script>
+		function httpService($http) {
+				this.get = function(url) {
+						return $http.get(url);
+				}
+				this.post = function(url, data) {
+						return $http.post(url, data);
+				}
+		}
+		angular.module('gyrApp', []).service('httpService', httpService)
+				.controller('AddInformationDB', function($scope, httpService) {
 
+
+						$scope.data = {};
+						$scope.data.questions = [];
+						$scope.submitInformation = function(){
+						httpService.post("http://greenyourresidence.ece.iastate.edu:3000/AddInformationDB", {
+							title:$scope.title,
+							category:$scope.category,
+							info_link:$scope.info_link
+						})
+						// This is where the response is received v
+								.then(function(rtn) {
+										$scope.data = rtn.data;
+								});
+								$scope.title = '';
+								$scope.info_link = '';
+							}
+				});
+
+</script>
 
 </body>
 </html>

@@ -147,7 +147,10 @@
                 <h2 class="centered info-title">Other Information</h2>
 								<p align="center">Whether you live on or off campus, check out these additional resources from the ISU and Ames community to learn more about sustainable living! </p>
 								<div class="collection" id="info-links">
-									 <a ng-repeat="i in data.db_result" class="collection-item" href={{i.hyperlink}}>{{i.title}}</a>
+										<div subcollection ng-repeat="filter in filters">
+											<strong category-heading>{{filter.name}}</strong>
+									 		<a ng-repeat="i in data.db_result | filter:filter.filterExpr" class="collection-item" href={{i.hyperlink}}>{{i.title}}</a>
+								 		</div>
 								 </div>
         		</div>
 					</div>
@@ -262,6 +265,12 @@
 		angular.module('gyrApp', []).service('httpService', httpService)
 				.controller('InformationViewerDB', function($scope, httpService) {
 
+					$scope.filters = [
+							{ name: 'General Resources', filterExpr: { category: 'General Resources' } },
+							{ name: 'Iowa State Resources', filterExpr: { category: 'Iowa State Resources' } },
+							{ name: 'City of Ames Resources', filterExpr: { category: 'City of Ames Resources' } },
+							{ name: 'Live Green Resources', filterExpr: { category: 'Live Green Resources' } }
+					];
 
 						$scope.data = {};
 						$scope.data.questions = [];
