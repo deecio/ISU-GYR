@@ -2,8 +2,12 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/style.css?v=1.1">
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/style.css?v=1.3">
     <link rel="stylesheet" type="text/css" href="css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
     <script type="text/javascript" charset="utf-8" src="js/jquery-3.1.1.js"></script>
@@ -15,9 +19,6 @@
     <link href="css/baseV4.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" media="all" rel="stylesheet">
     <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
-    <!-- Bootstrap Library Link -->
-    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
     <title>Interactive Apartment</title>
 </head>
 
@@ -125,19 +126,18 @@
             </div>
         </div>
     </div>
-    <div class="fullcontent">
+    <div class="col-xs-8" id="fullcontent">
         <header>
             <center>
-                <h1>
-            <p><img src="img/title.PNG" style="height:200px;"></p>
-            </h1> </center>
+                <img src="img/header.png" style="height: 300px; width: 1200px;">
+            </center>
         </header>
-        <center>
-            <p id="intro" style="font-size: 150%">
-                <Strong>Design your own virtual living space and learn how the items you’re bringing into your <span style='color:red'>Iowa State</span> home can make a sustainable difference!</Strong> </p>
-        </center>
-        <center>
-            <div class="card-panel white"> <span class="black-text">
+        <!--<center>
+    <p id="intro" style="font-size: 150%">
+        <Strong>Design your own virtual living space and learn how the items you’re bringing into your <span style='color:red'>Iowa State</span> home can make a sustainable difference!</Strong> </p>
+</center>
+<center>
+    <div class="card-panel white"> <span class="black-text">
                     <p style="font-size: 120%"><Strong>Instructions</Strong></p>
               <ol type="1">
                     <li>Select your residence hall layout.</li>
@@ -147,16 +147,17 @@
                     <li>Hover over items in the layout to learn sustainable tips and tricks.</li>
                 </ol>
           </span> </div>
-        </center>
-        <div>
-            <select class='dropdown-button btn'>
-                <option value="" disabled selected>CHOOSE YOUR ROOM!</option>
-                <option value="1">FRILEY</option>
-                <option value="2">MWL</option>
-                <option value="3">BUCHANAN</option>
-            </select>
-        </div>
-        <!--<div>
+</center>-->
+        <div id="importantbody">
+            <div>
+                <select class='dropdown-button btn'>
+                    <option value="" disabled selected>CHOOSE YOUR ROOM!</option>
+                    <option value="1">FRILEY</option>
+                    <option value="2">MWL</option>
+                    <option value="3">BUCHANAN</option>
+                </select>
+            </div>
+            <!--<div>
             <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Pick your dorm room!</a>
             <ul id='dropdown1' class='dropdown-content'>
                 <li><a href="#!" value="Maple">Maple</a></li>
@@ -173,7 +174,6 @@
             </ul>
         </div>
 -->
-        <div id="section">
             <!--<div class="layer">
     <div class="room">
         <div id="canvas-container">
@@ -181,39 +181,82 @@
         </div>
     </div>
 </div>-->
-            <div id="canvas-container">
-                <canvas id="c"></canvas>
-            </div>
-            <div class="draggable-menu-wrapper">
-                <div id="images">
-                    <ul class="collapsible" data-collapsible="accordion">
-                        <li>
-                            <div class="collapsible-header active" id="basics"><i class="material-icons">label</i>Basics</div>
-                            <div class="collapsible-body"> <img class="item-thumbnail" id="desk" src="img/basics/Student%20Desk%20.png" /> <img class="item-thumbnail" id="desk" src="img/basics/Student%20Desk%202.png" /> <img class="item-thumbnail" id="bed" src="img/basics/Twin%20Bed%20Multi.png" /> <img class="item-thumbnail" id="bed" src="img/basics/Twin%20Bed%20White.png" /> <img class="item-thumbnail" id="wardrobe" src="img/basics/Wardrobe%20big.png" /> <img class="item-thumbnail" id="wardrobe" src="img/basics/Wardrobe.png" /> </div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header" id="electronics"><i class="material-icons">label</i>Electronics</div>
-                            <div class="collapsible-body"> <span><img class="item-thumbnail" id="comp" src="img/electronics/Computer%20Apples.png"/></span> <span><img class="item-thumbnail" id="comp" src="img/electronics/PC.png"/></span> <span><img class="item-thumbnail" id="pwr_strip" src="img/electronics/PowerStrip.png"/></span> <span><img class="item-thumbnail" id="smart_pwr" src="img/electronics/Smart%20Power%20Strip.png"/></span> <span><img class="item-thumbnail" id="printer" src="img/electronics/Printer%20Black.png"/></span> <span><img class="item-thumbnail" id="printer" src="img/electronics/Printer%20Grey.png"/></span> <span><img class="item-thumbnail" id="game" src="img/electronics/PS2.png"/></span> <span><img class="item-thumbnail" id="game" src="img/electronics/PS3.png"/></span> </div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header" id="laundry"><i class="material-icons">label</i>Laundry</div>
-                            <div class="collapsible-body"> <span><img class="item-thumbnail" id="laundry" src="img/decor/Heater%20Blanket%20Blue.png"/></span> <span><img class="item-thumbnail" id="laundry" src="img/decor/Heater%20Blanket%20White.png"/></span> <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Banner.png"/></span> <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Couch%203.png"/></span> <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20LazyBoy.png"/></span> <span><img class="item-thumbnail" id="laundry" src="img/decor/ISU%20Sofa.png"/></span> <span><img class="item-thumbnail" id="laundry" src="img/decor/Red%20Blanket.png"/></span> </div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header" id="lighting"><i class="material-icons">label</i>Lightings</div>
-                            <div class="collapsible-body"> <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp01.png"/></span> <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp02.png"/></span> <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp03.png"/></span> <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp04.png"/></span> <span><img class="item-thumbnail" id="lighting" src="img/lighting/lamp05.jpg"/></span> </div>
-                        </li>
-                        <li>
-                            <div class="collapsible-header" id="kitchen"><i class="material-icons">label</i>Kitchen</div>
-                            <div class="collapsible-body"> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Coffee%20Pot%20Black.png"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Coffee%20Pot%20Silver.png"span>
-                <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Dinnerware%20Black.png"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Dinnerware%20White.png"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Keurig%20Black.png"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Keurig%20Silver.png"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Micro%20Fridge%20Black.jpg"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Micro%20Fridge%20Black.png"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Microwave%20Black.png"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Microwave%20Silver.png"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Black.png"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Silver.png"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Mini%20Fridge%20Duo%20Silver.png"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Toaster%20.png"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Toaster%20Black.png"/></span> <span><img class="item-thumbnail" id="kitchen" src="img/kitchen/Utensils.jpg"/></span> </div>
-                        </li>
-                    </ul>
+            <div>
+                <div id="canvas-container" style="float:left;">
+                    <canvas id="c"></canvas>
+                </div>
+                <div class="draggable-menu-wrapper">
+                    <div id="images">
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header active" id="basics"><i class="material-icons">label</i>Basics</div>
+                                <div class="collapsible-body">
+                                    <img class="item-thumbnail" id="bdesk" src="img/Basics/BasicsStudentDeskBig.png" />
+                                    <img class="item-thumbnail" id="sdesk" src="img/Basics/Student%20Desk%20.png" />
+                                    <img class="item-thumbnail" id="nightstand" src="img/Basics/BrownNightstand.png" />
+                                    <img class="item-thumbnail" id="nightstand" src="img/Basics/WhiteNightstand.png" />
+                                    <img class="item-thumbnail" id="bunkbed" src="img/Basics/BunkBed.png" />
+                                    <img class="item-thumbnail" id="queenbed" src="img/Basics/QueenBed.png" />
+                                    <img class="item-thumbnail" id="twinbed" src="img/Basics/Twin%20Bed%20White.png" />
+                                    <img class="item-thumbnail" id="chair" src="img/Basics/SittingChair.png" />
+                                    <img class="item-thumbnail" id="chair" src="img/Basics/WorkChair.png" />
+                                    <img class="item-thumbnail" id="couch" src="img/Basics/ISU%20Couch%203.png" />
+                                    <img class="item-thumbnail" id="lazyboy" src="img/Basics/ISU%20LazyBoy.png" />
+                                    <img class="item-thumbnail" id="sofa" src="img/Basics/ISU%20Sofa.png" />
+                                    <img class="item-thumbnail" id="bwardrobe" src="img/Basics/Wardrobe%20big.png" />
+                                    <img class="item-thumbnail" id="swardrobe" src="img/Basics/Wardrobe.png" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" id="electronics"><i class="material-icons">label</i>Electronics</div>
+                                <div class="collapsible-body">
+                                    <img class="item-thumbnail" id="iphone" src="img/Electronics/iphone.jpeg" />
+                                    <img class="item-thumbnail" id="comp" src="img/Electronics/PC.png" />
+                                    <img class="item-thumbnail" id="pwr_strip" src="img/Electronics/PowerStrip.png" />
+                                    <img class="item-thumbnail" id="smart_pwr" src="img/Electronics/Smart%20Power%20Strip.png" />
+                                    <img class="item-thumbnail" id="printer" src="img/Electronics/Printer%20Black.png" />
+                                    <img class="item-thumbnail" id="game" src="img/Electronics/Wii.png" />
+                                    <img class="item-thumbnail" id="game" src="img/Electronics/XBOX.png" />
+                                    <img class="item-thumbnail" id="tv" src="img/Electronics/TV%20Entertainment%20System.png" />
+                                    <img class="item-thumbnail" id="tv" src="img/Electronics/TV%20Streaming.png" />
+                                    <img class="item-thumbnail" id="stereo" src="img/Electronics/Stereo%20System.png" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" id="decor"><i class="material-icons">label</i>Decor</div>
+                                <div class="collapsible-body">
+                                    <img class="item-thumbnail" id="bicycle" src="img/Decor/bicycle.png" />
+                                    <img class="item-thumbnail" id="blanket" src="img/Decor/Blankets.png" />
+                                    <img class="item-thumbnail" id="ceilingfan" src="img/Decor/Ceiling%20Fan.jpg" />
+                                    <img class="item-thumbnail" id="decorflower" src="img/Decor/DecorFlower.png" />
+                                    <img class="item-thumbnail" id="decorplanter" src="img/Decor/DecorPlanter.png" />
+                                    <img class="item-thumbnail" id="drape" src="img/Decor/Drapes.png" />
+                                    <img class="item-thumbnail" id="car" src="img/Decor/ISUCar.png" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" id="lighting"><i class="material-icons">label</i>Lightings</div>
+                                <div class="collapsible-body">
+                                    <img class="item-thumbnail" id="lighting" src="img/Lighting/Floor%20Lamp%20White.png" />
+                                    <img class="item-thumbnail" id="lighting" src="img/Lighting/Table%20Lamp%20Black.png" />
+                                    <img class="item-thumbnail" id="lighting" src="img/Lighting/Table%20Lamp%20White.jpg" />
+                                    <img class="item-thumbnail" id="lighting" src="img/Lighting/Table%20Lamp%20White%202.png" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" id="kitchen"><i class="material-icons">label</i>Kitchen</div>
+                                <div class="collapsible-body">
+                                    <img class="item-thumbnail" id="dinnerware" src="img/Appliances/Dinnerware.png" />
+                                    <img class="item-thumbnail" id="fridge" src="img/Appliances/Micro%20Fridge%20Black.png" />
+                                    <img class="item-thumbnail" id="toaster" src="img/Appliances/Toaster%20.png" />
+                                    <img class="item-thumbnail" id="utensils" src="img/Appliances/Utensils.png" />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-        <button id="save">Save Canvas</button>
-        <button id="load">Load Canvas</button>
     </div>
     <script>
         var grid = 50;
@@ -224,46 +267,169 @@
         var canvas = new fabric.Canvas('c', {
             selection: false
         });
-        var width = 13;
-        var height = 13;
-        for (var i = 0; i < width; i++) {
-            if (i == 0 || i == 12) {
-                canvas.add(new fabric.Line([i * grid, 0, i * grid, 500], {
-                    stroke: '#7BA643'
-                    , strokeWidth: 10
-                    , selectable: false
-                    , hasControls: false
-                    , hoverCursor: 'default'
-                }));
+        var width = 0;
+        var height = 0;
+
+        $('.dropdown-button').on('change', function () {
+            console.log($(this));
+            canvas.clear();
+            if ($(".dropdown-button").val() == "1") {
+                width = 10 * 50;
+                height = 12 * 50;
+                for (var i = 0; i < 11; i++) {
+                    if (i == 0 || i == 10) {
+                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
+                            stroke: '#7BA643',
+                            strokeWidth: 10,
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    } else {
+                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
+                            stroke: 'black',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+                }
+                for (var i = 0; i < 13; i++) {
+                    if (i == 0 || i == 12) {
+                        canvas.add(new fabric.Line([0, i * grid, 500, i * grid], {
+                            stroke: '#7BA643',
+                            strokeWidth: 10,
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    } else {
+                        canvas.add(new fabric.Line([0, i * grid, 500, i * grid], {
+                            stroke: 'black',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+                }
+            } else if ($(".dropdown-button").val() == "2") {
+                width = 11 * 50;
+                height = 11 * 50;
+                for (var i = 0; i < 12; i++) {
+                    if (i == 0 || i == 11) {
+                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 550], {
+                            stroke: '#7BA643',
+                            strokeWidth: 10,
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    } else {
+                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 550], {
+                            stroke: 'black',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+                }
+                for (var i = 0; i < 12; i++) {
+                    if (i == 0 || i == 11) {
+                        canvas.add(new fabric.Line([0, i * grid, 550, i * grid], {
+                            stroke: '#7BA643',
+                            strokeWidth: 10,
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    } else {
+                        canvas.add(new fabric.Line([0, i * grid, 550, i * grid], {
+                            stroke: 'black',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+                }
+            } else if ($(".dropdown-button").val() == "3") {
+                width = 12 * 50;
+                height = 12 * 50;
+                for (var i = 0; i < 13; i++) {
+                    if (i == 0 || i == 12) {
+                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
+                            stroke: '#7BA643',
+                            strokeWidth: 10,
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    } else {
+                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
+                            stroke: 'black',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+                }
+                for (var i = 0; i < 13; i++) {
+                    if (i == 0 || i == 12) {
+                        canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
+                            stroke: '#7BA643',
+                            strokeWidth: 10,
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    } else {
+                        canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
+                            stroke: 'black',
+                            selectable: false,
+                            hasControls: false,
+                            hoverCursor: 'default'
+                        }));
+                    }
+                }
             }
-            else {
-                canvas.add(new fabric.Line([i * grid, 0, i * grid, 500], {
-                    stroke: 'black'
-                    , selectable: false
-                    , hasControls: false
-                    , hoverCursor: 'default'
-                }));
-            }
-        }
-        for (var i = 0; i < 11; i++) {
-            if (i == 0 || i == 10) {
-                canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
-                    stroke: '#7BA643'
-                    , strokeWidth: 10
-                    , selectable: false
-                    , hasControls: false
-                    , hoverCursor: 'default'
-                }));
-            }
-            else {
-                canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
-                    stroke: 'black'
-                    , selectable: false
-                    , hasControls: false
-                    , hoverCursor: 'default'
-                }));
-            }
-        }
+            canvas.renderAll();
+        });
+
+        /*   for (var i = 0; i < width; i++) {
+               if (i == 0 || i == 12) {
+                   canvas.add(new fabric.Line([i * grid, 0, i * grid, 500], {
+                       stroke: '#7BA643',
+                       strokeWidth: 10,
+                       selectable: false,
+                       hasControls: false,
+                       hoverCursor: 'default'
+                   }));
+               } else {
+                   canvas.add(new fabric.Line([i * grid, 0, i * grid, 500], {
+                       stroke: 'black',
+                       selectable: false,
+                       hasControls: false,
+                       hoverCursor: 'default'
+                   }));
+               }
+           }
+           for (var i = 0; i < 11; i++) {
+               if (i == 0 || i == 10) {
+                   canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
+                       stroke: '#7BA643',
+                       strokeWidth: 10,
+                       selectable: false,
+                       hasControls: false,
+                       hoverCursor: 'default'
+                   }));
+               } else {
+                   canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
+                       stroke: 'black',
+                       selectable: false,
+                       hasControls: false,
+                       hoverCursor: 'default'
+                   }));
+               }
+           }*/
         canvas.on('mouse:over', function (e) {
             if (e.target != canvas.getActiveObject()) {
                 showTooltip(e.target);
@@ -276,22 +442,23 @@
                         }*/
         });
         canvas.on('mouse:out', function (e) {
+            $('.tooltiptext').remove();
             $('#theimg').remove();
         });
         canvas.on('object:moving', function (e) {
             var obj = e.target;
             obj.set({
-                left: Math.round(obj.left / grid) * grid
-                , top: Math.round(obj.top / grid) * grid
+                left: Math.round(obj.left / grid) * grid,
+                top: Math.round(obj.top / grid) * grid
             });
             obj.setCoords();
             if (obj.getBoundingRect().top < 0 || obj.getBoundingRect().left < 0) {
                 obj.top = Math.max(obj.top, obj.top - obj.getBoundingRect().top);
                 obj.left = Math.max(obj.left, obj.left - obj.getBoundingRect().left);
             }
-            if (obj.getBoundingRect().top + obj.getBoundingRect().height > obj.canvas.height || obj.getBoundingRect().left + obj.getBoundingRect().width > obj.canvas.width) {
-                obj.top = Math.min(obj.top, obj.canvas.height - obj.getBoundingRect().height + obj.top - obj.getBoundingRect().top);
-                obj.left = Math.min(obj.left, obj.canvas.width - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
+            if (obj.getBoundingRect().top + obj.getBoundingRect().height > height || obj.getBoundingRect().left + obj.getBoundingRect().width > width) {
+                obj.top = Math.min(obj.top, height - obj.getBoundingRect().height + obj.top - obj.getBoundingRect().top);
+                obj.left = Math.min(obj.left, width - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
             }
         });
         var angles = [90, 180, 270, 360];
@@ -307,70 +474,73 @@
         });
 
         function showTooltip(e) {
+            $('.tooltiptext').remove();
             $('#theimg').remove();
             var x = Math.floor(Math.random() * 10);
-            if (e.name == "bed") {
-                $("<img />", {
-                    id: 'theimg'
-                    , src: "../gyr/img/laundry_tip.png"
-                }).appendTo(document.body);
+            if (e.name == "printer") {
+                $('body').append("<img id='theimg' src='img/Tips/printer.png' />");
+            } else if (e.name == "comp") {
+                $('body').append("<img id='theimg' src='img/Tips/pc.png' />");
+            } else if (e.name == "game") {
+                $('body').append("<img id='theimg' src='img/Tips/xbox.png' />");
+            } else if (e.name == "smart_pwr") {
+                $('body').append("<img id='theimg' src='img/Tips/smartpowerstrip.png' />");
+            } else if (e.name == "tv") {
+                $('body').append("<img id='theimg' src='img/Tips/tv.png' />");
+            } else if (e.name == "pwr_strip") {
+                $('body').append("<img id='theimg' src='img/Tips/powerstrip.png' />");
+            } else if (e.name == "iphone") {
+                $('body').append("<img id='theimg' src='img/Tips/iphone.png' />");
+            } else if (e.name == "utensils") {
+                $('body').append("<img id='theimg' src='img/Tips/utensils.png' />");
+            } else if (e.name == "dinnerware") {
+                $('body').append("<img id='theimg' src='img/Tips/dinnerware.png' />");
+            } else if (e.name == "fridge") {
+                $('body').append("<img id='theimg' src='img/Tips/microfridge.png' />");
+            } else if (e.name == "toaster") {
+                $('body').append("<img id='theimg' src='img/Tips/toaster.png' />");
+            } else if (e.name == "lighting") {
+                $('body').append("<img id='theimg' src='img/Tips/tablelamp.png' />");
+            } else if (e.name == "car") {
+                $('body').append("<img id='theimg' src='img/Tips/car.png' />");
+            } else if (e.name == "blanket") {
+                $('body').append("<img id='theimg' src='img/Tips/blanket.png' />");
+            } else if (e.name == "bicycle") {
+                $('body').append("<img id='theimg' src='img/Tips/bike.png' />");
+            } else if (e.name == "decorplanter") {
+                $('body').append("<img id='theimg' src='img/Tips/planter.png' />");
+            } else if (e.name == "decorflower") {
+                $('body').append("<img id='theimg' src='img/Tips/flowerplant.png' />");
+            } else if (e.name == "ceilingfan") {
+                $('body').append("<img id='theimg' src='img/Tips/fan.png' />");
+            } else if (e.name == "drape") {
+                $('body').append("<img id='theimg' src='img/Tips/drapes.png' />");
             }
-            else if (e.name == "laundry") {
-                $("<img />", {
-                    id: 'theimg'
-                    , src: "../gyr/img/decor_tip.png"
-                }).appendTo(document.body);
-            }
-            else if (e.name == "lighting") {
-                $("<img />", {
-                    id: 'theimg'
-                    , src: "../gyr/img/lamp_tip01.png"
-                }).appendTo(document.body);
-            }
-            else if (e.name == "game") {
-                $("<img />", {
-                    id: 'theimg'
-                    , src: "../gyr/img/game_sys.png"
-                }).appendTo(document.body);
-            }
-            else if (e.name == "comp") {
-                $("<img />", {
-                    id: 'theimg'
-                    , src: "../gyr/img/tv_comp.png"
-                }).appendTo(document.body);
-            }
-            else if (e.name == "pwr_strip") {
-                $("<img />", {
-                    id: 'theimg'
-                    , src: "../gyr/img/pwr_strip.png"
-                }).appendTo(document.body);
-            }
-            else if (e.name == "smart_pwr") {
-                $("<img />", {
-                    id: 'theimg'
-                    , src: "../gyr/img/smart_pwr.png"
-                }).appendTo(document.body);
-            }
-            else if (e.name == "printer") {
-                $("<img />", {
-                    id: 'theimg'
-                    , src: "../gyr/img/printer.png"
-                }).appendTo(document.body);
-            }
-            else if (e.name == "kitchen") {
-                if (x % 2 == 0) {
-                    $("<img />", {
-                        id: 'theimg'
-                        , src: "../gyr/img/elec_tip.png"
-                    }).appendTo(document.body);
-                }
-                else {
-                    $("<img />", {
-                        id: 'theimg'
-                        , src: "../gyr/img/buy_tip.png"
-                    }).appendTo(document.body);
-                };
-            }
+            /* if (e.name == "printer") {
+                 $("body").append("<a class='tooltiptext'> American spends 2 - 4 hours per month paying bills when they write and mail paper checks.Put your pen down and sign up for paperless billing today!");
+             } else if (e.name == "comp") {
+                 $("body").append("<a class='tooltiptext'>Screen savers don’t save energy. Rather, the purpose of a screen saver is to protect your screen from one single image remaining imprinted upon it.Make sure to turn your computer and / or laptop off when you are done.");
+             } else if (e.name == "game") {
+                 $("body").append("<a class='tooltiptext'>If you’re like the average male college student, you probably own a gaming console. Did you know that gaming consoles consume nearly as much power when they are left idle as they do when you are playing them? Remember to turn off your console when you’re not using it.");
+             } else if (e.name == "smart_pwr") {
+                 $("body").append("<a class='tooltiptext'>Televisions, DVD players, and other electronic equipment can use nearly as much energy when left on standby as when they’re in use. To avoid wasting energy, unplug equipment when you’re not using it. To make things as easy as possible, plug multiple devices into a power strip, which you can switch on and off at once.");
+             } else if (e.name == "tv") {
+                 $("body").append("<a class='tooltiptext'>Consider buying rechargeable batteries, and recycling them when you are done with them. Non-rechargeable batteries are tough to recycle and often end up in landfills. In addition, try not to throw batteries in the garbage; instead, find out where they can be recycled.");
+             } else if (e.name == "pwr_strip") {
+                 $("body").append("<a class='tooltiptext'>Televisions, DVD players, and other electronic equipment can use nearly as much energy when left on standby as when they’re in use. To avoid wasting energy, unplug equipment when you’re not using it. To make things as easy as possible, plug multiple devices into a power strip, which you can switch on and off at once.");
+             } else if (e.name == "iphone") {
+                 $("body").append("<a class='tooltiptext'>Cellphone companies are forever encouraging us to switch to the newest, most fashionable handset, sometimes long before the existing one is defunct. However, cellphones contain a cocktail of toxic substances that shouldn’t be discarded in landfills. Recycling keeps these undesirable elements out of the waste stream and saves the mining and manufacturing impacts of producing new handsets. Consider donating your old phone to charity for recycling when you do need a new one.");
+             } else if (e.name == "utensils") {
+                 $("body").append("<a class='tooltiptext'>Eliminate plastic bags, plastic utensils, disposable containers, paper napkins,and those brown paper bags by choosing a reusable lunchbox, reusable drink containers, cloth napkins, and silverware.");
+             } else if (e.name == "dinnerware") {
+                 $("body").append("<a class='tooltiptext'>If done properly, washing dishes by hand tends to be more energy-efficient than using a dishwasher, especially for small volumes of dishes. Instead of washing under a running faucet, put a plug in the sink, or use a large, plastic bowl. And to minimize the amount of water used when rinsing, install a lowflow aerator on your kitchen sink faucets. When washing dishes by hand, minimize the number of times you need to change the water by washing the least-dirty items first.");
+             } else if (e.name == "fridge") {
+                 $("body").append("<a class='tooltiptext'>Keep your fridge tidy so that you can find what you’re looking for quickly. Up to 30% of the cold air held within the fridge escapes each time you open thedoor, so the quicker you grab and close the door, the better.");
+             } else if (e.name == "toaster") {
+                 $("body").append("<a class='tooltiptext'>Try out these kitchen-friendly tips to increase energy-efficiency: <br>Cook with small appliances. <br>Avoid pre-heating your oven unless it is a short baking job. <br>Use the oven more when it is cold outside");
+             } else if (e.name == "lighting") {
+                 $("body").append("<a class='tooltiptext'>An easy way to increase energy savings is to use fluorescent bulbs when possible. Make sure you are using the correct wattage, and keep your lightbulbs clean (dirt absorbs light)! Did you know: If everyone in Ames replaced five incandescent bulbs with CFLs, 40 million pounds of CO2 could be eliminated from the atmosphere!");
+             };*/
             changeTooltipPosition(e);
         }
 
@@ -381,9 +551,13 @@
             var right = offset._offset.left + rect.left + rect.width;
             var left = offset._offset.left + rect.left + 90;
             var top = offset._offset.top + rect.top - 120;
+            $('.tooltiptext').css({
+                top: top,
+                left: left
+            });
             $('#theimg').css({
-                top: top
-                , left: left
+                top: top,
+                left: left
             });
         }
 
@@ -418,263 +592,396 @@
             var posx = mouse.x;
             var posy = mouse.y;
             var img = document.querySelector('#images img.img_dragging');
-            if (img.id == "bed") {
-                var bed = new Image();
-                bed.src = "img/Bed.png";
-                var newImage = new fabric.Image(bed, {
-                    name: img.id
-                    , width: 200
-                    , height: 300
-                    , left: posx - 50
-                    , top: posy - 30
-                    , hasControls: true
-                    , hasBorders: true
-                });
-                /*var rect = new fabric.Rect({
-                    width: 250,
-                    height: 350,
-                    fill: 'rgba(122,153,172,1)',
-                    stroke: 'black',
-                    strokeWidth: 3,
+            if (img.id == "bdesk") {
+                var bdesk = new Image();
+                bdesk.src = "img/Basics/BasicsDeskBig.png";
+                var newImage = new fabric.Image(bdesk, {
+                    name: img.id,
+                    width: 200,
+                    height: 200,
                     left: posx - 50,
                     top: posy - 30,
-                    hasControls: false,
-                    hasBorders: false
-                });*/
-                var text = new fabric.Text('Bed', {
-                    fontSize: 50
-                    , left: posx
-                    , top: posy + 100
-                    , hasControls: true
-                    , hasBorders: false
-                    , selectable: false
+                    hasControls: true,
+                    hasBorders: true
                 });
-                var group = new fabric.Group([newImage, text], {
-                    name: "bed"
-                    , left: posx - 50
-                    , top: posy - 30
-                    , hasBorders: false
-                    , hasControls: true
+            } else if (img.id == "sdesk") {
+                var sdesk = new Image();
+                sdesk.src = "img/Basics/BasicsDeskSmall.png";
+                var newImage = new fabric.Image(sdesk, {
+                    name: img.id,
+                    width: 150,
+                    height: 150,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "nightstand") {
+                var nightstand = new Image();
+                nightstand.src = "img/Basics/BasicsNightstand.png";
+                var newImage = new fabric.Image(nightstand, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "queenbed") {
+                var queenbed = new Image();
+                queenbed.src = "img/Basics/BasicsQueenBed.png";
+                var newImage = new fabric.Image(queenbed, {
+                    name: img.id,
+                    width: 200,
+                    height: 200,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "twinbed") {
+                var twinbed = new Image();
+                twinbed.src = "img/Basics/BasicsTwinBed.png";
+                var newImage = new fabric.Image(twinbed, {
+                    name: img.id,
+                    width: 150,
+                    height: 150,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "bunkbed") {
+                var object = new Image();
+                object.src = "img/Basics/BasicsBunkBed.png";
+                var newImage = new fabric.Image(object, {
+                    name: img.id,
+                    width: 150,
+                    height: 150,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "chair") {
+                var chair = new Image();
+                chair.src = "img/Basics/BasicsChair.png";
+                var newImage = new fabric.Image(chair, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "couch") {
+                var topdown = new Image();
+                topdown.src = "img/Basics/3SeaterSofa.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 200,
+                    height: 300,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "sofa") {
+                var topdown = new Image();
+                topdown.src = "img/Basics/3SeaterSofa.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 200,
+                    height: 300,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "lazyboy") {
+                var topdown = new Image();
+                topdown.src = "img/Basics/LazyBoy.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 200,
+                    height: 300,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "bwardrobe") {
+                var topdown = new Image();
+                topdown.src = "img/Basics/BasicsWardrobeBig.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 200,
+                    height: 300,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "swardrobe") {
+                var topdown = new Image();
+                topdown.src = "img/Basics/BasicsWardrobe.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 150,
+                    height: 200,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "iphone") {
+                var iphone = new Image();
+                iphone.src = "img/Electronics/iphone-top.png";
+                var newImage = new fabric.Image(iphone, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "comp") {
+                var topdown = new Image();
+                topdown.src = "img/Electronics/PC-top.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 100,
+                    height: 100,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "pwr_strip") {
+                var topdown = new Image();
+                topdown.src = "img/Electronics/PowerStrip-top.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "smart_pwr") {
+                var topdown = new Image();
+                topdown.src = "img/Electronics/SmartPlug.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "printer") {
+                var topdown = new Image();
+                topdown.src = "img/Electronics/Printer%20Black.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 100,
+                    height: 100,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "game") {
+                var topdown = new Image();
+                topdown.src = "img/Electronics/xbox-top.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 100,
+                    height: 100,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "tv") {
+                var topdown = new Image();
+                topdown.src = "img/Electronics/FlatScreenTV.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 150,
+                    height: 150,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "stereo") {
+                var topdown = new Image();
+                topdown.src = "img/Electronics/Stereo.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "lighting") {
+                var topdown = new Image();
+                topdown.src = "img/Lighting/TableLamp.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "dinnerware") {
+                var topdown = new Image();
+                topdown.src = "img/Appliances/dinner-top.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "fridge") {
+                var topdown = new Image();
+                topdown.src = "img/Appliances/minifridge.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "toaster") {
+                var topdown = new Image();
+                topdown.src = "img/Appliances/Toaster-top.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "utensils") {
+                var topdown = new Image();
+                topdown.src = "img/Appliances/Utensils-top.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "bicycle") {
+                var topdown = new Image();
+                topdown.src = "img/Decor/helmet.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "blanket") {
+                var topdown = new Image();
+                topdown.src = "img/Decor/topblanket.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "decorflower") {
+                var topdown = new Image();
+                topdown.src = "img/Decor/topflower.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "decorplanter") {
+                var topdown = new Image();
+                topdown.src = "img/Decor/topplant.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "car") {
+                var topdown = new Image();
+                topdown.src = "img/Decor/carkey.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "ceilingfan") {
+                var topdown = new Image();
+                topdown.src = "img/Decor/CeilingFanTopView.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
+                });
+            } else if (img.id == "drape") {
+                var topdown = new Image();
+                topdown.src = "img/Decor/Drapes.png";
+                var newImage = new fabric.Image(topdown, {
+                    name: img.id,
+                    width: 50,
+                    height: 50,
+                    left: posx - 50,
+                    top: posy - 30,
+                    hasControls: true,
+                    hasBorders: true
                 });
             }
-            else if (img.id == "wardrobe") {
-                var newImage = new fabric.Image(img, {
-                    name: img.id
-                    , width: 200
-                    , height: 300
-                    , left: posx - 50
-                    , top: posy - 30
-                    , hasControls: false
-                    , hasBorders: false
-                });
-                var rect = new fabric.Rect({
-                    width: 300
-                    , height: 150
-                    , fill: 'rgba(62,72,39,1)'
-                    , stroke: 'black'
-                    , strokeWidth: 3
-                    , left: posx - 50
-                    , top: posy - 30
-                    , hasControls: false
-                    , hasBorders: false
-                });
-                var text = new fabric.Text('Wardrobe', {
-                    fontSize: 50
-                    , left: posx
-                    , top: posy + 20
-                    , hasControls: false
-                    , hasBorders: false
-                    , selectable: false
-                });
-                var group = new fabric.Group([rect, text], {
-                    left: posx - 50
-                    , top: posy - 30
-                    , hasBorders: false
-                    , hasControls: true
-                , });
-            }
-            else if (img.id == "laundry") {
-                var newImage = new fabric.Image(img, {
-                    name: img.id
-                    , width: 150
-                    , height: 150
-                    , left: posx - 50
-                    , top: posy - 30
-                    , hasControls: false
-                    , hasBorders: false
-                });
-                var rect = new fabric.Rect({
-                    name: "laundry"
-                    , width: 150
-                    , height: 150
-                    , left: posx - 50
-                    , top: posy - 50
-                    , hasControls: false
-                    , hasBorders: false
-                });
-                var text = new fabric.Text('Laundry', {
-                    fontSize: 10
-                    , left: posx
-                    , top: posy + 20
-                    , hasControls: false
-                    , hasBorders: false
-                    , selectable: false
-                });
-                var group = new fabric.Group([rect, text], {
-                    left: posx - 50
-                    , top: posy - 30
-                    , hasBorders: false
-                    , hasControls: true
-                , });
-            }
-            else if (img.id == "kitchen") {
-                var newImage = new fabric.Image(img, {
-                    name: img.id
-                    , width: 50
-                    , height: 50
-                    , left: posx - 50
-                    , top: posy - 30
-                    , hasControls: false
-                    , hasBorders: false
-                });
-                var rect = new fabric.Rect({
-                    width: 50
-                    , height: 50
-                    , fill: 'rgba(255, 255, 254,1)'
-                    , stroke: 'black'
-                    , strokeWidth: 3
-                    , left: posx - 50
-                    , top: posy - 30
-                    , hasControls: false
-                    , hasBorders: false
-                });
-                var text = new fabric.Text('Kitchen', {
-                    fontSize: 15
-                    , left: posx - 50
-                    , top: posy - 10
-                    , hasControls: false
-                    , hasBorders: false
-                    , selectable: false
-                });
-                var group = new fabric.Group([rect, text], {
-                    name: "kitchen"
-                    , left: posx - 50
-                    , top: posy - 30
-                    , hasBorders: false
-                    , hasControls: true
-                });
-            }
-            else if (img.id == "electronics" || img.id == "pwr_strip" || img.id == "comp" || img.id == "game" || img.id == "smart_pwr" || img.id == "printer") {
-                var newImage = new fabric.Image(img, {
-                    name: img.id
-                    , width: 50
-                    , height: 25
-                    , left: posx - 50
-                    , top: posy - 30
-                    , hasControls: false
-                    , hasBorders: false
-                });
-                var rect = new fabric.Rect({
-                    width: 50
-                    , height: 25
-                    , fill: 'rgba(112,115,114,1)'
-                    , stroke: 'black'
-                    , strokeWidth: 3
-                    , left: posx - 100
-                    , top: posy - 30
-                    , hasControls: false
-                    , hasBorders: false
-                });
-                var text = new fabric.Text("Electronics", {
-                    fontSize: 12
-                    , left: posx - 100
-                    , top: posy - 25
-                    , hasControls: false
-                    , hasBorders: false
-                    , selectable: false
-                });
-                var group = new fabric.Group([rect, text], {
-                    name: img.id
-                    , left: posx - 100
-                    , top: posy - 30
-                    , hasBorders: false
-                    , hasControls: true
-                });
-            }
-            else if (img.id == "desk") {
-                var newImage = new fabric.Image(img, {
-                    name: img.id
-                    , width: 200
-                    , height: 100
-                    , left: posx - 100
-                    , top: posy - 30
-                    , hasControls: false
-                    , hasBorders: false
-                });
-                var rect = new fabric.Rect({
-                    width: 200
-                    , height: 100
-                    , fill: 'rgba(62,72,39,1)'
-                    , stroke: 'black'
-                    , strokeWidth: 3
-                    , left: posx - 100
-                    , top: posy - 30
-                    , hasControls: false
-                    , hasBorders: false
-                });
-                var text = new fabric.Text('Desk', {
-                    fontSize: 50
-                    , left: posx - 50
-                    , top: posy
-                    , hasControls: false
-                    , hasBorders: false
-                    , selectable: false
-                });
-                var group = new fabric.Group([rect, text], {
-                    name: "desk"
-                    , left: posx - 100
-                    , top: posy - 30
-                    , hasBorders: false
-                    , hasControls: true
-                });
-            }
-            else if (img.id == "lighting") {
-                var newImage = new fabric.Image(img, {
-                    name: img.id
-                    , width: 50
-                    , height: 100
-                    , left: posx - 25
-                    , top: posy - 30
-                    , hasControls: false
-                    , hasBorders: false
-                });
-                var cir = new fabric.Circle({
-                    radius: 25
-                    , fill: 'yellow'
-                    , stroke: 'black'
-                    , strokeWidth: 3
-                    , left: posx - 25
-                    , top: posy - 30
-                    , hasControls: false
-                    , hasBorders: false
-                });
-                var text = new fabric.Text('Lamp', {
-                    fontSize: 15
-                    , left: posx - 15
-                    , top: posy - 15
-                    , hasControls: false
-                    , hasBorders: false
-                    , selectable: false
-                });
-                var group = new fabric.Group([cir, text], {
-                    name: "lighting"
-                    , left: posx - 25
-                    , top: posy - 30
-                    , hasBorders: false
-                    , hasControls: true
-                });
-            }
-            canvas.add(group);
+
+
+
+            canvas.add(newImage);
+            //canvas.bringToFront(newImage);
             /*newImage.toObject = function () {
                 return {
                     type: img.id,
@@ -707,6 +1014,7 @@
         canvasContainer.addEventListener('dragleave', handleDragLeave, false);
         canvasContainer.addEventListener('drop', handleDrop, false);
         canvas.on('object:selected', function (e) {
+            $('.tooltiptext').remove();
             $('#theimg').remove();
             jQuery(".deleteBtn").remove();
             var btnLeft = e.target.oCoords.mt.x;
@@ -717,8 +1025,7 @@
             jQuery(".canvas-container").append(deleteBtn);
         });
         canvas.on('mouse:down', function (e) {
-            if (canvas.getActiveObject()) {}
-            else {
+            if (canvas.getActiveObject()) {} else {
                 jQuery(".deleteBtn").remove();
             }
         });
@@ -741,146 +1048,10 @@
                 jQuery(".deleteBtn").remove();
             }
         });
-        $('.dropdown-button').on('change', function () {
-            console.log($(this));
-            canvas.clear();
-            if ($(".dropdown-button").val() == "1") {
-                for (var i = 0; i < 11; i++) {
-                    if (i == 0 || i == 10) {
-                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
-                            stroke: '#7BA643'
-                            , strokeWidth: 10
-                            , selectable: false
-                            , hasControls: false
-                            , hoverCursor: 'default'
-                        }));
-                    }
-                    else {
-                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
-                            stroke: 'black'
-                            , selectable: false
-                            , hasControls: false
-                            , hoverCursor: 'default'
-                        }));
-                    }
-                }
-                for (var i = 0; i < 13; i++) {
-                    if (i == 0 || i == 12) {
-                        canvas.add(new fabric.Line([0, i * grid, 500, i * grid], {
-                            stroke: '#7BA643'
-                            , strokeWidth: 10
-                            , selectable: false
-                            , hasControls: false
-                            , hoverCursor: 'default'
-                        }));
-                    }
-                    else {
-                        canvas.add(new fabric.Line([0, i * grid, 500, i * grid], {
-                            stroke: 'black'
-                            , selectable: false
-                            , hasControls: false
-                            , hoverCursor: 'default'
-                        }));
-                    }
-                }
-            }
-            else if ($(".dropdown-button").val() == "2") {
-                for (var i = 0; i < 12; i++) {
-                    if (i == 0 || i == 11) {
-                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 550], {
-                            stroke: '#7BA643'
-                            , strokeWidth: 10
-                            , selectable: false
-                            , hasControls: false
-                            , hoverCursor: 'default'
-                        }));
-                    }
-                    else {
-                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 550], {
-                            stroke: 'black'
-                            , selectable: false
-                            , hasControls: false
-                            , hoverCursor: 'default'
-                        }));
-                    }
-                }
-                for (var i = 0; i < 12; i++) {
-                    if (i == 0 || i == 11) {
-                        canvas.add(new fabric.Line([0, i * grid, 550, i * grid], {
-                            stroke: '#7BA643'
-                            , strokeWidth: 10
-                            , selectable: false
-                            , hasControls: false
-                            , hoverCursor: 'default'
-                        }));
-                    }
-                    else {
-                        canvas.add(new fabric.Line([0, i * grid, 550, i * grid], {
-                            stroke: 'black'
-                            , selectable: false
-                            , hasControls: false
-                            , hoverCursor: 'default'
-                        }));
-                    }
-                }
-            }
-            else if ($(".dropdown-button").val() == "3") {
-                for (var i = 0; i < 13; i++) {
-                    if (i == 0 || i == 12) {
-                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
-                            stroke: '#7BA643'
-                            , strokeWidth: 10
-                            , selectable: false
-                            , hasControls: false
-                            , hoverCursor: 'default'
-                        }));
-                    }
-                    else {
-                        canvas.add(new fabric.Line([i * grid, 0, i * grid, 600], {
-                            stroke: 'black'
-                            , selectable: false
-                            , hasControls: false
-                            , hoverCursor: 'default'
-                        }));
-                    }
-                }
-                for (var i = 0; i < 13; i++) {
-                    if (i == 0 || i == 12) {
-                        canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
-                            stroke: '#7BA643'
-                            , strokeWidth: 10
-                            , selectable: false
-                            , hasControls: false
-                            , hoverCursor: 'default'
-                        }));
-                    }
-                    else {
-                        canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
-                            stroke: 'black'
-                            , selectable: false
-                            , hasControls: false
-                            , hoverCursor: 'default'
-                        }));
-                    }
-                }
-            }
-            canvas.renderAll();
-        });
-        var json = '';
-        document.getElementById('save').addEventListener('click', function () {
-            json = (JSON.stringify(canvas));
-            console.log(json);
-            canvas.clear();
-        });
-        document.getElementById('load').addEventListener('click', function () {
-            canvas.loadFromJSON(json, function () {
-                canvas.renderAll();
-            });
-        });
     </script>
     <div class="wd-l-Footer">
         <div class="wd-l-Footer-inner">
-            <div class="GLimage"> <img src="img/footer.jpg" /> </div>
+            <div class="GLimage"> <img src="img/footer.png" /> </div>
             <div class="wd-l-PageFooter" id="footer" role="contentinfo">
                 <div class="wd-l-PageFooter-inner">
                     <div class="wd-Grid wd-Grid--fitToFill wd-Grid--noGutter">

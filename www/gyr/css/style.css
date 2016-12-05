@@ -3,6 +3,10 @@ body {
     font-family: 'Univers LT Std', sans-serif;
 }
 
+#header {
+    margin-bottom: 20px;
+}
+
 #intro {
     margin-left: 200px;
     margin-right: 200px;
@@ -10,22 +14,33 @@ body {
     color: #7BA643;
 }
 
-.fullcontent {
+#fullcontent {
+    position: relative;
     background-color: white;
-    margin-left: 300px;
-    margin-right: 300px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    top: 0;
+    bottom: 0;
+    left: 17%;
+    right: 0%;
+    margin: auto;
+    margin-bottom: 20px;
     border: 5px solid white;
     border-radius: 20px;
 }
 
-.item-thumbnail {
-    width: 85px;
+#importantbody {
+    margin: auto;
 }
 
-#section {
-    height: 700px;
+#theimg {
+    position: absolute;
+    z-index: 1;
+    opacity: 1;
+    width: 500px;
+    height: 200px;
+}
+
+.item-thumbnail {
+    width: 85px;
 }
 
 .collapsible {
@@ -48,13 +63,14 @@ body {
 }
 
 .draggable-menu-wrapper {
+    display: inline-block;
     width: 370px;
-    margin-left: 820px;
-    margin-top: -680px;
 }
 
 .collapsible-body {
     background-color: white;
+    height: 250px;
+    overflow: scroll;
 }
 
 .layer {
@@ -80,14 +96,15 @@ body {
 .canvas-container {
     width: 800px;
     height: 800px;
-    margin-left: 100px;
-    margin-top: 20px;
+    margin-top: 25px;
+    margin-left: 75px;
+    display: inline-block;
 }
 
 .btn {
     color: #FFFFFF !important;
     background-color: #7BA643 !important;
-    margin-left: 100px;
+    margin-left: 75px;
     width: 220px;
 }
 
@@ -97,59 +114,36 @@ body {
 }
 
 #dropdown1 {
-    margin-left: 325px;
+    margin-left: 100px;
 }
 
-
-/*#imageDialog {
-    background-color: green;
-    font-size: 10px;
-    font-family: "Times New Roman", Times, serif;
-    color: #fff;
-    border-radius: 7px;
-    padding: 5px 5px;
+.tooltiptext {
+    visibility: visible;
+    font-family: 'Univers LT Std', sans-serif;
+    font-size: 20px;
+    width: 500px;
+    background-color: #7BA643;
+    color: white;
+    text-align: left;
+    padding: 15px 15px;
+    border-radius: 20px;
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
 }
 
-#imageDialog::after {
+.tooltiptext::after {
     content: "";
     position: absolute;
-    top: 80%;
+    top: 50%;
     right: 100%;
-    margin-top: -6px;
-    border-width: 7px;
+    margin-left: -5px;
+    border-width: 5px;
     border-style: solid;
-    border-color: transparent green transparent transparent;
-}*/
-
-.tooltip {
-    margin: 8px;
-    padding: 8px;
-    border: 1px solid blue;
-    color: #fff;
-    background-color: green;
-    position: absolute;
-    z-index: 2;
+    border-color: transparent #7BA643 transparent transparent;
 }
 
-#theimg {
-    margin: 8px;
-    padding: 8px;
-    background-color: lightgreen;
-    position: absolute;
-    z-index: 2;
+.item-thumbnail {
+    width: 100px;
+    height: 100px;
 }
-
-
-/*#images div {
-    border-top: 1px solid green;
-    border: 1px solid green;
-    height: 150px;
-    overflow: scroll;
-}
-
-#images h2 {
-    text-align: center;
-    background-color: antiquewhite;
-    font-family: "Times New Roman", Times, serif;
-    color: forestgreen;
-}*/

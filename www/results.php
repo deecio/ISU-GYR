@@ -10,6 +10,9 @@
 <link href="css/baseV4.css" rel="stylesheet">
 <link href="http://yandex.st/highlightjs/8.0/styles/tomorrow.min.css" media="all" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 <link href="css/TriviaStyle.css" media="all" rel="stylesheet" />
 	<style >pre{
 	background-color: #f5f5f5;
@@ -125,27 +128,33 @@ h3 code{
                 <div class="wd-l-Navbar">
                     <div class="wd-l-Navbar-inner">
                         <div role="navigation">
-                            <ul class="wd-Navigation">
-                                <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="index.html">Home</a>
-                                </li>
-								<li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="gyr/apartment.html">Interactive Apartment</a>
-                                </li>
-                                <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="ShoppingCartPage/ShoppingCart.html">Savings Cart</a>
-                                </li>
-                                <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="information.html">Information</a>
-                                </li>
-                                <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link is-active" href="index.php">Quiz Results</a>
-                                </li>
-                                <li class="wd-Navigation-node">
-                                    <a class="wd-Navigation-link" href="FactPage.html">Green Living Facts</a>
-                                </li>
-                            </ul>
-                        </div>
+                                <ul class="wd-Navigation">
+                                    <li class="wd-Navigation-node">
+                                        <a class="wd-Navigation-link" href="index.html">Home</a>
+                                    </li>
+                                    <li class="wd-Navigation-node">
+                                        <a class="wd-Navigation-link" href="gyr/apartment.html">Interactive Room</a>
+                                    </li>
+                                    <li class="wd-Navigation-node">
+                                        <a class="wd-Navigation-link" href="ShoppingCartPage/ShoppingCart.html">Sustainability Savings Cart</a>
+                                    </li>
+                                    <li class="wd-Navigation-node">
+                                        <a class="wd-Navigation-link" href="FactPage.html">Green Living Tips</a>
+                                    </li>
+                                    <li class="wd-Navigation-node">
+                                        <a class="wd-Navigation-link" href="QuizPage.html">Green Living Quiz</a>
+                                    </li>
+									<li class="wd-Navigation-node">
+                                        <a class="wd-Navigation-link is-active" href="#">Green Living Quiz Results</a>
+                                    </li>
+                                    <li class="wd-Navigation-node">
+                                        <a class="wd-Navigation-link" href="information.html">Additional Resources</a>
+                                    </li>
+                                    <li class="wd-Navigation-node right hide-on-med-and-down" align="right">
+                                        <a class="wd-Navigation-link" href="admin/index.html">Admin</a>
+                                    </li>
+                                </ul>
+                            </div>
                         <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
                             <option value="index.html">Home</option>
                             <option value="savingscart.html" selected="selected">Savings Cart</option>
@@ -172,6 +181,11 @@ h3 code{
 												$questionCounter = 0;
 												$totalCorrect = 0;
 
+												if(!empty($_POST)){
+													$totalCorrect++;
+													$questionCounter++;
+												}
+
 												foreach($_POST as $answer){
 													$questionCounter += 2;
 													if($answer == 'a' || $answer == 'A'){
@@ -188,22 +202,23 @@ h3 code{
 												}
 											?>
 
-											<?php if(($totalCorrect / $questionCounter) >= .75) : ?>
+											<?php if($questionCounter == 0 : ?>
+													<h3 class="result-state">Looks like you haven't taken the quiz yet!</h3>
+													<h3 class="result-state">Click the button below to go to the quiz:</h3>
+													<a class="waves-effect waves-light btn quiz-button" href="QuizPage.html">Take the Quiz!</a><br>
+											<?php elseif(($totalCorrect / $questionCounter) >= .75) : ?>
+													<h3 class="result-state">SEQUOIA</h3>
 													<img class="result-image" src="img/QuizResults/Expert.PNG">
-													<h3 class="result-state">You are a Green Living expert!</h3>
+													<h3 class="result-state">A celebration is to be had for your expansive knowledge and commitment to sustainable efforts.</h3>
 											<?php elseif(($totalCorrect / $questionCounter) >= .50) : ?>
+													<h3 class="result-state">SAPLING</h3>
 													<img class="result-image" src="img/QuizResults/Intermediate.PNG">
-													<h3 class="result-state">You are competent with Green Living!</h3>
+													<h3 class="result-state">You are on the path to greatness as your "green" knowledge blooms with each great action towards living sustainably.</h3>
 											<?php else : ?>
+													<h3 class="result-state">SPROUT</h3>
 													<img class="result-image" src="img/QuizResults/Beginner.PNG">
-													<h3 class="result-state">You are still a beginner in Green Living!</h3>
+													<h3 class="result-state">The spark has been lit! Right here is the opportunity you seek to expand your budding understanding for sustainability.</h3>
 											<?php endif; ?>
-									        
-											<div class="score"  
-												<?php echo '<div id="results">Your Green Score: '; ?>  
-												<?php echo $totalCorrect; ?> Points
-											</div>
-									        
 
 										</div>
 
@@ -217,7 +232,7 @@ h3 code{
             <div class="wd-l-Footer-inner">
 
                 <div class="GLimage">
-                    <img src="img/footer.jpg" />
+                    <img src="img/footer.png" />
                 </div>
 
                 <div class="wd-l-PageFooter" id="footer" role="contentinfo">

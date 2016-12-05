@@ -131,10 +131,16 @@
                                         <a class="wd-Navigation-link" href="FactPage.html">Green Living Tips</a>
                                     </li>
                                     <li class="wd-Navigation-node">
-                                        <a class="wd-Navigation-link" href="results.php">Quiz Results</a>
+                                        <a class="wd-Navigation-link" href="QuizPage.html">Green Living Quiz</a>
+                                    </li>
+                                    <li class="wd-Navigation-node">
+                                        <a class="wd-Navigation-link" href="results.php">Green Living Quiz Results</a>
                                     </li>
                                     <li class="wd-Navigation-node">
                                         <a class="wd-Navigation-link" href="information.html">Additional Resources</a>
+                                    </li>
+                                    <li class="wd-Navigation-node right hide-on-med-and-down" align="right">
+                                        <a class="wd-Navigation-link" href="admin/index.html">Admin</a>
                                     </li>
                                 </ul>
                             </div>
@@ -161,8 +167,8 @@
                                             <a href="gyr/apartment.html">
                                                 <img src="img/FrontpagePics/friley.jpg">
                                                 <div class="caption center-align">
-                                                    <h3>Green Living Interactive Apartment</h3>
-                                                    <h5 class="light grey-text text-lighten-3">Click here to customize a virtual living space!</h5>
+                                                    <h3>Interactive Room</h3>
+                                                    <h5 class="light grey-text text-lighten-3">Customize your own virtual living space and learn how the items you furnish your room with can make a sustainable difference!</h5>
                                                 </div>
                                             </a>
                                         </li>
@@ -171,8 +177,8 @@
                                             <a href="ShoppingCartPage/ShoppingCart.html">
                                                 <img src="img/FrontpagePics/freddy.jpg">
                                                 <div class="caption center-align">
-                                                    <h3>Green Living Shopping Cart</h3>
-                                                    <h5 class="light grey-text text-lighten-3">Looking to substitute some of your household items for something more sustainable? Click here to find out how much you can save!</h5>
+                                                    <h3>Sustainability Savings Cart</h3>
+                                                    <h5 class="light grey-text text-lighten-3">Looking to substitute some of your household items for something more sustainable? Learn about the impact your products make and how your choices can make a difference!</h5>
                                                 </div>
                                             </a>
                                         </li>
@@ -180,16 +186,16 @@
                                         <li>
                                             <a href="FactPage.html">
                                                 <img src="img/FrontpagePics/martin.jpg">
-                                                <div class="caption center-align">
-                                                    <h3>Green Living Facts</h3>
-                                                    <h5 class="light grey-text text-lighten-3">Click here to check out some facts about Green Living!</h5>
+                                                <div class="caption center-align martin">
+                                                    <h3>Green Living Tips</h3>
+                                                    <h5 class="light grey-text text-lighten-3">From lighting to transportation, learn the many different ways that you can make your living space greener and more environmentally friendly!</h5>
                                                 </div>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="row">
-                                    <p class="centered col s6 offset-s3">The ISU Office of Sustainabilty presents a new activity to teach students the importance of Green Living, as well as actions that anyone can take to make their homes a more sustainable place.</p>
+                                    <p class="centered col s6 offset-s3">Making the move from your hometown to college is a big deal! It’s fun to plan out the perfect layout, colors, and pillow arrangements for your new space. As you’re entering this new phase, take a moment to consider your environmental impact in your new Iowa State home. From turning off the lights to using refillable water bottles, “greening” your residence is now easier than ever! All it takes is a little creativity!</p>
                                 </div>
                             </div>
                         </div>
@@ -197,33 +203,10 @@
                         <div class="col-xs-4">
                             <div ng-app="gyrApp">
                                 <div class="centered">
-                                    <div ng-controller="QuizController">
-                                        <br>
-                                        <!-- Modal Trigger -->
-                                        <h4 class="home-page">Test your Green Living knowledge!</h4>
-                                        <a class="waves-effect waves-light btn modal-trigger quiz-button" onclick="$('#modal1').openModal();">Find out how green you are!</a><br>
-
-                                        <div id="modal1" class="modal modal-fixed-footer">
-                                            <div class="modal-content">
-                                                <form action="results.php" method="post" id="quiz">
-                                                    <h4>{{data.quiz.title}}</h4>
-                                                    <ol>
-                                                        <li align="left" ng-repeat="q in data.quiz.questions">
-                                                            <h6 align="left">{{q.label}}</h6>
-                                                            <div ng-repeat="a in q.answers">
-                                                                <input type="{{q.type}}" name="{{q.id}}" id="{{q.id}}-{{a.id}}" value="{{a.value}}" />
-                                                                <label for="{{q.id}}-{{a.id}}" align="left">{{a.label}}</label>
-                                                            </div>
-                                                        </li>
-                                                    </ol>
-                                                    <input type="submit" value="Submit Quiz" class="btn" />
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Thanks!</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <br>
+                                    <!-- Modal Trigger -->
+                                    <h4 class="home-page">Test your Green Living knowledge!</h4>
+                                    <a class="waves-effect waves-light btn quiz-button" href="QuizPage.html">Find out how green you are!</a><br>
                                 </div>
                                 <!-- include script tags -->
                                 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -262,7 +245,7 @@
                 <div class="wd-l-Footer-inner">
 
                     <div class="GLimage">
-                        <img src="img/footer.jpg" />
+                        <img src="img/footer.png" />
                     </div>
 
                     <div class="wd-l-PageFooter" id="footer" role="contentinfo">
