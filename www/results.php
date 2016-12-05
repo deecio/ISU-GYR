@@ -197,7 +197,7 @@ h3 code{
 								}
 							?>
 
-							<?php if($questionCounter == 0 : ?>
+							<?php if($questionCounter == 0) : ?>
 									<h3 class="result-state">Looks like you haven't taken the quiz yet!</h3>
 									<h3 class="result-state">Click the button below to go to the quiz:</h3>
 									<a class="waves-effect waves-light btn quiz-button" href="QuizPage.html">Take the Quiz!</a><br>
