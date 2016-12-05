@@ -290,7 +290,7 @@ function httpService($http) {
     }
 }
 angular.module('gyrApp', []).service('httpService', httpService)
-    .controller('QuizController', function($scope, httpService) {
+    .controller('QuizControllerDB', function($scope, httpService) {
         $scope.data = {};
 
         $scope.data.answers = [{
