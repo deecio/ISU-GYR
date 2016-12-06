@@ -199,7 +199,7 @@ h3 code{
 											<td>{{d.text}}</td>
 					            <td>{{d.hyperlink}}</td>
 											<td>
-												<a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteFact()">
+												<a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteFact(i, data.db_result, $index)">
 													<i class="material-icons">delete</i>
 												</a>
 											</td>
@@ -279,7 +279,16 @@ h3 code{
 										$scope.data = rtn.data;
 								});
 
-				});
+								$scope.deleteFact = function(item, array, index){
+									array.splice(index, 1);
+									httpService.post("http://greenyourresidence.ece.iastate.edu:3000/DeleteFact", {
+										 iid:item.fid
+									 })
+							 // This is where the response is received v
+									 .then(function(rtn) {
+									 });
+								 }
+					 });
 
 </script>
 

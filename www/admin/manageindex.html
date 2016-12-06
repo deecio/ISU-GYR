@@ -202,7 +202,7 @@ h3 code{
 															<td>{{d.tooltip}}</td>
 									            <td>{{d.hyperlink}}</td>
 															<td>
-																<a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteHomeItem()">
+																<a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteHomeItem(i, data.db_result, $index)">
 																	<i class="material-icons">delete</i>
 																</a>
 															</td>
@@ -281,7 +281,16 @@ h3 code{
 										$scope.data = rtn.data;
 								});
 
-				});
+								$scope.deleteHomeItem = function(item, array, index){
+									array.splice(index, 1);
+									httpService.post("http://greenyourresidence.ece.iastate.edu:3000/DeleteHomeItem", {
+										 iid:item.id
+									 })
+							 // This is where the response is received v
+									 .then(function(rtn) {
+									 });
+								 }
+					 });
 
 </script>
 
