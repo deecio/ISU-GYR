@@ -274,13 +274,16 @@ h3 code{
 										$scope.data = rtn.data;
 								});
 					 $scope.deleteInformation = function(item){
-						 httpService.get("http://greenyourresidence.ece.iastate.edu:3000/DeleteInformation")
- 						// This is where the response is received v
- 								.then(function(rtn) {
- 										$scope.data = rtn.data;
- 								});
-					 }
-				});
+						 httpService.post("http://greenyourresidence.ece.iastate.edu:3000/DeleteInformation")
+								title:$scope.title
+					})
+					// This is where the response is received v
+							.then(function(rtn) {
+									$scope.data = rtn.data;
+							});
+							$route.reload();
+						}
+			});
 </script>
 </body>
 </html>
