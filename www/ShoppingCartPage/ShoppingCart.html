@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Live Green! Shopping Cart</title>
 </head>
-<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="ItemListApp" ng-controller="ListController">
+<body class="responsive wd-p-Responsive wd-show-sidebar wd-p-ShowSidebar" ng-app="gyrApp" ng-controller="ShoppingCartViewerDB">
     <div class="wd-l-Header hwrapper" id="header">
         <div class="wd-l-Header-inner">
             <div class="wd-l-TopStrip isu-dark-ribbon" id="top-strip">
@@ -154,7 +154,7 @@
                 <div class="col-xs-4 filter" ng-repeat="filter in filters">
                     <div class="card filter-card" ng-click="setFilter(filter);" onclick="switchShopScreens('.InitItemScreen'); showSidebar();">
                         <div class="">
-                            <img class="filter-image" src="{{filter.icon}}" />
+                            <img class="filter-image" src="{{filter.image}}" />
                         </div>
                         <a href="" class="btn btn-default waves-effect waves-light">{{filter.name}}</a>
                     </div>
@@ -174,10 +174,10 @@
                     Select the item you CURRENTLY own:
                 </h2>
                 <div class="items">
-                    <div class="col-lg-4 centered item-slot" ng-repeat="item in items | filter: selectedFilter.filterExpr">
+                    <div class="col-lg-4 centered item-slot" ng-repeat="item in data.db_result | filter: selectedFilter.filterExpr">
                         <a class="item-button" ng-click="setFirstCost(item.monthly_cost, item);">
                             <div class="card z-depth-0">
-                                <img class="card-image" ng-src="{{item.icon}}" />
+                                <img class="card-image" ng-src="{{item.image}}" />
                                 <h3 class="item-name">{{item.name}}</h3>
                                 <h4 class="price">{{item.monthly_cost | currency}} per month</h4>
                             </div>
@@ -196,7 +196,7 @@
                     <div class="col-lg-4 centered item-slot" ng-repeat="item in items | filter: selectedFilter.filterExpr">
                         <a class="item-button" ng-click="setSecondCost(item.monthly_cost, item);" onclick="resetActive();">
                             <div class="card z-depth-0">
-                                <img class="card-image" ng-src="{{item.icon}}" />
+                                <img class="card-image" ng-src="{{item.image}}" />
                                 <h3 class="item-name">{{item.name}}</h3>
                                 <h4 class="price">{{item.monthly_cost | currency}} per month</h4>
                             </div>
@@ -268,7 +268,7 @@
 
 
                                         <div class="content">
-                                            <p>Copyright © 1995-2016, Iowa State University of Science and Technology. All rights reserved.</p>
+                                            <p>Copyright ï¿½ 1995-2016, Iowa State University of Science and Technology. All rights reserved.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -288,7 +288,83 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
     <script src="app.js"></script>
-    <script src="ListController.js"></script>
+    <!-- <script src="ListController.js"></script> -->
     <script type="text/javascript" charset="utf-8" src="js/fabric.min.js"></script>
+    <script>
+    		function httpService($http) {
+    				this.get = function(url) {
+    						return $http.get(url);
+    				}
+    				this.post = function(url, data) {
+    						return $http.post(url, data);
+    				}
+    		}
+    		angular.module('gyrApp', []).service('httpService', httpService)
+    				.controller('ShoppingCartViewerDB', function($scope, httpService) {
+
+              //Daniel's code to do the calculations
+              $scope.title = 'Item List Test';
+              $scope.diff = 0;
+              $scope.initCost = 0;
+              $scope.newCost = 0;
+
+              $scope.firstItem = [];
+              $scope.secondItem = [];
+              $scope.diffSet = [];
+
+              $scope.filters = [
+                  { name: 'All', filterExpr: '', image: '../img/world.png' },
+                  { name: 'Lighting', filterExpr: { category: 'lighting' }, image: '../img/fluorbulb.jpg' },
+                  { name: 'Blenders', filterExpr: { category: 'Blenders' }, image: '../img/blender.jpg' },
+                  { name: 'Gaming Consoles', filterExpr: { category: 'Gaming Consoles' }, image: '../img/fluorbulb.jpg' },
+                  { name: 'Televisions', filterExpr: { category: 'Televisions' }, image: '../img/miniFridge.jpg' },
+                  { name: 'Printers', filterExpr: { category: 'Printers' }, image: '../img/blender.jpg' },
+                  { name: 'Computers', filterExpr: { category: 'Computers' }, image: '../img/fluorbulb.jpg' },
+                  { name: 'Coffee Maker', filterExpr: { category: 'Coffee Maker' }, image: '../img/miniFridge.jpg' },
+                  { name: 'Microwave', filterExpr: { category: 'Microwave' }, image: '../img/microwave.jpg' },
+                  { name: 'Refrigerator', filterExpr: { category: 'Refrigerator' }, image: '../img/miniFridge.jpg' }
+
+                  // Commenting this part out for now, bring back when screen 3 filters are changed to match the item, not the filter from screen 1.
+                  //{ name: 'Energy Star Approved', filterExpr: { eStar: true } }
+              ];
+
+              $scope.currentFilter = $scope.filters[0];
+
+              $scope.setFilter = function (filter) {
+                  $scope.selectedFilter = filter;
+              }
+
+              $scope.switchShopScreens = function (screenClass) {
+                  $(".shop-screen").hide();
+
+                  $(screenClass).fadeIn();
+              };
+
+              $scope.setFirstCost = function (value, item) {
+                  $scope.initCost = value;
+                  $scope.FI = item;
+                  switchShopScreens(".SecondItemCategory");
+              }
+
+              $scope.setSecondCost = function (value, item) {
+                  $scope.firstItem.push($scope.FI);
+                  $scope.secondItem.push(item);
+                  $scope.newCost = value;
+                  $scope.diff += $scope.initCost - $scope.newCost;
+                  $scope.diffSet.push($scope.initCost - $scope.newCost);
+                  $scope.setFilter('');
+                  switchShopScreens(".InitItemScreen");
+              }
+
+              //Database call
+    						$scope.data = {};
+    						httpService.get("http://greenyourresidence.ece.iastate.edu:3000/ShoppingCartViewerDB")
+    						// This is where the response is received v
+    								.then(function(rtn) {
+    										$scope.data = rtn.data;
+    								});
+    					 });
+
+    </script>
 </body>
 </html>
