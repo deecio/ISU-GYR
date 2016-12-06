@@ -197,7 +197,7 @@ h3 code{
 			                      <td>{{i.hyperlink}}</td>
 														<td>{{i.category}}</td>
 														<td>
-															<a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteInformation(i)">
+															<a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteInformation(i, data.db_result, $index)">
 																<i class="material-icons">delete</i>
 															</a>
 														</td>
@@ -266,13 +266,6 @@ $(document).ready(function()
 				}
 		}
 		angular.module('gyrApp', []).service('httpService', httpService)
-		// .config(function ($httpProvider) {
-		// 	$httpProvider.defaults.headers.common = {};
-		// 	$httpProvider.defaults.headers.post = {};
-		// 	$httpProvider.defaults.headers.put = {};
-		// 	$httpProvider.defaults.headers.patch = {};
-		// 	$httpProvider.defaults.headers.get = {};
-		// })
 				.controller('InformationViewerDB', function($scope, httpService) {
 
 
@@ -284,7 +277,8 @@ $(document).ready(function()
 										$scope.data = rtn.data;
 								});
 
-					 $scope.deleteInformation = function(item){
+					 $scope.deleteInformation = function(item, array, index){
+						 array.splice(index, 1);
 						 console.log(item.uid);
 						 httpService.post("http://greenyourresidence.ece.iastate.edu:3000/DeleteInformation", {
 								iid:item.uid
