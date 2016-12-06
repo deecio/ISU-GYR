@@ -290,6 +290,7 @@ $(document).ready(function() {
 								.then(function(rtn) {
 										$scope.data = rtn.data;
 								});
+								$scope.reloadPage = function(){$window.location.reload();}
 								$scope.title = '';
 								$scope.info_link = '';
 								$scope.category = '';
