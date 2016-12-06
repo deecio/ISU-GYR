@@ -186,32 +186,29 @@ h3 code{
 
 											<div ng-controller="QuestionViewerDB">
 											<table class="bordered highlight responsive-table text-darken-2 flow-text responsive-table">
-							        <thead>
-							          <tr style="font-size: x-large;">
-													<th data-field="category">Category</th>
-							            <th data-field="question">Question</th>
-													<th></th>
-							          </tr>
-							        </thead>
-
-							        <tbody>
-							          <tr ng-repeat="q in data.db_result" style="font-size: large;">
-							            <td>{{q.category}}</td>
-													<td>{{q.question}}</td>
-													<td>
-														<a class="btn-floating btn-large waves-effect waves-light red">
-															<i class="material-icons">delete</i>
-														</a>
-													</td>
-							          </tr>
-							        </tbody>
+								        <thead>
+								          <tr style="font-size: x-large;">
+														<th data-field="category">Category</th>
+								            <th data-field="question">Question</th>
+														<th></th>
+								          </tr>
+								        </thead>
+								        <tbody>
+								          <tr ng-repeat="q in data.db_result" style="font-size: large;">
+								            <td>{{q.category}}</td>
+														<td>{{q.question}}</td>
+														<td>
+															<a class="btn-floating btn-medium waves-effect waves-light red">
+																<i class="material-icons">delete</i>
+															</a>
+														</td>
+								          </tr>
+								        </tbody>
 							      </table>
 									</div>
-
                 </div>
             </div>
         </div>
-
 		<div id="loading" style="display:none">Loading...</div>
 	</div>
 </div>
@@ -280,10 +277,7 @@ h3 code{
 										$.extend($scope, rtn);
 										console.log("/QuestionViewerDB Response", $scope);
 								});
-
 				});
-
 </script>
-
 </body>
 </html>
