@@ -190,6 +190,7 @@ h3 code{
 							          <tr style="font-size: x-large;">
 													<th data-field="category">Category</th>
 							            <th data-field="question">Question</th>
+													<th></th>
 							          </tr>
 							        </thead>
 
@@ -197,53 +198,12 @@ h3 code{
 							          <tr ng-repeat="q in data.db_result" style="font-size: large;">
 							            <td>{{q.category}}</td>
 													<td>{{q.category}}</td>
+													<td>
+														<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+													</td>
 							          </tr>
 							        </tbody>
 							      </table>
-
-										<!-- Testing ng-Table: edit/delete functionality -->
-										<table ng-table="vm.tableParams" ng-repeat="q in data.db_result" class="table table-bordered table-hover table-condensed editable-table ng-valid ng-scope ng-pristine ng-table ng-dirty" show-filter="true">
-											<tbody ng-repeat="q in data.db_result">
-												<tr>
-										        <td title="'Category'" filter="{ category: 'text'}" sortable="'category'">
-										            <span ng-switch-default class="editable-text ng-binding ng-cope">
-																	{{q.category}}
-																</span>
-														</td>
-										        <td title="'Question'" filter="{ question: 'text'}" sortable="'question'">
-										            <span ng-switch-default class="editable-text ng-binding ng-cope">
-																	{{q.category}}
-																</span>
-														</td>
-														<td>
-															<button class="btn btn-default brn-sm ng-scope" ng-click="row.isEditing = true" ng-if="!row.isEditing">
-																<span class="glyphicon glyphicon-pencil">
-																	::before
-																</span>
-															</button>
-															<!-- end ngIf: !row.isEditing -->
-															<!-- ngIf: !row.isEditing -->
-															<button class="btn btn-danger btn-small ng-scope" ng-click="data.del(row)" ng-if="!row.isEditing">
-																<span class="glyphicon glyphicon-trash">
-																	::before
-																</span>
-															</button>
-														</td>
-										    </tr>
-											</tbody>
-										</table>
-
-
-										<table ng-table-dynamic="$ctrl.tableParams with $ctrl.cols" class="table">
-											 <tr>
-											   	<td>
-														<span ng-switch-default class="editable-text ng-binding ng-cope">
-															{{row[col.field]}}
-														</td>
-													</span>
-											 </tr>
-										</table>
-
 									</div>
 
                 </div>
