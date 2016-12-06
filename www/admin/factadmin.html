@@ -122,7 +122,7 @@ h3 code{
 						<div class="wd-l-MastTitle-siteTitle site-title sub-title">
 							<a href="/">Office of Sustainability</a>
 						</div>
-                    </div>
+          </div>
 				</div>
                 <div class="wd-l-Navbar">
                     <div class="wd-l-Navbar-inner">
@@ -163,76 +163,74 @@ h3 code{
                         </select>
                     </div>
                 </div>
-			</div>
-		</div>
+							</div>
+						</div>
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-lg-12 text-center">
+											<h3> Manage Facts </h3>
+												<nav>
+													 <div class="nav-wrapper teal lighten-2">
+														 <ul class="center hide-on-med-and-down">
+															 <li class="active"><a href="factadmin.html">Add Fact</a></li>
+															 <li><a href="managefacts.html">View/Manage Facts</a></li>
+														 </ul>
+													 </div>
+												 </nav>
+												<hr>
+												<br>
+											<div class="row" ng-controller="AddFactDB">
+													<form class="col s12">
+														<div class="row">
+															<div class="input-field col s6" style="text-align:left">
+																<input id="name" type="text" class="validate" ng-model="name">
+																<label for="name">Fact Title</label>
+															</div>
+														</div>
+														<div class="input-field col s12">
+													    <select id="category" >
+													      <option value="" disabled selected>Choose your category</option>
+													      <option value="CleanSupplies">Green Supplies</option>
+													      <option value="Recycling">Recycling</option>
+													      <option value="Lighting">Lighting</option>
+																<option value="Electronics">Electronics</option>
+																<option value="GreenBuying">Green Buying</option>
+													    </select>
+													    <label>Category</label>
+													  </div>
 
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-									<h3> Manage Facts </h3>
-										<nav>
-											 <div class="nav-wrapper teal lighten-2">
-												 <ul class="center hide-on-med-and-down">
-													 <li class="active"><a href="factadmin.html">Add Fact</a></li>
-													 <li><a href="managefacts.html">View/Manage Facts</a></li>
-												 </ul>
-											 </div>
-										 </nav>
-										<hr>
-										<br>
-									<div class="row" ng-controller="AddFactDB">
-											<form class="col s12">
-												<div class="row">
-													<div class="input-field col s6" style="text-align:left">
-														<input id="name" type="text" class="validate" ng-model="name">
-														<label for="name">Fact Title</label>
-													</div>
+														<div class="row">
+															<div class="input-field col s12">
+																<textarea id="fact_description" class="materialize-textarea" ng-model="text"></textarea>
+																	<label for="fact_description">Fact Description</label>
+															</div>
+														</div>
+														<div class="row">
+															<div class="input-field col s12" style="text-align:left">
+																<input id="hyperlink" type="text" class="validate" ng-model="hyperlink" placeholder="http://www.postyoursoucelinkhere.com">
+																<label for="hyperlink">Hyperlink</label>
+															</div>
+														</div>
+														<br><br>
+														<form action="#">
+													    <div class="file-field input-field">
+																<div class="btn">
+													        <span>Upload Image</span>
+													        <input type="file" ng-model="image">
+													      </div>
+													      <div class="file-path-wrapper">
+													        <input class="file-path validate" type="text">
+													      </div>
+													    </div>
+													  </form>
+														<br> <hr> <br>
+														<tr>
+															<button class="btn" ng-click="submitFact()">
+																<span>Add Fact</span>
+															</button>
+														</tr>
+													</form>
 												</div>
-												<div class="input-field col s12">
-											    <select id="category" >
-											      <option value="" disabled selected>Choose your category</option>
-											      <option value="CleanSupplies">Green Supplies</option>
-											      <option value="Recycling">Recycling</option>
-											      <option value="Lighting">Lighting</option>
-														<option value="Electronics">Electronics</option>
-														<option value="GreenBuying">Green Buying</option>
-											    </select>
-											    <label>Category</label>
-											  </div>
-
-												<div class="row">
-													<div class="input-field col s12">
-														<textarea id="fact_description" class="materialize-textarea" ng-model="text"></textarea>
-															<label for="fact_description">Fact Description</label>
-													</div>
-												</div>
-												<div class="row">
-													<div class="input-field col s12" style="text-align:left">
-														<input id="hyperlink" type="text" class="validate" ng-model="hyperlink" placeholder="http://www.postyoursoucelinkhere.com">
-														<label for="hyperlink">Hyperlink</label>
-													</div>
-												</div>
-												<br><br>
-												<form action="#">
-											    <div class="file-field input-field">
-														<div class="btn">
-											        <span>Upload Image</span>
-											        <input type="file" ng-model="image">
-											      </div>
-											      <div class="file-path-wrapper">
-											        <input class="file-path validate" type="text">
-											      </div>
-											    </div>
-											  </form>
-												<br> <hr> <br>
-												<tr>
-													<button class="btn" ng-click="submitFact()">
-														<span>Add Fact</span>
-													</button>
-												</tr>
-											</form>
-										</div>
 
                 </div>
             </div>

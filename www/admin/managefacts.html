@@ -163,11 +163,11 @@ h3 code{
                         </select>
                     </div>
                 </div>
-			</div>
-			</div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
+							</div>
+						</div>
+		      	<div class="container">
+        		<div class="row">
+          	<div class="col-lg-12 text-center">
 						<h3> Manage Facts </h3>
 							<nav>
 								 <div class="nav-wrapper teal lighten-2">
@@ -187,6 +187,7 @@ h3 code{
 					              <th data-field="file">Image</th>
 					              <th data-field="description">Description</th>
 												<th data-field="hyperlink">Hyperlink</th>
+												<th>Delete</th>
 					          </tr>
 					        </thead>
 
@@ -197,6 +198,11 @@ h3 code{
 					            <td>{{d.image}}</td>
 											<td>{{d.text}}</td>
 					            <td>{{d.hyperlink}}</td>
+											<td>
+												<a class="btn-floating btn-medium waves-effect waves-light red">
+													<i class="material-icons">delete</i>
+												</a>
+											</td>
 					          </tr>
 					        </tbody>
 					      </table>

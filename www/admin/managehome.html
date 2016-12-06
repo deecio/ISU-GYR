@@ -171,43 +171,38 @@ h3 code{
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
+									<h3> Manage Home </h3>
+									<!-- <a class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">+</i></a> -->
+									<ul class="pagination">
+									    <li class="disabled"><a href="addquestion.html"><i class="material-icons"><</i></a></li>
+									    <li class="active"><a href="addquestion.html">Add Object</a></li>
+									    <li class="waves-effect"><a href="managequestions.html">View/Manage Objects</a></li>
+									    <li class="waves-effect"><a href="managequestions.html"><i class="material-icons">></i></a></li>
+									  </ul>
 
-
-			<h3> Manage Home </h3>
-			<!-- <a class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">+</i></a> -->
-			<ul class="pagination">
-			    <li class="disabled"><a href="addquestion.html"><i class="material-icons"><</i></a></li>
-			    <li class="active"><a href="addquestion.html">Add Object</a></li>
-			    <li class="waves-effect"><a href="managequestions.html">View/Manage Objects</a></li>
-			    <li class="waves-effect"><a href="managequestions.html"><i class="material-icons">></i></a></li>
-			  </ul>
-
-			<div class="row">
-					<form class="col s12">
-						<div class="row">
-							<div class="input-field col s6">
-								<input placeholder="Object ..." id="object_name" type="text" class="validate">
-								<label for="object_name">Object Name</label>
-							</div>
-						</div>
-						<!-- needs further editing for multiple answers -->
-						<div class="row">
-										<div class="input-field col s12">
-											<textarea id="fact_description" class="materialize-textarea"></textarea>
-											<label for="fact_description">Quiz Answers</label>
+									<div class="row">
+											<form class="col s12">
+												<div class="row">
+													<div class="input-field col s6">
+														<input placeholder="Object ..." id="object_name" type="text" class="validate">
+														<label for="object_name">Object Name</label>
+													</div>
+												</div>
+												<!-- needs further editing for multiple answers -->
+												<div class="row">
+													<div class="input-field col s12">
+														<textarea id="fact_description" class="materialize-textarea"></textarea>
+														<label for="fact_description">Quiz Answers</label>
+													</div>
+												</div>
+												<tr>
+													<td class="submit-button-right" colspan="2"><input class="submit-text" type="submit" value="Add Object" /></td>
+												</tr>
+											</form>
 										</div>
-						</div>
-						<tr>
-							<td class="submit-button-right" colspan="2"><input class="submit-text" type="submit" value="Add Object" /></td>
-						</tr>
-					</form>
-				</div>
-
-
                 </div>
             </div>
         </div>
-
 		<div id="loading" style="display:none">Loading...</div>
 	</div>
 </div>

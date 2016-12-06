@@ -188,13 +188,19 @@ h3 code{
 			                          <th data-field="title">Title</th>
 			                          <th data-field="hyperlink">Hyperlink</th>
 																<th data-field="category">Category</th>
+																<th>Delete</th>
 			                      </tr>
 			                    </thead>
 			                  <tbody>
 			                    <tr ng-repeat="i in data.db_result"  style="font-size: large;">
 			                      <td>{{i.title}}</td>
 			                      <td>{{i.hyperlink}}</td>
-														<td>{{i.category}}
+														<td>{{i.category}}</td>
+														<td>
+															<a class="btn-floating btn-medium waves-effect waves-light red">
+																<i class="material-icons">delete</i>
+															</a>
+														</td>
 			                    </tr>
 			                  </tbody>
 			                </table>
