@@ -265,7 +265,7 @@ h3 code{
 						return $http.post(url, data);
 				}
 		}
-		angular.module('gyrApp', ["ngTable"]).service('httpService', httpService)
+		angular.module('gyrApp', []).service('httpService', httpService)
 				.controller('QuestionViewerDB', function($scope, httpService) {
 
 
