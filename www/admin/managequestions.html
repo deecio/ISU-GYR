@@ -190,13 +190,13 @@ h3 code{
 								          <tr style="font-size: x-large;">
 														<th data-field="category">Category</th>
 								            <th data-field="question">Question</th>
-														<th></th>
+														<th>Delete</th>
 								          </tr>
 								        </thead>
 								        <tbody>
 								          <tr ng-repeat="q in data.db_result" style="font-size: large;">
 								            <td>{{q.category}}</td>
-														<td>{{q.question}}</td>
+														<td>{{q.label}}</td>
 														<td>
 															<a class="btn-floating btn-medium waves-effect waves-light red">
 																<i class="material-icons">delete</i>
