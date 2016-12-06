@@ -196,10 +196,54 @@ h3 code{
 							        <tbody>
 							          <tr ng-repeat="q in data.db_result" style="font-size: large;">
 							            <td>{{q.category}}</td>
-													<td>{{q.label}}</td>
+													<td>{{q.category}}</td>
 							          </tr>
 							        </tbody>
 							      </table>
+
+										<!-- Testing ng-Table: edit/delete functionality -->
+										<table ng-table="vm.tableParams" ng-repeat="q in data.db_result" class="table table-bordered table-hover table-condensed editable-table ng-valid ng-scope ng-pristine ng-table ng-dirty" show-filter="true">
+											<tbody ng-repeat="q in data.db_result">
+												<tr>
+										        <td title="'Category'" filter="{ category: 'text'}" sortable="'category'">
+										            <span ng-switch-default class="editable-text ng-binding ng-cope">
+																	{{q.category}}
+																</span>
+														</td>
+										        <td title="'Question'" filter="{ question: 'text'}" sortable="'question'">
+										            <span ng-switch-default class="editable-text ng-binding ng-cope">
+																	{{q.category}}
+																</span>
+														</td>
+														<td>
+															<button class="btn btn-default brn-sm ng-scope" ng-click="row.isEditing = true" ng-if="!row.isEditing">
+																<span class="glyphicon glyphicon-pencil">
+																	::before
+																</span>
+															</button>
+															<!-- end ngIf: !row.isEditing -->
+															<!-- ngIf: !row.isEditing -->
+															<button class="btn btn-danger btn-small ng-scope" ng-click="data.del(row)" ng-if="!row.isEditing">
+																<span class="glyphicon glyphicon-trash">
+																	::before
+																</span>
+															</button>
+														</td>
+										    </tr>
+											</tbody>
+										</table>
+
+
+										<table ng-table-dynamic="$ctrl.tableParams with $ctrl.cols" class="table">
+											 <tr>
+											   	<td>
+														<span ng-switch-default class="editable-text ng-binding ng-cope">
+															{{row[col.field]}}
+														</td>
+													</span>
+											 </tr>
+										</table>
+
 									</div>
 
                 </div>
@@ -210,6 +254,10 @@ h3 code{
 	</div>
 </div>
 <!-- include script tags -->
+<!-- Next 3 are needed for ngTable -->
+<link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+<script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script> -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -250,7 +298,11 @@ h3 code{
 			panes.eq(tabs.index(tabs.filter('.active'))).addClass('active');
 		}
 	});
-});</script>
+});
+var self = this;
+var data = [{name: "Moroni", age: 50} /*,*/];
+self.tableParams = new NgTableParams({}, { dataset: data});
+</script>
 <script>
 		function httpService($http) {
 				this.get = function(url) {
@@ -260,7 +312,7 @@ h3 code{
 						return $http.post(url, data);
 				}
 		}
-		angular.module('gyrApp', []).service('httpService', httpService)
+		angular.module('gyrApp', ["ngTable"]).service('httpService', httpService)
 				.controller('QuestionViewerDB', function($scope, httpService) {
 
 
