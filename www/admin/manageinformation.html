@@ -268,7 +268,7 @@ $(document).ready(function()
 		angular.module('gyrApp', []).service('httpService', httpService)
 				.controller('InformationViewerDB', function($scope, httpService) {
 
-					var app = config(function ($httpProvider) {
+					var app = app.config(function ($httpProvider) {
 					  $httpProvider.defaults.headers.common = {};
 					  $httpProvider.defaults.headers.post = {};
 					  $httpProvider.defaults.headers.put = {};
