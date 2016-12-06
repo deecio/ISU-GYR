@@ -267,7 +267,7 @@ h3 code{
 		angular.module('gyrApp', []).service('httpService', httpService)
 				.controller('InformationViewerDB', function($scope, httpService) {
 
-					gyrApp.config(function ($httpProvider) {
+					config(function ($httpProvider) {
 					  $httpProvider.defaults.headers.common = {};
 					  $httpProvider.defaults.headers.post = {};
 					  $httpProvider.defaults.headers.put = {};
