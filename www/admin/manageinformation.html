@@ -252,7 +252,8 @@ h3 code{
 			panes.eq(tabs.index(tabs.filter('.active'))).addClass('active');
 		}
 	});
-});</script>
+});
+</script>
 <!-- This page's angular set-up -->
 <script>
 		function httpService($http) {
@@ -274,9 +275,9 @@ h3 code{
 										$scope.data = rtn.data;
 								});
 					 $scope.deleteInformation = function(item){
-						 httpService.post("http://greenyourresidence.ece.iastate.edu:3000/DeleteInformation")
+						 httpService.post("http://greenyourresidence.ece.iastate.edu:3000/DeleteInformation", {
 								title:$scope.title
-					})
+							})
 					// This is where the response is received v
 							.then(function(rtn) {
 									$scope.data = rtn.data;
