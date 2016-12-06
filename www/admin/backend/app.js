@@ -38,10 +38,10 @@ app.get('/QuizController', function(req, res){
   res.json(rtn);
 });
 
-//View Quizzes
-app.get('/QuestionViewerDB', adminbackend.showquizzes);
-app.get('/QuizViewerDB', adminbackend.getquizzes);
+//View Questions
+app.get('/QuestionViewerDB', adminbackend.getquestions);
 app.post('/AddQuestionDB', adminbackend.addquestionDB);
+app.post('/DeleteQuestion', adminbackend.deletequestion);
 
 app.get('/QuizViewer', function(req, res){
   console.log('QuizViewer')
@@ -55,14 +55,17 @@ app.get('/QuizViewer', function(req, res){
 //Home
 app.get('/HomeViewerDB', adminbackend.gethomeitems);
 app.post('/AddHomeItem', adminbackend.addhomeitem);
+app.post('/DeleteHomeItem', adminbackend.deletehomeitem);
 
 //Shopping Cart
 app.get('/ShoppingCartViewerDB', adminbackend.getshoppingcart);
 app.post('/AddItemDB', adminbackend.additem);
+app.post('/DeleteItem', adminbackend.deleteitem);
 
 //Information
 app.get('/InformationViewerDB', adminbackend.getinformation);
 app.post('/AddInformationDB', adminbackend.addinformation);
+app.post('/DeleteInformation', adminbackend.deleteinformation);
 
 app.get('/InformationViewer', function(req, res){
   console.log('InformationViewer')
@@ -75,6 +78,7 @@ app.get('/InformationViewer', function(req, res){
 //Facts
 app.post('/AddFactDB', adminbackend.addfact);
 app.get('/FactViewerDB', adminbackend.getfacts);
+app.post('/DeleteFact', adminbackend.deletefact);
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
