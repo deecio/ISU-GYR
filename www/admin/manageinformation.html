@@ -276,7 +276,7 @@ h3 code{
 								});
 					 $scope.deleteInformation = function(item){
 						 httpService.post("http://greenyourresidence.ece.iastate.edu:3000/DeleteInformation", {
-								title:item.uid
+								uid:item.uid
 							})
 					// This is where the response is received v
 							.then(function(rtn) {
