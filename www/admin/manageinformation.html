@@ -265,16 +265,16 @@ $(document).ready(function()
 						return $http.post(url, data);
 				}
 		}
-		angular.module('gyrApp', []).service('httpService', httpService)
+		angular.module('gyrApp', []).service('httpService', httpService).config(function ($httpProvider) {
+			$httpProvider.defaults.headers.common = {};
+			$httpProvider.defaults.headers.post = {};
+			$httpProvider.defaults.headers.put = {};
+			$httpProvider.defaults.headers.patch = {};
+			$httpProvider.defaults.headers.get = {};
+		})
 				.controller('InformationViewerDB', function($scope, httpService) {
 
-					var app = angular.config(function ($httpProvider) {
-					  $httpProvider.defaults.headers.common = {};
-					  $httpProvider.defaults.headers.post = {};
-					  $httpProvider.defaults.headers.put = {};
-					  $httpProvider.defaults.headers.patch = {};
-						$httpProvider.defaults.headers.get = {};
-					});
+
 
 						$scope.data = {};
 						httpService.get("http://greenyourresidence.ece.iastate.edu:3000/InformationViewerDB")
@@ -290,7 +290,7 @@ $(document).ready(function()
 							})
 					// This is where the response is received v
 							.then(function(rtn) {
-									$scope.data = rtn.data;
+								console.log(rtn);
 							});
 						}
 			});
