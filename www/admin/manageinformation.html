@@ -197,7 +197,7 @@ h3 code{
 			                      <td>{{i.hyperlink}}</td>
 														<td>{{i.category}}</td>
 														<td>
-															<button class="btn btn-floating btn-medium waves-effect waves-light red" ng-click="deleteInformation(i.title)">
+															<button class="btn btn-floating btn-medium waves-effect waves-light red" ng-click="deleteInformation(i)">
 																<i class="material-icons">delete</i>
 															</button>
 														</td>
@@ -276,13 +276,13 @@ h3 code{
 								});
 					 $scope.deleteInformation = function(item){
 						 httpService.post("http://greenyourresidence.ece.iastate.edu:3000/DeleteInformation", {
-								title:item
+								title:item.uid
 							})
 					// This is where the response is received v
 							.then(function(rtn) {
 									$scope.data = rtn.data;
 							});
-							$route.reload();
+							$scope.reloadPage = function(){$window.location.reload();}
 						}
 			});
 </script>
