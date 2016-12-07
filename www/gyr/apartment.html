@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
-    <link rel="stylesheet" type="text/css" href="css/style.css?v=1.3">
+    <link rel="stylesheet" type="text/css" href="css/style.css?v=1.4">
     <link rel="stylesheet" type="text/css" href="css/materialize.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -97,26 +97,50 @@
                         <input name="client" type="hidden" value="default_frontend" />
                         <input name="proxystylesheet" type="hidden" value="default_frontend" />
                         <input accesskey="s" name="q" title="Search" placeholder="Search" tabindex="1" type="text" />
-                        <input name="btnG" title="Submit" type="submit" value="Search" /> </form>
-                    <a accesskey="1" class="wd-Nameplate nameplate" href="http://www.iastate.edu/"> <img alt="Iowa State University" src="img/sprite.png" /> </a>
-                    <div class="wd-l-MastTitle-siteTitle site-title sub-title"> <a href="/">Office of Sustainability</a> </div>
+                        <input name="btnG" title="Submit" type="submit" value="Search" />
+                    </form>
+                    <a accesskey="1" class="wd-Nameplate nameplate" href="http://www.iastate.edu/">
+                        <img alt="Iowa State University" src="img/sprite.png" />
+                    </a>
+
+                    <div class="wd-l-MastTitle-siteTitle site-title sub-title">
+                        <a href="/">Office of Sustainability</a>
+                    </div>
                 </div>
             </div>
             <div class="wd-l-Navbar">
                 <div class="wd-l-Navbar-inner">
                     <div role="navigation">
                         <ul class="wd-Navigation">
-                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../index.html">Home</a> </li>
-                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link is-active" href="#">Interactive Apartment</a> </li>
-                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../ShoppingCartPage/ShoppingCart.html">Savings Cart</a> </li>
-                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../information.html">Information</a> </li>
-                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../results.php">Quiz Results</a> </li>
-                            <li class="wd-Navigation-node"> <a class="wd-Navigation-link" href="../FactPage.html">Green Living Facts</a> </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="../index.html">Home</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link is-active" href="#">Interactive Room</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="../ShoppingCartPage/ShoppingCart.html">Sustainability Savings Cart</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="../FactPage.html">Green Living Tips</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="../QuizPage.html">Green Living Quiz</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="../results.php">Green Living Quiz Results</a>
+                            </li>
+                            <li class="wd-Navigation-node">
+                                <a class="wd-Navigation-link" href="../information.html">Additional Resources</a>
+                            </li>
+                            <li class="wd-Navigation-node right hide-on-med-and-down" align="right">
+                                <a class="wd-Navigation-link" href="../admin/index.html">Admin</a>
+                            </li>
                         </ul>
                     </div>
                     <select class="wd-Navigation-alt navigation-alternative" onchange="window.location=this.value" title="Navigation">
                         <option value="index.html">Home</option>
-                        <option value="gyr.html" selected="selected">Interactive Apartment</option>
+                        <option value="apartment.html" selected="selected">Interactive Room</option>
                         <option value="savingscart.html">Savings Cart</option>
                         <option value="information.html">Information</option>
                         <option value="results.php">Quiz Results</option>
@@ -128,26 +152,22 @@
     </div>
     <div class="col-xs-8" id="fullcontent">
         <header>
-            <center>
-                <img src="img/header.png" style="height: 300px; width: 1200px;">
-            </center>
+            <img src="img/header.png" style="height: 125px; width: 1225px;">
         </header>
         <!--<center>
     <p id="intro" style="font-size: 150%">
         <Strong>Design your own virtual living space and learn how the items you’re bringing into your <span style='color:red'>Iowa State</span> home can make a sustainable difference!</Strong> </p>
-</center>
-<center>
-    <div class="card-panel white"> <span class="black-text">
+</center>-->
+
+        <div class="card-panel white"> <span class="black-text">
                     <p style="font-size: 120%"><Strong>Instructions</Strong></p>
               <ol type="1">
                     <li>Select your residence hall layout.</li>
-                    &emsp;
                     <li>Drag and drop items from the different categories into the layout to design your space.</li>
-                    &emsp;
                     <li>Hover over items in the layout to learn sustainable tips and tricks.</li>
                 </ol>
           </span> </div>
-</center>-->
+
         <div id="importantbody">
             <div>
                 <select class='dropdown-button btn'>
@@ -182,10 +202,10 @@
     </div>
 </div>-->
             <div>
-                <div id="canvas-container" style="float:left;">
+                <div class="col-xs-3 col-md-5 col-lg-7" id="canvas-container" style="float:left;">
                     <canvas id="c"></canvas>
                 </div>
-                <div class="draggable-menu-wrapper">
+                <div class="col-xs-4 col-md-2 col-lg-4" id="draggable-menu-wrapper">
                     <div id="images">
                         <ul class="collapsible" data-collapsible="accordion">
                             <li>
@@ -267,9 +287,48 @@
         var canvas = new fabric.Canvas('c', {
             selection: false
         });
-        var width = 0;
-        var height = 0;
+        //init default layout
+        var width = 13 * 50;
+        var height = 13 * 50;
+        //build default layout
+        for (var i = 0; i < 14; i++) {
+            if (i == 0 || i == 13) {
+                canvas.add(new fabric.Line([i * grid, 0, i * grid, 650], {
+                    stroke: '#7BA643',
+                    strokeWidth: 10,
+                    selectable: false,
+                    hasControls: false,
+                    hoverCursor: 'default'
+                }));
+            } else {
+                canvas.add(new fabric.Line([i * grid, 0, i * grid, 650], {
+                    stroke: 'black',
+                    selectable: false,
+                    hasControls: false,
+                    hoverCursor: 'default'
+                }));
+            }
+        }
+        for (var i = 0; i < 14; i++) {
+            if (i == 0 || i == 13) {
+                canvas.add(new fabric.Line([0, i * grid, 650, i * grid], {
+                    stroke: '#7BA643',
+                    strokeWidth: 10,
+                    selectable: false,
+                    hasControls: false,
+                    hoverCursor: 'default'
+                }));
+            } else {
+                canvas.add(new fabric.Line([0, i * grid, 650, i * grid], {
+                    stroke: 'black',
+                    selectable: false,
+                    hasControls: false,
+                    hoverCursor: 'default'
+                }));
+            }
+        }
 
+        //layout changes based on selected choice from dropdown menu
         $('.dropdown-button').on('change', function () {
             console.log($(this));
             canvas.clear();
@@ -393,173 +452,6 @@
             }
             canvas.renderAll();
         });
-
-        /*   for (var i = 0; i < width; i++) {
-               if (i == 0 || i == 12) {
-                   canvas.add(new fabric.Line([i * grid, 0, i * grid, 500], {
-                       stroke: '#7BA643',
-                       strokeWidth: 10,
-                       selectable: false,
-                       hasControls: false,
-                       hoverCursor: 'default'
-                   }));
-               } else {
-                   canvas.add(new fabric.Line([i * grid, 0, i * grid, 500], {
-                       stroke: 'black',
-                       selectable: false,
-                       hasControls: false,
-                       hoverCursor: 'default'
-                   }));
-               }
-           }
-           for (var i = 0; i < 11; i++) {
-               if (i == 0 || i == 10) {
-                   canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
-                       stroke: '#7BA643',
-                       strokeWidth: 10,
-                       selectable: false,
-                       hasControls: false,
-                       hoverCursor: 'default'
-                   }));
-               } else {
-                   canvas.add(new fabric.Line([0, i * grid, 600, i * grid], {
-                       stroke: 'black',
-                       selectable: false,
-                       hasControls: false,
-                       hoverCursor: 'default'
-                   }));
-               }
-           }*/
-        canvas.on('mouse:over', function (e) {
-            if (e.target != canvas.getActiveObject()) {
-                showTooltip(e.target);
-            }
-            /*            var objs = canvas.getObjects();
-                        for (var i = objs.length; i > 0; i--) {
-                            if (e.target == objs[i]) {
-                                showTooltip(e.target);
-                            }
-                        }*/
-        });
-        canvas.on('mouse:out', function (e) {
-            $('.tooltiptext').remove();
-            $('#theimg').remove();
-        });
-        canvas.on('object:moving', function (e) {
-            var obj = e.target;
-            obj.set({
-                left: Math.round(obj.left / grid) * grid,
-                top: Math.round(obj.top / grid) * grid
-            });
-            obj.setCoords();
-            if (obj.getBoundingRect().top < 0 || obj.getBoundingRect().left < 0) {
-                obj.top = Math.max(obj.top, obj.top - obj.getBoundingRect().top);
-                obj.left = Math.max(obj.left, obj.left - obj.getBoundingRect().left);
-            }
-            if (obj.getBoundingRect().top + obj.getBoundingRect().height > height || obj.getBoundingRect().left + obj.getBoundingRect().width > width) {
-                obj.top = Math.min(obj.top, height - obj.getBoundingRect().height + obj.top - obj.getBoundingRect().top);
-                obj.left = Math.min(obj.left, width - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
-            }
-        });
-        var angles = [90, 180, 270, 360];
-        canvas.on("object:rotating", function (rotEvtData) {
-            var targetObj = rotEvtData.target;
-            var angle = targetObj.angle % 360;
-            for (var i = 0; i < angles.length; i++) {
-                if (angle <= angles[i]) {
-                    targetObj.angle = angles[i];
-                    break;
-                }
-            }
-        });
-
-        function showTooltip(e) {
-            $('.tooltiptext').remove();
-            $('#theimg').remove();
-            var x = Math.floor(Math.random() * 10);
-            if (e.name == "printer") {
-                $('body').append("<img id='theimg' src='img/Tips/printer.png' />");
-            } else if (e.name == "comp") {
-                $('body').append("<img id='theimg' src='img/Tips/pc.png' />");
-            } else if (e.name == "game") {
-                $('body').append("<img id='theimg' src='img/Tips/xbox.png' />");
-            } else if (e.name == "smart_pwr") {
-                $('body').append("<img id='theimg' src='img/Tips/smartpowerstrip.png' />");
-            } else if (e.name == "tv") {
-                $('body').append("<img id='theimg' src='img/Tips/tv.png' />");
-            } else if (e.name == "pwr_strip") {
-                $('body').append("<img id='theimg' src='img/Tips/powerstrip.png' />");
-            } else if (e.name == "iphone") {
-                $('body').append("<img id='theimg' src='img/Tips/iphone.png' />");
-            } else if (e.name == "utensils") {
-                $('body').append("<img id='theimg' src='img/Tips/utensils.png' />");
-            } else if (e.name == "dinnerware") {
-                $('body').append("<img id='theimg' src='img/Tips/dinnerware.png' />");
-            } else if (e.name == "fridge") {
-                $('body').append("<img id='theimg' src='img/Tips/microfridge.png' />");
-            } else if (e.name == "toaster") {
-                $('body').append("<img id='theimg' src='img/Tips/toaster.png' />");
-            } else if (e.name == "lighting") {
-                $('body').append("<img id='theimg' src='img/Tips/tablelamp.png' />");
-            } else if (e.name == "car") {
-                $('body').append("<img id='theimg' src='img/Tips/car.png' />");
-            } else if (e.name == "blanket") {
-                $('body').append("<img id='theimg' src='img/Tips/blanket.png' />");
-            } else if (e.name == "bicycle") {
-                $('body').append("<img id='theimg' src='img/Tips/bike.png' />");
-            } else if (e.name == "decorplanter") {
-                $('body').append("<img id='theimg' src='img/Tips/planter.png' />");
-            } else if (e.name == "decorflower") {
-                $('body').append("<img id='theimg' src='img/Tips/flowerplant.png' />");
-            } else if (e.name == "ceilingfan") {
-                $('body').append("<img id='theimg' src='img/Tips/fan.png' />");
-            } else if (e.name == "drape") {
-                $('body').append("<img id='theimg' src='img/Tips/drapes.png' />");
-            }
-            /* if (e.name == "printer") {
-                 $("body").append("<a class='tooltiptext'> American spends 2 - 4 hours per month paying bills when they write and mail paper checks.Put your pen down and sign up for paperless billing today!");
-             } else if (e.name == "comp") {
-                 $("body").append("<a class='tooltiptext'>Screen savers don’t save energy. Rather, the purpose of a screen saver is to protect your screen from one single image remaining imprinted upon it.Make sure to turn your computer and / or laptop off when you are done.");
-             } else if (e.name == "game") {
-                 $("body").append("<a class='tooltiptext'>If you’re like the average male college student, you probably own a gaming console. Did you know that gaming consoles consume nearly as much power when they are left idle as they do when you are playing them? Remember to turn off your console when you’re not using it.");
-             } else if (e.name == "smart_pwr") {
-                 $("body").append("<a class='tooltiptext'>Televisions, DVD players, and other electronic equipment can use nearly as much energy when left on standby as when they’re in use. To avoid wasting energy, unplug equipment when you’re not using it. To make things as easy as possible, plug multiple devices into a power strip, which you can switch on and off at once.");
-             } else if (e.name == "tv") {
-                 $("body").append("<a class='tooltiptext'>Consider buying rechargeable batteries, and recycling them when you are done with them. Non-rechargeable batteries are tough to recycle and often end up in landfills. In addition, try not to throw batteries in the garbage; instead, find out where they can be recycled.");
-             } else if (e.name == "pwr_strip") {
-                 $("body").append("<a class='tooltiptext'>Televisions, DVD players, and other electronic equipment can use nearly as much energy when left on standby as when they’re in use. To avoid wasting energy, unplug equipment when you’re not using it. To make things as easy as possible, plug multiple devices into a power strip, which you can switch on and off at once.");
-             } else if (e.name == "iphone") {
-                 $("body").append("<a class='tooltiptext'>Cellphone companies are forever encouraging us to switch to the newest, most fashionable handset, sometimes long before the existing one is defunct. However, cellphones contain a cocktail of toxic substances that shouldn’t be discarded in landfills. Recycling keeps these undesirable elements out of the waste stream and saves the mining and manufacturing impacts of producing new handsets. Consider donating your old phone to charity for recycling when you do need a new one.");
-             } else if (e.name == "utensils") {
-                 $("body").append("<a class='tooltiptext'>Eliminate plastic bags, plastic utensils, disposable containers, paper napkins,and those brown paper bags by choosing a reusable lunchbox, reusable drink containers, cloth napkins, and silverware.");
-             } else if (e.name == "dinnerware") {
-                 $("body").append("<a class='tooltiptext'>If done properly, washing dishes by hand tends to be more energy-efficient than using a dishwasher, especially for small volumes of dishes. Instead of washing under a running faucet, put a plug in the sink, or use a large, plastic bowl. And to minimize the amount of water used when rinsing, install a lowflow aerator on your kitchen sink faucets. When washing dishes by hand, minimize the number of times you need to change the water by washing the least-dirty items first.");
-             } else if (e.name == "fridge") {
-                 $("body").append("<a class='tooltiptext'>Keep your fridge tidy so that you can find what you’re looking for quickly. Up to 30% of the cold air held within the fridge escapes each time you open thedoor, so the quicker you grab and close the door, the better.");
-             } else if (e.name == "toaster") {
-                 $("body").append("<a class='tooltiptext'>Try out these kitchen-friendly tips to increase energy-efficiency: <br>Cook with small appliances. <br>Avoid pre-heating your oven unless it is a short baking job. <br>Use the oven more when it is cold outside");
-             } else if (e.name == "lighting") {
-                 $("body").append("<a class='tooltiptext'>An easy way to increase energy savings is to use fluorescent bulbs when possible. Make sure you are using the correct wattage, and keep your lightbulbs clean (dirt absorbs light)! Did you know: If everyone in Ames replaced five incandescent bulbs with CFLs, 40 million pounds of CO2 could be eliminated from the atmosphere!");
-             };*/
-            changeTooltipPosition(e);
-        }
-
-        function changeTooltipPosition(e) {
-            var rect = e.getBoundingRect();
-            var offset = canvas.calcOffset();
-            var bottom = offset._offset.top + rect.top + rect.height;
-            var right = offset._offset.left + rect.left + rect.width;
-            var left = offset._offset.left + rect.left + 90;
-            var top = offset._offset.top + rect.top - 120;
-            $('.tooltiptext').css({
-                top: top,
-                left: left
-            });
-            $('#theimg').css({
-                top: top,
-                left: left
-            });
-        }
 
         function handleDragStart(e) {
     [].forEach.call(images, function (img) {
@@ -981,20 +873,9 @@
 
 
             canvas.add(newImage);
-            //canvas.bringToFront(newImage);
-            /*newImage.toObject = function () {
-                return {
-                    type: img.id,
-                    src: img.src
-                };
-            };*/
+
             console.log(JSON.stringify(newImage));
-            /*var stringJson = JSON.stringify(this.canvas);
-            var objectJson = JSON.parse(stringJson);
 
-            stringJson = JSON.stringify(objectJson);
-
-            $http.post('http://serverurl/', stringJson);*/
             return false;
         }
 
@@ -1013,8 +894,117 @@
         canvasContainer.addEventListener('dragover', handleDragOver, false);
         canvasContainer.addEventListener('dragleave', handleDragLeave, false);
         canvasContainer.addEventListener('drop', handleDrop, false);
-        canvas.on('object:selected', function (e) {
+
+        function showTooltip(e) {
+            $('#theimg').remove();
+            var x = Math.floor(Math.random() * 10);
+            if (e.name == "printer") {
+                $('body').append("<img id='theimg' src='img/Tips/printer.png' />");
+            } else if (e.name == "comp") {
+                $('body').append("<img id='theimg' src='img/Tips/pc.png' />");
+            } else if (e.name == "game") {
+                $('body').append("<img id='theimg' src='img/Tips/xbox.png' />");
+            } else if (e.name == "smart_pwr") {
+                $('body').append("<img id='theimg' src='img/Tips/smartpowerstrip.png' />");
+            } else if (e.name == "tv") {
+                $('body').append("<img id='theimg' src='img/Tips/tv.png' />");
+            } else if (e.name == "pwr_strip") {
+                $('body').append("<img id='theimg' src='img/Tips/powerstrip.png' />");
+            } else if (e.name == "iphone") {
+                $('body').append("<img id='theimg' src='img/Tips/iphone.png' />");
+            } else if (e.name == "utensils") {
+                $('body').append("<img id='theimg' src='img/Tips/utensils.png' />");
+            } else if (e.name == "dinnerware") {
+                $('body').append("<img id='theimg' src='img/Tips/dinnerware.png' />");
+            } else if (e.name == "fridge") {
+                $('body').append("<img id='theimg' src='img/Tips/microfridge.png' />");
+            } else if (e.name == "toaster") {
+                $('body').append("<img id='theimg' src='img/Tips/toaster.png' />");
+            } else if (e.name == "lighting") {
+                $('body').append("<img id='theimg' src='img/Tips/tablelamp.png' />");
+            } else if (e.name == "car") {
+                $('body').append("<img id='theimg' src='img/Tips/car.png' />");
+            } else if (e.name == "blanket") {
+                $('body').append("<img id='theimg' src='img/Tips/blanket.png' />");
+            } else if (e.name == "bicycle") {
+                $('body').append("<img id='theimg' src='img/Tips/bike.png' />");
+            } else if (e.name == "decorplanter") {
+                $('body').append("<img id='theimg' src='img/Tips/planter.png' />");
+            } else if (e.name == "decorflower") {
+                $('body').append("<img id='theimg' src='img/Tips/flowerplant.png' />");
+            } else if (e.name == "ceilingfan") {
+                $('body').append("<img id='theimg' src='img/Tips/fan.png' />");
+            } else if (e.name == "drape") {
+                $('body').append("<img id='theimg' src='img/Tips/drapes.png' />");
+            }
+            changeTooltipPosition(e);
+        }
+
+        function changeTooltipPosition(e) {
+            var rect = e.getBoundingRect();
+            var offset = canvas.calcOffset();
+            var bottom = offset._offset.top + rect.top + rect.height;
+            var right = offset._offset.left + rect.left + rect.width;
+            var left = offset._offset.left + rect.left + 90;
+            var top = offset._offset.top + rect.top - 120;
+            $('#theimg').css({
+                top: top,
+                left: left
+            });
+        }
+
+
+        //hover over objects in canvas show tooltips
+        canvas.on('mouse:over', function (e) {
+            if (e.target != canvas.getActiveObject()) {
+                showTooltip(e.target);
+            }
+            /*            var objs = canvas.getObjects();
+                        for (var i = objs.length; i > 0; i--) {
+                            if (e.target == objs[i]) {
+                                showTooltip(e.target);
+                            }
+                        }*/
+        });
+
+        //mouse out removes tooltips
+        canvas.on('mouse:out', function (e) {
             $('.tooltiptext').remove();
+            $('#theimg').remove();
+        });
+
+        //snap objects to grid while moving
+        canvas.on('object:moving', function (e) {
+            var obj = e.target;
+            obj.set({
+                left: Math.round(obj.left / grid) * grid,
+                top: Math.round(obj.top / grid) * grid
+            });
+            obj.setCoords();
+            if (obj.getBoundingRect().top < 0 || obj.getBoundingRect().left < 0) {
+                obj.top = Math.max(obj.top, obj.top - obj.getBoundingRect().top);
+                obj.left = Math.max(obj.left, obj.left - obj.getBoundingRect().left);
+            }
+            if (obj.getBoundingRect().top + obj.getBoundingRect().height > height || obj.getBoundingRect().left + obj.getBoundingRect().width > width) {
+                obj.top = Math.min(obj.top, height - obj.getBoundingRect().height + obj.top - obj.getBoundingRect().top);
+                obj.left = Math.min(obj.left, width - obj.getBoundingRect().width + obj.left - obj.getBoundingRect().left);
+            }
+        });
+
+        //limit objects rotation angles
+        var angles = [90, 180, 270, 360];
+        canvas.on("object:rotating", function (rotEvtData) {
+            var targetObj = rotEvtData.target;
+            var angle = targetObj.angle % 360;
+            for (var i = 0; i < angles.length; i++) {
+                if (angle <= angles[i]) {
+                    targetObj.angle = angles[i];
+                    break;
+                }
+            }
+        });
+
+        canvas.on('object:selected', function (e) {
             $('#theimg').remove();
             jQuery(".deleteBtn").remove();
             var btnLeft = e.target.oCoords.mt.x;
@@ -1024,11 +1014,13 @@
             var deleteBtn = '<p" class="deleteBtn" title="Remove" style="position:absolute;top:' + btnTop + 'px;left:' + btnLeft + 'px;cursor:pointer;" title="Remove object">&#10005;</p>';
             jQuery(".canvas-container").append(deleteBtn);
         });
+
         canvas.on('mouse:down', function (e) {
             if (canvas.getActiveObject()) {} else {
                 jQuery(".deleteBtn").remove();
             }
         });
+
         canvas.on('object:modified', function (e) {
             jQuery(".deleteBtn").remove();
             var btnLeft = e.target.oCoords.mt.x;
