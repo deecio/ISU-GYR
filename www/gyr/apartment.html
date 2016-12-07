@@ -485,397 +485,435 @@
             var posy = mouse.y;
             var img = document.querySelector('#images img.img_dragging');
             if (img.id == "bdesk") {
-                var bdesk = new Image();
-                bdesk.src = "img/Basics/BasicsDeskBig.png";
-                var newImage = new fabric.Image(bdesk, {
-                    name: img.id,
-                    width: 200,
-                    height: 200,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Basics/BasicsDeskBig.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 200,
+                        height: 200,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
+                /* var bdesk = new Image();
+                 var newImage = new fabric.Image(bdesk, {
+                     name: img.id,
+                     width: 200,
+                     height: 200,
+                     left: posx - 50,
+                     top: posy - 30,
+                     hasControls: true,
+                     hasBorders: true
+                 });
+                 bdesk.src = "img/Basics/BasicsDeskBig.png";*/
             } else if (img.id == "sdesk") {
-                var sdesk = new Image();
-                sdesk.src = "img/Basics/BasicsDeskSmall.png";
-                var newImage = new fabric.Image(sdesk, {
-                    name: img.id,
-                    width: 150,
-                    height: 150,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Basics/BasicsDeskSmall.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 150,
+                        height: 150,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "nightstand") {
-                var nightstand = new Image();
-                nightstand.src = "img/Basics/BasicsNightstand.png";
-                var newImage = new fabric.Image(nightstand, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Basics/BasicsNightstand.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "queenbed") {
-                var queenbed = new Image();
-                queenbed.src = "img/Basics/BasicsQueenBed.png";
-                var newImage = new fabric.Image(queenbed, {
-                    name: img.id,
-                    width: 200,
-                    height: 200,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Basics/BasicsQueenBed.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 200,
+                        height: 200,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "twinbed") {
-                var twinbed = new Image();
-                twinbed.src = "img/Basics/BasicsTwinBed.png";
-                var newImage = new fabric.Image(twinbed, {
-                    name: img.id,
-                    width: 150,
-                    height: 150,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Basics/BasicsTwinBed.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 150,
+                        height: 150,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "bunkbed") {
-                var object = new Image();
-                object.src = "img/Basics/BasicsBunkBed.png";
-                var newImage = new fabric.Image(object, {
-                    name: img.id,
-                    width: 150,
-                    height: 150,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Basics/BasicsBunkBed.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 150,
+                        height: 150,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "chair") {
-                var chair = new Image();
-                chair.src = "img/Basics/BasicsChair.png";
-                var newImage = new fabric.Image(chair, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Basics/BasicsChair.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "couch") {
-                var topdown = new Image();
-                topdown.src = "img/Basics/3SeaterSofa.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 200,
-                    height: 300,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Basics/3SeaterSofa.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 200,
+                        height: 300,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "sofa") {
-                var topdown = new Image();
-                topdown.src = "img/Basics/3SeaterSofa.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 200,
-                    height: 300,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Basics/3SeaterSofa.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 200,
+                        height: 300,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "lazyboy") {
-                var topdown = new Image();
-                topdown.src = "img/Basics/LazyBoy.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 200,
-                    height: 300,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Basics/LazyBoy.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 200,
+                        height: 300,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "bwardrobe") {
-                var topdown = new Image();
-                topdown.src = "img/Basics/BasicsWardrobeBig.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 200,
-                    height: 300,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Basics/BasicsWardrobeBig.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 200,
+                        height: 300,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "swardrobe") {
-                var topdown = new Image();
-                topdown.src = "img/Basics/BasicsWardrobe.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 150,
-                    height: 200,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Basics/BasicsWardrobe.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 150,
+                        height: 200,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "iphone") {
-                var iphone = new Image();
-                iphone.src = "img/Electronics/iphone-top.png";
-                var newImage = new fabric.Image(iphone, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Electronics/iphone-top.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "comp") {
-                var topdown = new Image();
-                topdown.src = "img/Electronics/PC-top.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 100,
-                    height: 100,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Electronics/PC-top.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 100,
+                        height: 100,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "pwr_strip") {
-                var topdown = new Image();
-                topdown.src = "img/Electronics/PowerStrip-top.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Electronics/PowerStrip-top.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "smart_pwr") {
-                var topdown = new Image();
-                topdown.src = "img/Electronics/SmartPlug.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Electronics/SmartPlug.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "printer") {
-                var topdown = new Image();
-                topdown.src = "img/Electronics/Printer%20Black.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 100,
-                    height: 100,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Electronics/Printer%20Black.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 100,
+                        height: 100,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "game") {
-                var topdown = new Image();
-                topdown.src = "img/Electronics/xbox-top.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 100,
-                    height: 100,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Electronics/xbox-top.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 100,
+                        height: 100,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "tv") {
-                var topdown = new Image();
-                topdown.src = "img/Electronics/FlatScreenTV.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 150,
-                    height: 150,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Electronics/FlatScreenTV.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 150,
+                        height: 150,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "stereo") {
-                var topdown = new Image();
-                topdown.src = "img/Electronics/Stereo.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Electronics/Stereo.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "lighting") {
-                var topdown = new Image();
-                topdown.src = "img/Lighting/TableLamp.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Lighting/TableLamp.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "dinnerware") {
-                var topdown = new Image();
-                topdown.src = "img/Appliances/dinner-top.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Appliances/dinner-top.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "fridge") {
-                var topdown = new Image();
-                topdown.src = "img/Appliances/minifridge.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Appliances/minifridge.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "toaster") {
-                var topdown = new Image();
-                topdown.src = "img/Appliances/Toaster-top.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Appliances/Toaster-top.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "utensils") {
-                var topdown = new Image();
-                topdown.src = "img/Appliances/Utensils-top.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Appliances/Utensils-top.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "bicycle") {
-                var topdown = new Image();
-                topdown.src = "img/Decor/helmet.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Decor/helmet.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "blanket") {
-                var topdown = new Image();
-                topdown.src = "img/Decor/topblanket.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Decor/topblanket.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "decorflower") {
-                var topdown = new Image();
-                topdown.src = "img/Decor/topflower.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Decor/topflower.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "decorplanter") {
-                var topdown = new Image();
-                topdown.src = "img/Decor/topplant.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Decor/topplant.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "car") {
-                var topdown = new Image();
-                topdown.src = "img/Decor/carkey.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Decor/carkey.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "ceilingfan") {
-                var topdown = new Image();
-                topdown.src = "img/Decor/CeilingFanTopView.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Decor/CeilingFanTopView.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             } else if (img.id == "drape") {
-                var topdown = new Image();
-                topdown.src = "img/Decor/Drapes.png";
-                var newImage = new fabric.Image(topdown, {
-                    name: img.id,
-                    width: 50,
-                    height: 50,
-                    left: posx - 50,
-                    top: posy - 30,
-                    hasControls: true,
-                    hasBorders: true
+                fabric.Image.fromURL('img/Decor/Drapes.png', function (oimg) {
+                    oimg.set({
+                        name: img.id,
+                        width: 50,
+                        height: 50,
+                        left: posx - 50,
+                        top: posy - 30,
+                        hasControls: true,
+                        hasBorders: true
+                    });
+                    canvas.add(oimg);
                 });
             }
 
-
-
-            canvas.add(newImage);
-
-            console.log(JSON.stringify(newImage));
-
+            canvas.renderAll();
             return false;
         }
 
