@@ -211,7 +211,7 @@ h3 code{
 															</div>
 														</div>
 														<br><br>
-														<form action="#">
+														<!-- <form action="#">
 													    <div class="file-field input-field">
 																<div class="btn">
 													        <span>Upload Image</span>
@@ -221,7 +221,7 @@ h3 code{
 													        <input class="file-path validate" type="text">
 													      </div>
 													    </div>
-													  </form>
+													  </form> -->
 														<br> <hr> <br>
 														<tr>
 															<button class="btn" ng-click="submitFact()">
@@ -307,8 +307,8 @@ $(document).ready(function() {
 								name:$scope.name,
 								hyperlink:$scope.hyperlink,
 								text:$scope.text,
-								category:$('#category').val(),//$scope.category,
-								image:$scope.image//todo
+								category:$('#category').val()//$scope.category,
+								//image:$scope.image//todo
 							})
 							// This is where the response is received v
 									.then(function(rtn) {
