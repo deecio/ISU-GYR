@@ -184,9 +184,9 @@ h3 code{
 					          <tr style="font-size: x-large;">
 					              <th data-field="id">Fact</th>
 												<th data-field="category">Category</th>
-					              <th data-field="file">Image</th>
+					              <!-- <th data-field="file">Image</th> -->
 					              <th data-field="description">Description</th>
-												<th data-field="hyperlink">Hyperlink</th>
+												<!-- <th data-field="hyperlink">Hyperlink</th> -->
 												<th>Delete</th>
 					          </tr>
 					        </thead>
@@ -195,9 +195,9 @@ h3 code{
 					          <tr ng-repeat="d in data.db_result" style="font-size: medium;">
 					            <td>{{d.name}}</td>
 											<td>{{d.category}}</td>
-					            <td>{{d.image}}</td>
+					            <!-- <td>{{d.image}}</td> -->
 											<td>{{d.text}}</td>
-					            <td>{{d.hyperlink}}</td>
+					            <!-- <td>{{d.hyperlink}}</td> -->
 											<td>
 												<a class="btn-floating btn-medium waves-effect waves-light red" ng-click="deleteFact(d, data.db_result, $index)">
 													<i class="material-icons">delete</i>
